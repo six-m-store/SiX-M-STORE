@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,612 +12,596 @@ content="SIX M STORE - মুদি, প্রসাধনী, বেভার�
 <style>
 
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
-background:#f4f7fb;
-color:#172033;
-line-height:1.6;
+    font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    line-height:1.6;
 }
 
 header{
-background:linear-gradient(135deg,#063b8f,#0875d1);
-color:white;
-padding:15px 18px;
-box-shadow:0 4px 15px rgba(0,0,0,.15);
+    background:linear-gradient(135deg,#063b8f,#0875d1);
+    color:white;
+    padding:15px 18px;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .header-inner{
-max-width:1100px;
-margin:auto;
-display:flex;
-align-items:center;
-gap:14px;
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
 .logo{
-width:68px;
-height:68px;
-background:white;
-border-radius:16px;
-padding:4px;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-flex-shrink:0;
-box-shadow:0 4px 12px rgba(0,0,0,.25);
+    width:68px;
+    height:68px;
+    background:white;
+    border-radius:16px;
+    padding:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex-shrink:0;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
 }
 
 .logo img{
-width:100%;
-height:100%;
-object-fit:contain;
-border-radius:12px;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:12px;
 }
 
 .brand h1{
-font-size:25px;
-letter-spacing:1px;
+    font-size:25px;
+    letter-spacing:1px;
 }
 
 .brand p{
-font-size:13px;
+    font-size:13px;
 }
 
 .hero{
-background:white;
-padding:35px 18px;
-text-align:center;
+    background:white;
+    padding:35px 18px;
+    text-align:center;
 }
 
 .hero h2{
-color:#063b8f;
-font-size:28px;
-margin-bottom:12px;
+    color:#063b8f;
+    font-size:28px;
+    margin-bottom:12px;
 }
 
 .hero p{
-max-width:850px;
-margin:auto;
-font-size:21px;
-font-weight:bold;
-line-height:1.8;
-
-background:linear-gradient(
-90deg,
-#e74c3c,
-#f39c12,
-#20b858,
-#0875d1,
-#8e44ad
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-background-clip:text;
+    max-width:850px;
+    margin:auto;
+    font-size:21px;
+    font-weight:bold;
+    line-height:1.8;
+    background:linear-gradient(
+        90deg,
+        #e74c3c,
+        #f39c12,
+        #20b858,
+        #0875d1,
+        #8e44ad
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
 }
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:25px 16px;
+    max-width:1100px;
+    margin:auto;
+    padding:25px 16px;
 }
 
 .section-title{
-text-align:center;
-color:#063b8f;
-font-size:26px;
-margin-bottom:18px;
+    text-align:center;
+    color:#063b8f;
+    font-size:26px;
+    margin-bottom:25px;
 }
 
 .search-box{
-background:white;
-padding:15px;
-border-radius:15px;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-margin-bottom:25px;
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
 .search-box input{
-width:100%;
-padding:14px;
-border:1px solid #ccd5e0;
-border-radius:10px;
-font-size:16px;
-outline:none;
+    width:100%;
+    padding:14px;
+    border:1px solid #ccd5e0;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
 }
 
 .search-box input:focus{
-border-color:#0875d1;
-box-shadow:0 0 0 3px rgba(8,117,209,.1);
-}
-
-.product-count{
-text-align:center;
-color:#666;
-font-size:14px;
-margin-top:8px;
+    border-color:#0875d1;
 }
 
 .category{
-background:white;
-border-radius:18px;
-padding:20px 15px;
-margin-bottom:25px;
-box-shadow:0 3px 14px rgba(0,0,0,.08);
-border:1px solid #e5ebf3;
+    background:white;
+    border-radius:18px;
+    padding:20px 15px;
+    margin-bottom:25px;
+    box-shadow:0 3px 14px rgba(0,0,0,.08);
+    border:1px solid #e5ebf3;
 }
 
 .category-title{
-text-align:center;
-color:#063b8f;
-font-size:22px;
-margin-bottom:18px;
-padding-bottom:12px;
-border-bottom:2px solid #eaf0f7;
+    text-align:center;
+    color:#063b8f;
+    font-size:22px;
+    margin-bottom:18px;
+    padding-bottom:12px;
+    border-bottom:2px solid #eaf0f7;
 }
 
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-gap:14px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+    gap:14px;
 }
 
 .product{
-background:#f9fbfe;
-border-radius:14px;
-padding:15px 10px;
-text-align:center;
-border:1px solid #e3eaf3;
-transition:.2s;
-cursor:pointer;
+    background:#f9fbfe;
+    border-radius:14px;
+    padding:15px 10px;
+    text-align:center;
+    border:1px solid #e3eaf3;
+    transition:.2s;
+    cursor:pointer;
 }
 
 .product:hover{
-transform:translateY(-3px);
-box-shadow:0 7px 18px rgba(0,0,0,.10);
+    transform:translateY(-3px);
+    box-shadow:0 7px 18px rgba(0,0,0,.10);
 }
 
 .product-icon{
-font-size:36px;
-margin-bottom:7px;
+    font-size:34px;
+    margin-bottom:7px;
 }
 
 .product h3{
-color:#172033;
-font-size:16px;
-min-height:48px;
+    color:#172033;
+    font-size:15px;
 }
 
 .price{
-color:#063b8f;
-font-weight:bold;
-margin-top:5px;
-min-height:25px;
+    color:#063b8f;
+    font-weight:bold;
+    margin-top:5px;
+    min-height:25px;
+}
+
+.variant{
+    width:100%;
+    margin-top:7px;
+    padding:7px;
+    border:1px solid #ccd5e0;
+    border-radius:7px;
+    background:white;
 }
 
 .order-btn{
-background:#20b858;
-color:white;
-border:none;
-padding:7px 12px;
-border-radius:8px;
-margin-top:8px;
-cursor:pointer;
-font-weight:bold;
+    background:#20b858;
+    color:white;
+    border:none;
+    padding:7px 12px;
+    border-radius:8px;
+    margin-top:8px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
 .order-btn:hover{
-background:#169c49;
+    background:#169c49;
 }
 
 .order-floating{
-position:fixed;
-right:18px;
-bottom:18px;
-z-index:9000;
-background:#20b858;
-color:white;
-border:none;
-border-radius:50px;
-padding:13px 18px;
-font-size:15px;
-font-weight:bold;
-box-shadow:0 5px 20px rgba(0,0,0,.25);
-cursor:pointer;
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:9000;
+    background:#20b858;
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:13px 18px;
+    font-size:15px;
+    font-weight:bold;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    cursor:pointer;
 }
 
 .order-count{
-background:#e74c3c;
-color:white;
-border-radius:50%;
-min-width:24px;
-height:24px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-left:5px;
+    background:#e74c3c;
+    color:white;
+    border-radius:50%;
+    min-width:24px;
+    height:24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:5px;
 }
 
 #orderPanel{
-display:none;
-position:fixed;
-z-index:9999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.60);
-overflow:auto;
-padding:15px;
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.60);
+    overflow:auto;
+    padding:15px;
 }
 
 .order-content{
-background:white;
-width:100%;
-max-width:650px;
-margin:15px auto;
-border-radius:18px;
-padding:20px;
-box-shadow:0 10px 35px rgba(0,0,0,.3);
+    background:white;
+    width:100%;
+    max-width:650px;
+    margin:15px auto;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
 }
 
 .order-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #ddd;
-padding-bottom:12px;
-margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+    padding-bottom:12px;
+    margin-bottom:15px;
 }
 
 .order-header h2{
-color:#063b8f;
+    color:#063b8f;
 }
 
 .close{
-font-size:32px;
-cursor:pointer;
-color:#e74c3c;
-line-height:1;
+    font-size:32px;
+    cursor:pointer;
+    color:#e74c3c;
+    line-height:1;
 }
 
 .selected-product{
-background:#f4f7fb;
-padding:12px;
-border-radius:12px;
-margin-bottom:10px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-border:1px solid #e3eaf3;
+    background:#f4f7fb;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    border:1px solid #e3eaf3;
 }
 
 .selected-info{
-flex:1;
+    flex:1;
 }
 
 .selected-info strong{
-display:block;
+    display:block;
 }
 
 .item-price{
-color:#063b8f;
-font-size:14px;
+    color:#063b8f;
+    font-size:14px;
 }
 
 .quantity{
-display:flex;
-align-items:center;
-gap:5px;
+    display:flex;
+    align-items:center;
+    gap:5px;
 }
 
 .quantity button{
-width:32px;
-height:32px;
-border:none;
-border-radius:7px;
-background:#063b8f;
-color:white;
-font-size:18px;
-cursor:pointer;
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:7px;
+    background:#063b8f;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
 }
 
 .quantity input{
-width:55px;
-height:32px;
-text-align:center;
-border:1px solid #ccc;
-border-radius:7px;
-font-size:15px;
+    width:55px;
+    height:32px;
+    text-align:center;
+    border:1px solid #ccc;
+    border-radius:7px;
+    font-size:15px;
 }
 
 .remove{
-border:none;
-background:#e74c3c;
-color:white;
-padding:6px 9px;
-border-radius:7px;
-cursor:pointer;
+    border:none;
+    background:#e74c3c;
+    color:white;
+    padding:6px 9px;
+    border-radius:7px;
+    cursor:pointer;
 }
 
 .total-box{
-background:linear-gradient(135deg,#063b8f,#0875d1);
-color:white;
-padding:15px;
-border-radius:12px;
-margin-top:15px;
-text-align:center;
-font-size:17px;
+    background:linear-gradient(135deg,#063b8f,#0875d1);
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    margin-top:15px;
+    text-align:center;
+    font-size:17px;
 }
 
 .total-row{
-display:flex;
-justify-content:space-between;
-margin:4px 0;
+    display:flex;
+    justify-content:space-between;
+    margin:4px 0;
 }
 
 .total-final{
-border-top:1px solid rgba(255,255,255,.4);
-margin-top:8px;
-padding-top:8px;
-font-size:20px;
-font-weight:bold;
+    border-top:1px solid rgba(255,255,255,.4);
+    margin-top:8px;
+    padding-top:8px;
+    font-size:20px;
+    font-weight:bold;
 }
 
 .add-more{
-width:100%;
-background:#063b8f;
-color:white;
-border:none;
-padding:12px;
-border-radius:10px;
-margin-top:15px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+    width:100%;
+    background:#063b8f;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    margin-top:15px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .customer-form{
-margin-top:20px;
+    margin-top:20px;
 }
 
 .customer-form h3{
-color:#063b8f;
-margin-bottom:10px;
+    color:#063b8f;
+    margin-bottom:10px;
 }
 
 .customer-form input,
 .customer-form textarea{
-width:100%;
-padding:12px;
-border:1px solid #ccd5e0;
-border-radius:9px;
-margin-bottom:10px;
-font-family:inherit;
-font-size:15px;
+    width:100%;
+    padding:12px;
+    border:1px solid #ccd5e0;
+    border-radius:9px;
+    margin-bottom:10px;
+    font-family:inherit;
+    font-size:15px;
 }
 
 .customer-form textarea{
-min-height:90px;
-resize:vertical;
+    min-height:90px;
+    resize:vertical;
 }
 
 .send-order{
-width:100%;
-background:#20b858;
-color:white;
-border:none;
-padding:14px;
-border-radius:10px;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
+    width:100%;
+    background:#20b858;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .delivery{
-background:linear-gradient(135deg,#063b8f,#0875d1);
-color:white;
-border-radius:18px;
-padding:28px 18px;
-margin-top:25px;
-text-align:center;
-box-shadow:0 5px 18px rgba(0,0,0,.15);
+    background:linear-gradient(135deg,#063b8f,#0875d1);
+    color:white;
+    border-radius:18px;
+    padding:28px 18px;
+    margin-top:25px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
 }
 
 .delivery h2{
-margin-bottom:8px;
+    margin-bottom:8px;
 }
 
 .delivery strong{
-color:#ffe082;
+    color:#ffe082;
 }
 
 .info{
-background:white;
-border-radius:16px;
-padding:22px;
-margin-top:25px;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    margin-top:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
 .info h2{
-color:#063b8f;
-margin-bottom:15px;
-text-align:center;
+    color:#063b8f;
+    margin-bottom:15px;
+    text-align:center;
 }
 
 .info-item{
-display:flex;
-gap:12px;
-padding:12px 0;
-border-bottom:1px solid #eee;
+    display:flex;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
 }
 
 .info-item:last-child{
-border-bottom:none;
+    border-bottom:none;
 }
 
 .info-icon{
-font-size:23px;
-width:35px;
+    font-size:23px;
+    width:35px;
 }
 
 .info-text{
-flex:1;
+    flex:1;
 }
 
 .info-text strong{
-display:block;
-color:#063b8f;
+    display:block;
+    color:#063b8f;
 }
 
 .contact-buttons{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-margin-top:15px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
 }
 
 .btn{
-text-decoration:none;
-color:white;
-padding:12px 18px;
-border-radius:10px;
-font-weight:bold;
-display:inline-block;
-box-shadow:0 4px 10px rgba(0,0,0,.15);
+    text-decoration:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:bold;
+    display:inline-block;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
 .call{
-background:#063b8f;
+    background:#063b8f;
 }
 
 .whatsapp{
-background:#20b858;
+    background:#20b858;
 }
 
 footer{
-margin-top:30px;
-background:#071b3a;
-color:white;
-text-align:center;
-padding:28px 15px;
+    margin-top:30px;
+    background:#071b3a;
+    color:white;
+    text-align:center;
+    padding:28px 15px;
 }
 
 footer h2{
-margin-bottom:6px;
+    margin-bottom:6px;
 }
 
 footer p{
-font-size:13px;
-opacity:.85;
-margin:3px 0;
+    font-size:13px;
+    opacity:.85;
+    margin:3px 0;
 }
 
 @media(max-width:500px){
 
-.brand h1{
-font-size:21px;
-}
+    .brand h1{
+        font-size:21px;
+    }
 
-.brand p{
-font-size:11px;
-}
+    .brand p{
+        font-size:11px;
+    }
 
-.hero h2{
-font-size:24px;
-}
+    .hero h2{
+        font-size:24px;
+    }
 
-.hero p{
-font-size:18px;
-line-height:1.7;
-}
+    .hero p{
+        font-size:18px;
+        line-height:1.7;
+    }
 
-.products{
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-}
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
 
-.product{
-padding:15px 7px;
-}
+    .product{
+        padding:15px 7px;
+    }
 
-.product-icon{
-font-size:32px;
-}
+    .product-icon{
+        font-size:30px;
+    }
 
-.product h3{
-font-size:15px;
-}
+    .product h3{
+        font-size:14px;
+    }
 
-.logo{
-width:60px;
-height:60px;
-}
+    .logo{
+        width:60px;
+        height:60px;
+    }
 
-.category-title{
-font-size:19px;
-}
+    .category-title{
+        font-size:19px;
+    }
 
-.selected-product{
-flex-wrap:wrap;
-}
+    .selected-product{
+        flex-wrap:wrap;
+    }
 
-.selected-info{
-min-width:100%;
-}
+    .selected-info{
+        min-width:100%;
+    }
 
-.order-floating{
-right:12px;
-bottom:12px;
-padding:11px 15px;
-font-size:14px;
-}
+    .order-floating{
+        right:12px;
+        bottom:12px;
+        padding:11px 15px;
+        font-size:14px;
+    }
 
-.contact-buttons .btn{
-width:100%;
-text-align:center;
-}
-
+    .contact-buttons .btn{
+        width:100%;
+        text-align:center;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
-
-
-<!-- ================= HEADER ================= -->
 
 <header>
 
 <div class="header-inner">
 
 <div class="logo">
-
-<img
-src="logo.png"
-alt="SIX M STORE Logo">
-
+<img src="logo.png" alt="SIX M STORE Logo">
 </div>
 
 <div class="brand">
-
 <h1>SIX M STORE</h1>
-
-<p>
-Everyone Deserves Good Service.
-</p>
-
+<p>Everyone Deserves Good Service.</p>
 </div>
 
 </div>
@@ -626,13 +609,9 @@ Everyone Deserves Good Service.
 </header>
 
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
 
-<h2>
-🛒 SIX M STORE-এ স্বাগতম
-</h2>
+<h2>🛒 SIX M STORE-এ স্বাগতম</h2>
 
 <p>
 এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু, একসাথে। এখনই অর্ডার করুন।
@@ -641,8 +620,6 @@ Everyone Deserves Good Service.
 </section>
 
 
-<!-- ================= PRODUCTS ================= -->
-
 <div class="container">
 
 <h2 class="section-title">
@@ -650,22 +627,13 @@ Everyone Deserves Good Service.
 </h2>
 
 
-<!-- SEARCH -->
-
 <div class="search-box">
 
 <input
-type="search"
-id="searchBox"
-placeholder="🔎 পণ্যের নাম লিখে খুঁজুন...">
-
-<div
-class="product-count"
-id="productCount">
-
-২০০০+ পণ্য
-
-</div>
+type="text"
+id="searchInput"
+placeholder="🔎 পণ্যের নাম লিখে খুঁজুন..."
+oninput="searchProducts()">
 
 </div>
 
@@ -673,25 +641,17 @@ id="productCount">
 <div id="productsContainer"></div>
 
 
-<!-- ================= ADDRESS ================= -->
-
 <div class="info">
 
-<h2>
-📍 আমাদের ঠিকানা
-</h2>
+<h2>📍 আমাদের ঠিকানা</h2>
 
 <div class="info-item">
 
-<div class="info-icon">
-🏪
-</div>
+<div class="info-icon">🏪</div>
 
 <div class="info-text">
 
-<strong>
-দোকানের ঠিকানা
-</strong>
+<strong>দোকানের ঠিকানা</strong>
 
 ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
 হালিশহর রোড, আগ্রাবাদ,
@@ -701,8 +661,6 @@ id="productCount">
 
 </div>
 
-
-<!-- PHONE -->
 
 <div class="contact-buttons">
 
@@ -729,18 +687,12 @@ target="_blank">
 </div>
 
 
-<!-- ================= DELIVERY ================= -->
-
 <div class="delivery">
 
-<h2>
-🚚 Home Delivery সুবিধা
-</h2>
+<h2>🚚 Home Delivery সুবিধা</h2>
 
 <p>
-<strong>
-Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)
-</strong>
+<strong>Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)</strong>
 </p>
 
 <p>
@@ -748,9 +700,7 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 </p>
 
 <p>
-<strong>
-ফোন অথবা WhatsApp-এ অর্ডার করুন
-</strong>
+<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
 </p>
 
 <p>
@@ -761,8 +711,6 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 
 </div>
 
-
-<!-- ================= FLOATING ORDER ================= -->
 
 <button
 class="order-floating"
@@ -781,18 +729,13 @@ id="orderCount">
 </button>
 
 
-<!-- ================= ORDER PANEL ================= -->
-
 <div id="orderPanel">
 
 <div class="order-content">
 
-
 <div class="order-header">
 
-<h2>
-🛒 আপনার অর্ডার
-</h2>
+<h2>🛒 আপনার অর্ডার</h2>
 
 <span
 class="close"
@@ -821,9 +764,7 @@ style="text-align:center;color:#777;padding:15px;">
 
 <div class="total-row">
 
-<span>
-পণ্যের মোট মূল্য:
-</span>
+<span>পণ্যের মোট মূল্য:</span>
 
 <span>
 ৳ <span id="subtotal">0</span>
@@ -834,9 +775,7 @@ style="text-align:center;color:#777;padding:15px;">
 
 <div class="total-row">
 
-<span>
-ডেলিভারি চার্জ:
-</span>
+<span>ডেলিভারি চার্জ:</span>
 
 <span>
 ৳ <span id="deliveryCharge">0</span>
@@ -847,9 +786,7 @@ style="text-align:center;color:#777;padding:15px;">
 
 <div class="total-row total-final">
 
-<span>
-সর্বমোট:
-</span>
+<span>সর্বমোট:</span>
 
 <span>
 ৳ <span id="grandTotal">0</span>
@@ -871,9 +808,7 @@ onclick="continueShopping()">
 
 <div class="customer-form">
 
-<h3>
-👤 কাস্টমারের তথ্য
-</h3>
+<h3>👤 কাস্টমারের তথ্য</h3>
 
 
 <input
@@ -909,13 +844,9 @@ onclick="sendOrder()">
 </div>
 
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
-<h2>
-SIX M STORE
-</h2>
+<h2>SIX M STORE</h2>
 
 <p>
 আপনার বিশ্বাসই আমাদের মূলধন।
@@ -934,1373 +865,1413 @@ SIX M STORE
 
 <script>
 
+/* =========================================================
+   SIX M STORE
+   ২০০০+ পণ্যের ক্যাটালগ
+   ========================================================= */
 
-/* =====================================================
-   মূল পণ্যের তালিকা
-   ===================================================== */
 
-const baseProducts = [
+/* =========================================================
+   এখানে ভবিষ্যতে দাম পরিবর্তন করতে পারবেন।
+   উদাহরণ:
 
+   "মিনিকেট চাল|1kg":60
+   "মিনিকেট চাল|500g":32
+
+   দাম 0 রাখলে "দাম শীঘ্রই দেওয়া হবে" দেখাবে।
+   ========================================================= */
+
+const PRICE_LIST = {
+
+    "মিনিকেট চাল|1kg":60,
+    "মিনিকেট চাল|500g":32,
+    "নাজিরশাইল চাল|1kg":90,
+    "পাইজাম চাল|1kg":85,
+    "আতপ চাল|1kg":90,
+
+    "মসুর ডাল|1kg":90,
+    "মুগ ডাল|1kg":160,
+    "ছোলা|1kg":95,
+    "বুটের ডাল|1kg":60,
+
+    "আটা|1kg":50,
+    "ময়দা|1kg":65,
+    "চিনি|1kg":105,
+    "লবণ|1kg":40,
+    "মুড়ি|1kg":70,
+
+    "আলু|1kg":25,
+    "পেঁয়াজ|1kg":60,
+    "রসুন|1kg":150,
+    "আদা|1kg":130,
+
+    "ডিম|12pcs":140,
+    "দুধ|1L":100
+
+};
+
+
+/* =========================================================
+   ২০০০+ পণ্যের মূল ক্যাটাগরি
+   ========================================================= */
+
+const catalog = [
+
+{
+category:"🍚 চাল ও ডাল",
+icon:"🍚",
+items:[
 "মিনিকেট চাল",
 "নাজিরশাইল চাল",
 "পাইজাম চাল",
 "আতপ চাল",
-"সিদ্ধ চাল",
 "বাসমতি চাল",
-"চিনিগুঁড়া চাল",
 "কালিজিরা চাল",
-"কাটারিভোগ চাল",
-"স্বর্ণা চাল",
-"BR-28 চাল",
-"BR-29 চাল",
-"আমন চাল",
+"চিনিগুঁড়া চাল",
+"সুগন্ধি চাল",
+"সাদা চাল",
 "লাল চাল",
-"বাদামি চাল",
-"কালো চাল",
-
+"ব্রাউন রাইস",
+"সিদ্ধ চাল",
+"কাটারি চাল",
+"গুটি স্বর্ণা চাল",
+"স্বর্ণা চাল",
+"পারবয়েলড চাল",
 "মসুর ডাল",
 "মুগ ডাল",
-"ছোলার ডাল",
+"ছোলা",
 "বুটের ডাল",
-"মাষকলাই ডাল",
+"মাসকলাই ডাল",
+"অড়হর ডাল",
 "খেসারি ডাল",
 "মটর ডাল",
-"অড়হর ডাল",
-"ছোলা",
-"কালো ছোলা",
-"সাদা ছোলা",
-"কাবুলি ছোলা",
+"মটরশুঁটি",
+"সয়াবিন",
 "রাজমা",
+"কালো ছোলা",
+"সাদা ছোলা"
+],
+variants:["100g","200g","500g","1kg","2kg","5kg"]
+},
 
+{
+category:"🫙 তেল ও ঘি",
+icon:"🫙",
+items:[
 "সয়াবিন তেল",
+"সুপার সয়াবিন তেল",
 "সরিষার তেল",
-"পাম তেল",
-"সানফ্লাওয়ার তেল",
-"অলিভ অয়েল",
-"রাইস ব্র্যান অয়েল",
+"পাম অয়েল",
 "নারিকেল তেল",
 "তিলের তেল",
+"অলিভ অয়েল",
+"সানফ্লাওয়ার অয়েল",
 "ক্যানোলা অয়েল",
+"ঘি",
+"গরুর ঘি",
+"ডালডা",
+"বাটার অয়েল"
+],
+variants:["100ml","200ml","250ml","500ml","1L","2L","5L"]
+},
 
-"আটা",
-"ময়দা",
-"সুজি",
-"বেসন",
-"কর্নফ্লাওয়ার",
-"কর্নস্টার্চ",
-"ওটস",
-"বার্লি",
-"চিড়া",
-"মুড়ি",
-"খই",
-
-"চিনি",
-"বাদামি চিনি",
-"ব্রাউন সুগার",
-"আইসিং সুগার",
-"গুড়",
-"খেজুরের গুড়",
-"আখের গুড়",
-"পাটালি গুড়",
-"তালের গুড়",
-"মধু",
-
-"আয়োডিনযুক্ত লবণ",
-"সাদা লবণ",
-"পাথুরে লবণ",
-"বিট লবণ",
-"কালো লবণ",
-"হিমালয়ান পিংক সল্ট",
-
+{
+category:"🌶️ মসলা",
+icon:"🌶️",
+items:[
 "হলুদ গুঁড়া",
 "মরিচ গুঁড়া",
 "ধনিয়া গুঁড়া",
 "জিরা গুঁড়া",
-"গোলমরিচ গুঁড়া",
 "গরম মসলা",
 "বিরিয়ানি মসলা",
-"মাংসের মসলা",
+"মাংস মসলা",
 "চিকেন মসলা",
-"ফিশ মসলা",
-"কারি মসলা",
-"চাট মসলা",
+"মাছ মসলা",
 "কাবাব মসলা",
+"চাট মসলা",
+"কারি মসলা",
 "পাঁচফোড়ন",
 "জিরা",
 "ধনিয়া",
-"সরিষা",
-"মেথি",
-"মৌরি",
-"কালোজিরা",
-"দারুচিনি",
+"গোলমরিচ",
 "এলাচ",
+"দারুচিনি",
 "লবঙ্গ",
 "তেজপাতা",
-"জায়ফল",
+"জয়ফল",
 "জয়ত্রী",
+"মেথি",
+"সরিষা",
+"কালোজিরা",
+"সাদা গোলমরিচ",
+"শুকনা মরিচ",
+"স্টার অ্যানিস",
+"কেশর"
+],
+variants:["50g","100g","200g","500g","1kg"]
+},
 
-"টমেটো সস",
-"চিলি সস",
-"সয়াসস",
-"অয়েস্টার সস",
-"হট সস",
-"গার্লিক সস",
-"মাস্টার্ড সস",
-"বারবিকিউ সস",
-"পিজা সস",
-"পাস্তা সস",
-"মেয়োনিজ",
-"গার্লিক মায়োনিজ",
-"ভিনেগার",
-"টমেটো পেস্ট",
+{
+category:"🛒 নিত্যপ্রয়োজনীয়",
+icon:"🛒",
+items:[
+"চিনি",
+"লবণ",
+"আটা",
+"ময়দা",
+"সুজি",
+"সেমাই",
+"চিঁড়া",
+"মুড়ি",
+"গুড়",
+"খেজুর গুড়",
+"আখের গুড়",
+"মধু",
+"কর্নফ্লাওয়ার",
+"কাস্টার্ড পাউডার",
+"বেকিং পাউডার",
+"বেকিং সোডা",
+"ভ্যানিলা এসেন্স",
+"ইস্ট",
+"কোকো পাউডার",
+"জেলাটিন"
+],
+variants:["100g","200g","500g","1kg"]
+},
 
-"আমের আচার",
-"জলপাই আচার",
-"লেবুর আচার",
-"বরই আচার",
-"রসুনের আচার",
-"মরিচের আচার",
-"মিক্সড আচার",
-"তেঁতুলের আচার",
+{
+category:"🥔 সবজি",
+icon:"🥔",
+items:[
+"আলু",
+"পেঁয়াজ",
+"রসুন",
+"আদা",
+"শুকনা মরিচ",
+"লেবু",
+"কাঁচা মরিচ",
+"টমেটো",
+"শসা",
+"গাজর",
+"বেগুন",
+"পটল",
+"করলা",
+"লাউ",
+"মিষ্টি কুমড়া",
+"কাঁচা পেঁপে",
+"কাঁচা কলা",
+"ধনেপাতা",
+"পুদিনা পাতা",
+"লালশাক",
+"পালংশাক",
+"ঢেঁড়স",
+"শিম",
+"বরবটি",
+"ফুলকপি",
+"বাঁধাকপি",
+"মুলা",
+"বিট",
+"কচু",
+"কচুর লতি"
+],
+variants:["250g","500g","1kg","2kg"]
+},
 
-"নুডলস",
-"চিকেন নুডলস",
-"মসলা নুডলস",
-"কারি নুডলস",
-"সবজি নুডলস",
-"কাপ নুডলস",
-"এগ নুডলস",
-"রাইস নুডলস",
-"চাওমিন নুডলস",
-"পাস্তা",
-"ম্যাকারনি",
-"স্প্যাগেটি",
-"ফুসিলি",
-"পেন্নে",
+{
+category:"🥛 ডেইরি ও দুগ্ধজাত",
+icon:"🥛",
+items:[
+"গরুর দুধ",
+"পাস্তুরিত দুধ",
+"ফুল ক্রিম দুধ",
+"লো ফ্যাট দুধ",
+"চকলেট দুধ",
+"দই",
+"মিষ্টি দই",
+"টক দই",
+"মাখন",
+"নোনতা মাখন",
+"চিজ",
+"চেডার চিজ",
+"মোজারেলা চিজ",
+"ক্রিম",
+"হুইপিং ক্রিম",
+"ঘি",
+"মিল্ক পাউডার"
+],
+variants:["100g","200g","250g","500g","1kg","200ml","500ml","1L"]
+},
 
+{
+category:"🥚 ডিম",
+icon:"🥚",
+items:[
+"দেশি ডিম",
+"ফার্মের ডিম",
+"লাল ডিম",
+"সাদা ডিম",
+"কোয়েল ডিম",
+"হাঁসের ডিম",
+"অর্গানিক ডিম"
+],
+variants:["1pcs","6pcs","12pcs","30pcs"]
+},
+
+{
+category:"🍪 বিস্কুট",
+icon:"🍪",
+items:[
 "মারি বিস্কুট",
 "ক্রিম বিস্কুট",
 "চকলেট বিস্কুট",
-"ভ্যানিলা বিস্কুট",
 "নারিকেল বিস্কুট",
 "বাটার বিস্কুট",
+"সুগার বিস্কুট",
 "ডাইজেস্টিভ বিস্কুট",
 "গ্লুকোজ বিস্কুট",
-"সাল্টেড বিস্কুট",
-"টোস্ট বিস্কুট",
-"কুকিজ",
-"চকলেট চিপ কুকিজ",
-"ওটস কুকিজ",
-"ক্র্যাকার",
-"ওয়েফার বিস্কুট",
+"সাল্ট বিস্কুট",
+"অরেঞ্জ বিস্কুট",
+"কাজু বিস্কুট",
+"জিরা বিস্কুট",
+"চা বিস্কুট",
+"ওটস বিস্কুট",
+"চকলেট চিপ বিস্কুট",
+"ক্র্যাকার বিস্কুট",
+"স্যান্ডউইচ বিস্কুট",
+"ওয়েফার"
+],
+variants:["20g","50g","100g","200g","300g","500g"]
+},
 
+{
+category:"🍜 নুডলস ও পাস্তা",
+icon:"🍜",
+items:[
+"ইনস্ট্যান্ট নুডলস",
+"চিকেন নুডলস",
+"মসলা নুডলস",
+"কারি নুডলস",
+"ভেজিটেবল নুডলস",
+"কাপ নুডলস",
+"সুপ নুডলস",
+"স্প্যাগেটি",
+"ম্যাকারনি",
+"পেন্নে পাস্তা",
+"শেল পাস্তা",
+"ফুসিলি পাস্তা",
+"লাসানিয়া"
+],
+variants:["40g","60g","80g","100g","200g","400g","500g"]
+},
+
+{
+category:"🥜 চানাচুর ও স্ন্যাকস",
+icon:"🥜",
+items:[
 "চানাচুর",
 "ঝাল চানাচুর",
-"মিক্স চানাচুর",
+"ডাল ভাজা",
 "বাদাম ভাজা",
 "চিনাবাদাম",
 "কাজুবাদাম",
 "কাঠবাদাম",
 "পেস্তা বাদাম",
-"আখরোট",
 "কিশমিশ",
+"মুড়ি মিক্স",
+"ভুজিয়া",
+"ডালমুট",
+"চিপস",
 "আলুর চিপস",
-"কর্ন চিপস",
-"নাচোস",
+"কলা চিপস",
 "পপকর্ন",
-"ডাল ভাজা",
-"মটর ভাজা",
+"পাপড়",
+"ক্র্যাকার"
+],
+variants:["20g","50g","100g","200g","500g"]
+},
 
-"মিল্ক চকলেট",
-"ডার্ক চকলেট",
-"হোয়াইট চকলেট",
-"চকলেট বার",
-"চকলেট ওয়েফার",
-"ক্যারামেল ক্যান্ডি",
-"মিন্ট ক্যান্ডি",
-"ফ্রুট ক্যান্ডি",
-"ললিপপ",
-"চুইংগাম",
-"জেলি",
-"গামি ক্যান্ডি",
-"টফি",
-"মার্শম্যালো",
-"চকলেট স্প্রেড",
-"পিনাট বাটার",
-"স্ট্রবেরি জ্যাম",
-"অরেঞ্জ মার্মালেড",
-
-"দুধ",
-"ফুল ক্রিম দুধ",
-"লো ফ্যাট দুধ",
-"গুঁড়া দুধ",
-"কনডেন্সড মিল্ক",
-"ইভাপোরেটেড মিল্ক",
-"দই",
-"মিষ্টি দই",
-"টক দই",
-"গ্রিক দই",
-"মাখন",
-"সল্টেড বাটার",
-"আনসল্টেড বাটার",
-"চিজ",
-"চেডার চিজ",
-"মোজারেলা চিজ",
-"ক্রিম চিজ",
-"হুইপিং ক্রিম",
-
+{
+category:"☕ চা ও কফি",
+icon:"☕",
+items:[
 "চা পাতা",
-"ব্ল্যাক টি",
 "গ্রিন টি",
+"ব্ল্যাক টি",
 "লেমন টি",
 "মসলা চা",
-"আদা চা",
-"টি ব্যাগ",
-"গ্রিন টি ব্যাগ",
-"কফি",
-"ইন্সট্যান্ট কফি",
-"কফি মিক্স",
-"ক্যাপুচিনো মিক্স",
-"লাটে মিক্স",
-"মোকা মিক্স",
+"দুধ চা",
+"ইনস্ট্যান্ট কফি",
+"কফি পাউডার",
+"ক্যাপুচিনো",
+"লাতে কফি",
+"মোকা কফি",
 "হট চকোলেট",
-"কোকো পাউডার",
+"মাল্ট ড্রিংক",
+"চকলেট ড্রিংক"
+],
+variants:["10g","25g","50g","100g","200g","500g"]
+},
 
-"মিনারেল ওয়াটার",
-"স্পার্কলিং ওয়াটার",
+{
+category:"🥤 বেভারেজ",
+icon:"🥤",
+items:[
 "কোলা",
 "লেমন ড্রিংক",
 "অরেঞ্জ ড্রিংক",
-"ম্যাংগো ড্রিংক",
-"সফট ড্রিংক",
-"এনার্জি ড্রিংক",
-"স্পোর্টস ড্রিংক",
+"স্প্রাইট টাইপ ড্রিংক",
+"সোডা",
+"মিনারেল ওয়াটার",
+"ফ্লেভারড ওয়াটার",
 "আমের জুস",
 "কমলার জুস",
 "আপেলের জুস",
 "আনারসের জুস",
 "লিচুর জুস",
-"পেয়ারা জুস",
-"আঙুরের জুস",
-"মিশ্র ফলের জুস",
-"নারিকেল পানি",
+"মাল্টা জুস",
+"এনার্জি ড্রিংক",
+"স্পোর্টস ড্রিংক",
+"আইস টি"
+],
+variants:["200ml","250ml","300ml","500ml","1L","1.5L","2L"]
+},
 
-"সাদা পাউরুটি",
-"ব্রাউন ব্রেড",
+{
+category:"🍫 চকলেট ও মিষ্টি",
+icon:"🍫",
+items:[
+"মিল্ক চকলেট",
+"ডার্ক চকলেট",
+"হোয়াইট চকলেট",
+"চকলেট বার",
+"চকলেট ওয়েফার",
+"চকলেট ক্যান্ডি",
+"ললিপপ",
+"জেলি",
+"গাম",
+"টফি",
+"ক্যারামেল",
+"ক্যান্ডি",
+"মিন্ট",
+"চকলেট বিস্কুট"
+],
+variants:["10g","20g","30g","50g","100g","200g"]
+},
+
+{
+category:"🧴 সাবান ও গোসল",
+icon:"🧴",
+items:[
+"গোসলের সাবান",
+"ময়েশ্চারাইজিং সাবান",
+"হারবাল সাবান",
+"অ্যান্টিসেপটিক সাবান",
+"ফেস সাবান",
+"বেবি সাবান",
+"লিকুইড হ্যান্ডওয়াশ",
+"বডি ওয়াশ",
+"শ্যাম্পু",
+"কন্ডিশনার",
+"বডি লোশন",
+"বডি স্প্রে",
+"ট্যালকম পাউডার",
+"ফেসওয়াশ"
+],
+variants:["50ml","100ml","200ml","250ml","500ml","1L","50g","100g","150g"]
+},
+
+{
+category:"🪥 ওরাল কেয়ার",
+icon:"🪥",
+items:[
+"টুথপেস্ট",
+"হারবাল টুথপেস্ট",
+"জেল টুথপেস্ট",
+"বাচ্চাদের টুথপেস্ট",
+"টুথব্রাশ",
+"বাচ্চাদের টুথব্রাশ",
+"মাউথওয়াশ",
+"ডেন্টাল ফ্লস",
+"টুথপিক"
+],
+variants:["20g","50g","100g","150g","200g","250ml","500ml","1pcs","2pcs"]
+},
+
+{
+category:"🧹 ক্লিনিং পণ্য",
+icon:"🧹",
+items:[
+"কাপড় ধোয়ার পাউডার",
+"কাপড় ধোয়ার সাবান",
+"লিকুইড ডিটারজেন্ট",
+"ডিশওয়াশ বার",
+"ডিশওয়াশ লিকুইড",
+"ফ্লোর ক্লিনার",
+"টয়লেট ক্লিনার",
+"গ্লাস ক্লিনার",
+"বাথরুম ক্লিনার",
+"ব্লিচিং পাউডার",
+"জীবাণুনাশক",
+"ফিনাইল",
+"স্পঞ্জ",
+"স্ক্রাবার",
+"ঝাড়ু",
+"মপ",
+"ডাস্টার",
+"ডাস্টবিন ব্যাগ"
+],
+variants:["50g","100g","200g","500g","1kg","250ml","500ml","1L","1pcs"]
+},
+
+{
+category:"💄 প্রসাধনী",
+icon:"💄",
+items:[
+"ফেসওয়াশ",
+"ফেস ক্রিম",
+"ময়েশ্চারাইজার",
+"সানস্ক্রিন",
+"লিপবাম",
+"লিপস্টিক",
+"নেইল পলিশ",
+"কাজল",
+"আইলাইনার",
+"মেকআপ পাউডার",
+"ফেস পাউডার",
+"বডি লোশন",
+"হেয়ার জেল",
+"হেয়ার ক্রিম",
+"হেয়ার স্প্রে",
+"হেয়ার কালার",
+"পারফিউম",
+"বডি স্প্রে",
+"ডিওডোরেন্ট",
+"চিরুনি",
+"হেয়ার ব্রাশ"
+],
+variants:["1pcs","50ml","100ml","150ml","200ml","250ml","500ml"]
+},
+
+{
+category:"👶 বেবি কেয়ার",
+icon:"👶",
+items:[
+"বেবি পাউডার",
+"বেবি লোশন",
+"বেবি শ্যাম্পু",
+"বেবি সাবান",
+"বেবি ওয়াশ",
+"বেবি অয়েল",
+"বেবি ক্রিম",
+"বেবি ফুড",
+"ডায়াপার",
+"বেবি ওয়াইপস",
+"বেবি টিস্যু",
+"বেবি বোতল",
+"ফিডিং বোতল",
+"নিপল",
+"বেবি টুথব্রাশ"
+],
+variants:["1pcs","10pcs","20pcs","50ml","100ml","200ml","500ml"]
+},
+
+{
+category:"🧻 টিস্যু ও কাগজ",
+icon:"🧻",
+items:[
+"ফেস টিস্যু",
+"টয়লেট টিস্যু",
+"কিচেন টিস্যু",
+"ন্যাপকিন",
+"পেপার টাওয়েল",
+"ভেজা টিস্যু",
+"বেবি ওয়াইপস",
+"অ্যালুমিনিয়াম ফয়েল",
+"ক্লিং ফিল্ম",
+"বেকিং পেপার"
+],
+variants:["10pcs","20pcs","50pcs","100pcs","1roll","2roll","5roll"]
+},
+
+{
+category:"🧺 গৃহস্থালি",
+icon:"🧺",
+items:[
+"ম্যাচ",
+"মোমবাতি",
+"লাইটার",
+"ব্যাটারি",
+"প্লাস্টিক বাটি",
+"প্লাস্টিক প্লেট",
+"প্লাস্টিক গ্লাস",
+"প্লাস্টিক চামচ",
+"স্টিল চামচ",
+"স্টিল প্লেট",
+"স্টিল বাটি",
+"মগ",
+"জগ",
+"কাপ",
+"চামচ",
+"ছুরি",
+"কাঁচি",
+"ডাস্টপ্যান",
+"ঝুড়ি",
+"স্টোরেজ বক্স",
+"পানির বোতল"
+],
+variants:["1pcs","2pcs","5pcs","10pcs"]
+},
+
+{
+category:"🍞 বেকারি",
+icon:"🍞",
+items:[
+"পাউরুটি",
 "মিল্ক ব্রেড",
-"স্যান্ডউইচ ব্রেড",
+"বাটার ব্রেড",
+"বান",
 "বার্গার বান",
 "হটডগ বান",
 "কেক",
 "চকলেট কেক",
 "ভ্যানিলা কেক",
 "ফ্রুট কেক",
-"পাউন্ড কেক",
-"কাপকেক",
-"মাফিন",
-"ডোনাট",
-"রস্ক",
-"টোস্ট",
+"কাপ কেক",
 "পেস্ট্রি",
+"টোস্ট বিস্কুট",
+"রস্ক",
+"ক্রিম রোল"
+],
+variants:["1pcs","100g","200g","500g","1kg"]
+},
 
-"ফ্রোজেন চিকেন",
-"চিকেন নাগেট",
-"চিকেন সসেজ",
-"বিফ সসেজ",
-"চিকেন সামোসা",
-"চিকেন স্প্রিং রোল",
-"ফ্রোজেন পরোটা",
-"ফ্রোজেন রুটি",
-"ফ্রোজেন পুরি",
-"ফ্রোজেন সমুচা",
-"ফ্রোজেন মাছ",
+{
+category:"🐟 মাছ ও ফ্রোজেন",
+icon:"🐟",
+items:[
+"ইলিশ মাছ",
+"রুই মাছ",
+"কাতলা মাছ",
+"পাঙ্গাস মাছ",
+"তেলাপিয়া মাছ",
+"চিংড়ি",
+"কৈ মাছ",
+"শিং মাছ",
+"মাগুর মাছ",
+"বোয়াল মাছ",
+"বাটা মাছ",
 "ফ্রোজেন চিংড়ি",
-"ফ্রোজেন সবজি",
-"ফ্রোজেন মটর",
-"ফ্রোজেন কর্ন",
-"ফ্রোজেন ফ্রাই",
-"ফ্রোজেন পিজা",
-"আইসক্রিম",
+"ফ্রোজেন ফিশ ফিলে",
+"ফ্রোজেন চিকেন",
+"ফ্রোজেন নাগেট",
+"ফ্রোজেন সিঙ্গারা",
+"ফ্রোজেন সমুচা",
+"ফ্রোজেন পরোটা"
+],
+variants:["250g","500g","1kg","2kg"]
+},
 
-"ডিটারজেন্ট পাউডার",
-"লিকুইড ডিটারজেন্ট",
-"কাপড় ধোয়ার সাবান",
-"ডিশওয়াশ বার",
-"ডিশওয়াশ লিকুইড",
-"ফ্লোর ক্লিনার",
-"টয়লেট ক্লিনার",
-"গ্লাস ক্লিনার",
-"স্টিল ক্লিনার",
-"বাথরুম ক্লিনার",
-"ব্লিচিং পাউডার",
-"ব্লিচ লিকুইড",
-"ফেনাইল",
-"এয়ার ফ্রেশনার",
-"মশার কয়েল",
-"মশার স্প্রে",
-"ইনসেক্ট কিলার",
-"জীবাণুনাশক",
-"হ্যান্ড স্যানিটাইজার",
+{
+category:"🍗 মাংস",
+icon:"🍗",
+items:[
+"ব্রয়লার মুরগি",
+"দেশি মুরগি",
+"কক মুরগি",
+"গরুর মাংস",
+"খাসির মাংস",
+"চিকেন ব্রেস্ট",
+"চিকেন লেগ",
+"চিকেন উইং",
+"চিকেন কিমা",
+"বিফ কিমা",
+"মাটন",
+"লিভার",
+"কলিজা",
+"গিজার্ড"
+],
+variants:["250g","500g","1kg","2kg"]
+},
 
-"গোসলের সাবান",
-"ময়েশ্চারাইজিং সাবান",
-"অ্যান্টিব্যাকটেরিয়াল সাবান",
-"হ্যান্ডওয়াশ",
-"শ্যাম্পু",
-"অ্যান্টি ড্যানড্রাফ শ্যাম্পু",
-"কন্ডিশনার",
-"হেয়ার অয়েল",
-"হেয়ার জেল",
-"হেয়ার ক্রিম",
-"হেয়ার কালার",
-"টুথপেস্ট",
-"হারবাল টুথপেস্ট",
-"টুথব্রাশ",
-"মাউথওয়াশ",
-"ডেন্টাল ফ্লস",
-"ফেসওয়াশ",
-"ফেস স্ক্রাব",
-"বডি লোশন",
-"বডি ওয়াশ",
-
-"ফেস ক্রিম",
-"নাইট ক্রিম",
-"সানস্ক্রিন",
-"লিপ বাম",
-"লিপস্টিক",
-"ফেস পাউডার",
-"কমপ্যাক্ট পাউডার",
-"কাজল",
-"আইলাইনার",
-"মাসকারা",
-"নেইল পলিশ",
-"মেকআপ রিমুভার",
-"বডি স্প্রে",
-"পারফিউম",
-"ডিওডোরেন্ট",
-"ট্যালকম পাউডার",
-"হ্যান্ড ক্রিম",
-"ফুট ক্রিম",
-"শেভিং ক্রিম",
-
-"বেবি শ্যাম্পু",
-"বেবি সাবান",
-"বেবি লোশন",
-"বেবি পাউডার",
-"বেবি অয়েল",
-"বেবি ক্রিম",
-"বেবি ওয়াইপস",
-"বেবি ডায়াপার",
-"বেবি ফুড",
-"বেবি সিরিয়াল",
-"বেবি বিস্কুট",
-"বেবি বোতল",
-"বেবি ফিডার",
-"বেবি টিস্যু",
-"বেবি তোয়ালে",
-"বেবি ব্রাশ",
-"বেবি চিরুনি",
-
-"ফেস টিস্যু",
-"টয়লেট টিস্যু",
-"কিচেন টিস্যু",
-"ন্যাপকিন",
-"পেপার ন্যাপকিন",
-"ভেজা টিস্যু",
-"মেকআপ ওয়াইপস",
-
-"স্টিল প্লেট",
-"স্টিল বাটি",
-"স্টিল গ্লাস",
-"স্টিল চামচ",
-"স্টিল কাঁটা চামচ",
-"চা চামচ",
-"রান্নার চামচ",
-"খুন্তি",
-"ছুরি",
-"সবজি কাটার ছুরি",
-"কাটিং বোর্ড",
-"পিলার",
-"গ্রেটার",
-"চালনি",
-"ছাঁকনি",
-"মাপার কাপ",
-"মাপার চামচ",
-"প্লাস্টিক বাটি",
-"প্লাস্টিক গ্লাস",
-"খাবার সংরক্ষণ বক্স",
-
-"ডাস্টবিন",
-"ঝাড়ু",
-"মপ",
-"বালতি",
-"মগ",
-"কাপড়ের হ্যাঙ্গার",
-"কাপড় শুকানোর দড়ি",
-"কাপড়ের ক্লিপ",
-"লন্ড্রি বাস্কেট",
-"স্টোরেজ বক্স",
-"প্লাস্টিক ঝুড়ি",
-"শপিং ব্যাগ",
-"ডাস্টবিন ব্যাগ",
-"অ্যালুমিনিয়াম ফয়েল",
-"ক্লিং ফিল্ম",
-"জিপ ব্যাগ",
-"স্পঞ্জ",
-"স্ক্রাবার",
-
-"ম্যাচ",
-"মোমবাতি",
-"ব্যাটারি",
-"টর্চ লাইট",
-"মশার ব্যাট",
-"ছাতা",
-"সেলাই সুতা",
-"সুঁই",
-"সেফটি পিন",
-"রাবার ব্যান্ড",
-"আঠা",
-"টেপ",
-"কাঁচি",
-"কলম",
-"পেন্সিল",
-"খাতা",
-"নোটবুক",
-"ইরেজার",
-"শার্পনার",
-"মার্কার"
+{
+category:"🍯 জ্যাম, সস ও আচার",
+icon:"🍯",
+items:[
+"টমেটো সস",
+"চিলি সস",
+"সয়া সস",
+"অয়েস্টার সস",
+"বারবিকিউ সস",
+"মাস্টার্ড সস",
+"মেয়োনিজ",
+"চিলি গার্লিক সস",
+"জ্যাম",
+"স্ট্রবেরি জ্যাম",
+"ম্যাংগো জ্যাম",
+"মধু",
+"আমের আচার",
+"লেবুর আচার",
+"জলপাই আচার",
+"কাঁচা মরিচ আচার"
+],
+variants:["100g","200g","250g","500g","1kg"]
+}
 
 ];
 
 
-/* =====================================================
-   ২০০০+ পণ্য তৈরি
-   ===================================================== */
+/* =========================================================
+   স্বয়ংক্রিয়ভাবে ২০০০+ পণ্য তৈরি
+   ========================================================= */
 
-const variants = [
+let allProducts = [];
 
-"দেশি",
-"প্রিমিয়াম",
-"ফ্রেশ",
-"স্পেশাল",
-"বেস্ট",
-"সিলেক্ট",
-"গোল্ড",
-"সুপার",
-"ফ্যামিলি",
-"ক্লাসিক",
-"ডিলাক্স",
-"এক্সট্রা",
-"ভ্যালু প্যাক",
-"ইকোনমি",
-"সুপার সেভার",
-"বিগ প্যাক",
-"মেগা প্যাক",
-"স্পেশাল প্যাক"
+let productNumber = 1;
 
-];
+catalog.forEach(category => {
 
+    category.items.forEach(item => {
 
-let products = [];
+        category.variants.forEach(variant => {
 
+            allProducts.push({
+                id:productNumber++,
+                category:category.category,
+                icon:category.icon,
+                name:item,
+                variant:variant,
+                price:getPrice(item,variant)
+            });
 
-/* মূল পণ্য */
+        });
 
-baseProducts.forEach(function(name){
-
-products.push({
-
-name:name,
-price:0,
-unit:"প্যাকেট"
-
-});
+    });
 
 });
 
 
-/* ভ্যারিয়েন্ট */
+/* =========================================================
+   দাম বের করার ফাংশন
+   ========================================================= */
 
-baseProducts.forEach(function(name){
+function getPrice(name,variant){
 
-variants.forEach(function(variant){
+    const key = name + "|" + variant;
 
-products.push({
+    if(PRICE_LIST[key] !== undefined){
+        return PRICE_LIST[key];
+    }
 
-name:variant+" "+name,
-price:0,
-unit:"প্যাকেট"
-
-});
-
-});
-
-});
+    return 0;
+}
 
 
-/* কমপক্ষে ২০০০ */
+/* =========================================================
+   পণ্য দেখানোর ফাংশন
+   ========================================================= */
 
-let number = 1;
+const productsContainer =
+document.getElementById("productsContainer");
 
-while(products.length < 2000){
 
-let base =
-baseProducts[
-(number-1) %
-baseProducts.length
-];
+function renderProducts(list){
 
-products.push({
+    productsContainer.innerHTML = "";
 
-name:"বিশেষ "+number+" "+base,
+    const grouped = {};
 
-price:0,
+    list.forEach(product => {
 
-unit:"প্যাকেট"
+        if(!grouped[product.category]){
+            grouped[product.category] = [];
+        }
 
-});
+        grouped[product.category].push(product);
 
-number++;
+    });
+
+
+    Object.keys(grouped).forEach(categoryName => {
+
+        const categoryBox =
+        document.createElement("div");
+
+        categoryBox.className = "category";
+
+
+        categoryBox.innerHTML = `
+
+            <h2 class="category-title">
+                ${categoryName}
+            </h2>
+
+            <div class="products"></div>
+
+        `;
+
+
+        const productGrid =
+        categoryBox.querySelector(".products");
+
+
+        grouped[categoryName].forEach(product => {
+
+            const card =
+            document.createElement("div");
+
+            card.className = "product";
+
+
+            let priceText =
+            product.price > 0
+            ?
+            "৳ " + product.price + " / " + product.variant
+            :
+            "দাম শীঘ্রই দেওয়া হবে";
+
+
+            card.innerHTML = `
+
+                <div class="product-icon">
+                    ${product.icon}
+                </div>
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <div style="font-size:13px;color:#555;margin-top:4px;">
+                    ${product.variant}
+                </div>
+
+                <div class="price">
+                    ${priceText}
+                </div>
+
+                <button class="order-btn">
+                    ➕ অর্ডারে যোগ করুন
+                </button>
+
+            `;
+
+
+            card
+            .querySelector(".order-btn")
+            .addEventListener("click",function(event){
+
+                event.stopPropagation();
+
+                addProduct(
+                    product.name,
+                    product.price,
+                    product.variant
+                );
+
+            });
+
+
+            productGrid.appendChild(card);
+
+        });
+
+
+        productsContainer.appendChild(categoryBox);
+
+    });
 
 }
 
 
-/* =====================================================
-   এখানে আপনার দাম লিখবেন
-   ===================================================== */
+/* প্রথমবার পণ্য দেখানো */
 
-const prices = {
+renderProducts(allProducts);
 
-/* উদাহরণ */
 
-"মিনিকেট চাল":60,
-"নাজিরশাইল চাল":90,
-"পাইজাম চাল":85,
-"আতপ চাল":90,
-
-"মসুর ডাল":90,
-"মুগ ডাল":160,
-"ছোলা":95,
-"বুটের ডাল":60,
-
-"আটা":50,
-"ময়দা":65,
-"চিনি":105,
-"লবণ":40,
-
-"আলু":25,
-"পেঁয়াজ":60,
-"রসুন":150,
-"আদা":130,
-
-"ডিম":140,
-
-"সয়াবিন তেল":199,
-"সরিষার তেল":225
-
-};
-
-
-/* =====================================================
-   পণ্য দেখানো
-   ===================================================== */
-
-const container =
-document.getElementById(
-"productsContainer"
-);
-
-
-const categories = [
-
-"🍚 চাল ও ডাল",
-"🫙 তেল ও নিত্যপ্রয়োজনীয়",
-"🌶️ মসলা ও রান্নার উপকরণ",
-"🥫 সস, আচার ও খাবার",
-"🍪 বিস্কুট ও বেকারি",
-"🍜 নুডলস ও স্ন্যাকস",
-"🍫 চকলেট ও কনফেকশনারি",
-"🥛 ডেইরি ও ফ্রোজেন",
-"☕ চা ও কফি",
-"🥤 বেভারেজ",
-"🧹 ক্লিনিং",
-"💄 প্রসাধনী",
-"🧴 পার্সোনাল কেয়ার",
-"👶 বেবি কেয়ার",
-"🧻 টিস্যু ও দৈনন্দিন",
-"🍳 কিচেন ও হোম",
-"🛍️ অন্যান্য"
-
-];
-
-
-let pageHTML = "";
-
-let categoryIndex = 0;
-
-
-products.forEach(function(product,index){
-
-if(index % 100 === 0){
-
-if(index > 0){
-
-pageHTML +=
-"</div></div>";
-
-}
-
-pageHTML += `
-
-<div class="category">
-
-<h2 class="category-title">
-
-${categories[
-categoryIndex %
-categories.length
-]}
-
-</h2>
-
-<div class="products">
-
-`;
-
-categoryIndex++;
-
-}
-
-
-let price =
-prices[product.name] || 0;
-
-
-let icon = "🛒";
-
-
-if(product.name.includes("চাল"))
-icon="🍚";
-
-else if(product.name.includes("ডাল"))
-icon="🫘";
-
-else if(product.name.includes("তেল"))
-icon="🫙";
-
-else if(product.name.includes("মসলা"))
-icon="🌶️";
-
-else if(product.name.includes("বিস্কুট"))
-icon="🍪";
-
-else if(product.name.includes("চকলেট"))
-icon="🍫";
-
-else if(product.name.includes("দুধ"))
-icon="🥛";
-
-else if(product.name.includes("শ্যাম্পু"))
-icon="🧴";
-
-else if(product.name.includes("সাবান"))
-icon="🧼";
-
-else if(product.name.includes("জুস"))
-icon="🧃";
-
-else if(product.name.includes("ড্রিংক"))
-icon="🥤";
-
-else if(product.name.includes("ক্লিন"))
-icon="🧹";
-
-
-pageHTML += `
-
-<div
-class="product"
-data-name="${product.name.toLowerCase()}">
-
-<div class="product-icon">
-${icon}
-</div>
-
-<h3>
-${product.name}
-</h3>
-
-<div class="price">
-
-${
-price > 0
-?
-"৳ "+price
-:
-"দাম শীঘ্রই দেওয়া হবে"
-}
-
-</div>
-
-<button
-class="order-btn"
-onclick="addProduct(
-'${product.name.replace(/'/g,"\\'")}',
-${price},
-'${product.unit}'
-)">
-
-➕ অর্ডারে যোগ করুন
-
-</button>
-
-</div>
-
-`;
-
-});
-
-
-pageHTML +=
-"</div></div>";
-
-
-container.innerHTML =
-pageHTML;
-
-
-/* =====================================================
-   পণ্যের সংখ্যা
-   ===================================================== */
-
-document.getElementById(
-"productCount"
-).innerText =
-products.length+
-"+ পণ্য";
-
-
-/* =====================================================
+/* =========================================================
    SEARCH
-   ===================================================== */
+   ========================================================= */
 
-document
-.getElementById("searchBox")
-.addEventListener(
-"input",
-function(){
+function searchProducts(){
 
-const value =
-this.value
-.toLowerCase()
-.trim();
+    const search =
+    document
+    .getElementById("searchInput")
+    .value
+    .trim()
+    .toLowerCase();
 
 
-const cards =
-document.querySelectorAll(
-".product"
-);
+    if(search === ""){
+
+        renderProducts(allProducts);
+
+        return;
+
+    }
 
 
-let found = 0;
+    const result =
+    allProducts.filter(product => {
+
+        return (
+
+            product.name
+            .toLowerCase()
+            .includes(search)
+
+            ||
+
+            product.category
+            .toLowerCase()
+            .includes(search)
+
+            ||
+
+            product.variant
+            .toLowerCase()
+            .includes(search)
+
+        );
+
+    });
 
 
-cards.forEach(function(card){
-
-const name =
-card.getAttribute(
-"data-name"
-);
-
-
-if(
-name.includes(value)
-){
-
-card.style.display =
-"block";
-
-found++;
+    renderProducts(result);
 
 }
 
-else{
 
-card.style.display =
-"none";
-
-}
-
-});
-
-
-document.getElementById(
-"productCount"
-).innerText =
-found+
-"টি পণ্য পাওয়া গেছে";
-
-});
-
-
-/* =====================================================
+/* =========================================================
    ORDER SYSTEM
-   ===================================================== */
+   ========================================================= */
 
 let orderList = [];
 
 
-function addProduct(
-name,
-price,
-unit
-){
+function addProduct(name,price,unit){
 
-if(price <= 0){
+    if(price <= 0){
 
-alert(
-"এই পণ্যের দাম এখনো দেওয়া হয়নি।\n\nদাম যোগ করার পর এই পণ্য অর্ডার করা যাবে।"
-);
+        alert(
+            "এই পণ্যের দাম এখনো দেওয়া হয়নি।\n\nদাম PRICE_LIST অংশে যোগ করার পর এই পণ্য অর্ডার করা যাবে।"
+        );
 
-return;
+        return;
 
-}
+    }
 
 
-const existing =
-orderList.find(function(item){
-
-return item.name === name;
-
-});
-
-
-if(existing){
-
-existing.qty++;
-
-}
-
-else{
-
-orderList.push({
-
-name:name,
-price:price,
-unit:unit,
-qty:1
-
-});
-
-}
+    const existing =
+    orderList.find(item =>
+        item.name === name &&
+        item.unit === unit
+    );
 
 
-renderOrder();
+    if(existing){
 
-openOrder();
+        existing.qty++;
+
+    }else{
+
+        orderList.push({
+
+            name:name,
+            price:price,
+            unit:unit,
+            qty:1
+
+        });
+
+    }
+
+
+    renderOrder();
+
+    openOrder();
 
 }
 
 
-/* =====================================================
-   RENDER ORDER
-   ===================================================== */
+/* =========================================================
+   ORDER RENDER
+   ========================================================= */
 
 function renderOrder(){
 
-const box =
-document.getElementById(
-"orderItems"
-);
+    const box =
+    document.getElementById("orderItems");
 
 
-if(orderList.length === 0){
+    if(orderList.length === 0){
 
-box.innerHTML = `
+        box.innerHTML = `
 
-<p
-style="text-align:center;color:#777;padding:15px;">
+            <p style="text-align:center;color:#777;padding:15px;">
 
-এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
+                এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
 
-</p>
+            </p>
 
-`;
+        `;
+
+    }else{
+
+        box.innerHTML = "";
+
+
+        orderList.forEach((item,index)=>{
+
+            box.innerHTML += `
+
+                <div class="selected-product">
+
+                    <div class="selected-info">
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <span class="item-price">
+
+                            ৳ ${item.price}
+                            /
+                            ${item.unit}
+
+                        </span>
+
+                        <br>
+
+                        <strong>
+
+                            মোট:
+                            ৳ ${item.price * item.qty}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quantity">
+
+                        <button
+                        onclick="changeQty(${index},-1)">
+
+                            −
+
+                        </button>
+
+
+                        <input
+                        type="number"
+                        min="1"
+                        value="${item.qty}"
+                        onchange="setQty(${index},this.value)">
+
+
+                        <button
+                        onclick="changeQty(${index},1)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+
+                    <button
+                    class="remove"
+                    onclick="removeItem(${index})">
+
+                        🗑️
+
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    calculateTotal();
+
+
+    let totalQuantity = 0;
+
+
+    orderList.forEach(item => {
+
+        totalQuantity += item.qty;
+
+    });
+
+
+    document
+    .getElementById("orderCount")
+    .innerText = totalQuantity;
 
 }
 
-else{
 
-box.innerHTML = "";
-
-
-orderList.forEach(
-function(item,index){
-
-box.innerHTML += `
-
-<div class="selected-product">
-
-<div class="selected-info">
-
-<strong>
-${item.name}
-</strong>
-
-<span class="item-price">
-
-৳ ${item.price} / ${item.unit}
-
-</span>
-
-<br>
-
-<strong>
-মোট: ৳ ${item.price * item.qty}
-</strong>
-
-</div>
-
-
-<div class="quantity">
-
-<button
-onclick="changeQty(${index},-1)">
-
-−
-
-</button>
-
-<input
-type="number"
-min="1"
-value="${item.qty}"
-onchange="setQty(${index},this.value)">
-
-<button
-onclick="changeQty(${index},1)">
-
-+
-
-</button>
-
-</div>
-
-
-<button
-class="remove"
-onclick="removeItem(${index})">
-
-🗑️
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-calculateTotal();
-
-
-let count = 0;
-
-
-orderList.forEach(function(item){
-
-count += item.qty;
-
-});
-
-
-document.getElementById(
-"orderCount"
-).innerText =
-count;
-
-}
-
-
-/* =====================================================
+/* =========================================================
    QUANTITY
-   ===================================================== */
+   ========================================================= */
 
 function changeQty(index,value){
 
-orderList[index].qty += value;
+    orderList[index].qty += value;
 
 
-if(orderList[index].qty < 1){
+    if(orderList[index].qty < 1){
 
-orderList[index].qty = 1;
+        orderList[index].qty = 1;
 
-}
+    }
 
 
-renderOrder();
+    renderOrder();
 
 }
 
 
 function setQty(index,value){
 
-value =
-parseInt(value);
+    value = parseInt(value);
 
 
-if(
-isNaN(value) ||
-value < 1
-){
+    if(isNaN(value) || value < 1){
 
-value=1;
+        value = 1;
 
-}
+    }
 
 
-orderList[index].qty =
-value;
+    orderList[index].qty = value;
 
 
-renderOrder();
+    renderOrder();
 
 }
 
 
-/* =====================================================
+/* =========================================================
    REMOVE
-   ===================================================== */
+   ========================================================= */
 
 function removeItem(index){
 
-orderList.splice(
-index,
-1
-);
+    orderList.splice(index,1);
 
-renderOrder();
+    renderOrder();
 
 }
 
 
-/* =====================================================
+/* =========================================================
    TOTAL
-   ===================================================== */
+   ========================================================= */
 
 function calculateTotal(){
 
-let subtotal = 0;
+    let subtotal = 0;
 
 
-orderList.forEach(function(item){
+    orderList.forEach(item => {
 
-subtotal +=
-item.price *
-item.qty;
+        subtotal +=
+        item.price * item.qty;
 
-});
-
-
-let delivery =
-orderList.length > 0
-?
-99
-:
-0;
+    });
 
 
-document.getElementById(
-"subtotal"
-).innerText =
-subtotal;
+    const delivery =
+    orderList.length > 0
+    ?
+    99
+    :
+    0;
 
 
-document.getElementById(
-"deliveryCharge"
-).innerText =
-delivery;
+    document
+    .getElementById("subtotal")
+    .innerText = subtotal;
 
 
-document.getElementById(
-"grandTotal"
-).innerText =
-subtotal + delivery;
+    document
+    .getElementById("deliveryCharge")
+    .innerText = delivery;
+
+
+    document
+    .getElementById("grandTotal")
+    .innerText =
+    subtotal + delivery;
 
 }
 
 
-/* =====================================================
-   OPEN
-   ===================================================== */
+/* =========================================================
+   OPEN / CLOSE ORDER
+   ========================================================= */
 
 function openOrder(){
 
-document.getElementById(
-"orderPanel"
-).style.display =
-"block";
+    document
+    .getElementById("orderPanel")
+    .style.display = "block";
 
 
-document.body.style.overflow =
-"hidden";
+    document.body.style.overflow =
+    "hidden";
 
 
-renderOrder();
+    renderOrder();
 
 }
 
-
-/* =====================================================
-   CLOSE
-   ===================================================== */
 
 function closeOrder(){
 
-document.getElementById(
-"orderPanel"
-).style.display =
-"none";
+    document
+    .getElementById("orderPanel")
+    .style.display = "none";
 
 
-document.body.style.overflow =
-"auto";
+    document.body.style.overflow =
+    "auto";
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTINUE SHOPPING
-   ===================================================== */
+   ========================================================= */
 
 function continueShopping(){
 
-closeOrder();
+    closeOrder();
 
 
-setTimeout(function(){
+    setTimeout(()=>{
 
-document
-.querySelector(".section-title")
-.scrollIntoView({
+        document
+        .querySelector(".section-title")
+        .scrollIntoView({
 
-behavior:"smooth",
-block:"start"
+            behavior:"smooth",
+            block:"start"
 
-});
+        });
 
-},100);
+    },100);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    OUTSIDE CLICK
-   ===================================================== */
+   ========================================================= */
 
 document
 .getElementById("orderPanel")
 .addEventListener(
-"click",
-function(event){
+    "click",
+    function(event){
 
-if(event.target === this){
+        if(event.target === this){
 
-closeOrder();
+            closeOrder();
 
-}
+        }
 
-});
+    }
+);
 
 
-/* =====================================================
-   SEND WHATSAPP ORDER
-   ===================================================== */
+/* =========================================================
+   WHATSAPP ORDER
+   ========================================================= */
 
 function sendOrder(){
 
-if(orderList.length === 0){
+    if(orderList.length === 0){
 
-alert(
-"দয়া করে আগে অন্তত একটি পণ্য আপনার অর্ডারে যোগ করুন।"
-);
+        alert(
+            "দয়া করে আগে অন্তত একটি পণ্য আপনার অর্ডারে যোগ করুন।"
+        );
 
-return;
+        return;
 
-}
-
-
-const name =
-document.getElementById(
-"customerName"
-).value.trim();
+    }
 
 
-const phone =
-document.getElementById(
-"customerPhone"
-).value.trim();
+    const name =
+    document
+    .getElementById("customerName")
+    .value
+    .trim();
 
 
-const address =
-document.getElementById(
-"customerAddress"
-).value.trim();
+    const phone =
+    document
+    .getElementById("customerPhone")
+    .value
+    .trim();
 
 
-if(!name){
-
-alert(
-"দয়া করে আপনার নাম লিখুন।"
-);
-
-return;
-
-}
+    const address =
+    document
+    .getElementById("customerAddress")
+    .value
+    .trim();
 
 
-if(!phone){
+    if(!name){
 
-alert(
-"দয়া করে আপনার মোবাইল নম্বর লিখুন।"
-);
+        alert("দয়া করে আপনার নাম লিখুন।");
 
-return;
+        document
+        .getElementById("customerName")
+        .focus();
 
-}
+        return;
 
-
-if(!address){
-
-alert(
-"দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
-);
-
-return;
-
-}
+    }
 
 
-let message =
-"🛒 SIX M STORE - নতুন অর্ডার\n\n";
+    if(!phone){
+
+        alert("দয়া করে আপনার মোবাইল নম্বর লিখুন।");
+
+        document
+        .getElementById("customerPhone")
+        .focus();
+
+        return;
+
+    }
 
 
-message +=
-"👤 নাম: "
-+
-name
-+
-"\n";
+    if(!address){
+
+        alert(
+            "দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
+        );
+
+        document
+        .getElementById("customerAddress")
+        .focus();
+
+        return;
+
+    }
 
 
-message +=
-"📞 মোবাইল: "
-+
-phone
-+
-"\n";
+    let message =
+    "🛒 SIX M STORE - নতুন অর্ডার\n\n";
 
 
-message +=
-"📍 ঠিকানা: "
-+
-address
-+
-"\n\n";
+    message +=
+    "👤 নাম: " +
+    name +
+    "\n";
 
 
-message +=
-"📦 অর্ডারের তালিকা:\n";
+    message +=
+    "📞 মোবাইল: " +
+    phone +
+    "\n";
 
 
-let subtotal = 0;
+    message +=
+    "📍 ঠিকানা: " +
+    address +
+    "\n\n";
 
 
-orderList.forEach(
-function(item,index){
-
-const itemTotal =
-item.price *
-item.qty;
+    message +=
+    "📦 অর্ডারের তালিকা:\n";
 
 
-subtotal +=
-itemTotal;
+    let subtotal = 0;
 
 
-message +=
-(index+1)
-+
-". "
-+
-item.name
-+
-" — "
-+
-item.qty
-+
-" "
-+
-item.unit
-+
-" × ৳"
-+
-item.price
-+
-" = ৳"
-+
-itemTotal
-+
-"\n";
+    orderList.forEach((item,index)=>{
 
-});
+        const itemTotal =
+        item.price * item.qty;
 
 
-const delivery = 99;
+        subtotal += itemTotal;
 
 
-const grandTotal =
-subtotal +
-delivery;
+        message +=
+
+        (index + 1) +
+        ". " +
+        item.name +
+        " (" +
+        item.unit +
+        ")" +
+        " — " +
+        item.qty +
+        " × ৳" +
+        item.price +
+        " = ৳" +
+        itemTotal +
+        "\n";
+
+    });
 
 
-message +=
-"\n💰 পণ্যের মোট: ৳"
-+
-subtotal;
+    const delivery = 99;
 
 
-message +=
-"\n🚚 ডেলিভারি চার্জ: ৳"
-+
-delivery;
+    const grandTotal =
+    subtotal + delivery;
 
 
-message +=
-"\n💵 সর্বমোট: ৳"
-+
-grandTotal;
+    message +=
+    "\n💰 পণ্যের মোট: ৳" +
+    subtotal;
 
 
-message +=
-"\n\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
+    message +=
+    "\n🚚 ডেলিভারি চার্জ: ৳" +
+    delivery;
 
 
-const whatsappURL =
-"https://wa.me/8801737781096?text="
-+
-encodeURIComponent(message);
+    message +=
+    "\n💵 সর্বমোট: ৳" +
+    grandTotal;
 
 
-window.open(
-whatsappURL,
-"_blank"
-);
+    message +=
+    "\n\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
+
+
+    const whatsappURL =
+
+    "https://wa.me/8801737781096?text=" +
+
+    encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
 
 }
+
+
+/* =========================================================
+   END
+   ========================================================= */
 
 </script>
 
