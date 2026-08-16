@@ -7,7 +7,7 @@
 <title>SIX M STORE | Everyone Deserves Good Service</title>
 
 <meta name="description"
-content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। ফোন ও WhatsApp-এ অর্ডার করুন।">
+content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
 
 <style>
 
@@ -69,7 +69,6 @@ header{
 
 .brand p{
     font-size:13px;
-    opacity:.95;
 }
 
 /* HERO */
@@ -107,12 +106,9 @@ header{
     border-radius:10px;
     font-weight:bold;
     display:inline-block;
+    border:none;
+    cursor:pointer;
     box-shadow:0 4px 10px rgba(0,0,0,.15);
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
 }
 
 .call{
@@ -173,10 +169,11 @@ header{
 .product{
     background:#f9fbfe;
     border-radius:14px;
-    padding:17px 10px;
+    padding:15px 10px;
     text-align:center;
     border:1px solid #e3eaf3;
     transition:.2s;
+    cursor:pointer;
 }
 
 .product:hover{
@@ -194,10 +191,160 @@ header{
     font-size:16px;
 }
 
-.product p{
-    font-size:12px;
-    color:#777;
-    margin-top:3px;
+.price{
+    color:#063b8f;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.order-btn{
+    background:#20b858;
+    color:white;
+    border:none;
+    padding:7px 12px;
+    border-radius:8px;
+    margin-top:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* ORDER PANEL */
+
+#orderPanel{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+    overflow:auto;
+}
+
+.order-content{
+    background:white;
+    width:94%;
+    max-width:650px;
+    margin:25px auto;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
+}
+
+.order-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+    padding-bottom:12px;
+    margin-bottom:15px;
+}
+
+.order-header h2{
+    color:#063b8f;
+}
+
+.close{
+    font-size:30px;
+    cursor:pointer;
+    color:#e74c3c;
+}
+
+.selected-product{
+    background:#f4f7fb;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.selected-info{
+    flex:1;
+}
+
+.selected-info strong{
+    display:block;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.quantity button{
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:7px;
+    background:#063b8f;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.quantity input{
+    width:55px;
+    height:32px;
+    text-align:center;
+    border:1px solid #ccc;
+    border-radius:7px;
+}
+
+.remove{
+    border:none;
+    background:#e74c3c;
+    color:white;
+    padding:6px 9px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.total-box{
+    background:#063b8f;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    margin-top:15px;
+    text-align:center;
+    font-size:18px;
+}
+
+.customer-form{
+    margin-top:18px;
+}
+
+.customer-form input,
+.customer-form textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccd5e0;
+    border-radius:9px;
+    margin-bottom:10px;
+    font-family:inherit;
+    font-size:15px;
+}
+
+.customer-form textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.send-order{
+    width:100%;
+    background:#20b858;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:5px;
 }
 
 /* DELIVERY */
@@ -266,22 +413,6 @@ header{
     text-decoration:none;
 }
 
-/* ORDER */
-
-.order-box{
-    text-align:center;
-    background:#fff;
-    padding:25px 15px;
-    border-radius:16px;
-    margin-top:25px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.order-box h2{
-    color:#063b8f;
-    margin-bottom:8px;
-}
-
 /* FOOTER */
 
 footer{
@@ -308,10 +439,6 @@ footer p{
 
     .brand h1{
         font-size:21px;
-    }
-
-    .brand p{
-        font-size:11px;
     }
 
     .hero h2{
@@ -347,6 +474,10 @@ footer p{
     .btn{
         padding:11px 15px;
         font-size:14px;
+    }
+
+    .selected-product{
+        flex-wrap:wrap;
     }
 }
 
@@ -388,21 +519,20 @@ footer p{
 
 <div class="buttons">
 
-<a class="btn call"
-href="tel:01737781096">
+<a class="btn call" href="tel:01737781096">
 📞 এখনই ফোন করুন
 </a>
 
 <a class="btn whatsapp"
 href="https://wa.me/8801737781096"
 target="_blank">
-💬 WhatsApp অর্ডার
+💬 WhatsApp
 </a>
 
 <a class="btn map"
 href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
 target="_blank">
-📍 দিকনির্দেশ নিন
+📍 দিকনির্দেশ
 </a>
 
 </div>
@@ -418,335 +548,721 @@ target="_blank">
 🛍️ আমাদের পণ্যসমূহ
 </h2>
 
+<div id="productsContainer"></div>
 
-<!-- ১. চাল ও ডাল -->
 
+<!-- DELIVERY -->
+
+<div class="delivery">
+
+<h2>🚚 Home Delivery সুবিধা</h2>
+
+<p>
+<strong>Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)</strong>
+</p>
+
+<p>
+ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
+</p>
+
+<p>
+<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
+</p>
+
+<p>
+দ্রুত ও সহজ ডেলিভারি সুবিধা।
+</p>
+
+</div>
+
+
+<!-- ADDRESS -->
+
+<div class="info">
+
+<h2>📍 আমাদের ঠিকানা</h2>
+
+<div class="info-item">
+
+<div class="info-icon">🏪</div>
+
+<div class="info-text">
+
+<strong>দোকানের ঠিকানা</strong>
+
+ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
+হালিশহর রোড, আগ্রাবাদ,
+চট্টগ্রাম, বাংলাদেশ।
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<div class="info-icon">📞</div>
+
+<div class="info-text">
+
+<strong>মোবাইল</strong>
+
+<a href="tel:01737781096">
+01737781096
+</a>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<div class="info-icon">💬</div>
+
+<div class="info-text">
+
+<strong>WhatsApp</strong>
+
+<a href="https://wa.me/8801737781096" target="_blank">
+WhatsApp-এ যোগাযোগ করুন
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ORDER POPUP -->
+
+<div id="orderPanel">
+
+<div class="order-content">
+
+<div class="order-header">
+
+<h2>🛒 আপনার অর্ডার</h2>
+
+<span class="close" onclick="closeOrder()">×</span>
+
+</div>
+
+<div id="orderItems">
+
+<p style="text-align:center;color:#777;">
+এখনো কোনো পণ্য যোগ করা হয়নি।
+</p>
+
+</div>
+
+<div class="total-box">
+
+মোট পণ্যের মূল্য:
+৳ <span id="subtotal">0</span>
+
+<br>
+
+ডেলিভারি চার্জ:
+৳ <span id="deliveryCharge">99</span>
+
+<hr style="margin:8px 0;border:none;border-top:1px solid rgba(255,255,255,.4);">
+
+সর্বমোট:
+৳ <span id="grandTotal">99</span>
+
+</div>
+
+
+<div class="customer-form">
+
+<h3 style="color:#063b8f;margin-bottom:10px;">
+👤 কাস্টমারের তথ্য
+</h3>
+
+<input
+type="text"
+id="customerName"
+placeholder="আপনার নাম লিখুন"
+>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="মোবাইল নম্বর লিখুন"
+>
+
+<textarea
+id="customerAddress"
+placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"
+></textarea>
+
+<button
+class="send-order"
+onclick="sendOrder()">
+💬 WhatsApp-এ অর্ডার পাঠান
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>SIX M STORE</h2>
+
+<p>
+আপনার বিশ্বাসই আমাদের মূলধন।
+</p>
+
+<p>
+📞 01782-371255
+</p>
+
+<p>
+© 2026 SIX M STORE. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* ==============================
+   SIX M STORE PRODUCT DATABASE
+   দাম পরে এখানে পরিবর্তন করবেন
+   ============================== */
+
+const categories = [
+
+{
+name:"🍚 চাল ও ডাল",
+products:[
+["মিনিকেট চাল","🍚",0,"কেজি"],
+["নাজিরশাইল চাল","🍚",0,"কেজি"],
+["পাইজাম চাল","🍚",0,"কেজি"],
+["আতপ চাল","🍚",0,"কেজি"],
+["মসুর ডাল","🫘",0,"কেজি"],
+["মুগ ডাল","🫘",0,"কেজি"],
+["ছোলা","🫘",0,"কেজি"],
+["বুটের ডাল","🫘",0,"কেজি"]
+]
+},
+
+{
+name:"🫙 তেল ও মসলা",
+products:[
+["সয়াবিন তেল","🫙",0,"লিটার"],
+["সরিষার তেল","🌻",0,"লিটার"],
+["পাম অয়েল","🫙",0,"লিটার"],
+["হলুদ গুঁড়া","🌕",0,"কেজি"],
+["মরিচ গুঁড়া","🌶️",0,"কেজি"],
+["ধনিয়া গুঁড়া","🌿",0,"কেজি"],
+["জিরা গুঁড়া","🌿",0,"কেজি"],
+["গরম মসলা","🧂",0,"প্যাকেট"],
+["দারুচিনি","🌿",0,"প্যাকেট"],
+["এলাচ","🌿",0,"প্যাকেট"],
+["লবঙ্গ","🌿",0,"প্যাকেট"],
+["তেজপাতা","🍃",0,"প্যাকেট"]
+]
+},
+
+{
+name:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
+products:[
+["আটা","🌾",0,"কেজি"],
+["ময়দা","🥣",0,"কেজি"],
+["সুজি","🥣",0,"প্যাকেট"],
+["চিনি","🍬",0,"কেজি"],
+["লবণ","🧂",0,"কেজি"],
+["গুড়","🍯",0,"কেজি"],
+["সেমাই","🍜",0,"প্যাকেট"],
+["চিড়া","🌾",0,"কেজি"],
+["মুড়ি","🍘",0,"কেজি"]
+]
+},
+
+{
+name:"🥔 সবজি ও রান্নার উপকরণ",
+products:[
+["আলু","🥔",0,"কেজি"],
+["পেঁয়াজ","🧅",0,"কেজি"],
+["রসুন","🧄",0,"কেজি"],
+["আদা","🫚",0,"কেজি"],
+["শুকনা মরিচ","🌶️",0,"কেজি"]
+]
+},
+
+{
+name:"🥛 ডেইরি ও খাদ্যপণ্য",
+products:[
+["ডিম","🥚",0,"ডজন"],
+["দুধ","🥛",0,"লিটার"],
+["ঘি","🧈",0,"কৌটা"],
+["মাখন","🧈",0,"প্যাকেট"],
+["দই","🥛",0,"কৌটা"]
+]
+},
+
+{
+name:"☕ চা ও পানীয়",
+products:[
+["চা পাতা","🍵",0,"প্যাকেট"],
+["কফি","☕",0,"কৌটা"],
+["হরলিক্স","🥛",0,"কৌটা"],
+["কমপ্লান","🥛",0,"কৌটা"]
+]
+},
+
+{
+name:"🍪 বিস্কুট ও স্ন্যাকস",
+products:[
+["বিস্কুট","🍪",0,"প্যাকেট"],
+["নুডলস","🍜",0,"প্যাকেট"],
+["চানাচুর","🥜",0,"প্যাকেট"],
+["চিপস","🥔",0,"প্যাকেট"],
+["টোস্ট বিস্কুট","🍞",0,"প্যাকেট"]
+]
+},
+
+{
+name:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
+products:[
+["কাপড় ধোয়ার পাউডার","🧺",0,"প্যাকেট"],
+["কাপড় ধোয়ার সাবান","🧼",0,"পিস"],
+["গোসলের সাবান","🧼",0,"পিস"],
+["শ্যাম্পু","🧴",0,"প্যাকেট"],
+["টুথপেস্ট","🪥",0,"পিস"],
+["টুথব্রাশ","🪥",0,"পিস"],
+["ডিশওয়াশ বার","🧽",0,"পিস"],
+["ব্লিচিং পাউডার","🧹",0,"প্যাকেট"]
+]
+},
+
+{
+name:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
+products:[
+["ম্যাচ","🔥",0,"বক্স"],
+["মোমবাতি","🕯️",0,"প্যাকেট"],
+["টিস্যু","🧻",0,"প্যাকেট"],
+["অ্যালুমিনিয়াম ফয়েল","📦",0,"রোল"],
+["পলিথিন ব্যাগ","🛍️",0,"প্যাকেট"]
+]
+},
+
+{
+name:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
+products:[
+["ফেসওয়াশ","🧴",0,"পিস"],
+["হেয়ার অয়েল","🧴",0,"বোতল"],
+["পারফিউম","🌸",0,"পিস"],
+["বডি লোশন","🧴",0,"বোতল"],
+["চিরুনি","🪮",0,"পিস"]
+]
+},
+
+{
+name:"🥤 বেভারেজ ও পানীয়",
+products:[
+["কোল্ড ড্রিংকস","🥤",0,"বোতল"],
+["মিনারেল ওয়াটার","💧",0,"বোতল"],
+["জুস","🧃",0,"প্যাকেট"],
+["এনার্জি ড্রিংক","⚡",0,"ক্যান"]
+]
+}
+
+];
+
+
+/* ==============================
+   PRODUCT SHOW
+   ============================== */
+
+const container =
+document.getElementById("productsContainer");
+
+categories.forEach(category => {
+
+let categoryHTML = `
 <div class="category">
 
 <h2 class="category-title">
-🍚 চাল ও ডাল
+${category.name}
 </h2>
 
 <div class="products">
+`;
 
-<div class="product">
-<div class="product-icon">🍚</div>
-<h3>মিনিকেট চাল</h3>
+category.products.forEach((product,index) => {
+
+const name = product[0];
+const icon = product[1];
+const price = product[2];
+const unit = product[3];
+
+categoryHTML += `
+
+<div class="product"
+onclick="addProduct('${name}',${price},'${unit}')">
+
+<div class="product-icon">
+${icon}
 </div>
 
-<div class="product">
-<div class="product-icon">🍚</div>
-<h3>নাজিরশাইল চাল</h3>
+<h3>${name}</h3>
+
+<div class="price">
+${price > 0 ? "৳ "+price+" / "+unit : "দাম শীঘ্রই দেওয়া হবে"}
 </div>
 
-<div class="product">
-<div class="product-icon">🍚</div>
-<h3>পাইজাম চাল</h3>
-</div>
+<button
+class="order-btn"
+onclick="event.stopPropagation();addProduct('${name}',${price},'${unit}')">
 
-<div class="product">
-<div class="product-icon">🍚</div>
-<h3>আতপ চাল</h3>
-</div>
+➕ অর্ডারে যোগ করুন
 
-<div class="product">
-<div class="product-icon">🫘</div>
-<h3>মসুর ডাল</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🫘</div>
-<h3>মুগ ডাল</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🫘</div>
-<h3>ছোলা</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🫘</div>
-<h3>বুটের ডাল</h3>
-</div>
+</button>
 
 </div>
-</div>
 
+`;
 
-<!-- ২. তেল ও মসলা -->
+});
 
-<div class="category">
-
-<h2 class="category-title">
-🫙 তেল ও মসলা
-</h2>
-
-<div class="products">
-
-<div class="product">
-<div class="product-icon">🫙</div>
-<h3>সয়াবিন তেল</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌻</div>
-<h3>সরিষার তেল</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🫙</div>
-<h3>পাম অয়েল</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌕</div>
-<h3>হলুদ গুঁড়া</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌶️</div>
-<h3>মরিচ গুঁড়া</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌿</div>
-<h3>ধনিয়া গুঁড়া</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌿</div>
-<h3>জিরা গুঁড়া</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🧂</div>
-<h3>গরম মসলা</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌿</div>
-<h3>দারুচিনি</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌿</div>
-<h3>এলাচ</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌿</div>
-<h3>লবঙ্গ</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🍃</div>
-<h3>তেজপাতা</h3>
-</div>
-
+categoryHTML += `
 </div>
 </div>
+`;
+
+container.innerHTML += categoryHTML;
+
+});
 
 
-<!-- ৩. নিত্যপ্রয়োজনীয় -->
+/* ==============================
+   ORDER SYSTEM
+   ============================== */
 
-<div class="category">
+let cart = [];
 
-<h2 class="category-title">
-🛒 নিত্যপ্রয়োজনীয় পণ্য
-</h2>
 
-<div class="products">
+/* PRODUCT ADD */
 
-<div class="product">
-<div class="product-icon">🌾</div>
-<h3>আটা</h3>
-</div>
+function addProduct(name,price,unit){
 
-<div class="product">
-<div class="product-icon">🥣</div>
-<h3>ময়দা</h3>
-</div>
+if(price <= 0){
 
-<div class="product">
-<div class="product-icon">🥣</div>
-<h3>সুজি</h3>
-</div>
+alert(
+"এই পণ্যের দাম এখনো দেওয়া হয়নি।\nদাম যোগ করার পর অর্ডার করা যাবে।"
+);
 
-<div class="product">
-<div class="product-icon">🍬</div>
-<h3>চিনি</h3>
-</div>
+return;
 
-<div class="product">
-<div class="product-icon">🧂</div>
-<h3>লবণ</h3>
-</div>
+}
 
-<div class="product">
-<div class="product-icon">🍯</div>
-<h3>গুড়</h3>
-</div>
+const existing =
+cart.find(item => item.name === name);
 
-<div class="product">
-<div class="product-icon">🍜</div>
-<h3>সেমাই</h3>
-</div>
+if(existing){
 
-<div class="product">
-<div class="product-icon">🌾</div>
-<h3>চিড়া</h3>
-</div>
+existing.qty++;
 
-<div class="product">
-<div class="product-icon">🍘</div>
-<h3>মুড়ি</h3>
-</div>
+}else{
 
-</div>
+cart.push({
+name:name,
+price:price,
+unit:unit,
+qty:1
+});
+
+}
+
+renderCart();
+
+document.getElementById("orderPanel").style.display="block";
+
+}
+
+
+/* CART SHOW */
+
+function renderCart(){
+
+const box =
+document.getElementById("orderItems");
+
+if(cart.length===0){
+
+box.innerHTML =
+'<p style="text-align:center;color:#777;">এখনো কোনো পণ্য যোগ করা হয়নি।</p>';
+
+}else{
+
+box.innerHTML="";
+
+cart.forEach((item,index)=>{
+
+box.innerHTML += `
+
+<div class="selected-product">
+
+<div class="selected-info">
+
+<strong>${item.name}</strong>
+
+৳ ${item.price} / ${item.unit}
+
+<br>
+
+<strong>
+৳ ${item.price * item.qty}
+</strong>
+
 </div>
 
 
-<!-- ৪. সবজি ও রান্নার উপকরণ -->
+<div class="quantity">
 
-<div class="category">
+<button onclick="changeQty(${index},-1)">
+−
+</button>
 
-<h2 class="category-title">
-🥔 সবজি ও রান্নার উপকরণ
-</h2>
+<input
+type="number"
+min="1"
+value="${item.qty}"
+onchange="setQty(${index},this.value)"
+>
 
-<div class="products">
-
-<div class="product">
-<div class="product-icon">🥔</div>
-<h3>আলু</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🧅</div>
-<h3>পেঁয়াজ</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🧄</div>
-<h3>রসুন</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🫚</div>
-<h3>আদা</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🌶️</div>
-<h3>শুকনা মরিচ</h3>
-</div>
+<button onclick="changeQty(${index},1)">
++
+</button>
 
 </div>
-</div>
 
 
-<!-- ৫. ডেইরি -->
+<button
+class="remove"
+onclick="removeItem(${index})">
 
-<div class="category">
+🗑️
 
-<h2 class="category-title">
-🥛 ডেইরি ও খাদ্যপণ্য
-</h2>
-
-<div class="products">
-
-<div class="product">
-<div class="product-icon">🥚</div>
-<h3>ডিম</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🥛</div>
-<h3>দুধ</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🧈</div>
-<h3>ঘি</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🧈</div>
-<h3>মাখন</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🥛</div>
-<h3>দই</h3>
-</div>
+</button>
 
 </div>
-</div>
+
+`;
+
+});
+
+}
+
+calculateTotal();
+
+}
 
 
-<!-- ৬. চা ও পানীয় -->
+/* QUANTITY */
 
-<div class="category">
+function changeQty(index,value){
 
-<h2 class="category-title">
-☕ চা ও পানীয়
-</h2>
+cart[index].qty += value;
 
-<div class="products">
+if(cart[index].qty < 1){
 
-<div class="product">
-<div class="product-icon">🍵</div>
-<h3>চা পাতা</h3>
-</div>
+cart[index].qty = 1;
 
-<div class="product">
-<div class="product-icon">☕</div>
-<h3>কফি</h3>
-</div>
+}
 
-<div class="product">
-<div class="product-icon">🥛</div>
-<h3>হরলিক্স</h3>
-</div>
+renderCart();
 
-<div class="product">
-<div class="product-icon">🥛</div>
-<h3>কমপ্লান</h3>
-</div>
-
-</div>
-</div>
+}
 
 
-<!-- ৭. বিস্কুট ও স্ন্যাকস -->
+function setQty(index,value){
 
-<div class="category">
+value = parseInt(value);
 
-<h2 class="category-title">
-🍪 বিস্কুট ও স্ন্যাকস
-</h2>
+if(isNaN(value) || value < 1){
 
-<div class="products">
+value=1;
 
-<div class="product">
-<div class="product-icon">🍪</div>
-<h3>বিস্কুট</h3>
-</div>
+}
 
-<div class="product">
-<div class="product-icon">🍜</div>
-<h3>নুডলস</h3>
-</div>
+cart[index].qty=value;
 
-<div class="product">
-<div class="product-icon">🥜</div>
-<h3>চানাচুর</h3>
-</div>
+renderCart();
 
-<div class="product">
-<div class="product-icon">🥔</div>
-<h3>চিপস</h3>
-</div>
+}
+
+
+/* REMOVE */
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+renderCart();
+
+}
+
+
+/* TOTAL */
+
+function calculateTotal(){
+
+let subtotal=0;
+
+cart.forEach(item=>{
+
+subtotal += item.price * item.qty;
+
+});
+
+const delivery = cart.length > 0 ? 99 : 0;
+
+document.getElementById("subtotal").innerText =
+subtotal;
+
+document.getElementById("deliveryCharge").innerText =
+delivery;
+
+document.getElementById("grandTotal").innerText =
+subtotal + delivery;
+
+}
+
+
+/* CLOSE */
+
+function closeOrder(){
+
+document.getElementById("orderPanel").style.display="none";
+
+}
+
+
+/* SEND WHATSAPP */
+
+function sendOrder(){
+
+if(cart.length===0){
+
+alert("দয়া করে আগে পণ্য অর্ডারে যোগ করুন।");
+
+return;
+
+}
+
+const name =
+document.getElementById("customerName").value.trim();
+
+const phone =
+document.getElementById("customerPhone").value.trim();
+
+const address =
+document.getElementById("customerAddress").value.trim();
+
+
+if(!name){
+
+alert("আপনার নাম লিখুন।");
+return;
+
+}
+
+if(!phone){
+
+alert("আপনার মোবাইল নম্বর লিখুন।");
+return;
+
+}
+
+if(!address){
+
+alert("আপনার ডেলিভারি ঠিকানা লিখুন।");
+return;
+
+}
+
+
+let message =
+"🛒 *SIX M STORE - নতুন অর্ডার*%0A%0A";
+
+
+message +=
+"👤 নাম: " + name + "%0A";
+
+message +=
+"📞 মোবাইল: " + phone + "%0A";
+
+message +=
+"📍 ঠিকানা: " + address + "%0A%0A";
+
+
+message +=
+"📦 *অর্ডারের তালিকা:*%0A";
+
+
+cart.forEach((item,index)=>{
+
+message +=
+(index+1) + ". " +
+item.name +
+" — " +
+item.qty +
+" " +
+item.unit +
+" × ৳" +
+item.price +
+" = ৳" +
+(item.price * item.qty) +
+"%0A";
+
+});
+
+
+let subtotal=0;
+
+cart.forEach(item=>{
+
+subtotal += item.price * item.qty;
+
+});
+
+
+message +=
+"%0A💰 পণ্যের মোট: ৳" +
+subtotal;
+
+message +=
+"%0A🚚 ডেলিভারি: ৳99";
+
+message +=
+"%0A💵 *সর্বমোট: ৳" +
+(subtotal+99);
+
+
+const whatsappURL =
+"https://wa.me/8801737781096?text=" +
+message;
+
+
+window.open(whatsappURL,"_blank");
+
+}
+
+</script>
+
+</body>
+</html></div>
 
 <div class="product">
 <div class="product-icon">🍞</div>
