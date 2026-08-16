@@ -1396,4 +1396,265 @@ renderOrder();
 
 /* =====================================================
    মোট হিসাব
-===========================
+===================================================== */
+
+function calculateTotal(){
+
+let subtotal = 0;
+
+
+orderList.forEach(item => {
+
+subtotal += item.price * item.qty;
+
+});
+
+
+const delivery =
+orderList.length > 0 ? 99 : 0;
+
+
+document.getElementById("subtotal").innerText =
+subtotal;
+
+
+document.getElementById("deliveryCharge").innerText =
+delivery;
+
+
+document.getElementById("grandTotal").innerText =
+subtotal + delivery;
+
+}
+
+
+/* =====================================================
+   অর্ডার প্যানেল খোলা
+===================================================== */
+
+function openOrder(){
+
+document.getElementById("orderPanel").style.display =
+"block";
+
+document.body.style.overflow =
+"hidden";
+
+renderOrder();
+
+}
+
+
+/* =====================================================
+   অর্ডার প্যানেল বন্ধ
+===================================================== */
+
+function closeOrder(){
+
+document.getElementById("orderPanel").style.display =
+"none";
+
+document.body.style.overflow =
+"auto";
+
+}
+
+
+/* =====================================================
+   আরও পণ্য যোগ করা
+===================================================== */
+
+function continueShopping(){
+
+closeOrder();
+
+
+setTimeout(() => {
+
+document.querySelector(".section-title")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+},100);
+
+}
+
+
+/* =====================================================
+   বাইরে ক্লিক করলে প্যানেল বন্ধ
+===================================================== */
+
+document.getElementById("orderPanel")
+.addEventListener("click",function(event){
+
+if(event.target === this){
+
+closeOrder();
+
+}
+
+});
+
+
+/* =====================================================
+   WhatsApp-এ অর্ডার পাঠানো
+===================================================== */
+
+function sendOrder(){
+
+if(orderList.length === 0){
+
+alert(
+"দয়া করে আগে অন্তত একটি পণ্য আপনার অর্ডারে যোগ করুন।"
+);
+
+return;
+
+}
+
+
+const name =
+document.getElementById("customerName")
+.value.trim();
+
+
+const phone =
+document.getElementById("customerPhone")
+.value.trim();
+
+
+const address =
+document.getElementById("customerAddress")
+.value.trim();
+
+
+if(!name){
+
+alert("দয়া করে আপনার নাম লিখুন.");
+
+document.getElementById("customerName").focus();
+
+return;
+
+}
+
+
+if(!phone){
+
+alert("দয়া করে আপনার মোবাইল নম্বর লিখুন.");
+
+document.getElementById("customerPhone").focus();
+
+return;
+
+}
+
+
+if(!address){
+
+alert("দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন.");
+
+document.getElementById("customerAddress").focus();
+
+return;
+
+}
+
+
+/* ================= WHATSAPP MESSAGE ================= */
+
+let message =
+"🛒 SIX M STORE - নতুন অর্ডার\n\n";
+
+
+message +=
+"👤 নাম: " + name + "\n";
+
+
+message +=
+"📞 মোবাইল: " + phone + "\n";
+
+
+message +=
+"📍 ঠিকানা: " + address + "\n\n";
+
+
+message +=
+"📦 অর্ডারের তালিকা:\n";
+
+
+let subtotal = 0;
+
+
+orderList.forEach((item,index)=>{
+
+const itemTotal =
+item.price * item.qty;
+
+
+subtotal += itemTotal;
+
+
+message +=
+
+(index + 1) +
+". " +
+item.name +
+" — " +
+item.qty +
+" " +
+item.unit +
+" × ৳" +
+item.price +
+" = ৳" +
+itemTotal +
+"\n";
+
+});
+
+
+const delivery = 99;
+
+const grandTotal =
+subtotal + delivery;
+
+
+message +=
+"\n💰 পণ্যের মোট: ৳" +
+subtotal;
+
+
+message +=
+"\n🚚 ডেলিভারি চার্জ: ৳" +
+delivery;
+
+
+message +=
+"\n💵 সর্বমোট: ৳" +
+grandTotal;
+
+
+message +=
+"\n\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
+
+
+/* ================= WHATSAPP ================= */
+
+const whatsappURL =
+"https://wa.me/8801737781096?text=" +
+encodeURIComponent(message);
+
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
