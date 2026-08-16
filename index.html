@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SIX M STORE | Everyone Deserves Good Service</title>
 
 <meta name="description"
 content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -78,13 +76,27 @@ header{
 .hero h2{
     color:#063b8f;
     font-size:28px;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
+/* হিরোর বর্ণনা - নতুন ডিজাইন */
 .hero p{
-    max-width:700px;
+    max-width:850px;
     margin:auto;
-    color:#555;
+    font-size:21px;
+    font-weight:bold;
+    line-height:1.8;
+    background:linear-gradient(
+        90deg,
+        #e74c3c,
+        #f39c12,
+        #20b858,
+        #0875d1,
+        #8e44ad
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
 }
 
 .container{
@@ -438,8 +450,7 @@ header{
     text-decoration:none;
 }
 
-/* নিচের ৩টি বাটন */
-
+/* ফোন ও WhatsApp বাটন */
 .contact-buttons{
     display:flex;
     justify-content:center;
@@ -464,10 +475,6 @@ header{
 
 .whatsapp{
     background:#20b858;
-}
-
-.map{
-    background:#e74c3c;
 }
 
 footer{
@@ -500,6 +507,11 @@ footer p{
 
     .hero h2{
         font-size:24px;
+    }
+
+    .hero p{
+        font-size:18px;
+        line-height:1.7;
     }
 
     .products{
@@ -548,7 +560,6 @@ footer p{
         text-align:center;
     }
 }
-
 </style>
 </head>
 
@@ -557,7 +568,6 @@ footer p{
 <!-- ================= HEADER ================= -->
 
 <header>
-
 <div class="header-inner">
 
 <div class="logo">
@@ -570,7 +580,6 @@ footer p{
 </div>
 
 </div>
-
 </header>
 
 
@@ -581,8 +590,7 @@ footer p{
 <h2>🛒 SIX M STORE-এ স্বাগতম</h2>
 
 <p>
-দৈনন্দিন প্রয়োজনীয় মুদি, প্রসাধনী, বেভারেজ,
-ক্লিনিং ও অন্যান্য প্রয়োজনীয় পণ্য এখন সহজেই অর্ডার করুন।
+দৈনন্দিন প্রয়োজনীয় মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও অন্যান্য প্রয়োজনীয় পণ্য এখন সহজেই অর্ডার করুন।
 </p>
 
 </section>
@@ -622,12 +630,12 @@ footer p{
 </div>
 
 
-
-<!-- ================= BUTTONS MOVED HERE ================= -->
+<!-- ================= PHONE & WHATSAPP ================= -->
 
 <div class="contact-buttons">
 
-<a class="btn call" href="tel:+8801737781096">
+<a class="btn call"
+href="tel:+8801737781096">
 📞 এখনই ফোন করুন
 </a>
 
@@ -636,6 +644,10 @@ href="https://wa.me/8801737781096"
 target="_blank">
 💬 WhatsApp
 </a>
+
+</div>
+
+</div>
 
 
 <!-- ================= DELIVERY ================= -->
@@ -690,10 +702,10 @@ onclick="openOrder()">
 
 <h2>🛒 আপনার অর্ডার</h2>
 
-<span class="close" onclick="closeOrder()">×</span>
+<span class="close"
+onclick="closeOrder()">×</span>
 
 </div>
-
 
 <div id="orderItems">
 
@@ -707,18 +719,33 @@ onclick="openOrder()">
 <div class="total-box">
 
 <div class="total-row">
+
 <span>পণ্যের মোট মূল্য:</span>
-<span>৳ <span id="subtotal">0</span></span>
+
+<span>
+৳ <span id="subtotal">0</span>
+</span>
+
 </div>
 
 <div class="total-row">
+
 <span>ডেলিভারি চার্জ:</span>
-<span>৳ <span id="deliveryCharge">0</span></span>
+
+<span>
+৳ <span id="deliveryCharge">0</span>
+</span>
+
 </div>
 
 <div class="total-row total-final">
+
 <span>সর্বমোট:</span>
-<span>৳ <span id="grandTotal">0</span></span>
+
+<span>
+৳ <span id="grandTotal">0</span>
+</span>
+
 </div>
 
 </div>
@@ -749,7 +776,8 @@ placeholder="মোবাইল নম্বর লিখুন">
 
 <textarea
 id="customerAddress"
-placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"></textarea>
+placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন">
+</textarea>
 
 <button
 class="send-order"
@@ -947,7 +975,9 @@ ${category.name}
 </h2>
 
 <div class="products">
+
 `;
+
 
 category.products.forEach(product => {
 
@@ -958,6 +988,7 @@ const unit = product[3];
 
 const safeName =
 name.replace(/'/g,"\\'");
+
 
 categoryHTML += `
 
@@ -996,6 +1027,7 @@ onclick="event.stopPropagation();addProduct('${safeName}',${price},'${unit}')">
 
 });
 
+
 categoryHTML += `
 </div>
 </div>
@@ -1015,7 +1047,6 @@ alert(
 );
 
 return;
-
 }
 
 const existing =
@@ -1083,6 +1114,7 @@ box.innerHTML += `
 
 </div>
 
+
 <div class="quantity">
 
 <button onclick="changeQty(${index},-1)">
@@ -1101,6 +1133,7 @@ onchange="setQty(${index},this.value)">
 
 </div>
 
+
 <button
 class="remove"
 onclick="removeItem(${index})">
@@ -1110,6 +1143,7 @@ onclick="removeItem(${index})">
 </button>
 
 </div>
+
 `;
 
 });
@@ -1172,7 +1206,9 @@ function calculateTotal(){
 let subtotal = 0;
 
 orderList.forEach(item => {
+
 subtotal += item.price * item.qty;
+
 });
 
 const delivery =
@@ -1253,6 +1289,7 @@ return;
 
 }
 
+
 const name =
 document.getElementById("customerName")
 .value.trim();
@@ -1268,7 +1305,7 @@ document.getElementById("customerAddress")
 
 if(!name){
 
-alert("দয়া করে আপনার নাম লিখুন।");
+alert("দয়া করে আপনার নাম লিখুন.");
 
 document.getElementById("customerName").focus();
 
@@ -1302,14 +1339,18 @@ return;
 let message =
 "🛒 SIX M STORE - নতুন অর্ডার\n\n";
 
+
 message +=
 "👤 নাম: " + name + "\n";
+
 
 message +=
 "📞 মোবাইল: " + phone + "\n";
 
+
 message +=
 "📍 ঠিকানা: " + address + "\n\n";
+
 
 message +=
 "📦 অর্ডারের তালিকা:\n";
@@ -1352,13 +1393,16 @@ message +=
 "\n💰 পণ্যের মোট: ৳" +
 subtotal;
 
+
 message +=
 "\n🚚 ডেলিভারি চার্জ: ৳" +
 delivery;
 
+
 message +=
 "\n💵 সর্বমোট: ৳" +
 grandTotal;
+
 
 message +=
 "\n\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
@@ -1379,4 +1423,4 @@ whatsappURL,
 </script>
 
 </body>
-    </html>
+</html>
