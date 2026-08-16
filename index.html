@@ -24,8 +24,6 @@ body{
     line-height:1.6;
 }
 
-/* ================= HEADER ================= */
-
 header{
     background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
@@ -71,8 +69,6 @@ header{
     font-size:13px;
 }
 
-/* ================= HERO ================= */
-
 .hero{
     background:white;
     padding:35px 18px;
@@ -91,47 +87,6 @@ header{
     color:#555;
 }
 
-/* ================= BUTTONS ================= */
-
-.buttons{
-    margin-top:22px;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.btn{
-    text-decoration:none;
-    color:white;
-    padding:12px 20px;
-    border-radius:10px;
-    font-weight:bold;
-    display:inline-block;
-    border:none;
-    cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
-}
-
-.call{
-    background:#063b8f;
-}
-
-.whatsapp{
-    background:#20b858;
-}
-
-.map{
-    background:#e74c3c;
-}
-
-.btn:hover{
-    opacity:.9;
-    transform:translateY(-1px);
-}
-
-/* ================= CONTAINER ================= */
-
 .container{
     max-width:1100px;
     margin:auto;
@@ -144,8 +99,6 @@ header{
     font-size:26px;
     margin-bottom:25px;
 }
-
-/* ================= CATEGORY ================= */
 
 .category{
     background:white;
@@ -164,8 +117,6 @@ header{
     padding-bottom:12px;
     border-bottom:2px solid #eaf0f7;
 }
-
-/* ================= PRODUCTS ================= */
 
 .products{
     display:grid;
@@ -220,8 +171,6 @@ header{
     background:#169c49;
 }
 
-/* ================= FLOATING ORDER BUTTON ================= */
-
 .order-floating{
     position:fixed;
     right:18px;
@@ -249,8 +198,6 @@ header{
     justify-content:center;
     margin-left:5px;
 }
-
-/* ================= ORDER PANEL ================= */
 
 #orderPanel{
     display:none;
@@ -294,8 +241,6 @@ header{
     color:#e74c3c;
     line-height:1;
 }
-
-/* ================= ORDER ITEM ================= */
 
 .selected-product{
     background:#f4f7fb;
@@ -357,8 +302,6 @@ header{
     cursor:pointer;
 }
 
-/* ================= TOTAL ================= */
-
 .total-box{
     background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
@@ -383,8 +326,6 @@ header{
     font-weight:bold;
 }
 
-/* ================= ADD MORE ================= */
-
 .add-more{
     width:100%;
     background:#063b8f;
@@ -397,12 +338,6 @@ header{
     font-weight:bold;
     cursor:pointer;
 }
-
-.add-more:hover{
-    background:#052f72;
-}
-
-/* ================= CUSTOMER FORM ================= */
 
 .customer-form{
     margin-top:20px;
@@ -439,14 +374,7 @@ header{
     font-size:17px;
     font-weight:bold;
     cursor:pointer;
-    margin-top:5px;
 }
-
-.send-order:hover{
-    background:#169c49;
-}
-
-/* ================= DELIVERY ================= */
 
 .delivery{
     background:linear-gradient(135deg,#063b8f,#0875d1);
@@ -465,8 +393,6 @@ header{
 .delivery strong{
     color:#ffe082;
 }
-
-/* ================= INFO ================= */
 
 .info{
     background:white;
@@ -512,7 +438,37 @@ header{
     text-decoration:none;
 }
 
-/* ================= FOOTER ================= */
+/* নিচের ৩টি বাটন */
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:bold;
+    display:inline-block;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.call{
+    background:#063b8f;
+}
+
+.whatsapp{
+    background:#20b858;
+}
+
+.map{
+    background:#e74c3c;
+}
 
 footer{
     margin-top:30px;
@@ -531,8 +487,6 @@ footer p{
     opacity:.85;
     margin:3px 0;
 }
-
-/* ================= MOBILE ================= */
 
 @media(max-width:500px){
 
@@ -574,11 +528,6 @@ footer p{
         font-size:19px;
     }
 
-    .btn{
-        padding:11px 15px;
-        font-size:14px;
-    }
-
     .selected-product{
         flex-wrap:wrap;
     }
@@ -594,9 +543,11 @@ footer p{
         font-size:14px;
     }
 
+    .contact-buttons .btn{
+        width:100%;
+        text-align:center;
+    }
 }
-
-/* ================= END CSS ================= */
 
 </style>
 </head>
@@ -634,26 +585,6 @@ footer p{
 ক্লিনিং ও অন্যান্য প্রয়োজনীয় পণ্য এখন সহজেই অর্ডার করুন।
 </p>
 
-<div class="buttons">
-
-<a class="btn call" href="tel:01737781096">
-📞 এখনই ফোন করুন
-</a>
-
-<a class="btn whatsapp"
-href="https://wa.me/8801737781096"
-target="_blank">
-💬 WhatsApp
-</a>
-
-<a class="btn map"
-href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
-target="_blank">
-📍 দিকনির্দেশ
-</a>
-
-</div>
-
 </section>
 
 
@@ -666,31 +597,6 @@ target="_blank">
 </h2>
 
 <div id="productsContainer"></div>
-
-
-<!-- ================= DELIVERY ================= -->
-
-<div class="delivery">
-
-<h2>🚚 Home Delivery সুবিধা</h2>
-
-<p>
-<strong>Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)</strong>
-</p>
-
-<p>
-ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
-</p>
-
-<p>
-<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
-</p>
-
-<p>
-দ্রুত ও সহজ ডেলিভারি সুবিধা।
-</p>
-
-</div>
 
 
 <!-- ================= ADDRESS ================= -->
@@ -733,21 +639,52 @@ target="_blank">
 </div>
 
 
-<div class="info-item">
+<!-- ================= BUTTONS MOVED HERE ================= -->
 
-<div class="info-icon">💬</div>
+<div class="contact-buttons">
 
-<div class="info-text">
+<a class="btn call" href="tel:01737781096">
+📞 এখনই ফোন করুন
+</a>
 
-<strong>WhatsApp</strong>
+<a class="btn whatsapp"
+href="https://wa.me/8801737781096"
+target="_blank">
+💬 WhatsApp
+</a>
 
-<a href="https://wa.me/8801737781096" target="_blank">
-WhatsApp-এ যোগাযোগ করুন
+<a class="btn map"
+href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
+target="_blank">
+📍 দিকনির্দেশ
 </a>
 
 </div>
 
 </div>
+
+
+<!-- ================= DELIVERY ================= -->
+
+<div class="delivery">
+
+<h2>🚚 Home Delivery সুবিধা</h2>
+
+<p>
+<strong>Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)</strong>
+</p>
+
+<p>
+ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
+</p>
+
+<p>
+<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
+</p>
+
+<p>
+দ্রুত ও সহজ ডেলিভারি সুবিধা।
+</p>
 
 </div>
 
@@ -779,11 +716,7 @@ onclick="openOrder()">
 
 <h2>🛒 আপনার অর্ডার</h2>
 
-<span
-class="close"
-onclick="closeOrder()">
-×
-</span>
+<span class="close" onclick="closeOrder()">×</span>
 
 </div>
 
@@ -796,8 +729,6 @@ onclick="closeOrder()">
 
 </div>
 
-
-<!-- TOTAL -->
 
 <div class="total-box">
 
@@ -819,8 +750,6 @@ onclick="closeOrder()">
 </div>
 
 
-<!-- ADD MORE -->
-
 <button
 class="add-more"
 onclick="continueShopping()">
@@ -830,13 +759,9 @@ onclick="continueShopping()">
 </button>
 
 
-<!-- CUSTOMER FORM -->
-
 <div class="customer-form">
 
-<h3>
-👤 কাস্টমারের তথ্য
-</h3>
+<h3>👤 কাস্টমারের তথ্য</h3>
 
 <input
 type="text"
@@ -890,24 +815,11 @@ onclick="sendOrder()">
 
 <script>
 
-/* =====================================================
-   SIX M STORE PRODUCT DATABASE
-
-   দাম পরিবর্তন করতে চাইলে এখানে পরিবর্তন করবেন।
-
-   দাম 0 থাকলে:
-   "দাম শীঘ্রই দেওয়া হবে"
-
-   এবং সেই পণ্য অর্ডার করা যাবে না।
-===================================================== */
-
 const categories = [
 
 {
 name:"🍚 চাল ও ডাল",
-
 products:[
-
 ["মিনিকেট চাল","🍚",60,"কেজি"],
 ["নাজিরশাইল চাল","🍚",90,"কেজি"],
 ["পাইজাম চাল","🍚",85,"কেজি"],
@@ -916,16 +828,12 @@ products:[
 ["মুগ ডাল","🫘",160,"কেজি"],
 ["ছোলা","🫘",95,"কেজি"],
 ["বুটের ডাল","🫘",60,"কেজি"]
-
 ]
-
 },
 
 {
 name:"🫙 তেল ও মসলা",
-
 products:[
-
 ["সয়াবিন তেল","🫙",0,"লিটার"],
 ["সরিষার তেল","🌻",0,"লিটার"],
 ["পাম/সুপর অয়েল","🫙",195,"কেজি"],
@@ -938,16 +846,12 @@ products:[
 ["এলাচ","🌿",0,"প্যাকেট"],
 ["লবঙ্গ","🌿",0,"প্যাকেট"],
 ["তেজপাতা","🍃",0,"প্যাকেট"]
-
 ]
-
 },
 
 {
 name:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-
 products:[
-
 ["আটা","🌾",50,"কেজি"],
 ["ময়দা","🥣",65,"কেজি"],
 ["সুজি","🥣",0,"প্যাকেট"],
@@ -957,75 +861,55 @@ products:[
 ["সেমাই","🍜",0,"প্যাকেট"],
 ["চিড়া","🌾",0,"কেজি"],
 ["মুড়ি","🍘",70,"কেজি"]
-
 ]
-
 },
 
 {
 name:"🥔 সবজি ও রান্নার উপকরণ",
-
 products:[
-
 ["আলু","🥔",25,"কেজি"],
 ["পেঁয়াজ","🧅",60,"কেজি"],
 ["রসুন","🧄",150,"কেজি"],
 ["আদা","🫚",130,"কেজি"],
 ["শুকনা মরিচ","🌶️",0,"কেজি"]
-
 ]
-
 },
 
 {
 name:"🥛 ডেইরি ও খাদ্যপণ্য",
-
 products:[
-
 ["ডিম","🥚",140,"ডজন"],
 ["দুধ","🥛",100,"লিটার"],
 ["ঘি","🧈",0,"কৌটা"],
 ["মাখন","🧈",0,"প্যাকেট"],
 ["দই","🥛",0,"কৌটা"]
-
 ]
-
 },
 
 {
 name:"☕ চা ও পানীয়",
-
 products:[
-
 ["চা পাতা","🍵",0,"প্যাকেট"],
 ["কফি","☕",0,"কৌটা"],
 ["হরলিক্স","🥛",0,"কৌটা"],
 ["কমপ্লান","🥛",0,"কৌটা"]
-
 ]
-
 },
 
 {
 name:"🍪 বিস্কুট ও স্ন্যাকস",
-
 products:[
-
 ["বিস্কুট","🍪",0,"প্যাকেট"],
 ["নুডলস","🍜",0,"প্যাকেট"],
 ["চানাচুর","🥜",0,"প্যাকেট"],
 ["চিপস","🥔",0,"প্যাকেট"],
 ["টোস্ট বিস্কুট","🍞",0,"প্যাকেট"]
-
 ]
-
 },
 
 {
 name:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
-
 products:[
-
 ["কাপড় ধোয়ার পাউডার","🧺",0,"প্যাকেট"],
 ["কাপড় ধোয়ার সাবান","🧼",0,"পিস"],
 ["গোসলের সাবান","🧼",0,"পিস"],
@@ -1034,68 +918,45 @@ products:[
 ["টুথব্রাশ","🪥",0,"পিস"],
 ["ডিশওয়াশ বার","🧽",0,"পিস"],
 ["ব্লিচিং পাউডার","🧹",0,"প্যাকেট"]
-
 ]
-
 },
 
 {
 name:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
-
 products:[
-
 ["ম্যাচ","🔥",0,"বক্স"],
 ["মোমবাতি","🕯️",0,"প্যাকেট"],
 ["টিস্যু","🧻",0,"প্যাকেট"],
 ["অ্যালুমিনিয়াম ফয়েল","📦",0,"রোল"],
 ["পলিথিন ব্যাগ","🛍️",0,"প্যাকেট"]
-
 ]
-
 },
 
 {
 name:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-
 products:[
-
 ["ফেসওয়াশ","🧴",0,"পিস"],
 ["হেয়ার অয়েল","🧴",0,"বোতল"],
 ["পারফিউম","🌸",0,"পিস"],
 ["বডি লোশন","🧴",0,"বোতল"],
 ["চিরুনি","🪮",0,"পিস"]
-
 ]
-
 },
 
 {
 name:"🥤 বেভারেজ ও পানীয়",
-
 products:[
-
 ["কোল্ড ড্রিংকস","🥤",0,"বোতল"],
 ["মিনারেল ওয়াটার","💧",0,"বোতল"],
 ["জুস","🧃",0,"প্যাকেট"],
 ["এনার্জি ড্রিংক","⚡",0,"ক্যান"]
-
 ]
-
 }
 
 ];
 
 
-/* =====================================================
-   আপনার অর্ডারের তালিকা
-===================================================== */
-
 let orderList = [];
-
-
-/* =====================================================
-   PRODUCTS SHOW
-===================================================== */
 
 const productsContainer =
 document.getElementById("productsContainer");
@@ -1112,9 +973,7 @@ ${category.name}
 </h2>
 
 <div class="products">
-
 `;
-
 
 category.products.forEach(product => {
 
@@ -1126,7 +985,6 @@ const unit = product[3];
 const safeName =
 name.replace(/'/g,"\\'");
 
-
 categoryHTML += `
 
 <div class="product"
@@ -1136,9 +994,7 @@ onclick="addProduct('${safeName}',${price},'${unit}')">
 ${icon}
 </div>
 
-<h3>
-${name}
-</h3>
+<h3>${name}</h3>
 
 <div class="price">
 
@@ -1166,24 +1022,15 @@ onclick="event.stopPropagation();addProduct('${safeName}',${price},'${unit}')">
 
 });
 
-
 categoryHTML += `
-
 </div>
-
 </div>
-
 `;
-
 
 productsContainer.innerHTML += categoryHTML;
 
 });
 
-
-/* =====================================================
-   পণ্য অর্ডারে যোগ
-===================================================== */
 
 function addProduct(name,price,unit){
 
@@ -1200,7 +1047,6 @@ return;
 const existing =
 orderList.find(item => item.name === name);
 
-
 if(existing){
 
 existing.qty++;
@@ -1208,41 +1054,31 @@ existing.qty++;
 }else{
 
 orderList.push({
-
 name:name,
 price:price,
 unit:unit,
 qty:1
-
 });
 
 }
 
 renderOrder();
-
 openOrder();
 
 }
 
-
-/* =====================================================
-   আপনার অর্ডার দেখানো
-===================================================== */
 
 function renderOrder(){
 
 const box =
 document.getElementById("orderItems");
 
-
 if(orderList.length === 0){
 
 box.innerHTML = `
 
 <p style="text-align:center;color:#777;padding:15px;">
-
 এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
-
 </p>
 
 `;
@@ -1250,7 +1086,6 @@ box.innerHTML = `
 }else{
 
 box.innerHTML = "";
-
 
 orderList.forEach((item,index)=>{
 
@@ -1260,9 +1095,7 @@ box.innerHTML += `
 
 <div class="selected-info">
 
-<strong>
-${item.name}
-</strong>
+<strong>${item.name}</strong>
 
 <span class="item-price">
 ৳ ${item.price} / ${item.unit}
@@ -1276,30 +1109,23 @@ ${item.name}
 
 </div>
 
-
 <div class="quantity">
 
-<button
-onclick="changeQty(${index},-1)">
+<button onclick="changeQty(${index},-1)">
 −
 </button>
-
 
 <input
 type="number"
 min="1"
 value="${item.qty}"
-onchange="setQty(${index},this.value)"
->
+onchange="setQty(${index},this.value)">
 
-
-<button
-onclick="changeQty(${index},1)">
+<button onclick="changeQty(${index},1)">
 +
 </button>
 
 </div>
-
 
 <button
 class="remove"
@@ -1310,25 +1136,19 @@ onclick="removeItem(${index})">
 </button>
 
 </div>
-
 `;
 
 });
 
 }
 
-
 calculateTotal();
-
 
 let totalQuantity = 0;
 
 orderList.forEach(item => {
-
 totalQuantity += item.qty;
-
 });
-
 
 document.getElementById("orderCount").innerText =
 totalQuantity;
@@ -1336,54 +1156,33 @@ totalQuantity;
 }
 
 
-/* =====================================================
-   পরিমাণ পরিবর্তন
-===================================================== */
-
 function changeQty(index,value){
 
 orderList[index].qty += value;
 
-
 if(orderList[index].qty < 1){
-
 orderList[index].qty = 1;
-
 }
-
 
 renderOrder();
 
 }
 
-
-/* =====================================================
-   সরাসরি পরিমাণ লিখলে
-===================================================== */
 
 function setQty(index,value){
 
 value = parseInt(value);
 
-
 if(isNaN(value) || value < 1){
-
 value = 1;
-
 }
 
-
 orderList[index].qty = value;
-
 
 renderOrder();
 
 }
 
-
-/* =====================================================
-   অর্ডার থেকে পণ্য বাদ
-===================================================== */
 
 function removeItem(index){
 
@@ -1394,43 +1193,28 @@ renderOrder();
 }
 
 
-/* =====================================================
-   মোট হিসাব
-===================================================== */
-
 function calculateTotal(){
 
 let subtotal = 0;
 
-
 orderList.forEach(item => {
-
 subtotal += item.price * item.qty;
-
 });
-
 
 const delivery =
 orderList.length > 0 ? 99 : 0;
 
-
 document.getElementById("subtotal").innerText =
 subtotal;
 
-
 document.getElementById("deliveryCharge").innerText =
 delivery;
-
 
 document.getElementById("grandTotal").innerText =
 subtotal + delivery;
 
 }
 
-
-/* =====================================================
-   অর্ডার প্যানেল খোলা
-===================================================== */
 
 function openOrder(){
 
@@ -1445,10 +1229,6 @@ renderOrder();
 }
 
 
-/* =====================================================
-   অর্ডার প্যানেল বন্ধ
-===================================================== */
-
 function closeOrder(){
 
 document.getElementById("orderPanel").style.display =
@@ -1460,14 +1240,9 @@ document.body.style.overflow =
 }
 
 
-/* =====================================================
-   আরও পণ্য যোগ করা
-===================================================== */
-
 function continueShopping(){
 
 closeOrder();
-
 
 setTimeout(() => {
 
@@ -1482,25 +1257,15 @@ block:"start"
 }
 
 
-/* =====================================================
-   বাইরে ক্লিক করলে প্যানেল বন্ধ
-===================================================== */
-
 document.getElementById("orderPanel")
 .addEventListener("click",function(event){
 
 if(event.target === this){
-
 closeOrder();
-
 }
 
 });
 
-
-/* =====================================================
-   WhatsApp-এ অর্ডার পাঠানো
-===================================================== */
 
 function sendOrder(){
 
@@ -1514,16 +1279,13 @@ return;
 
 }
 
-
 const name =
 document.getElementById("customerName")
 .value.trim();
 
-
 const phone =
 document.getElementById("customerPhone")
 .value.trim();
-
 
 const address =
 document.getElementById("customerAddress")
@@ -1532,7 +1294,7 @@ document.getElementById("customerAddress")
 
 if(!name){
 
-alert("দয়া করে আপনার নাম লিখুন.");
+alert("দয়া করে আপনার নাম লিখুন।");
 
 document.getElementById("customerName").focus();
 
@@ -1543,7 +1305,7 @@ return;
 
 if(!phone){
 
-alert("দয়া করে আপনার মোবাইল নম্বর লিখুন.");
+alert("দয়া করে আপনার মোবাইল নম্বর লিখুন।");
 
 document.getElementById("customerPhone").focus();
 
@@ -1554,7 +1316,7 @@ return;
 
 if(!address){
 
-alert("দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন.");
+alert("দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।");
 
 document.getElementById("customerAddress").focus();
 
@@ -1563,23 +1325,17 @@ return;
 }
 
 
-/* ================= WHATSAPP MESSAGE ================= */
-
 let message =
 "🛒 SIX M STORE - নতুন অর্ডার\n\n";
-
 
 message +=
 "👤 নাম: " + name + "\n";
 
-
 message +=
 "📞 মোবাইল: " + phone + "\n";
 
-
 message +=
 "📍 ঠিকানা: " + address + "\n\n";
-
 
 message +=
 "📦 অর্ডারের তালিকা:\n";
@@ -1593,12 +1349,9 @@ orderList.forEach((item,index)=>{
 const itemTotal =
 item.price * item.qty;
 
-
 subtotal += itemTotal;
 
-
 message +=
-
 (index + 1) +
 ". " +
 item.name +
@@ -1625,22 +1378,17 @@ message +=
 "\n💰 পণ্যের মোট: ৳" +
 subtotal;
 
-
 message +=
 "\n🚚 ডেলিভারি চার্জ: ৳" +
 delivery;
-
 
 message +=
 "\n💵 সর্বমোট: ৳" +
 grandTotal;
 
-
 message +=
 "\n\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
 
-
-/* ================= WHATSAPP ================= */
 
 const whatsappURL =
 "https://wa.me/8801737781096?text=" +
@@ -1657,4 +1405,4 @@ whatsappURL,
 </script>
 
 </body>
-</html>
+    </html>
