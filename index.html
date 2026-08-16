@@ -4,283 +4,352 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SIX M STORE | আপনার বিশ্বাসই আমাদের মূলধন</title>
+<title>SIX M STORE | Everyone Deserves Good Service</title>
+
+<meta name="description"
+content="SIX M STORE - দৈনন্দিন প্রয়োজনীয় সকল মুদিখানা পণ্য। ফোন ও WhatsApp-এ অর্ডার করুন।">
 
 <style>
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-font-family:Arial,"Noto Sans Bengali",sans-serif;
-background:#f4f7fb;
-color:#172033;
-line-height:1.7;
+    font-family:
+    Arial,
+    "Noto Sans Bengali",
+    "Noto Sans",
+    sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    line-height:1.6;
 }
 
 header{
-background:linear-gradient(135deg,#063b8f,#0877d1);
-color:white;
-padding:15px 5%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 4px 18px #0003;
+    background:linear-gradient(135deg,#063b8f,#0875d1);
+    color:white;
+    padding:15px 18px;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:13px;
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
 .logo{
-width:65px;
-height:65px;
-object-fit:contain;
-background:white;
-border-radius:15px;
-padding:5px;
+    width:68px;
+    height:68px;
+    background:white;
+    border-radius:16px;
+    padding:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex-shrink:0;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:12px;
 }
 
 .brand h1{
-font-size:24px;
+    font-size:25px;
+    letter-spacing:1px;
 }
 
 .brand p{
-font-size:12px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:18px;
-font-weight:bold;
+    font-size:13px;
+    opacity:.95;
 }
 
 .hero{
-text-align:center;
-padding:70px 6%;
-background:linear-gradient(180deg,#e7f3ff,#ffffff);
+    background:white;
+    padding:35px 18px;
+    text-align:center;
 }
 
 .hero h2{
-font-size:clamp(35px,7vw,58px);
-color:#063b8f;
-margin-bottom:10px;
+    color:#063b8f;
+    font-size:28px;
+    margin-bottom:10px;
 }
 
 .hero p{
-max-width:720px;
-margin:auto;
-font-size:19px;
-color:#536176;
+    max-width:700px;
+    margin:auto;
+    color:#555;
 }
 
 .buttons{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:12px;
-margin-top:28px;
+    margin-top:22px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
 .btn{
-display:inline-block;
-padding:13px 23px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
+    text-decoration:none;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:bold;
+    display:inline-block;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
 .call{
-background:#0877d1;
-color:white;
+    background:#063b8f;
 }
 
 .whatsapp{
-background:#16a34a;
-color:white;
+    background:#20b858;
 }
 
-.maps{
-background:#e53935;
-color:white;
+.map{
+    background:#e74c3c;
 }
 
-section{
-max-width:1200px;
-margin:auto;
-padding:55px 6%;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px 16px;
 }
 
-.title{
-text-align:center;
-font-size:32px;
-color:#063b8f;
-margin-bottom:30px;
+.section-title{
+    text-align:center;
+    color:#063b8f;
+    font-size:25px;
+    margin-bottom:20px;
 }
 
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(165px,1fr));
-gap:18px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
 }
 
 .product{
-background:white;
-padding:28px 15px;
-text-align:center;
-border-radius:20px;
-box-shadow:0 7px 25px #193b6515;
-border:1px solid #e4ebf4;
-transition:.2s;
+    background:white;
+    border-radius:14px;
+    padding:20px 12px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    transition:.2s;
+    border:1px solid #e7edf5;
 }
 
 .product:hover{
-transform:translateY(-5px);
+    transform:translateY(-3px);
+    box-shadow:0 7px 18px rgba(0,0,0,.12);
 }
 
 .product-icon{
-font-size:43px;
-margin-bottom:9px;
+    font-size:38px;
+    margin-bottom:8px;
 }
 
 .product h3{
-color:#17365d;
+    color:#172033;
+    font-size:17px;
+}
+
+.product p{
+    font-size:13px;
+    color:#777;
+    margin-top:4px;
 }
 
 .delivery{
-background:linear-gradient(135deg,#063b8f,#0877d1);
-color:white;
-border-radius:25px;
-padding:40px 25px;
-text-align:center;
+    background:linear-gradient(135deg,#063b8f,#0875d1);
+    color:white;
+    border-radius:18px;
+    padding:25px 18px;
+    margin-top:25px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
 }
 
 .delivery h2{
-font-size:30px;
-margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .delivery strong{
-font-size:24px;
+    color:#ffe082;
 }
 
-.contact{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
+.info{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    margin-top:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
-.contact-card{
-background:white;
-padding:28px;
-border-radius:20px;
-box-shadow:0 7px 25px #193b6515;
-border:1px solid #e4ebf4;
+.info h2{
+    color:#063b8f;
+    margin-bottom:15px;
+    text-align:center;
 }
 
-.contact-card h3{
-color:#063b8f;
-margin-bottom:10px;
-font-size:21px;
+.info-item{
+    display:flex;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
 }
 
-.address{
-font-size:17px;
-color:#4d5c70;
+.info-item:last-child{
+    border-bottom:none;
+}
+
+.info-icon{
+    font-size:23px;
+    width:35px;
+}
+
+.info-text{
+    flex:1;
+}
+
+.info-text strong{
+    display:block;
+    color:#063b8f;
+}
+
+.info-text a{
+    color:#172033;
+    text-decoration:none;
+}
+
+.order-box{
+    text-align:center;
+    background:#fff;
+    padding:25px 15px;
+    border-radius:16px;
+    margin-top:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.order-box h2{
+    color:#063b8f;
+    margin-bottom:8px;
 }
 
 footer{
-background:#071d3d;
-color:#dce9f8;
-text-align:center;
-padding:28px 15px;
+    margin-top:30px;
+    background:#071b3a;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
 }
 
-footer strong{
-color:white;
+footer h2{
+    margin-bottom:5px;
 }
 
-@media(max-width:700px){
-
-header{
-position:static;
+footer p{
+    font-size:13px;
+    opacity:.85;
 }
 
-nav{
-display:none;
+@media(max-width:500px){
+
+    .brand h1{
+        font-size:21px;
+    }
+
+    .hero h2{
+        font-size:24px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product{
+        padding:16px 8px;
+    }
+
+    .logo{
+        width:60px;
+        height:60px;
+    }
 }
 
-.hero{
-padding:50px 5%;
-}
-
-.hero p{
-font-size:17px;
-}
-
-section{
-padding:45px 5%;
-}
-}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
+
+<div class="header-inner">
+
+<div class="logo">
+
+<!-- আপনার 6M লোগো এখানে দেখা যাবে -->
+<img src="logo.png" alt="SIX M STORE Logo">
+
+</div>
 
 <div class="brand">
 
-<!-- আপনার লোগোর জায়গা -->
-<div class="logo"
-style="display:flex;align-items:center;justify-content:center;
-font-size:20px;font-weight:bold;color:#063b8f;">
-6M
-</div>
-
-<div>
 <h1>SIX M STORE</h1>
-<p>আপনার বিশ্বাসই আমাদের মূলধন</p>
-</div>
+
+<p>আপনার বিশ্বাসই আমাদের মূলধন।</p>
 
 </div>
 
-<nav>
-<a href="#products">পণ্য</a>
-<a href="#delivery">ডেলিভারি</a>
-<a href="#contact">যোগাযোগ</a>
-</nav>
+</div>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-<h2>SIX M STORE</h2>
+<h2>🛒 SIX M STORE-এ স্বাগতম</h2>
 
 <p>
-দৈনন্দিন প্রয়োজনীয় সকল মুদির পণ্য এখন সহজেই অর্ডার করুন
-এবং প্রয়োজন অনুযায়ী হোম ডেলিভারি সুবিধা গ্রহণ করুন।
+দৈনন্দিন প্রয়োজনীয় সকল মুদিখানা পণ্য
+সহজে অর্ডার করুন। আপনার প্রয়োজনীয় বাজার
+এখন আপনার হাতের মুঠোয়।
 </p>
 
 <div class="buttons">
 
 <a class="btn call"
-href="tel:+8801737781096">
-📞 এখনই কল করুন
+href="tel:01737781096">
+📞 এখনই ফোন করুন
 </a>
 
 <a class="btn whatsapp"
-href="https://wa.me/8801737781096?text=আসসালামু%20আলাইকুম,%20আমি%20SIX%20M%20STORE-এ%20অর্ডার%20করতে%20চাই।">
-💬 WhatsApp-এ অর্ডার
+href="https://wa.me/8801737781096"
+target="_blank">
+💬 WhatsApp অর্ডার
+</a>
+
+<a class="btn map"
+href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
+target="_blank">
+📍 দিকনির্দেশ নিন
 </a>
 
 </div>
@@ -288,162 +357,234 @@ href="https://wa.me/8801737781096?text=আসসালামু%20আলাই�
 </section>
 
 
-<section id="products">
+<!-- PRODUCTS -->
 
-<h2 class="title">🛒 আমাদের পণ্য</h2>
+<div class="container">
+
+<h2 class="section-title">
+🛍️ আমাদের প্রয়োজনীয় পণ্যসমূহ
+</h2>
 
 <div class="products">
 
 <div class="product">
 <div class="product-icon">🍚</div>
 <h3>চাল</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🥣</div>
-<h3>ডাল</h3>
+<p>বিভিন্ন ধরনের চাল</p>
 </div>
 
 <div class="product">
 <div class="product-icon">🌾</div>
-<h3>আটা ও ময়দা</h3>
+<h3>আটা</h3>
+<p>মানসম্মত আটা</p>
 </div>
 
 <div class="product">
-<div class="product-icon">🫗</div>
+<div class="product-icon">🥣</div>
+<h3>ময়দা</h3>
+<p>প্রয়োজনীয় ময়দা</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🫘</div>
+<h3>ডাল</h3>
+<p>বিভিন্ন ধরনের ডাল</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🫙</div>
 <h3>তেল</h3>
+<p>সয়াবিন ও সরিষার তেল</p>
 </div>
 
 <div class="product">
 <div class="product-icon">🧂</div>
-<h3>চিনি ও লবণ</h3>
+<h3>লবণ</h3>
+<p>মানসম্মত লবণ</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🍬</div>
+<h3>চিনি</h3>
+<p>দৈনন্দিন প্রয়োজনীয় চিনি</p>
 </div>
 
 <div class="product">
 <div class="product-icon">🌶️</div>
 <h3>মসলা</h3>
+<p>বিভিন্ন প্রয়োজনীয় মসলা</p>
 </div>
 
 <div class="product">
-<div class="product-icon">🥔</div>
-<h3>আলু-পেঁয়াজ</h3>
+<div class="product-icon">🧅</div>
+<h3>পেঁয়াজ</h3>
+<p>নিত্যপ্রয়োজনীয় পণ্য</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧄</div>
+<h3>রসুন</h3>
+<p>তাজা রসুন</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🫚</div>
+<h3>আদা</h3>
+<p>তাজা আদা</p>
 </div>
 
 <div class="product">
 <div class="product-icon">🫘</div>
 <h3>ছোলা</h3>
-</div>
-
-<div class="product">
-<div class="product-icon">🧴</div>
-<h3>সস, জেলি ও অন্যান্য</h3>
+<p>মানসম্মত ছোলা</p>
 </div>
 
 </div>
 
-</section>
 
-
-<section id="delivery">
+<!-- DELIVERY -->
 
 <div class="delivery">
 
-<h2>🚚 হোম ডেলিভারি সুবিধা</h2>
+<h2>🚚 Home Delivery সুবিধা</h2>
 
 <p>
-আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
-আমরা আপনার ঠিকানায় পৌঁছে দেওয়ার ব্যবস্থা করি।
+ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
 </p>
 
-<p style="margin-top:12px;">
-<strong>ডেলিভারি চার্জ: মাত্র ৯৯/- টাকা</strong>
+<p>
+<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
 </p>
 
 </div>
 
-</section>
 
+<!-- ADDRESS -->
 
-<section id="contact">
+<div class="info">
 
-<h2 class="title">📞 যোগাযোগ ও ঠিকানা</h2>
+<h2>📍 আমাদের ঠিকানা</h2>
 
-<div class="contact">
+<div class="info-item">
 
+<div class="info-icon">🏪</div>
 
-<div class="contact-card">
+<div class="info-text">
 
-<h3>📞 ফোন নম্বর</h3>
+<strong>ঠিকানা</strong>
 
-<p>
-<strong>01737-781096</strong>
-</p>
-
-<a class="btn call"
-style="margin-top:15px;"
-href="tel:+8801737781096">
-📞 কল করুন
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<h3>💬 WhatsApp</h3>
-
-<p>
-01737-781096
-</p>
-
-<a class="btn whatsapp"
-style="margin-top:15px;"
-href="https://wa.me/8801737781096?text=আসসালামু%20আলাইকুম,%20আমি%20SIX%20M%20STORE-এ%20অর্ডার%20করতে%20চাই।">
-💬 WhatsApp করুন
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<h3>📍 আমাদের ঠিকানা</h3>
-
-<p class="address">
 ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
 হালিশহর রোড, আগ্রাবাদ,
 চট্টগ্রাম, বাংলাদেশ।
-</p>
 
-<a class="btn maps"
-style="margin-top:15px;"
-href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
-target="_blank">
-📍 Google Maps-এ দিকনির্দেশ নিন
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-icon">📞</div>
+
+<div class="info-text">
+
+<strong>মোবাইল</strong>
+
+<a href="tel:01737781096">
+01737781096
 </a>
 
 </div>
 
 </div>
 
-</section>
 
+<div class="info-item">
+
+<div class="info-icon">💬</div>
+
+<div class="info-text">
+
+<strong>WhatsApp</strong>
+
+<a href="https://wa.me/8801737781096"
+target="_blank">
+
+01737781096
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ORDER -->
+
+<div class="order-box">
+
+<h2>📦 অর্ডার করতে চান?</h2>
+
+<p>
+আপনার প্রয়োজনীয় পণ্যের তালিকা WhatsApp-এ পাঠিয়ে দিন।
+</p>
+
+<div class="buttons">
+
+<a class="btn whatsapp"
+href="https://wa.me/8801737781096"
+target="_blank">
+
+💬 WhatsApp-এ অর্ডার করুন
+
+</a>
+
+<a class="btn call"
+href="tel:01737781096">
+
+📞 ফোন করে অর্ডার করুন
+
+</a>
+
+</div>
+
+<br>
+
+<a class="btn map"
+href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
+target="_blank">
+
+🗺️ Google Maps-এ দিকনির্দেশ নিন
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
 
 <footer>
 
+<h2>SIX M STORE</h2>
+
 <p>
-<strong>SIX M STORE</strong>
+আপনার বিশ্বাসই আমাদের মূলধন।
 </p>
 
 <p>
-আপনার বিশ্বাসই আমাদের মূলধন ❤️
+📞 01737781096
 </p>
 
-<p style="margin-top:8px;">
-© 2026 SIX M STORE — সর্বস্বত্ব সংরক্ষিত
+<p>
+© 2026 SIX M STORE. All Rights Reserved.
 </p>
 
 </footer>
+
 
 </body>
 </html>
