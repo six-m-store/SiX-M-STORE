@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SIX M STORE | Everyone Deserves Good Service </title>
+<title>SIX M STORE | Everyone Deserves Good Service</title>
 
 <meta name="description"
-content="SIX M STORE - দৈনন্দিন প্রয়োজনীয় সকল মুদিখানা পণ্য। ফোন ও WhatsApp-এ অর্ডার করুন।">
+content="SIX M STORE - দৈনন্দিন প্রয়োজনীয় মুদি, প্রসাধনী, বেভারেজ ও ক্লিনিং পণ্য। ফোন ও WhatsApp-এ অর্ডার করুন।">
 
 <style>
 
@@ -18,11 +18,7 @@ content="SIX M STORE - দৈনন্দিন প্রয়োজনীয় স�
 }
 
 body{
-    font-family:
-    Arial,
-    "Noto Sans Bengali",
-    "Noto Sans",
-    sans-serif;
+    font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
     background:#f4f7fb;
     color:#172033;
     line-height:1.6;
@@ -108,6 +104,11 @@ header{
     font-weight:bold;
     display:inline-block;
     box-shadow:0 4px 10px rgba(0,0,0,.15);
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
 }
 
 .call{
@@ -135,48 +136,71 @@ header{
     margin-bottom:20px;
 }
 
+/* CATEGORY */
+
+.category{
+    background:white;
+    border-radius:18px;
+    padding:20px 15px;
+    margin-bottom:25px;
+    box-shadow:0 3px 14px rgba(0,0,0,.08);
+    border:1px solid #e5ebf3;
+}
+
+.category-title{
+    text-align:center;
+    color:#063b8f;
+    font-size:23px;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:2px solid #eaf0f7;
+}
+
+/* PRODUCTS */
+
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+    gap:14px;
 }
 
 .product{
-    background:white;
+    background:#f9fbfe;
     border-radius:14px;
-    padding:20px 12px;
+    padding:18px 10px;
     text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    border:1px solid #e3eaf3;
     transition:.2s;
-    border:1px solid #e7edf5;
 }
 
 .product:hover{
     transform:translateY(-3px);
-    box-shadow:0 7px 18px rgba(0,0,0,.12);
+    box-shadow:0 7px 18px rgba(0,0,0,.10);
 }
 
 .product-icon{
     font-size:38px;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .product h3{
     color:#172033;
-    font-size:17px;
+    font-size:16px;
 }
 
 .product p{
-    font-size:13px;
+    font-size:12px;
     color:#777;
-    margin-top:4px;
+    margin-top:3px;
 }
+
+/* DELIVERY */
 
 .delivery{
     background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
     border-radius:18px;
-    padding:25px 18px;
+    padding:27px 18px;
     margin-top:25px;
     text-align:center;
     box-shadow:0 5px 18px rgba(0,0,0,.15);
@@ -189,6 +213,8 @@ header{
 .delivery strong{
     color:#ffe082;
 }
+
+/* INFO */
 
 .info{
     background:white;
@@ -234,6 +260,8 @@ header{
     text-decoration:none;
 }
 
+/* ORDER */
+
 .order-box{
     text-align:center;
     background:#fff;
@@ -247,6 +275,8 @@ header{
     color:#063b8f;
     margin-bottom:8px;
 }
+
+/* FOOTER */
 
 footer{
     margin-top:30px;
@@ -263,12 +293,19 @@ footer h2{
 footer p{
     font-size:13px;
     opacity:.85;
+    margin:3px 0;
 }
+
+/* MOBILE */
 
 @media(max-width:500px){
 
     .brand h1{
         font-size:21px;
+    }
+
+    .brand p{
+        font-size:11px;
     }
 
     .hero h2{
@@ -281,12 +318,29 @@ footer p{
     }
 
     .product{
-        padding:16px 8px;
+        padding:15px 7px;
+    }
+
+    .product-icon{
+        font-size:34px;
+    }
+
+    .product h3{
+        font-size:15px;
     }
 
     .logo{
         width:60px;
         height:60px;
+    }
+
+    .category-title{
+        font-size:20px;
+    }
+
+    .btn{
+        padding:11px 15px;
+        font-size:14px;
     }
 }
 
@@ -302,18 +356,12 @@ footer p{
 <div class="header-inner">
 
 <div class="logo">
-
-<!-- আপনার 6M লোগো এখানে দেখা যাবে -->
 <img src="logo.png" alt="SIX M STORE Logo">
-
 </div>
 
 <div class="brand">
-
 <h1>SIX M STORE</h1>
-
-<p>Everyone Deserves  Good Service.</p>
-
+<p>Everyone Deserves Good Service.</p>
 </div>
 
 </div>
@@ -328,9 +376,9 @@ footer p{
 <h2>🛒 SIX M STORE-এ স্বাগতম</h2>
 
 <p>
-দৈনন্দিন প্রয়োজনীয় সকল মুদিখানা পণ্য
-সহজে অর্ডার করুন। আপনার প্রয়োজনীয় বাজার
-এখন আপনার হাতের মুঠোয়।
+দৈনন্দিন প্রয়োজনীয় মুদি, প্রসাধনী, বেভারেজ
+ও ক্লিনিং পণ্য এখন সহজেই অর্ডার করুন।
+আপনার প্রয়োজনীয় বাজার আপনার হাতের মুঠোয়।
 </p>
 
 <div class="buttons">
@@ -357,12 +405,21 @@ target="_blank">
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- ALL PRODUCTS -->
 
 <div class="container">
 
 <h2 class="section-title">
-🛍️ আমাদের প্রয়োজনীয় পণ্যসমূহ
+🛍️ আমাদের পণ্যসমূহ
+</h2>
+
+
+<!-- মুদি পণ্য -->
+
+<div class="category">
+
+<h2 class="category-title">
+🛒 মুদি ও দৈনন্দিন প্রয়োজনীয় পণ্য
 </h2>
 
 <div class="products">
@@ -393,8 +450,14 @@ target="_blank">
 
 <div class="product">
 <div class="product-icon">🫙</div>
-<h3>তেল</h3>
-<p>সয়াবিন ও সরিষার তেল</p>
+<h3>সয়াবিন তেল</h3>
+<p>মানসম্মত তেল</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🌻</div>
+<h3>সরিষার তেল</h3>
+<p>খাঁটি সরিষার তেল</p>
 </div>
 
 <div class="product">
@@ -439,6 +502,235 @@ target="_blank">
 <p>মানসম্মত ছোলা</p>
 </div>
 
+<div class="product">
+<div class="product-icon">🥔</div>
+<h3>আলু</h3>
+<p>দৈনন্দিন প্রয়োজনীয়</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🍝</div>
+<h3>নুডলস</h3>
+<p>বিভিন্ন ব্র্যান্ড</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🍪</div>
+<h3>বিস্কুট</h3>
+<p>বিভিন্ন ধরনের বিস্কুট</p>
+</div>
+
+</div>
+</div>
+
+
+<!-- প্রসাধনী -->
+
+<div class="category">
+
+<h2 class="category-title">
+💄 প্রসাধনী ও পার্সোনাল কেয়ার
+</h2>
+
+<div class="products">
+
+<div class="product">
+<div class="product-icon">🧴</div>
+<h3>শ্যাম্পু</h3>
+<p>বিভিন্ন ব্র্যান্ড</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧼</div>
+<h3>সাবান</h3>
+<p>বডি ও গোসলের সাবান</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🪥</div>
+<h3>টুথপেস্ট</h3>
+<p>দাঁতের যত্নে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🪥</div>
+<h3>টুথব্রাশ</h3>
+<p>বিভিন্ন ধরনের</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧴</div>
+<h3>ফেসওয়াশ</h3>
+<p>ত্বকের যত্নে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🪮</div>
+<h3>চিরুনি</h3>
+<p>বিভিন্ন ডিজাইন</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧴</div>
+<h3>হেয়ার অয়েল</h3>
+<p>চুলের যত্নে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧻</div>
+<h3>টিস্যু</h3>
+<p>দৈনন্দিন ব্যবহারের</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧴</div>
+<h3>বডি লোশন</h3>
+<p>ত্বকের যত্নে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🌸</div>
+<h3>পারফিউম</h3>
+<p>সুগন্ধির বিভিন্ন ধরন</p>
+</div>
+
+</div>
+</div>
+
+
+<!-- BEVERAGE -->
+
+<div class="category">
+
+<h2 class="category-title">
+🥤 বেভারেজ ও পানীয়
+</h2>
+
+<div class="products">
+
+<div class="product">
+<div class="product-icon">🥤</div>
+<h3>কোল্ড ড্রিংকস</h3>
+<p>বিভিন্ন ব্র্যান্ড</p>
+</div>
+
+<div class="product">
+<div class="product-icon">💧</div>
+<h3>মিনারেল ওয়াটার</h3>
+<p>বিশুদ্ধ পানীয় জল</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧃</div>
+<h3>জুস</h3>
+<p>বিভিন্ন ফ্লেভার</p>
+</div>
+
+<div class="product">
+<div class="product-icon">☕</div>
+<h3>চা</h3>
+<p>বিভিন্ন ব্র্যান্ড</p>
+</div>
+
+<div class="product">
+<div class="product-icon">☕</div>
+<h3>কফি</h3>
+<p>বিভিন্ন ধরনের কফি</p>
+</div>
+
+<div class="product">
+<div class="product-icon">⚡</div>
+<h3>এনার্জি ড্রিংক</h3>
+<p>বিভিন্ন ব্র্যান্ড</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🥛</div>
+<h3>দুধ</h3>
+<p>বিভিন্ন প্যাকেটজাত দুধ</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🍫</div>
+<h3>চকলেট ড্রিংক</h3>
+<p>বিভিন্ন ধরনের</p>
+</div>
+
+</div>
+</div>
+
+
+<!-- CLEANING -->
+
+<div class="category">
+
+<h2 class="category-title">
+🧹 ক্লিনিং ও হোম কেয়ার
+</h2>
+
+<div class="products">
+
+<div class="product">
+<div class="product-icon">🧼</div>
+<h3>ডিটারজেন্ট</h3>
+<p>কাপড় পরিষ্কারের জন্য</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧹</div>
+<h3>ফ্লোর ক্লিনার</h3>
+<p>ঘর পরিষ্কারে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧴</div>
+<h3>ডিশওয়াশ</h3>
+<p>বাসন পরিষ্কারে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧽</div>
+<h3>স্ক্রাবার</h3>
+<p>পরিষ্কারের কাজে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧹</div>
+<h3>ঝাড়ু</h3>
+<p>ঘর পরিষ্কারে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🪣</div>
+<h3>বালতি</h3>
+<p>হোম কেয়ার পণ্য</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧻</div>
+<h3>টিস্যু পেপার</h3>
+<p>দৈনন্দিন ব্যবহারে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🗑️</div>
+<h3>ময়লার ব্যাগ</h3>
+<p>বিভিন্ন সাইজ</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧴</div>
+<h3>গ্লাস ক্লিনার</h3>
+<p>কাচ পরিষ্কারে</p>
+</div>
+
+<div class="product">
+<div class="product-icon">🧴</div>
+<h3>বাথরুম ক্লিনার</h3>
+<p>বাথরুম পরিষ্কারে</p>
+</div>
+
+</div>
 </div>
 
 
@@ -456,6 +748,10 @@ target="_blank">
 <strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
 </p>
 
+<p>
+দ্রুত ও সহজ ডেলিভারি সুবিধা।
+</p>
+
 </div>
 
 
@@ -471,7 +767,7 @@ target="_blank">
 
 <div class="info-text">
 
-<strong>ঠিকানা</strong>
+<strong>দোকানের ঠিকানা</strong>
 
 ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
 হালিশহর রোড, আগ্রাবাদ,
@@ -481,6 +777,34 @@ target="_blank">
 
 </div>
 
+
+<div class="info-item">
+
+<div class="info-icon">📞</div>
+
+<div class="info-text">
+
+<strong>মোবাইল</strong>
+
+<a href="tel:01737781096">
+01737781096
+</a>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-icon">💬</div>
+
+<div class="info-text">
+
+<strong>WhatsApp</strong>
+
+<a href="https://wa.me/8801737781096" target="_blank">
+WhatsApp-এ যোগাযোগ করুন
 </a>
 
 </div>
@@ -556,4 +880,4 @@ target="_blank">
 
 
 </body>
-</html>
+    </html>
