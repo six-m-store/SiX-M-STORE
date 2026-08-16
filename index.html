@@ -6,11 +6,9 @@
 
 <title>SIX M STORE | Everyone Deserves Good Service</title>
 
-<meta name="description"
-content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
+<meta name="description" content="SIX M STORE - দৈনন্দিন প্রয়োজনীয় পণ্য সহজে অর্ডার করুন।">
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -25,7 +23,6 @@ body{
 }
 
 /* HEADER */
-
 header{
     background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
@@ -51,8 +48,6 @@ header{
     align-items:center;
     justify-content:center;
     overflow:hidden;
-    flex-shrink:0;
-    box-shadow:0 4px 12px rgba(0,0,0,.25);
 }
 
 .logo img{
@@ -72,7 +67,6 @@ header{
 }
 
 /* HERO */
-
 .hero{
     background:white;
     padding:35px 18px;
@@ -111,20 +105,11 @@ header{
     box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
-.call{
-    background:#063b8f;
-}
-
-.whatsapp{
-    background:#20b858;
-}
-
-.map{
-    background:#e74c3c;
-}
+.call{background:#063b8f;}
+.whatsapp{background:#20b858;}
+.map{background:#e74c3c;}
 
 /* CONTAINER */
-
 .container{
     max-width:1100px;
     margin:auto;
@@ -139,7 +124,6 @@ header{
 }
 
 /* CATEGORY */
-
 .category{
     background:white;
     border-radius:18px;
@@ -159,7 +143,6 @@ header{
 }
 
 /* PRODUCTS */
-
 .products{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
@@ -173,7 +156,6 @@ header{
     text-align:center;
     border:1px solid #e3eaf3;
     transition:.2s;
-    cursor:pointer;
 }
 
 .product:hover{
@@ -187,7 +169,6 @@ header{
 }
 
 .product h3{
-    color:#172033;
     font-size:16px;
 }
 
@@ -201,24 +182,44 @@ header{
     background:#20b858;
     color:white;
     border:none;
-    padding:7px 12px;
+    padding:8px 12px;
     border-radius:8px;
     margin-top:8px;
     cursor:pointer;
     font-weight:bold;
 }
 
-/* ORDER PANEL */
+/* FLOATING CART */
+.cart-floating{
+    position:fixed;
+    right:18px;
+    bottom:20px;
+    z-index:5000;
+    background:#063b8f;
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:13px 18px;
+    font-size:16px;
+    font-weight:bold;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+    cursor:pointer;
+}
 
+.cart-count{
+    background:#e74c3c;
+    padding:3px 8px;
+    border-radius:20px;
+    margin-left:5px;
+}
+
+/* CART */
 #orderPanel{
     display:none;
     position:fixed;
     z-index:9999;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.55);
+    inset:0;
+    background:rgba(0,0,0,.58);
     overflow:auto;
 }
 
@@ -226,8 +227,8 @@ header{
     background:white;
     width:94%;
     max-width:650px;
-    margin:25px auto;
-    border-radius:18px;
+    margin:20px auto;
+    border-radius:20px;
     padding:20px;
     box-shadow:0 10px 35px rgba(0,0,0,.3);
 }
@@ -251,13 +252,13 @@ header{
     color:#e74c3c;
 }
 
+/* CART ITEMS */
 .selected-product{
     background:#f4f7fb;
     padding:12px;
     border-radius:12px;
     margin-bottom:10px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
     gap:10px;
 }
@@ -273,7 +274,7 @@ header{
 .quantity{
     display:flex;
     align-items:center;
-    gap:5px;
+    gap:4px;
 }
 
 .quantity button{
@@ -288,7 +289,7 @@ header{
 }
 
 .quantity input{
-    width:55px;
+    width:50px;
     height:32px;
     text-align:center;
     border:1px solid #ccc;
@@ -304,18 +305,45 @@ header{
     cursor:pointer;
 }
 
+/* MORE PRODUCTS */
+.more-products{
+    width:100%;
+    margin-top:15px;
+    background:#f1f5fa;
+    color:#063b8f;
+    border:2px solid #063b8f;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:15px;
+}
+
+/* TOTAL */
 .total-box{
-    background:#063b8f;
+    background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
     padding:15px;
     border-radius:12px;
     margin-top:15px;
     text-align:center;
-    font-size:18px;
+    font-size:17px;
 }
 
+.total-box hr{
+    border:none;
+    border-top:1px solid rgba(255,255,255,.4);
+    margin:8px 0;
+}
+
+/* CUSTOMER FORM */
 .customer-form{
     margin-top:18px;
+}
+
+.customer-form h3{
+    color:#063b8f;
+    margin-bottom:10px;
 }
 
 .customer-form input,
@@ -344,11 +372,9 @@ header{
     font-size:17px;
     font-weight:bold;
     cursor:pointer;
-    margin-top:5px;
 }
 
 /* DELIVERY */
-
 .delivery{
     background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
@@ -356,11 +382,6 @@ header{
     padding:28px 18px;
     margin-top:25px;
     text-align:center;
-    box-shadow:0 5px 18px rgba(0,0,0,.15);
-}
-
-.delivery h2{
-    margin-bottom:8px;
 }
 
 .delivery strong{
@@ -368,7 +389,6 @@ header{
 }
 
 /* INFO */
-
 .info{
     background:white;
     border-radius:16px;
@@ -414,17 +434,12 @@ header{
 }
 
 /* FOOTER */
-
 footer{
     margin-top:30px;
     background:#071b3a;
     color:white;
     text-align:center;
     padding:28px 15px;
-}
-
-footer h2{
-    margin-bottom:6px;
 }
 
 footer p{
@@ -434,7 +449,6 @@ footer p{
 }
 
 /* MOBILE */
-
 @media(max-width:500px){
 
     .brand h1{
@@ -471,25 +485,21 @@ footer p{
         font-size:19px;
     }
 
-    .btn{
-        padding:11px 15px;
-        font-size:14px;
-    }
-
     .selected-product{
         flex-wrap:wrap;
     }
-}
 
+    .cart-floating{
+        right:12px;
+        bottom:15px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
-
 <div class="header-inner">
 
 <div class="logo">
@@ -502,11 +512,7 @@ footer p{
 </div>
 
 </div>
-
 </header>
-
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -536,11 +542,8 @@ target="_blank">
 </a>
 
 </div>
-
 </section>
 
-
-<!-- PRODUCTS -->
 
 <div class="container">
 
@@ -551,8 +554,6 @@ target="_blank">
 <div id="productsContainer"></div>
 
 
-<!-- DELIVERY -->
-
 <div class="delivery">
 
 <h2>🚚 Home Delivery সুবিধা</h2>
@@ -561,22 +562,14 @@ target="_blank">
 <strong>Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)</strong>
 </p>
 
-<p>
-ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
-</p>
+<p>ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।</p>
 
-<p>
-<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
-</p>
+<p><strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong></p>
 
-<p>
-দ্রুত ও সহজ ডেলিভারি সুবিধা।
-</p>
+<p>দ্রুত ও সহজ ডেলিভারি সুবিধা।</p>
 
 </div>
 
-
-<!-- ADDRESS -->
 
 <div class="info">
 
@@ -635,7 +628,15 @@ WhatsApp-এ যোগাযোগ করুন
 </div>
 
 
-<!-- ORDER POPUP -->
+<!-- FLOATING CART -->
+
+<button class="cart-floating" onclick="openCart()">
+🛒 কার্ট
+<span class="cart-count" id="cartCount">0</span>
+</button>
+
+
+<!-- ORDER PANEL -->
 
 <div id="orderPanel">
 
@@ -645,7 +646,7 @@ WhatsApp-এ যোগাযোগ করুন
 
 <h2>🛒 আপনার অর্ডার</h2>
 
-<span class="close" onclick="closeOrder()">×</span>
+<span class="close" onclick="closeCart()">×</span>
 
 </div>
 
@@ -657,6 +658,12 @@ WhatsApp-এ যোগাযোগ করুন
 
 </div>
 
+
+<button class="more-products" onclick="continueShopping()">
+🛍️ আরও পণ্য যোগ করুন
+</button>
+
+
 <div class="total-box">
 
 মোট পণ্যের মূল্য:
@@ -665,58 +672,64 @@ WhatsApp-এ যোগাযোগ করুন
 <br>
 
 ডেলিভারি চার্জ:
-৳ <span id="deliveryCharge">99</span>
+৳ <span id="deliveryCharge">0</span>
 
-<hr style="margin:8px 0;border:none;border-top:1px solid rgba(255,255,255,.4);">
+<hr>
 
+<strong>
 সর্বমোট:
-৳ <span id="grandTotal">99</span>
+৳ <span id="grandTotal">0</span>
+</strong>
 
 </div>
 
 
 <div class="customer-form">
 
-<h3 style="color:#063b8f;margin-bottom:10px;">
-👤 কাস্টমারের তথ্য
-</h3>
+<h3>👤 কাস্টমারের তথ্য</h3>
 
 <input
 type="text"
 id="customerName"
-placeholder="আপনার নাম লিখুন"
->
+placeholder="আপনার নাম লিখুন">
 
 <input
 type="tel"
 id="customerPhone"
-placeholder="মোবাইল নম্বর লিখুন"
->
+placeholder="মোবাইল নম্বর লিখুন">
 
 <textarea
 id="customerAddress"
-placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"
-></textarea>
+placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"></textarea>
 
-<button
-class="send-order"
-onclick="sendOrder()">
+<button class="send-order" onclick="sendOrder()">
 💬 WhatsApp-এ অর্ডার পাঠান
 </button>
 
 </div>
 
 </div>
-
 </div>
+
+
+<footer>
+
+<h2>SIX M STORE</h2>
+
+<p>আপনার বিশ্বাসই আমাদের মূলধন।</p>
+
+<p>📞 01782-371255</p>
+
+<p>© 2026 SIX M STORE. All Rights Reserved.</p>
+
+</footer>
 
 
 <script>
 
-/* ==============================
-   SIX M STORE PRODUCT DATABASE
-   দাম পরে এখানে পরিবর্তন করবেন
-   ============================== */
+/* =========================
+   PRODUCT DATABASE
+   ========================= */
 
 const categories = [
 
@@ -859,16 +872,17 @@ products:[
 ];
 
 
-/* ==============================
-   PRODUCT SHOW
-   ============================== */
+/* =========================
+   SHOW PRODUCTS
+   ========================= */
 
 const container =
 document.getElementById("productsContainer");
 
-categories.forEach(category => {
+categories.forEach(category=>{
 
-let categoryHTML = `
+let html=`
+
 <div class="category">
 
 <h2 class="category-title">
@@ -878,17 +892,16 @@ ${category.name}
 <div class="products">
 `;
 
-category.products.forEach((product,index) => {
+category.products.forEach(product=>{
 
-const name = product[0];
-const icon = product[1];
-const price = product[2];
-const unit = product[3];
+const name=product[0];
+const icon=product[1];
+const price=product[2];
+const unit=product[3];
 
-categoryHTML += `
+html+=`
 
-<div class="product"
-onclick="addProduct('${name}',${price},'${unit}')">
+<div class="product">
 
 <div class="product-icon">
 ${icon}
@@ -897,12 +910,18 @@ ${icon}
 <h3>${name}</h3>
 
 <div class="price">
-${price > 0 ? "৳ "+price+" / "+unit : "দাম শীঘ্রই দেওয়া হবে"}
+
+${
+price>0
+? "৳ "+price+" / "+unit
+: "দাম শীঘ্রই দেওয়া হবে"
+}
+
 </div>
 
 <button
 class="order-btn"
-onclick="event.stopPropagation();addProduct('${name}',${price},'${unit}')">
+onclick="addProduct('${name}',${price},'${unit}')">
 
 ➕ অর্ডারে যোগ করুন
 
@@ -914,28 +933,29 @@ onclick="event.stopPropagation();addProduct('${name}',${price},'${unit}')">
 
 });
 
-categoryHTML += `
+html+=`
+
 </div>
 </div>
 `;
 
-container.innerHTML += categoryHTML;
+container.innerHTML+=html;
 
 });
 
 
-/* ==============================
-   ORDER SYSTEM
-   ============================== */
+/* =========================
+   CART SYSTEM
+   ========================= */
 
-let cart = [];
+let cart=[];
 
 
-/* PRODUCT ADD */
+/* ADD PRODUCT */
 
 function addProduct(name,price,unit){
 
-if(price <= 0){
+if(price<=0){
 
 alert(
 "এই পণ্যের দাম এখনো দেওয়া হয়নি।\nদাম যোগ করার পর অর্ডার করা যাবে।"
@@ -945,8 +965,8 @@ return;
 
 }
 
-const existing =
-cart.find(item => item.name === name);
+const existing=
+cart.find(item=>item.name===name);
 
 if(existing){
 
@@ -963,24 +983,67 @@ qty:1
 
 }
 
-renderCart();
+updateCart();
 
-document.getElementById("orderPanel").style.display="block";
+openCart();
 
 }
 
 
-/* CART SHOW */
+/* OPEN CART */
 
-function renderCart(){
+function openCart(){
 
-const box =
+document.getElementById("orderPanel").style.display="block";
+
+document.body.style.overflow="hidden";
+
+updateCart();
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart(){
+
+document.getElementById("orderPanel").style.display="none";
+
+document.body.style.overflow="auto";
+
+}
+
+
+/* CONTINUE SHOPPING */
+
+function continueShopping(){
+
+closeCart();
+
+window.scrollTo({
+top:document.querySelector(".section-title").offsetTop-20,
+behavior:"smooth"
+});
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+const box=
 document.getElementById("orderItems");
 
 if(cart.length===0){
 
-box.innerHTML =
-'<p style="text-align:center;color:#777;">এখনো কোনো পণ্য যোগ করা হয়নি।</p>';
+box.innerHTML=`
+
+<p style="text-align:center;color:#777;padding:15px;">
+আপনার কার্ট এখন খালি।
+</p>
+
+`;
 
 }else{
 
@@ -988,20 +1051,22 @@ box.innerHTML="";
 
 cart.forEach((item,index)=>{
 
-box.innerHTML += `
+box.innerHTML+=`
 
 <div class="selected-product">
 
 <div class="selected-info">
 
-<strong>${item.name}</strong>
+<strong>
+${item.name}
+</strong>
 
 ৳ ${item.price} / ${item.unit}
 
 <br>
 
 <strong>
-৳ ${item.price * item.qty}
+৳ ${item.price*item.qty}
 </strong>
 
 </div>
@@ -1045,31 +1110,36 @@ onclick="removeItem(${index})">
 
 calculateTotal();
 
+document.getElementById("cartCount").innerText=
+cart.reduce((sum,item)=>sum+item.qty,0);
+
 }
 
 
-/* QUANTITY */
+/* CHANGE QUANTITY */
 
 function changeQty(index,value){
 
-cart[index].qty += value;
+cart[index].qty+=value;
 
-if(cart[index].qty < 1){
+if(cart[index].qty<1){
 
-cart[index].qty = 1;
-
-}
-
-renderCart();
+cart[index].qty=1;
 
 }
 
+updateCart();
+
+}
+
+
+/* SET QUANTITY */
 
 function setQty(index,value){
 
-value = parseInt(value);
+value=parseInt(value);
 
-if(isNaN(value) || value < 1){
+if(isNaN(value)||value<1){
 
 value=1;
 
@@ -1077,7 +1147,7 @@ value=1;
 
 cart[index].qty=value;
 
-renderCart();
+updateCart();
 
 }
 
@@ -1088,7 +1158,7 @@ function removeItem(index){
 
 cart.splice(index,1);
 
-renderCart();
+updateCart();
 
 }
 
@@ -1101,34 +1171,28 @@ let subtotal=0;
 
 cart.forEach(item=>{
 
-subtotal += item.price * item.qty;
+subtotal+=item.price*item.qty;
 
 });
 
-const delivery = cart.length > 0 ? 99 : 0;
+const delivery=
+cart.length>0 ? 99 : 0;
 
-document.getElementById("subtotal").innerText =
+document.getElementById("subtotal").innerText=
 subtotal;
 
-document.getElementById("deliveryCharge").innerText =
+document.getElementById("deliveryCharge").innerText=
 delivery;
 
-document.getElementById("grandTotal").innerText =
-subtotal + delivery;
+document.getElementById("grandTotal").innerText=
+subtotal+delivery;
 
 }
 
 
-/* CLOSE */
-
-function closeOrder(){
-
-document.getElementById("orderPanel").style.display="none";
-
-}
-
-
-/* SEND WHATSAPP */
+/* =========================
+   SEND WHATSAPP
+   ========================= */
 
 function sendOrder(){
 
@@ -1140,13 +1204,13 @@ return;
 
 }
 
-const name =
+const name=
 document.getElementById("customerName").value.trim();
 
-const phone =
+const phone=
 document.getElementById("customerPhone").value.trim();
 
-const address =
+const address=
 document.getElementById("customerAddress").value.trim();
 
 
@@ -1172,132 +1236,76 @@ return;
 }
 
 
-let message =
-"🛒 *SIX M STORE - নতুন অর্ডার*%0A%0A";
+let subtotal=0;
 
+let message=
+"🛒 SIX M STORE - নতুন অর্ডার\n\n";
 
-message +=
-"👤 নাম: " + name + "%0A";
+message+=
+"👤 নাম: "+name+"\n";
 
-message +=
-"📞 মোবাইল: " + phone + "%0A";
+message+=
+"📞 মোবাইল: "+phone+"\n";
 
-message +=
-"📍 ঠিকানা: " + address + "%0A%0A";
+message+=
+"📍 ঠিকানা: "+address+"\n\n";
 
-
-message +=
-"📦 *অর্ডারের তালিকা:*%0A";
+message+=
+"📦 অর্ডারের তালিকা:\n";
 
 
 cart.forEach((item,index)=>{
 
-message +=
-(index+1) + ". " +
-item.name +
-" — " +
-item.qty +
-" " +
-item.unit +
-" × ৳" +
-item.price +
-" = ৳" +
-(item.price * item.qty) +
-"%0A";
+const itemTotal=
+item.price*item.qty;
+
+subtotal+=itemTotal;
+
+message+=
+(index+1)+". "+
+item.name+
+" — "+
+item.qty+" "+
+item.unit+
+" × ৳"+item.price+
+" = ৳"+itemTotal+
+"\n";
 
 });
 
 
-let subtotal=0;
+const delivery=99;
 
-cart.forEach(item=>{
-
-subtotal += item.price * item.qty;
-
-});
+const grandTotal=
+subtotal+delivery;
 
 
-message +=
-"%0A💰 পণ্যের মোট: ৳" +
-subtotal;
+message+=
+"\n💰 পণ্যের মোট: ৳"+subtotal;
 
-message +=
-"%0A🚚 ডেলিভারি: ৳99";
+message+=
+"\n🚚 ডেলিভারি চার্জ: ৳"+delivery;
 
-message +=
-"%0A💵 *সর্বমোট: ৳" +
-(subtotal+99);
+message+=
+"\n💵 সর্বমোট: ৳"+grandTotal;
 
-
-const whatsappURL =
-"https://wa.me/8801737781096?text=" +
-message;
+message+=
+"\n\nধন্যবাদ — SIX M STORE";
 
 
-window.open(whatsappURL,"_blank");
+const whatsappURL=
+"https://wa.me/8801737781096?text="+
+encodeURIComponent(message);
+
+
+window.open(
+whatsappURL,
+"_blank"
+);
 
 }
 
 </script>
-
-</body>
-</html></div>
-
-<div class="product">
-
-<h2>📦 অর্ডার করতে চান?</h2>
-
-<p>
-আপনার প্রয়োজনীয় পণ্যের তালিকা WhatsApp-এ পাঠিয়ে দিন।
-</p>
-
-<div class="buttons">
-
-<a class="btn whatsapp"
-href="https://wa.me/8801737781096"
-target="_blank">
-💬 WhatsApp-এ অর্ডার করুন
-</a>
-
-<a class="btn call"
-href="tel:01737781096">
-📞 ফোন করে অর্ডার করুন
-</a>
-
-</div>
-
-<br>
-
-<a class="btn map"
-href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
-target="_blank">
-🗺️ Google Maps-এ দিকনির্দেশ নিন
-</a>
-
-</div>
-
-</div>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<h2>SIX M STORE</h2>
-
-<p>
-আপনার বিশ্বাসই আমাদের মূলধন।
-</p>
-
-<p>
-📞 01782-371255
-</p>
-
-<p>
-© 2026 SIX M STORE. All Rights Reserved.
-</p>
-
-</footer>
 
 </body>
 </html>
