@@ -91,6 +91,8 @@ header{
     color:#555;
 }
 
+/* ================= BUTTONS ================= */
+
 .buttons{
     margin-top:22px;
     display:flex;
@@ -121,6 +123,11 @@ header{
 
 .map{
     background:#e74c3c;
+}
+
+.btn:hover{
+    opacity:.9;
+    transform:translateY(-1px);
 }
 
 /* ================= CONTAINER ================= */
@@ -589,7 +596,7 @@ footer p{
 
 }
 
-/* ================= END ================= */
+/* ================= END CSS ================= */
 
 </style>
 </head>
@@ -628,6 +635,26 @@ footer p{
 </p>
 
 <div class="buttons">
+
+<a class="btn call" href="tel:01737781096">
+📞 এখনই ফোন করুন
+</a>
+
+<a class="btn whatsapp"
+href="https://wa.me/8801737781096"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<a class="btn map"
+href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
+target="_blank">
+📍 দিকনির্দেশ
+</a>
+
+</div>
+
+</section>
 
 
 <!-- ================= PRODUCTS ================= -->
@@ -688,26 +715,6 @@ footer p{
 
 </div>
 
-    
-<a class="btn call" href="tel:01737781096">
-📞 এখনই ফোন করুন
-</a>
-
-<a class="btn whatsapp"
-href="https://wa.me/8801737781096"
-target="_blank">
-💬 WhatsApp
-</a>
-
-<a class="btn map"
-href="https://maps.app.goo.gl/iVwTYtsyFvTPyDPq7"
-target="_blank">
-📍 দিকনির্দেশ
-</a>
-
-</div>
-
-</section>
 
 <div class="info-item">
 
@@ -783,7 +790,7 @@ onclick="closeOrder()">
 
 <div id="orderItems">
 
-<p style="text-align:center;color:#777;">
+<p style="text-align:center;color:#777;padding:15px;">
 এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
 </p>
 
@@ -823,7 +830,7 @@ onclick="continueShopping()">
 </button>
 
 
-<!-- CUSTOMER -->
+<!-- CUSTOMER FORM -->
 
 <div class="customer-form">
 
@@ -886,20 +893,13 @@ onclick="sendOrder()">
 /* =====================================================
    SIX M STORE PRODUCT DATABASE
 
-   এখানে দাম পরিবর্তন করতে পারবেন।
+   দাম পরিবর্তন করতে চাইলে এখানে পরিবর্তন করবেন।
 
-   উদাহরণ:
-   ["মিনিকেট চাল","🍚",60,"কেজি"]
-
-   60 = দাম
-
-   দাম না থাকলে:
-   ["সয়াবিন তেল","🫙",0,"লিটার"]
-
-   তখন ওয়েবসাইটে দেখাবে:
+   দাম 0 থাকলে:
    "দাম শীঘ্রই দেওয়া হবে"
-===================================================== */
 
+   এবং সেই পণ্য অর্ডার করা যাবে না।
+===================================================== */
 
 const categories = [
 
@@ -920,7 +920,6 @@ products:[
 ]
 
 },
-
 
 {
 name:"🫙 তেল ও মসলা",
@@ -944,7 +943,6 @@ products:[
 
 },
 
-
 {
 name:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
 
@@ -964,7 +962,6 @@ products:[
 
 },
 
-
 {
 name:"🥔 সবজি ও রান্নার উপকরণ",
 
@@ -979,7 +976,6 @@ products:[
 ]
 
 },
-
 
 {
 name:"🥛 ডেইরি ও খাদ্যপণ্য",
@@ -996,7 +992,6 @@ products:[
 
 },
 
-
 {
 name:"☕ চা ও পানীয়",
 
@@ -1010,7 +1005,6 @@ products:[
 ]
 
 },
-
 
 {
 name:"🍪 বিস্কুট ও স্ন্যাকস",
@@ -1026,7 +1020,6 @@ products:[
 ]
 
 },
-
 
 {
 name:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
@@ -1046,7 +1039,6 @@ products:[
 
 },
 
-
 {
 name:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
 
@@ -1062,7 +1054,6 @@ products:[
 
 },
 
-
 {
 name:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
 
@@ -1077,7 +1068,6 @@ products:[
 ]
 
 },
-
 
 {
 name:"🥤 বেভারেজ ও পানীয়",
@@ -1162,7 +1152,6 @@ price > 0
 
 </div>
 
-
 <button
 class="order-btn"
 onclick="event.stopPropagation();addProduct('${safeName}',${price},'${unit}')">
@@ -1198,8 +1187,6 @@ productsContainer.innerHTML += categoryHTML;
 
 function addProduct(name,price,unit){
 
-/* দাম না থাকলে অর্ডার হবে না */
-
 if(price <= 0){
 
 alert(
@@ -1209,9 +1196,6 @@ alert(
 return;
 
 }
-
-
-/* আগে যোগ করা আছে কিনা */
 
 const existing =
 orderList.find(item => item.name === name);
@@ -1234,13 +1218,7 @@ qty:1
 
 }
 
-
-/* অর্ডার দেখানো */
-
 renderOrder();
-
-
-/* অর্ডার প্যানেল খোলা */
 
 openOrder();
 
@@ -1340,12 +1318,8 @@ onclick="removeItem(${index})">
 }
 
 
-/* মোট হিসাব */
-
 calculateTotal();
 
-
-/* অর্ডারের মোট পণ্যের সংখ্যা */
 
 let totalQuantity = 0;
 
@@ -1422,273 +1396,4 @@ renderOrder();
 
 /* =====================================================
    মোট হিসাব
-===================================================== */
-
-function calculateTotal(){
-
-let subtotal = 0;
-
-
-orderList.forEach(item => {
-
-subtotal += item.price * item.qty;
-
-});
-
-
-const delivery =
-orderList.length > 0 ? 99 : 0;
-
-
-document.getElementById("subtotal").innerText =
-subtotal;
-
-
-document.getElementById("deliveryCharge").innerText =
-delivery;
-
-
-document.getElementById("grandTotal").innerText =
-subtotal + delivery;
-
-}
-
-
-/* =====================================================
-   অর্ডার প্যানেল খোলা
-===================================================== */
-
-function openOrder(){
-
-document.getElementById("orderPanel").style.display =
-"block";
-
-document.body.style.overflow =
-"hidden";
-
-renderOrder();
-
-}
-
-
-/* =====================================================
-   অর্ডার প্যানেল বন্ধ
-===================================================== */
-
-function closeOrder(){
-
-document.getElementById("orderPanel").style.display =
-"none";
-
-document.body.style.overflow =
-"auto";
-
-}
-
-
-/* =====================================================
-   আরও পণ্য যোগ করা
-===================================================== */
-
-function continueShopping(){
-
-closeOrder();
-
-
-setTimeout(() => {
-
-document.querySelector(".section-title")
-.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-},100);
-
-}
-
-
-/* =====================================================
-   বাইরে ক্লিক করলে প্যানেল বন্ধ
-===================================================== */
-
-document.getElementById("orderPanel")
-.addEventListener("click",function(event){
-
-if(event.target === this){
-
-closeOrder();
-
-}
-
-});
-
-
-/* =====================================================
-   WhatsApp-এ অর্ডার পাঠানো
-===================================================== */
-
-function sendOrder(){
-
-/* পণ্য আছে কিনা */
-
-if(orderList.length === 0){
-
-alert(
-"দয়া করে আগে অন্তত একটি পণ্য আপনার অর্ডারে যোগ করুন।"
-);
-
-return;
-
-}
-
-
-/* কাস্টমারের তথ্য */
-
-const name =
-document.getElementById("customerName")
-.value.trim();
-
-
-const phone =
-document.getElementById("customerPhone")
-.value.trim();
-
-
-const address =
-document.getElementById("customerAddress")
-.value.trim();
-
-
-/* তথ্য যাচাই */
-
-if(!name){
-
-alert("দয়া করে আপনার নাম লিখুন।");
-
-document.getElementById("customerName").focus();
-
-return;
-
-}
-
-
-if(!phone){
-
-alert("দয়া করে আপনার মোবাইল নম্বর লিখুন।");
-
-document.getElementById("customerPhone").focus();
-
-return;
-
-}
-
-
-if(!address){
-
-alert("দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।");
-
-document.getElementById("customerAddress").focus();
-
-return;
-
-}
-
-
-/* WhatsApp Message */
-
-let message =
-"🛒 SIX M STORE - নতুন অর্ডার\n\n";
-
-
-message +=
-"👤 নাম: " + name + "\n";
-
-
-message +=
-"📞 মোবাইল: " + phone + "\n";
-
-
-message +=
-"📍 ঠিকানা: " + address + "\n\n";
-
-
-message +=
-"📦 অর্ডারের তালিকা:\n";
-
-
-let subtotal = 0;
-
-
-orderList.forEach((item,index)=>{
-
-const itemTotal =
-item.price * item.qty;
-
-
-subtotal += itemTotal;
-
-
-message +=
-
-(index + 1) +
-". " +
-item.name +
-" — " +
-item.qty +
-" " +
-item.unit +
-" × ৳" +
-item.price +
-" = ৳" +
-itemTotal +
-"\n";
-
-});
-
-
-const delivery = 99;
-
-const grandTotal =
-subtotal + delivery;
-
-
-message +=
-"\n💰 পণ্যের মোট: ৳" +
-subtotal;
-
-
-message +=
-"\n🚚 ডেলিভারি চার্জ: ৳" +
-delivery;
-
-
-message +=
-"\n💵 সর্বমোট: ৳" +
-grandTotal;
-
-
-message +=
-"\n\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
-
-
-/* WhatsApp URL */
-
-const whatsappURL =
-"https://wa.me/8801737781096?text=" +
-encodeURIComponent(message);
-
-
-/* WhatsApp খুলবে */
-
-window.open(
-whatsappURL,
-"_blank"
-);
-
-}
-
-</script>
-
-</body>
-</html>
+===========================
