@@ -10,6 +10,7 @@
 content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -82,6 +83,7 @@ header{
     opacity:.95;
 }
 
+
 /* ================= HERO ================= */
 
 .hero{
@@ -102,6 +104,7 @@ header{
     font-size:20px;
     font-weight:bold;
     line-height:1.8;
+
     background:linear-gradient(
         90deg,
         #e74c3c,
@@ -110,10 +113,12 @@ header{
         #0875d1,
         #8e44ad
     );
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     background-clip:text;
 }
+
 
 /* ================= MAIN ================= */
 
@@ -130,6 +135,7 @@ header{
     margin-bottom:20px;
 }
 
+
 /* ================= SEARCH ================= */
 
 .search-area{
@@ -137,7 +143,7 @@ header{
     padding:15px;
     border-radius:16px;
     box-shadow:0 3px 14px rgba(0,0,0,.07);
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
 .search-box{
@@ -167,37 +173,76 @@ header{
     font-size:22px;
 }
 
-/* ================= CATEGORY FILTER ================= */
 
-.category-filter{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:4px 2px 10px;
-    scrollbar-width:none;
+/* ================= CATEGORY DROPDOWN ================= */
+
+.category-selector{
+    background:white;
+    padding:15px;
+    border-radius:16px;
+    box-shadow:0 3px 14px rgba(0,0,0,.07);
+    margin-bottom:22px;
 }
 
-.category-filter::-webkit-scrollbar{
-    display:none;
-}
-
-.filter-btn{
-    border:none;
-    background:#eef4fb;
+.category-label{
+    display:block;
     color:#063b8f;
-    padding:9px 15px;
-    border-radius:30px;
-    white-space:nowrap;
+    font-size:16px;
     font-weight:bold;
+    margin-bottom:8px;
+}
+
+.category-select-wrapper{
+    position:relative;
+}
+
+.category-select{
+    width:100%;
+    appearance:none;
+    -webkit-appearance:none;
+
+    background:#f8fbff;
+
+    border:2px solid #d9e5f2;
+
+    border-radius:12px;
+
+    padding:14px 45px 14px 15px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    color:#172033;
+
     cursor:pointer;
+
+    outline:none;
+
     transition:.2s;
 }
 
-.filter-btn:hover,
-.filter-btn.active{
-    background:#063b8f;
-    color:white;
+.category-select:hover{
+    border-color:#0875d1;
 }
+
+.category-select:focus{
+    border-color:#063b8f;
+
+    box-shadow:
+    0 0 0 3px rgba(6,59,143,.10);
+}
+
+.select-arrow{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    pointer-events:none;
+    font-size:20px;
+    color:#063b8f;
+}
+
 
 /* ================= CATEGORY ================= */
 
@@ -219,6 +264,7 @@ header{
     border-bottom:2px solid #eaf0f7;
 }
 
+
 /* ================= PRODUCTS ================= */
 
 .products{
@@ -235,7 +281,6 @@ header{
     border:1px solid #e1e8f1;
     transition:.25s;
     cursor:pointer;
-    position:relative;
 }
 
 .product:hover{
@@ -287,6 +332,7 @@ header{
     background:#169c49;
 }
 
+
 /* ================= NO RESULT ================= */
 
 .no-result{
@@ -304,6 +350,7 @@ header{
     color:#063b8f;
     margin-bottom:5px;
 }
+
 
 /* ================= FLOATING ORDER ================= */
 
@@ -334,6 +381,7 @@ header{
     justify-content:center;
     margin-left:5px;
 }
+
 
 /* ================= ORDER PANEL ================= */
 
@@ -379,6 +427,7 @@ header{
     color:#e74c3c;
     line-height:1;
 }
+
 
 /* ================= SELECTED PRODUCT ================= */
 
@@ -442,6 +491,7 @@ header{
     cursor:pointer;
 }
 
+
 /* ================= TOTAL ================= */
 
 .total-box{
@@ -493,6 +543,7 @@ header{
     cursor:pointer;
 }
 
+
 /* ================= CUSTOMER FORM ================= */
 
 .customer-form{
@@ -538,9 +589,6 @@ header{
     cursor:pointer;
 }
 
-.send-order:hover{
-    background:#169c49;
-}
 
 /* ================= DELIVERY ================= */
 
@@ -562,6 +610,7 @@ header{
 .delivery strong{
     color:#ffe082;
 }
+
 
 /* ================= INFO ================= */
 
@@ -604,6 +653,7 @@ header{
     color:#063b8f;
 }
 
+
 /* ================= CONTACT ================= */
 
 .contact-buttons{
@@ -632,6 +682,7 @@ header{
     background:#20b858;
 }
 
+
 /* ================= FOOTER ================= */
 
 footer{
@@ -651,6 +702,7 @@ footer p{
     opacity:.85;
     margin:4px 0;
 }
+
 
 /* ================= MOBILE ================= */
 
@@ -754,11 +806,14 @@ footer p{
         width:100%;
         text-align:center;
     }
+
 }
+
 </style>
 </head>
 
 <body>
+
 
 <!-- ================= HEADER ================= -->
 
@@ -767,12 +822,23 @@ footer p{
 <div class="header-inner">
 
 <div class="logo">
-<img src="logo.png" alt="SIX M STORE Logo">
+
+<img
+src="logo.png"
+alt="SIX M STORE Logo">
+
 </div>
 
 <div class="brand">
-<h1>SIX M STORE</h1>
-<p>Everyone Deserves Good Service.</p>
+
+<h1>
+SIX M STORE
+</h1>
+
+<p>
+Everyone Deserves Good Service.
+</p>
+
 </div>
 
 </div>
@@ -784,7 +850,9 @@ footer p{
 
 <section class="hero">
 
-<h2>🛒 SIX M STORE-এ স্বাগতম</h2>
+<h2>
+🛒 SIX M STORE-এ স্বাগতম
+</h2>
 
 <p>
 এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু, একসাথে।
@@ -794,16 +862,17 @@ footer p{
 </section>
 
 
-<!-- ================= PRODUCTS ================= -->
+<!-- ================= MAIN ================= -->
 
 <div class="container">
+
 
 <h2 class="section-title">
 🛍️ আমাদের পণ্যসমূহ
 </h2>
 
 
-<!-- SEARCH -->
+<!-- ================= SEARCH ================= -->
 
 <div class="search-area">
 
@@ -824,29 +893,55 @@ oninput="searchProducts()">
 </div>
 
 
-<!-- CATEGORY FILTER -->
+<!-- ================= CATEGORY DROPDOWN ================= -->
 
-<div class="category-filter" id="categoryFilter">
+<div class="category-selector">
 
-<button
-class="filter-btn active"
-onclick="filterCategory('all',this)">
-সব পণ্য
-</button>
+<label
+class="category-label"
+for="categorySelect">
+
+🗂️ পণ্যের ক্যাটাগরি নির্বাচন করুন
+
+</label>
+
+
+<div class="category-select-wrapper">
+
+<select
+id="categorySelect"
+class="category-select"
+onchange="filterCategory(this.value)">
+
+<option value="all">
+🛍️ সব পণ্য দেখুন
+</option>
+
+</select>
+
+<span class="select-arrow">
+▼
+</span>
+
+</div>
 
 </div>
 
 
-<!-- PRODUCT AREA -->
+<!-- ================= PRODUCTS ================= -->
 
-<div id="productsContainer"></div>
+<div id="productsContainer">
+</div>
+
 
 <div
 id="noResult"
 class="no-result"
 style="display:none;">
 
-<strong>😔 কোনো পণ্য পাওয়া যায়নি</strong>
+<strong>
+😔 কোনো পণ্য পাওয়া যায়নি
+</strong>
 
 <p>
 অন্য কোনো পণ্যের নাম দিয়ে আবার চেষ্টা করুন।
@@ -859,7 +954,10 @@ style="display:none;">
 
 <div class="info">
 
-<h2>📍 আমাদের ঠিকানা</h2>
+<h2>
+📍 আমাদের ঠিকানা
+</h2>
+
 
 <div class="info-item">
 
@@ -869,7 +967,9 @@ style="display:none;">
 
 <div class="info-text">
 
-<strong>দোকানের ঠিকানা</strong>
+<strong>
+দোকানের ঠিকানা
+</strong>
 
 ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
 হালিশহর রোড, আগ্রাবাদ,
@@ -880,7 +980,7 @@ style="display:none;">
 </div>
 
 
-<!-- PHONE -->
+<!-- PHONE & WHATSAPP -->
 
 <div class="contact-buttons">
 
@@ -911,7 +1011,9 @@ target="_blank">
 
 <div class="delivery">
 
-<h2>🚚 Home Delivery সুবিধা</h2>
+<h2>
+🚚 Home Delivery সুবিধা
+</h2>
 
 <p>
 <strong>
@@ -963,9 +1065,12 @@ id="orderCount">
 
 <div class="order-content">
 
+
 <div class="order-header">
 
-<h2>🛒 আপনার অর্ডার</h2>
+<h2>
+🛒 আপনার অর্ডার
+</h2>
 
 <span
 class="close"
@@ -990,6 +1095,7 @@ style="text-align:center;color:#777;padding:15px;">
 
 
 <div class="total-box">
+
 
 <div class="total-row">
 
@@ -1050,7 +1156,7 @@ onclick="continueShopping()">
 </button>
 
 
-<!-- CUSTOMER -->
+<!-- CUSTOMER FORM -->
 
 <div class="customer-form">
 
@@ -1104,7 +1210,7 @@ SIX M STORE
 </p>
 
 <p>
-📞 +8801782-371255
+📞 01782-371255
 </p>
 
 <p>
@@ -1116,8 +1222,9 @@ SIX M STORE
 
 <script>
 
+
 /* =========================================================
-   SIX M STORE PRODUCT DATABASE
+   PRODUCT DATABASE
    ========================================================= */
 
 const categories = [
@@ -1141,8 +1248,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🫙 তেল ও মসলা",
 
 products:[
@@ -1166,8 +1273,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
 
 products:[
@@ -1186,8 +1293,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🥔 সবজি ও রান্নার উপকরণ",
 
 products:[
@@ -1202,8 +1309,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🥛 ডেইরি ও খাদ্যপণ্য",
 
 products:[
@@ -1218,8 +1325,8 @@ products:[
 
 },
 
-{
 
+{
 name:"☕ চা ও পানীয়",
 
 products:[
@@ -1233,8 +1340,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🍪 বিস্কুট ও স্ন্যাকস",
 
 products:[
@@ -1249,8 +1356,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
 
 products:[
@@ -1268,8 +1375,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
 
 products:[
@@ -1283,8 +1390,8 @@ products:[
 
 },
 
-{
 
+{
 name:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
 
 products:[
@@ -1299,8 +1406,8 @@ products:[
 
 },
 
-{
 
+{
 name:"🥤 বেভারেজ ও পানীয়",
 
 products:[
@@ -1318,38 +1425,31 @@ products:[
 
 
 /* =========================================================
-   ORDER SYSTEM
+   ORDER LIST
    ========================================================= */
 
 let orderList = [];
 
-let activeCategory = "all";
-
 
 /* =========================================================
-   CATEGORY BUTTONS
+   CATEGORY DROPDOWN তৈরি
    ========================================================= */
 
-const categoryFilter =
-document.getElementById("categoryFilter");
+const categorySelect =
+document.getElementById("categorySelect");
+
 
 categories.forEach((category,index)=>{
 
-const button =
-document.createElement("button");
+const option =
+document.createElement("option");
 
-button.className = "filter-btn";
+option.value = index;
 
-button.innerText =
+option.textContent =
 category.name;
 
-button.onclick = function(){
-
-filterCategory(index,this);
-
-};
-
-categoryFilter.appendChild(button);
+categorySelect.appendChild(option);
 
 });
 
@@ -1365,6 +1465,7 @@ document.getElementById("productsContainer");
 
 container.innerHTML = "";
 
+
 const searchValue =
 document
 .getElementById("searchInput")
@@ -1372,18 +1473,30 @@ document
 .toLowerCase()
 .trim();
 
+
+const selectedCategory =
+categorySelect.value;
+
+
 let found = false;
 
 
 categories.forEach((category,index)=>{
 
+
+/* CATEGORY FILTER */
+
 if(
-activeCategory !== "all" &&
-activeCategory !== index
+selectedCategory !== "all" &&
+Number(selectedCategory) !== index
 ){
+
 return;
+
 }
 
+
+/* SEARCH FILTER */
 
 const filteredProducts =
 category.products.filter(product=>{
@@ -1410,7 +1523,9 @@ let categoryHTML = `
 <div class="category">
 
 <h2 class="category-title">
+
 ${category.name}
+
 </h2>
 
 <div class="products">
@@ -1429,15 +1544,21 @@ const price = product[2];
 const unit = product[3];
 
 
+const safeName =
+name.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'");
+
+
 categoryHTML += `
 
 <div
 class="product"
 onclick="addProduct(
-'${escapeText(name)}',
+'${safeName}',
 ${price},
 '${unit}'
 )">
+
 
 <div class="product-icon">
 
@@ -1469,7 +1590,7 @@ class="order-btn"
 onclick="event.stopPropagation();
 
 addProduct(
-'${escapeText(name)}',
+'${safeName}',
 ${price},
 '${unit}'
 );">
@@ -1477,6 +1598,7 @@ ${price},
 ➕ অর্ডারে যোগ করুন
 
 </button>
+
 
 </div>
 
@@ -1488,31 +1610,21 @@ ${price},
 categoryHTML += `
 
 </div>
+
 </div>
 
 `;
 
 
-container.innerHTML += categoryHTML;
+container.innerHTML +=
+categoryHTML;
 
 });
 
 
-document.getElementById("noResult").style.display =
+document.getElementById("noResult")
+.style.display =
 found ? "none" : "block";
-
-}
-
-
-/* =========================================================
-   ESCAPE TEXT
-   ========================================================= */
-
-function escapeText(text){
-
-return text
-.replace(/\\/g,"\\\\")
-.replace(/'/g,"\\'");
 
 }
 
@@ -1523,19 +1635,6 @@ return text
 
 function searchProducts(){
 
-activeCategory = "all";
-
-document
-.querySelectorAll(".filter-btn")
-.forEach((button,index)=>{
-
-button.classList.toggle(
-"active",
-index === 0
-);
-
-});
-
 displayProducts();
 
 }
@@ -1545,17 +1644,7 @@ displayProducts();
    CATEGORY FILTER
    ========================================================= */
 
-function filterCategory(category,button){
-
-activeCategory = category;
-
-document
-.querySelectorAll(".filter-btn")
-.forEach(btn=>{
-btn.classList.remove("active");
-});
-
-button.classList.add("active");
+function filterCategory(value){
 
 displayProducts();
 
@@ -1581,7 +1670,7 @@ return;
 
 const existing =
 orderList.find(
-item=>item.name === name
+item => item.name === name
 );
 
 
@@ -1640,11 +1729,13 @@ style="text-align:center;color:#777;padding:15px;">
 
 box.innerHTML = "";
 
+
 orderList.forEach((item,index)=>{
 
 box.innerHTML += `
 
 <div class="selected-product">
+
 
 <div class="selected-info">
 
@@ -1653,19 +1744,25 @@ ${item.name}
 </strong>
 
 <span class="item-price">
+
 ৳ ${item.price} / ${item.unit}
+
 </span>
 
 <br>
 
 <strong>
-মোট: ৳ ${item.price * item.qty}
+
+মোট: ৳
+${item.price * item.qty}
+
 </strong>
 
 </div>
 
 
 <div class="quantity">
+
 
 <button
 onclick="changeQty(${index},-1)">
@@ -1689,6 +1786,7 @@ onclick="changeQty(${index},1)">
 
 </button>
 
+
 </div>
 
 
@@ -1699,6 +1797,7 @@ onclick="removeItem(${index})">
 🗑️
 
 </button>
+
 
 </div>
 
@@ -1714,21 +1813,24 @@ calculateTotal();
 
 let totalQuantity = 0;
 
+
 orderList.forEach(item=>{
 
-totalQuantity += item.qty;
+totalQuantity +=
+item.qty;
 
 });
 
 
 document.getElementById("orderCount")
-.innerText = totalQuantity;
+.innerText =
+totalQuantity;
 
 }
 
 
 /* =========================================================
-   QUANTITY
+   QUANTITY CHANGE
    ========================================================= */
 
 function changeQty(index,value){
@@ -1750,17 +1852,23 @@ renderOrder();
 
 function setQty(index,value){
 
-value = parseInt(value);
+value =
+parseInt(value);
 
 
-if(isNaN(value) || value < 1){
+if(
+isNaN(value) ||
+value < 1
+){
 
 value = 1;
 
 }
 
 
-orderList[index].qty = value;
+orderList[index].qty =
+value;
+
 
 renderOrder();
 
@@ -1809,7 +1917,7 @@ renderOrder();
 
 
 /* =========================================================
-   TOTAL
+   CALCULATE TOTAL
    ========================================================= */
 
 function calculateTotal(){
@@ -1826,15 +1934,21 @@ item.price * item.qty;
 
 
 const delivery =
-orderList.length > 0 ? 99 : 0;
+orderList.length > 0
+?
+99
+:
+0;
 
 
 document.getElementById("subtotal")
-.innerText = subtotal;
+.innerText =
+subtotal;
 
 
 document.getElementById("deliveryCharge")
-.innerText = delivery;
+.innerText =
+delivery;
 
 
 document.getElementById("grandTotal")
@@ -1851,9 +1965,13 @@ subtotal + delivery;
 function openOrder(){
 
 document.getElementById("orderPanel")
-.style.display = "block";
+.style.display =
+"block";
 
-document.body.style.overflow = "hidden";
+
+document.body.style.overflow =
+"hidden";
+
 
 renderOrder();
 
@@ -1867,9 +1985,12 @@ renderOrder();
 function closeOrder(){
 
 document.getElementById("orderPanel")
-.style.display = "none";
+.style.display =
+"none";
 
-document.body.style.overflow = "auto";
+
+document.body.style.overflow =
+"auto";
 
 }
 
@@ -1888,8 +2009,11 @@ setTimeout(()=>{
 document
 .querySelector(".section-title")
 .scrollIntoView({
+
 behavior:"smooth",
+
 block:"start"
+
 });
 
 },100);
@@ -1898,7 +2022,7 @@ block:"start"
 
 
 /* =========================================================
-   CLOSE OUTSIDE MODAL
+   CLICK OUTSIDE ORDER
    ========================================================= */
 
 document
@@ -1917,7 +2041,7 @@ closeOrder();
 
 
 /* =========================================================
-   SEND WHATSAPP ORDER
+   SEND ORDER TO WHATSAPP
    ========================================================= */
 
 function sendOrder(){
@@ -1956,7 +2080,9 @@ document
 
 if(!name){
 
-alert("দয়া করে আপনার নাম লিখুন.");
+alert(
+"দয়া করে আপনার নাম লিখুন।"
+);
 
 document
 .getElementById("customerName")
@@ -1969,7 +2095,9 @@ return;
 
 if(!phone){
 
-alert("দয়া করে আপনার মোবাইল নম্বর লিখুন।");
+alert(
+"দয়া করে আপনার মোবাইল নম্বর লিখুন।"
+);
 
 document
 .getElementById("customerPhone")
@@ -2027,10 +2155,12 @@ let subtotal = 0;
 orderList.forEach((item,index)=>{
 
 const itemTotal =
-item.price * item.qty;
+item.price *
+item.qty;
 
 
-subtotal += itemTotal;
+subtotal +=
+itemTotal;
 
 
 message +=
@@ -2052,8 +2182,10 @@ itemTotal +
 
 const delivery = 99;
 
+
 const grandTotal =
-subtotal + delivery;
+subtotal +
+delivery;
 
 
 message +=
