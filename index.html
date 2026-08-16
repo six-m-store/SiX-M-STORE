@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SIX M STORE | Everyone Deserves Good Service</title>
 
 <meta name="description"
@@ -15,6 +16,10 @@ content="SIX M STORE - মুদি, প্রসাধনী, বেভার�
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
     background:#f4f7fb;
@@ -22,15 +27,20 @@ body{
     line-height:1.6;
 }
 
+/* ================= HEADER ================= */
+
 header{
-    background:linear-gradient(135deg,#063b8f,#0875d1);
+    background:linear-gradient(135deg,#042d70,#0875d1);
     color:white;
-    padding:15px 18px;
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
+    padding:14px 16px;
+    position:sticky;
+    top:0;
+    z-index:5000;
+    box-shadow:0 4px 18px rgba(0,0,0,.18);
 }
 
 .header-inner{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
     display:flex;
     align-items:center;
@@ -48,7 +58,7 @@ header{
     justify-content:center;
     overflow:hidden;
     flex-shrink:0;
-    box-shadow:0 4px 12px rgba(0,0,0,.25);
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
 }
 
 .logo img{
@@ -58,32 +68,38 @@ header{
     border-radius:12px;
 }
 
+.brand{
+    flex:1;
+}
+
 .brand h1{
-    font-size:25px;
+    font-size:26px;
     letter-spacing:1px;
 }
 
 .brand p{
     font-size:13px;
+    opacity:.95;
 }
+
+/* ================= HERO ================= */
 
 .hero{
     background:white;
-    padding:35px 18px;
+    padding:38px 18px 32px;
     text-align:center;
 }
 
 .hero h2{
     color:#063b8f;
-    font-size:28px;
-    margin-bottom:12px;
+    font-size:29px;
+    margin-bottom:10px;
 }
 
-/* হিরোর বর্ণনা - নতুন ডিজাইন */
 .hero p{
     max-width:850px;
     margin:auto;
-    font-size:21px;
+    font-size:20px;
     font-weight:bold;
     line-height:1.8;
     background:linear-gradient(
@@ -99,25 +115,98 @@ header{
     background-clip:text;
 }
 
+/* ================= MAIN ================= */
+
 .container{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
-    padding:25px 16px;
+    padding:25px 15px 40px;
 }
 
 .section-title{
     text-align:center;
     color:#063b8f;
-    font-size:26px;
-    margin-bottom:25px;
+    font-size:27px;
+    margin-bottom:20px;
 }
+
+/* ================= SEARCH ================= */
+
+.search-area{
+    background:white;
+    padding:15px;
+    border-radius:16px;
+    box-shadow:0 3px 14px rgba(0,0,0,.07);
+    margin-bottom:18px;
+}
+
+.search-box{
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:14px 48px 14px 16px;
+    border:1px solid #d7e0eb;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+    background:#f9fbfe;
+}
+
+.search-box input:focus{
+    border-color:#0875d1;
+    box-shadow:0 0 0 3px rgba(8,117,209,.1);
+}
+
+.search-icon{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:22px;
+}
+
+/* ================= CATEGORY FILTER ================= */
+
+.category-filter{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:4px 2px 10px;
+    scrollbar-width:none;
+}
+
+.category-filter::-webkit-scrollbar{
+    display:none;
+}
+
+.filter-btn{
+    border:none;
+    background:#eef4fb;
+    color:#063b8f;
+    padding:9px 15px;
+    border-radius:30px;
+    white-space:nowrap;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:#063b8f;
+    color:white;
+}
+
+/* ================= CATEGORY ================= */
 
 .category{
     background:white;
     border-radius:18px;
     padding:20px 15px;
-    margin-bottom:25px;
-    box-shadow:0 3px 14px rgba(0,0,0,.08);
+    margin-bottom:22px;
+    box-shadow:0 3px 14px rgba(0,0,0,.07);
     border:1px solid #e5ebf3;
 }
 
@@ -130,58 +219,93 @@ header{
     border-bottom:2px solid #eaf0f7;
 }
 
+/* ================= PRODUCTS ================= */
+
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-    gap:14px;
+    grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+    gap:13px;
 }
 
 .product{
     background:#f9fbfe;
-    border-radius:14px;
-    padding:15px 10px;
+    border-radius:15px;
+    padding:14px 10px;
     text-align:center;
-    border:1px solid #e3eaf3;
-    transition:.2s;
+    border:1px solid #e1e8f1;
+    transition:.25s;
     cursor:pointer;
+    position:relative;
 }
 
 .product:hover{
-    transform:translateY(-3px);
-    box-shadow:0 7px 18px rgba(0,0,0,.10);
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+    border-color:#b9d2ee;
 }
 
 .product-icon{
-    font-size:36px;
-    margin-bottom:7px;
+    width:62px;
+    height:62px;
+    margin:0 auto 8px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
 .product h3{
     color:#172033;
     font-size:16px;
+    min-height:25px;
 }
 
 .price{
     color:#063b8f;
     font-weight:bold;
-    margin-top:5px;
+    margin-top:4px;
     min-height:25px;
+    font-size:14px;
 }
 
 .order-btn{
     background:#20b858;
     color:white;
     border:none;
-    padding:7px 12px;
+    padding:8px 10px;
     border-radius:8px;
     margin-top:8px;
     cursor:pointer;
     font-weight:bold;
+    width:100%;
 }
 
 .order-btn:hover{
     background:#169c49;
 }
+
+/* ================= NO RESULT ================= */
+
+.no-result{
+    text-align:center;
+    padding:35px 15px;
+    color:#777;
+    background:white;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.no-result strong{
+    display:block;
+    font-size:19px;
+    color:#063b8f;
+    margin-bottom:5px;
+}
+
+/* ================= FLOATING ORDER ================= */
 
 .order-floating{
     position:fixed;
@@ -195,7 +319,7 @@ header{
     padding:13px 18px;
     font-size:15px;
     font-weight:bold;
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    box-shadow:0 5px 22px rgba(0,0,0,.25);
     cursor:pointer;
 }
 
@@ -203,13 +327,15 @@ header{
     background:#e74c3c;
     color:white;
     border-radius:50%;
-    min-width:24px;
-    height:24px;
+    min-width:25px;
+    height:25px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
     margin-left:5px;
 }
+
+/* ================= ORDER PANEL ================= */
 
 #orderPanel{
     display:none;
@@ -219,7 +345,7 @@ header{
     top:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,.60);
+    background:rgba(0,0,0,.65);
     overflow:auto;
     padding:15px;
 }
@@ -227,11 +353,11 @@ header{
 .order-content{
     background:white;
     width:100%;
-    max-width:650px;
+    max-width:680px;
     margin:15px auto;
-    border-radius:18px;
+    border-radius:20px;
     padding:20px;
-    box-shadow:0 10px 35px rgba(0,0,0,.3);
+    box-shadow:0 10px 40px rgba(0,0,0,.3);
 }
 
 .order-header{
@@ -248,11 +374,13 @@ header{
 }
 
 .close{
-    font-size:32px;
+    font-size:34px;
     cursor:pointer;
     color:#e74c3c;
     line-height:1;
 }
+
+/* ================= SELECTED PRODUCT ================= */
 
 .selected-product{
     background:#f4f7fb;
@@ -309,33 +437,47 @@ header{
     border:none;
     background:#e74c3c;
     color:white;
-    padding:6px 9px;
+    padding:7px 9px;
     border-radius:7px;
     cursor:pointer;
 }
 
+/* ================= TOTAL ================= */
+
 .total-box{
     background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
-    padding:15px;
-    border-radius:12px;
+    padding:16px;
+    border-radius:13px;
     margin-top:15px;
     text-align:center;
-    font-size:17px;
+    font-size:16px;
 }
 
 .total-row{
     display:flex;
     justify-content:space-between;
-    margin:4px 0;
+    margin:5px 0;
 }
 
 .total-final{
     border-top:1px solid rgba(255,255,255,.4);
-    margin-top:8px;
-    padding-top:8px;
-    font-size:20px;
+    margin-top:9px;
+    padding-top:9px;
+    font-size:21px;
     font-weight:bold;
+}
+
+.clear-order{
+    width:100%;
+    background:#fff0f0;
+    color:#e74c3c;
+    border:1px solid #ffd0d0;
+    padding:10px;
+    border-radius:10px;
+    margin-top:10px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .add-more{
@@ -345,11 +487,13 @@ header{
     border:none;
     padding:12px;
     border-radius:10px;
-    margin-top:15px;
+    margin-top:12px;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
 }
+
+/* ================= CUSTOMER FORM ================= */
 
 .customer-form{
     margin-top:20px;
@@ -369,6 +513,12 @@ header{
     margin-bottom:10px;
     font-family:inherit;
     font-size:15px;
+    outline:none;
+}
+
+.customer-form input:focus,
+.customer-form textarea:focus{
+    border-color:#0875d1;
 }
 
 .customer-form textarea{
@@ -388,27 +538,36 @@ header{
     cursor:pointer;
 }
 
+.send-order:hover{
+    background:#169c49;
+}
+
+/* ================= DELIVERY ================= */
+
 .delivery{
     background:linear-gradient(135deg,#063b8f,#0875d1);
     color:white;
-    border-radius:18px;
-    padding:28px 18px;
+    border-radius:20px;
+    padding:30px 18px;
     margin-top:25px;
     text-align:center;
-    box-shadow:0 5px 18px rgba(0,0,0,.15);
+    box-shadow:0 6px 20px rgba(0,0,0,.15);
 }
 
 .delivery h2{
     margin-bottom:8px;
+    font-size:25px;
 }
 
 .delivery strong{
     color:#ffe082;
 }
 
+/* ================= INFO ================= */
+
 .info{
     background:white;
-    border-radius:16px;
+    border-radius:18px;
     padding:22px;
     margin-top:25px;
     box-shadow:0 3px 12px rgba(0,0,0,.08);
@@ -445,12 +604,8 @@ header{
     color:#063b8f;
 }
 
-.info-text a{
-    color:#172033;
-    text-decoration:none;
-}
+/* ================= CONTACT ================= */
 
-/* ফোন ও WhatsApp বাটন */
 .contact-buttons{
     display:flex;
     justify-content:center;
@@ -477,12 +632,14 @@ header{
     background:#20b858;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
     margin-top:30px;
     background:#071b3a;
     color:white;
     text-align:center;
-    padding:28px 15px;
+    padding:30px 15px;
 }
 
 footer h2{
@@ -492,10 +649,22 @@ footer h2{
 footer p{
     font-size:13px;
     opacity:.85;
-    margin:3px 0;
+    margin:4px 0;
 }
 
-@media(max-width:500px){
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    header{
+        padding:11px 12px;
+    }
+
+    .logo{
+        width:58px;
+        height:58px;
+        border-radius:14px;
+    }
 
     .brand h1{
         font-size:21px;
@@ -505,39 +674,61 @@ footer p{
         font-size:11px;
     }
 
+    .hero{
+        padding:28px 15px;
+    }
+
     .hero h2{
-        font-size:24px;
+        font-size:23px;
     }
 
     .hero p{
-        font-size:18px;
+        font-size:17px;
         line-height:1.7;
+    }
+
+    .container{
+        padding:20px 10px 35px;
+    }
+
+    .section-title{
+        font-size:24px;
     }
 
     .products{
         grid-template-columns:repeat(2,1fr);
-        gap:10px;
+        gap:9px;
     }
 
     .product{
-        padding:15px 7px;
+        padding:13px 7px;
     }
 
     .product-icon{
-        font-size:32px;
+        width:55px;
+        height:55px;
+        font-size:30px;
     }
 
     .product h3{
-        font-size:15px;
+        font-size:14px;
     }
 
-    .logo{
-        width:60px;
-        height:60px;
+    .price{
+        font-size:13px;
+    }
+
+    .order-btn{
+        font-size:12px;
+        padding:8px 5px;
+    }
+
+    .category{
+        padding:15px 9px;
     }
 
     .category-title{
-        font-size:19px;
+        font-size:18px;
     }
 
     .selected-product{
@@ -548,10 +739,14 @@ footer p{
         min-width:100%;
     }
 
+    .quantity{
+        margin-left:auto;
+    }
+
     .order-floating{
-        right:12px;
-        bottom:12px;
-        padding:11px 15px;
+        right:10px;
+        bottom:10px;
+        padding:11px 14px;
         font-size:14px;
     }
 
@@ -568,6 +763,7 @@ footer p{
 <!-- ================= HEADER ================= -->
 
 <header>
+
 <div class="header-inner">
 
 <div class="logo">
@@ -580,6 +776,7 @@ footer p{
 </div>
 
 </div>
+
 </header>
 
 
@@ -590,7 +787,8 @@ footer p{
 <h2>🛒 SIX M STORE-এ স্বাগতম</h2>
 
 <p>
-​এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু, একসাথে। এখনই অর্ডার করুন।
+এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু, একসাথে।
+এখনই অর্ডার করুন।
 </p>
 
 </section>
@@ -604,7 +802,57 @@ footer p{
 🛍️ আমাদের পণ্যসমূহ
 </h2>
 
+
+<!-- SEARCH -->
+
+<div class="search-area">
+
+<div class="search-box">
+
+<input
+type="search"
+id="searchInput"
+placeholder="🔎 পণ্যের নাম লিখে খুঁজুন..."
+oninput="searchProducts()">
+
+<span class="search-icon">
+🔍
+</span>
+
+</div>
+
+</div>
+
+
+<!-- CATEGORY FILTER -->
+
+<div class="category-filter" id="categoryFilter">
+
+<button
+class="filter-btn active"
+onclick="filterCategory('all',this)">
+সব পণ্য
+</button>
+
+</div>
+
+
+<!-- PRODUCT AREA -->
+
 <div id="productsContainer"></div>
+
+<div
+id="noResult"
+class="no-result"
+style="display:none;">
+
+<strong>😔 কোনো পণ্য পাওয়া যায়নি</strong>
+
+<p>
+অন্য কোনো পণ্যের নাম দিয়ে আবার চেষ্টা করুন।
+</p>
+
+</div>
 
 
 <!-- ================= ADDRESS ================= -->
@@ -615,7 +863,9 @@ footer p{
 
 <div class="info-item">
 
-<div class="info-icon">🏪</div>
+<div class="info-icon">
+🏪
+</div>
 
 <div class="info-text">
 
@@ -630,19 +880,26 @@ footer p{
 </div>
 
 
-<!-- ================= PHONE & WHATSAPP ================= -->
+<!-- PHONE -->
 
 <div class="contact-buttons">
 
-<a class="btn call"
+<a
+class="btn call"
 href="tel:+8801737781096">
+
 📞 এখনই ফোন করুন
+
 </a>
 
-<a class="btn whatsapp"
+
+<a
+class="btn whatsapp"
 href="https://wa.me/8801737781096"
 target="_blank">
+
 💬 WhatsApp
+
 </a>
 
 </div>
@@ -657,7 +914,9 @@ target="_blank">
 <h2>🚚 Home Delivery সুবিধা</h2>
 
 <p>
-<strong>Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)</strong>
+<strong>
+Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)
+</strong>
 </p>
 
 <p>
@@ -665,7 +924,9 @@ target="_blank">
 </p>
 
 <p>
-<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
+<strong>
+ফোন অথবা WhatsApp-এ অর্ডার করুন
+</strong>
 </p>
 
 <p>
@@ -677,7 +938,7 @@ target="_blank">
 </div>
 
 
-<!-- ================= FLOATING ORDER BUTTON ================= -->
+<!-- ================= FLOATING ORDER ================= -->
 
 <button
 class="order-floating"
@@ -685,8 +946,12 @@ onclick="openOrder()">
 
 🛒 আপনার অর্ডার
 
-<span class="order-count" id="orderCount">
+<span
+class="order-count"
+id="orderCount">
+
 0
+
 </span>
 
 </button>
@@ -702,15 +967,23 @@ onclick="openOrder()">
 
 <h2>🛒 আপনার অর্ডার</h2>
 
-<span class="close"
-onclick="closeOrder()">×</span>
+<span
+class="close"
+onclick="closeOrder()">
+
+×
+</span>
 
 </div>
 
+
 <div id="orderItems">
 
-<p style="text-align:center;color:#777;padding:15px;">
+<p
+style="text-align:center;color:#777;padding:15px;">
+
 এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
+
 </p>
 
 </div>
@@ -720,7 +993,9 @@ onclick="closeOrder()">×</span>
 
 <div class="total-row">
 
-<span>পণ্যের মোট মূল্য:</span>
+<span>
+পণ্যের মোট মূল্য:
+</span>
 
 <span>
 ৳ <span id="subtotal">0</span>
@@ -728,9 +1003,12 @@ onclick="closeOrder()">×</span>
 
 </div>
 
+
 <div class="total-row">
 
-<span>ডেলিভারি চার্জ:</span>
+<span>
+ডেলিভারি চার্জ:
+</span>
 
 <span>
 ৳ <span id="deliveryCharge">0</span>
@@ -738,9 +1016,12 @@ onclick="closeOrder()">×</span>
 
 </div>
 
+
 <div class="total-row total-final">
 
-<span>সর্বমোট:</span>
+<span>
+সর্বমোট:
+</span>
 
 <span>
 ৳ <span id="grandTotal">0</span>
@@ -752,6 +1033,15 @@ onclick="closeOrder()">×</span>
 
 
 <button
+class="clear-order"
+onclick="clearOrder()">
+
+🗑️ অর্ডার খালি করুন
+
+</button>
+
+
+<button
 class="add-more"
 onclick="continueShopping()">
 
@@ -760,24 +1050,31 @@ onclick="continueShopping()">
 </button>
 
 
+<!-- CUSTOMER -->
+
 <div class="customer-form">
 
-<h3>👤 কাস্টমারের তথ্য</h3>
+<h3>
+👤 কাস্টমারের তথ্য
+</h3>
+
 
 <input
 type="text"
 id="customerName"
 placeholder="আপনার নাম লিখুন">
 
+
 <input
 type="tel"
 id="customerPhone"
 placeholder="মোবাইল নম্বর লিখুন">
 
+
 <textarea
 id="customerAddress"
-placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন">
-</textarea>
+placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"></textarea>
+
 
 <button
 class="send-order"
@@ -798,7 +1095,9 @@ onclick="sendOrder()">
 
 <footer>
 
-<h2>SIX M STORE</h2>
+<h2>
+SIX M STORE
+</h2>
 
 <p>
 আপনার বিশ্বাসই আমাদের মূলধন।
@@ -817,43 +1116,62 @@ onclick="sendOrder()">
 
 <script>
 
+/* =========================================================
+   SIX M STORE PRODUCT DATABASE
+   ========================================================= */
+
 const categories = [
 
 {
 name:"🍚 চাল ও ডাল",
+
 products:[
+
 ["মিনিকেট চাল","🍚",60,"কেজি"],
 ["নাজিরশাইল চাল","🍚",90,"কেজি"],
 ["পাইজাম চাল","🍚",85,"কেজি"],
 ["আতপ চাল","🍚",90,"কেজি"],
+
 ["মসুর ডাল","🫘",90,"কেজি"],
 ["মুগ ডাল","🫘",160,"কেজি"],
 ["ছোলা","🫘",95,"কেজি"],
 ["বুটের ডাল","🫘",60,"কেজি"]
+
 ]
+
 },
 
 {
+
 name:"🫙 তেল ও মসলা",
+
 products:[
+
 ["সয়াবিন তেল","🫙",0,"লিটার"],
 ["সরিষার তেল","🌻",0,"লিটার"],
 ["পাম/সুপর অয়েল","🫙",195,"কেজি"],
+
 ["হলুদ গুঁড়া","🌕",0,"কেজি"],
 ["মরিচ গুঁড়া","🌶️",0,"কেজি"],
 ["ধনিয়া গুঁড়া","🌿",0,"কেজি"],
 ["জিরা গুঁড়া","🌿",0,"কেজি"],
+
 ["গরম মসলা","🧂",0,"প্যাকেট"],
 ["দারুচিনি","🌿",0,"প্যাকেট"],
 ["এলাচ","🌿",0,"প্যাকেট"],
 ["লবঙ্গ","🌿",0,"প্যাকেট"],
 ["তেজপাতা","🍃",0,"প্যাকেট"]
+
 ]
+
 },
 
 {
+
 name:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
+
 products:[
+
 ["আটা","🌾",50,"কেজি"],
 ["ময়দা","🥣",65,"কেজি"],
 ["সুজি","🥣",0,"প্যাকেট"],
@@ -863,55 +1181,80 @@ products:[
 ["সেমাই","🍜",0,"প্যাকেট"],
 ["চিড়া","🌾",0,"কেজি"],
 ["মুড়ি","🍘",70,"কেজি"]
+
 ]
+
 },
 
 {
+
 name:"🥔 সবজি ও রান্নার উপকরণ",
+
 products:[
+
 ["আলু","🥔",25,"কেজি"],
 ["পেঁয়াজ","🧅",60,"কেজি"],
 ["রসুন","🧄",150,"কেজি"],
 ["আদা","🫚",130,"কেজি"],
 ["শুকনা মরিচ","🌶️",0,"কেজি"]
+
 ]
+
 },
 
 {
+
 name:"🥛 ডেইরি ও খাদ্যপণ্য",
+
 products:[
+
 ["ডিম","🥚",140,"ডজন"],
 ["দুধ","🥛",100,"লিটার"],
 ["ঘি","🧈",0,"কৌটা"],
 ["মাখন","🧈",0,"প্যাকেট"],
 ["দই","🥛",0,"কৌটা"]
+
 ]
+
 },
 
 {
+
 name:"☕ চা ও পানীয়",
+
 products:[
+
 ["চা পাতা","🍵",0,"প্যাকেট"],
 ["কফি","☕",0,"কৌটা"],
 ["হরলিক্স","🥛",0,"কৌটা"],
 ["কমপ্লান","🥛",0,"কৌটা"]
+
 ]
+
 },
 
 {
+
 name:"🍪 বিস্কুট ও স্ন্যাকস",
+
 products:[
+
 ["বিস্কুট","🍪",0,"প্যাকেট"],
 ["নুডলস","🍜",0,"প্যাকেট"],
 ["চানাচুর","🥜",0,"প্যাকেট"],
 ["চিপস","🥔",0,"প্যাকেট"],
 ["টোস্ট বিস্কুট","🍞",0,"প্যাকেট"]
+
 ]
+
 },
 
 {
+
 name:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
+
 products:[
+
 ["কাপড় ধোয়ার পাউডার","🧺",0,"প্যাকেট"],
 ["কাপড় ধোয়ার সাবান","🧼",0,"পিস"],
 ["গোসলের সাবান","🧼",0,"পিস"],
@@ -920,50 +1263,147 @@ products:[
 ["টুথব্রাশ","🪥",0,"পিস"],
 ["ডিশওয়াশ বার","🧽",0,"পিস"],
 ["ব্লিচিং পাউডার","🧹",0,"প্যাকেট"]
+
 ]
+
 },
 
 {
+
 name:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
+
 products:[
+
 ["ম্যাচ","🔥",0,"বক্স"],
 ["মোমবাতি","🕯️",0,"প্যাকেট"],
 ["টিস্যু","🧻",0,"প্যাকেট"],
-["অ্যালুমিনিয়াম ফয়েল","📦",0,"রোল"],
+["অ্যালুমিনিয়াম ফয়েল","📦",0,"রোল"]
+
 ]
+
 },
 
 {
+
 name:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
+
 products:[
+
 ["ফেসওয়াশ","🧴",0,"পিস"],
 ["হেয়ার অয়েল","🧴",0,"বোতল"],
 ["পারফিউম","🌸",0,"পিস"],
 ["বডি লোশন","🧴",0,"বোতল"],
 ["চিরুনি","🪮",0,"পিস"]
+
 ]
+
 },
 
 {
+
 name:"🥤 বেভারেজ ও পানীয়",
+
 products:[
+
 ["কোল্ড ড্রিংকস","🥤",0,"বোতল"],
 ["মিনারেল ওয়াটার","💧",0,"বোতল"],
 ["জুস","🧃",0,"প্যাকেট"],
 ["এনার্জি ড্রিংক","⚡",0,"ক্যান"]
+
 ]
+
 }
 
 ];
 
 
+/* =========================================================
+   ORDER SYSTEM
+   ========================================================= */
+
 let orderList = [];
 
-const productsContainer =
+let activeCategory = "all";
+
+
+/* =========================================================
+   CATEGORY BUTTONS
+   ========================================================= */
+
+const categoryFilter =
+document.getElementById("categoryFilter");
+
+categories.forEach((category,index)=>{
+
+const button =
+document.createElement("button");
+
+button.className = "filter-btn";
+
+button.innerText =
+category.name;
+
+button.onclick = function(){
+
+filterCategory(index,this);
+
+};
+
+categoryFilter.appendChild(button);
+
+});
+
+
+/* =========================================================
+   DISPLAY PRODUCTS
+   ========================================================= */
+
+function displayProducts(){
+
+const container =
 document.getElementById("productsContainer");
 
+container.innerHTML = "";
 
-categories.forEach(category => {
+const searchValue =
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+let found = false;
+
+
+categories.forEach((category,index)=>{
+
+if(
+activeCategory !== "all" &&
+activeCategory !== index
+){
+return;
+}
+
+
+const filteredProducts =
+category.products.filter(product=>{
+
+return product[0]
+.toLowerCase()
+.includes(searchValue);
+
+});
+
+
+if(filteredProducts.length === 0){
+
+return;
+
+}
+
+
+found = true;
+
 
 let categoryHTML = `
 
@@ -978,27 +1418,38 @@ ${category.name}
 `;
 
 
-category.products.forEach(product => {
+filteredProducts.forEach(product=>{
 
 const name = product[0];
-const icon = product[1];
-const price = product[2];
-const unit = product[3];
 
-const safeName =
-name.replace(/'/g,"\\'");
+const icon = product[1];
+
+const price = product[2];
+
+const unit = product[3];
 
 
 categoryHTML += `
 
-<div class="product"
-onclick="addProduct('${safeName}',${price},'${unit}')">
+<div
+class="product"
+onclick="addProduct(
+'${escapeText(name)}',
+${price},
+'${unit}'
+)">
 
 <div class="product-icon">
+
 ${icon}
+
 </div>
 
-<h3>${name}</h3>
+
+<h3>
+${name}
+</h3>
+
 
 <div class="price">
 
@@ -1012,9 +1463,16 @@ price > 0
 
 </div>
 
+
 <button
 class="order-btn"
-onclick="event.stopPropagation();addProduct('${safeName}',${price},'${unit}')">
+onclick="event.stopPropagation();
+
+addProduct(
+'${escapeText(name)}',
+${price},
+'${unit}'
+);">
 
 ➕ অর্ডারে যোগ করুন
 
@@ -1028,14 +1486,85 @@ onclick="event.stopPropagation();addProduct('${safeName}',${price},'${unit}')">
 
 
 categoryHTML += `
+
 </div>
 </div>
+
 `;
 
-productsContainer.innerHTML += categoryHTML;
+
+container.innerHTML += categoryHTML;
 
 });
 
+
+document.getElementById("noResult").style.display =
+found ? "none" : "block";
+
+}
+
+
+/* =========================================================
+   ESCAPE TEXT
+   ========================================================= */
+
+function escapeText(text){
+
+return text
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'");
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+function searchProducts(){
+
+activeCategory = "all";
+
+document
+.querySelectorAll(".filter-btn")
+.forEach((button,index)=>{
+
+button.classList.toggle(
+"active",
+index === 0
+);
+
+});
+
+displayProducts();
+
+}
+
+
+/* =========================================================
+   CATEGORY FILTER
+   ========================================================= */
+
+function filterCategory(category,button){
+
+activeCategory = category;
+
+document
+.querySelectorAll(".filter-btn")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+displayProducts();
+
+}
+
+
+/* =========================================================
+   ADD PRODUCT
+   ========================================================= */
 
 function addProduct(name,price,unit){
 
@@ -1046,10 +1575,15 @@ alert(
 );
 
 return;
+
 }
 
+
 const existing =
-orderList.find(item => item.name === name);
+orderList.find(
+item=>item.name === name
+);
+
 
 if(existing){
 
@@ -1058,31 +1592,46 @@ existing.qty++;
 }else{
 
 orderList.push({
+
 name:name,
+
 price:price,
+
 unit:unit,
+
 qty:1
+
 });
 
 }
 
+
 renderOrder();
+
 openOrder();
 
 }
 
+
+/* =========================================================
+   RENDER ORDER
+   ========================================================= */
 
 function renderOrder(){
 
 const box =
 document.getElementById("orderItems");
 
+
 if(orderList.length === 0){
 
 box.innerHTML = `
 
-<p style="text-align:center;color:#777;padding:15px;">
+<p
+style="text-align:center;color:#777;padding:15px;">
+
 এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
+
 </p>
 
 `;
@@ -1099,7 +1648,9 @@ box.innerHTML += `
 
 <div class="selected-info">
 
-<strong>${item.name}</strong>
+<strong>
+${item.name}
+</strong>
 
 <span class="item-price">
 ৳ ${item.price} / ${item.unit}
@@ -1116,9 +1667,13 @@ box.innerHTML += `
 
 <div class="quantity">
 
-<button onclick="changeQty(${index},-1)">
+<button
+onclick="changeQty(${index},-1)">
+
 −
+
 </button>
+
 
 <input
 type="number"
@@ -1126,8 +1681,12 @@ min="1"
 value="${item.qty}"
 onchange="setQty(${index},this.value)">
 
-<button onclick="changeQty(${index},1)">
+
+<button
+onclick="changeQty(${index},1)">
+
 +
+
 </button>
 
 </div>
@@ -1149,27 +1708,40 @@ onclick="removeItem(${index})">
 
 }
 
+
 calculateTotal();
+
 
 let totalQuantity = 0;
 
-orderList.forEach(item => {
+orderList.forEach(item=>{
+
 totalQuantity += item.qty;
+
 });
 
-document.getElementById("orderCount").innerText =
-totalQuantity;
+
+document.getElementById("orderCount")
+.innerText = totalQuantity;
 
 }
 
+
+/* =========================================================
+   QUANTITY
+   ========================================================= */
 
 function changeQty(index,value){
 
 orderList[index].qty += value;
 
+
 if(orderList[index].qty < 1){
+
 orderList[index].qty = 1;
+
 }
+
 
 renderOrder();
 
@@ -1180,9 +1752,13 @@ function setQty(index,value){
 
 value = parseInt(value);
 
+
 if(isNaN(value) || value < 1){
+
 value = 1;
+
 }
+
 
 orderList[index].qty = value;
 
@@ -1190,6 +1766,10 @@ renderOrder();
 
 }
 
+
+/* =========================================================
+   REMOVE
+   ========================================================= */
 
 function removeItem(index){
 
@@ -1200,62 +1780,113 @@ renderOrder();
 }
 
 
+/* =========================================================
+   CLEAR ORDER
+   ========================================================= */
+
+function clearOrder(){
+
+if(orderList.length === 0){
+
+return;
+
+}
+
+
+if(
+confirm(
+"আপনি কি আপনার সম্পূর্ণ অর্ডার খালি করতে চান?"
+)
+){
+
+orderList = [];
+
+renderOrder();
+
+}
+
+}
+
+
+/* =========================================================
+   TOTAL
+   ========================================================= */
+
 function calculateTotal(){
 
 let subtotal = 0;
 
-orderList.forEach(item => {
 
-subtotal += item.price * item.qty;
+orderList.forEach(item=>{
+
+subtotal +=
+item.price * item.qty;
 
 });
+
 
 const delivery =
 orderList.length > 0 ? 99 : 0;
 
-document.getElementById("subtotal").innerText =
-subtotal;
 
-document.getElementById("deliveryCharge").innerText =
-delivery;
+document.getElementById("subtotal")
+.innerText = subtotal;
 
-document.getElementById("grandTotal").innerText =
+
+document.getElementById("deliveryCharge")
+.innerText = delivery;
+
+
+document.getElementById("grandTotal")
+.innerText =
 subtotal + delivery;
 
 }
 
 
+/* =========================================================
+   OPEN ORDER
+   ========================================================= */
+
 function openOrder(){
 
-document.getElementById("orderPanel").style.display =
-"block";
+document.getElementById("orderPanel")
+.style.display = "block";
 
-document.body.style.overflow =
-"hidden";
+document.body.style.overflow = "hidden";
 
 renderOrder();
 
 }
 
 
+/* =========================================================
+   CLOSE ORDER
+   ========================================================= */
+
 function closeOrder(){
 
-document.getElementById("orderPanel").style.display =
-"none";
+document.getElementById("orderPanel")
+.style.display = "none";
 
-document.body.style.overflow =
-"auto";
+document.body.style.overflow = "auto";
 
 }
 
+
+/* =========================================================
+   CONTINUE SHOPPING
+   ========================================================= */
 
 function continueShopping(){
 
 closeOrder();
 
-setTimeout(() => {
 
-document.querySelector(".section-title")
+setTimeout(()=>{
+
+document
+.querySelector(".section-title")
 .scrollIntoView({
 behavior:"smooth",
 block:"start"
@@ -1266,15 +1897,28 @@ block:"start"
 }
 
 
-document.getElementById("orderPanel")
-.addEventListener("click",function(event){
+/* =========================================================
+   CLOSE OUTSIDE MODAL
+   ========================================================= */
+
+document
+.getElementById("orderPanel")
+.addEventListener(
+"click",
+function(event){
 
 if(event.target === this){
+
 closeOrder();
+
 }
 
 });
 
+
+/* =========================================================
+   SEND WHATSAPP ORDER
+   ========================================================= */
 
 function sendOrder(){
 
@@ -1290,23 +1934,33 @@ return;
 
 
 const name =
-document.getElementById("customerName")
-.value.trim();
+document
+.getElementById("customerName")
+.value
+.trim();
+
 
 const phone =
-document.getElementById("customerPhone")
-.value.trim();
+document
+.getElementById("customerPhone")
+.value
+.trim();
+
 
 const address =
-document.getElementById("customerAddress")
-.value.trim();
+document
+.getElementById("customerAddress")
+.value
+.trim();
 
 
 if(!name){
 
 alert("দয়া করে আপনার নাম লিখুন.");
 
-document.getElementById("customerName").focus();
+document
+.getElementById("customerName")
+.focus();
 
 return;
 
@@ -1317,7 +1971,9 @@ if(!phone){
 
 alert("দয়া করে আপনার মোবাইল নম্বর লিখুন।");
 
-document.getElementById("customerPhone").focus();
+document
+.getElementById("customerPhone")
+.focus();
 
 return;
 
@@ -1326,9 +1982,13 @@ return;
 
 if(!address){
 
-alert("দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।");
+alert(
+"দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
+);
 
-document.getElementById("customerAddress").focus();
+document
+.getElementById("customerAddress")
+.focus();
 
 return;
 
@@ -1340,15 +2000,21 @@ let message =
 
 
 message +=
-"👤 নাম: " + name + "\n";
+"👤 নাম: " +
+name +
+"\n";
 
 
 message +=
-"📞 মোবাইল: " + phone + "\n";
+"📞 মোবাইল: " +
+phone +
+"\n";
 
 
 message +=
-"📍 ঠিকানা: " + address + "\n\n";
+"📍 ঠিকানা: " +
+address +
+"\n\n";
 
 
 message +=
@@ -1363,7 +2029,9 @@ orderList.forEach((item,index)=>{
 const itemTotal =
 item.price * item.qty;
 
+
 subtotal += itemTotal;
+
 
 message +=
 (index + 1) +
@@ -1418,6 +2086,15 @@ whatsappURL,
 );
 
 }
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+displayProducts();
+
+renderOrder();
 
 </script>
 
