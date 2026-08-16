@@ -8,234 +8,227 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
-    background:#f4f7fb;
-    color:#172033;
-    line-height:1.7;
+font-family:Arial,"Noto Sans Bengali",sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.7;
 }
 
 header{
-    background:linear-gradient(135deg,#063b8f,#0877d1);
-    color:white;
-    padding:18px 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:100;
-    box-shadow:0 4px 15px #0002;
+background:linear-gradient(135deg,#063b8f,#0877d1);
+color:white;
+padding:15px 5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 4px 18px #0003;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:13px;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
+width:65px;
+height:65px;
+object-fit:contain;
+background:white;
+border-radius:15px;
+padding:5px;
 }
 
-.logo-box{
-    width:58px;
-    height:58px;
-    background:white;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:22px;
-    font-weight:bold;
-    color:#063b8f;
+.brand h1{
+font-size:24px;
 }
 
-.logo h1{
-    font-size:23px;
-}
-
-.logo small{
-    font-size:12px;
+.brand p{
+font-size:12px;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:18px;
-    font-weight:bold;
+color:white;
+text-decoration:none;
+margin-left:18px;
+font-weight:bold;
 }
 
 .hero{
-    text-align:center;
-    padding:75px 6%;
-    background:linear-gradient(180deg,#e7f3ff,#ffffff);
+text-align:center;
+padding:70px 6%;
+background:linear-gradient(180deg,#e7f3ff,#ffffff);
 }
 
 .hero h2{
-    font-size:clamp(35px,7vw,60px);
-    color:#063b8f;
-    margin-bottom:10px;
+font-size:clamp(35px,7vw,58px);
+color:#063b8f;
+margin-bottom:10px;
 }
 
 .hero p{
-    font-size:20px;
-    color:#536176;
-    max-width:700px;
-    margin:auto;
+max-width:720px;
+margin:auto;
+font-size:19px;
+color:#536176;
 }
 
 .buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:28px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin-top:28px;
 }
 
 .btn{
-    display:inline-block;
-    padding:13px 23px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:bold;
+display:inline-block;
+padding:13px 23px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
 }
 
 .call{
-    background:#0877d1;
-    color:white;
+background:#0877d1;
+color:white;
 }
 
 .whatsapp{
-    background:#16a34a;
-    color:white;
+background:#16a34a;
+color:white;
 }
 
 .maps{
-    background:#e53935;
-    color:white;
+background:#e53935;
+color:white;
 }
 
 section{
-    max-width:1200px;
-    margin:auto;
-    padding:55px 6%;
+max-width:1200px;
+margin:auto;
+padding:55px 6%;
 }
 
 .title{
-    text-align:center;
-    font-size:32px;
-    color:#063b8f;
-    margin-bottom:30px;
+text-align:center;
+font-size:32px;
+color:#063b8f;
+margin-bottom:30px;
 }
 
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:18px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(165px,1fr));
+gap:18px;
 }
 
 .product{
-    background:white;
-    padding:28px 15px;
-    text-align:center;
-    border-radius:20px;
-    box-shadow:0 7px 25px #193b6515;
-    border:1px solid #e4ebf4;
-    transition:.2s;
+background:white;
+padding:28px 15px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 7px 25px #193b6515;
+border:1px solid #e4ebf4;
+transition:.2s;
 }
 
 .product:hover{
-    transform:translateY(-4px);
+transform:translateY(-5px);
 }
 
 .product-icon{
-    font-size:42px;
-    margin-bottom:10px;
+font-size:43px;
+margin-bottom:9px;
 }
 
 .product h3{
-    color:#17365d;
+color:#17365d;
 }
 
 .delivery{
-    background:linear-gradient(135deg,#063b8f,#0877d1);
-    color:white;
-    border-radius:25px;
-    padding:40px 25px;
-    text-align:center;
-    box-shadow:0 10px 30px #063b8f30;
+background:linear-gradient(135deg,#063b8f,#0877d1);
+color:white;
+border-radius:25px;
+padding:40px 25px;
+text-align:center;
 }
 
 .delivery h2{
-    font-size:30px;
-    margin-bottom:10px;
+font-size:30px;
+margin-bottom:10px;
 }
 
 .delivery strong{
-    font-size:24px;
+font-size:24px;
 }
 
 .contact{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 
 .contact-card{
-    background:white;
-    padding:28px;
-    border-radius:20px;
-    box-shadow:0 7px 25px #193b6515;
-    border:1px solid #e4ebf4;
+background:white;
+padding:28px;
+border-radius:20px;
+box-shadow:0 7px 25px #193b6515;
+border:1px solid #e4ebf4;
 }
 
 .contact-card h3{
-    color:#063b8f;
-    margin-bottom:10px;
-    font-size:21px;
-}
-
-.contact-card p{
-    color:#4d5c70;
+color:#063b8f;
+margin-bottom:10px;
+font-size:21px;
 }
 
 .address{
-    font-size:17px;
+font-size:17px;
+color:#4d5c70;
 }
 
 footer{
-    background:#071d3d;
-    color:#dce9f8;
-    text-align:center;
-    padding:28px 15px;
+background:#071d3d;
+color:#dce9f8;
+text-align:center;
+padding:28px 15px;
 }
 
 footer strong{
-    color:white;
+color:white;
 }
 
 @media(max-width:700px){
-    header{
-        position:static;
-    }
 
-    nav{
-        display:none;
-    }
+header{
+position:static;
+}
 
-    .hero{
-        padding:55px 5%;
-    }
+nav{
+display:none;
+}
 
-    .hero p{
-        font-size:17px;
-    }
+.hero{
+padding:50px 5%;
+}
 
-    section{
-        padding:45px 5%;
-    }
+.hero p{
+font-size:17px;
+}
+
+section{
+padding:45px 5%;
+}
 }
 </style>
 </head>
@@ -244,19 +237,26 @@ footer strong{
 
 <header>
 
-<div class="logo">
-    <div class="logo-box">6M</div>
+<div class="brand">
 
-    <div>
-        <h1>SIX M STORE</h1>
-        <small>আপনার বিশ্বাসই আমাদের মূলধন</small>
-    </div>
+<!-- আপনার লোগোর জায়গা -->
+<div class="logo"
+style="display:flex;align-items:center;justify-content:center;
+font-size:20px;font-weight:bold;color:#063b8f;">
+6M
+</div>
+
+<div>
+<h1>SIX M STORE</h1>
+<p>আপনার বিশ্বাসই আমাদের মূলধন</p>
+</div>
+
 </div>
 
 <nav>
-    <a href="#products">পণ্য</a>
-    <a href="#delivery">ডেলিভারি</a>
-    <a href="#contact">যোগাযোগ</a>
+<a href="#products">পণ্য</a>
+<a href="#delivery">ডেলিভারি</a>
+<a href="#contact">যোগাযোগ</a>
 </nav>
 
 </header>
@@ -273,7 +273,8 @@ footer strong{
 
 <div class="buttons">
 
-<a class="btn call" href="tel:+8801737781096">
+<a class="btn call"
+href="tel:+8801737781096">
 📞 এখনই কল করুন
 </a>
 
@@ -330,7 +331,7 @@ href="https://wa.me/8801737781096?text=আসসালামু%20আলাই�
 
 <div class="product">
 <div class="product-icon">🫘</div>
-<h3>ছোলা ও অন্যান্য</h3>
+<h3>ছোলা</h3>
 </div>
 
 <div class="product">
@@ -422,7 +423,6 @@ target="_blank">
 </a>
 
 </div>
-
 
 </div>
 
