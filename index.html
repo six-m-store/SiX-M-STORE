@@ -1,18 +1,945 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIX M STORE | Everyone Deserves Good Service</title>
+
+<meta name="description"
+content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.6;
+}
+
+header{
+background:linear-gradient(135deg,#063b8f,#0875d1);
+color:white;
+padding:15px 18px;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.header-inner{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo{
+width:68px;
+height:68px;
+background:white;
+border-radius:16px;
+padding:4px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+flex-shrink:0;
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:contain;
+border-radius:12px;
+}
+
+.brand h1{
+font-size:25px;
+letter-spacing:1px;
+}
+
+.brand p{
+font-size:13px;
+}
+
+.hero{
+background:white;
+padding:35px 18px;
+text-align:center;
+}
+
+.hero h2{
+color:#063b8f;
+font-size:28px;
+margin-bottom:12px;
+}
+
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:21px;
+font-weight:bold;
+line-height:1.8;
+
+background:linear-gradient(
+90deg,
+#e74c3c,
+#f39c12,
+#20b858,
+#0875d1,
+#8e44ad
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:25px 16px;
+}
+
+.section-title{
+text-align:center;
+color:#063b8f;
+font-size:26px;
+margin-bottom:18px;
+}
+
+.search-box{
+background:white;
+padding:15px;
+border-radius:15px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.search-box input{
+width:100%;
+padding:14px;
+border:1px solid #ccd5e0;
+border-radius:10px;
+font-size:16px;
+outline:none;
+}
+
+.search-box input:focus{
+border-color:#0875d1;
+box-shadow:0 0 0 3px rgba(8,117,209,.1);
+}
+
+.product-count{
+text-align:center;
+color:#666;
+font-size:14px;
+margin-top:8px;
+}
+
+.category{
+background:white;
+border-radius:18px;
+padding:20px 15px;
+margin-bottom:25px;
+box-shadow:0 3px 14px rgba(0,0,0,.08);
+border:1px solid #e5ebf3;
+}
+
+.category-title{
+text-align:center;
+color:#063b8f;
+font-size:22px;
+margin-bottom:18px;
+padding-bottom:12px;
+border-bottom:2px solid #eaf0f7;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+gap:14px;
+}
+
+.product{
+background:#f9fbfe;
+border-radius:14px;
+padding:15px 10px;
+text-align:center;
+border:1px solid #e3eaf3;
+transition:.2s;
+cursor:pointer;
+}
+
+.product:hover{
+transform:translateY(-3px);
+box-shadow:0 7px 18px rgba(0,0,0,.10);
+}
+
+.product-icon{
+font-size:36px;
+margin-bottom:7px;
+}
+
+.product h3{
+color:#172033;
+font-size:16px;
+min-height:48px;
+}
+
+.price{
+color:#063b8f;
+font-weight:bold;
+margin-top:5px;
+min-height:25px;
+}
+
+.order-btn{
+background:#20b858;
+color:white;
+border:none;
+padding:7px 12px;
+border-radius:8px;
+margin-top:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.order-btn:hover{
+background:#169c49;
+}
+
+.order-floating{
+position:fixed;
+right:18px;
+bottom:18px;
+z-index:9000;
+background:#20b858;
+color:white;
+border:none;
+border-radius:50px;
+padding:13px 18px;
+font-size:15px;
+font-weight:bold;
+box-shadow:0 5px 20px rgba(0,0,0,.25);
+cursor:pointer;
+}
+
+.order-count{
+background:#e74c3c;
+color:white;
+border-radius:50%;
+min-width:24px;
+height:24px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin-left:5px;
+}
+
+#orderPanel{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.60);
+overflow:auto;
+padding:15px;
+}
+
+.order-content{
+background:white;
+width:100%;
+max-width:650px;
+margin:15px auto;
+border-radius:18px;
+padding:20px;
+box-shadow:0 10px 35px rgba(0,0,0,.3);
+}
+
+.order-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #ddd;
+padding-bottom:12px;
+margin-bottom:15px;
+}
+
+.order-header h2{
+color:#063b8f;
+}
+
+.close{
+font-size:32px;
+cursor:pointer;
+color:#e74c3c;
+line-height:1;
+}
+
+.selected-product{
+background:#f4f7fb;
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+border:1px solid #e3eaf3;
+}
+
+.selected-info{
+flex:1;
+}
+
+.selected-info strong{
+display:block;
+}
+
+.item-price{
+color:#063b8f;
+font-size:14px;
+}
+
+.quantity{
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+.quantity button{
+width:32px;
+height:32px;
+border:none;
+border-radius:7px;
+background:#063b8f;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.quantity input{
+width:55px;
+height:32px;
+text-align:center;
+border:1px solid #ccc;
+border-radius:7px;
+font-size:15px;
+}
+
+.remove{
+border:none;
+background:#e74c3c;
+color:white;
+padding:6px 9px;
+border-radius:7px;
+cursor:pointer;
+}
+
+.total-box{
+background:linear-gradient(135deg,#063b8f,#0875d1);
+color:white;
+padding:15px;
+border-radius:12px;
+margin-top:15px;
+text-align:center;
+font-size:17px;
+}
+
+.total-row{
+display:flex;
+justify-content:space-between;
+margin:4px 0;
+}
+
+.total-final{
+border-top:1px solid rgba(255,255,255,.4);
+margin-top:8px;
+padding-top:8px;
+font-size:20px;
+font-weight:bold;
+}
+
+.add-more{
+width:100%;
+background:#063b8f;
+color:white;
+border:none;
+padding:12px;
+border-radius:10px;
+margin-top:15px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.customer-form{
+margin-top:20px;
+}
+
+.customer-form h3{
+color:#063b8f;
+margin-bottom:10px;
+}
+
+.customer-form input,
+.customer-form textarea{
+width:100%;
+padding:12px;
+border:1px solid #ccd5e0;
+border-radius:9px;
+margin-bottom:10px;
+font-family:inherit;
+font-size:15px;
+}
+
+.customer-form textarea{
+min-height:90px;
+resize:vertical;
+}
+
+.send-order{
+width:100%;
+background:#20b858;
+color:white;
+border:none;
+padding:14px;
+border-radius:10px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.delivery{
+background:linear-gradient(135deg,#063b8f,#0875d1);
+color:white;
+border-radius:18px;
+padding:28px 18px;
+margin-top:25px;
+text-align:center;
+box-shadow:0 5px 18px rgba(0,0,0,.15);
+}
+
+.delivery h2{
+margin-bottom:8px;
+}
+
+.delivery strong{
+color:#ffe082;
+}
+
+.info{
+background:white;
+border-radius:16px;
+padding:22px;
+margin-top:25px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.info h2{
+color:#063b8f;
+margin-bottom:15px;
+text-align:center;
+}
+
+.info-item{
+display:flex;
+gap:12px;
+padding:12px 0;
+border-bottom:1px solid #eee;
+}
+
+.info-item:last-child{
+border-bottom:none;
+}
+
+.info-icon{
+font-size:23px;
+width:35px;
+}
+
+.info-text{
+flex:1;
+}
+
+.info-text strong{
+display:block;
+color:#063b8f;
+}
+
+.contact-buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-top:15px;
+}
+
+.btn{
+text-decoration:none;
+color:white;
+padding:12px 18px;
+border-radius:10px;
+font-weight:bold;
+display:inline-block;
+box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.call{
+background:#063b8f;
+}
+
+.whatsapp{
+background:#20b858;
+}
+
+footer{
+margin-top:30px;
+background:#071b3a;
+color:white;
+text-align:center;
+padding:28px 15px;
+}
+
+footer h2{
+margin-bottom:6px;
+}
+
+footer p{
+font-size:13px;
+opacity:.85;
+margin:3px 0;
+}
+
+@media(max-width:500px){
+
+.brand h1{
+font-size:21px;
+}
+
+.brand p{
+font-size:11px;
+}
+
+.hero h2{
+font-size:24px;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.7;
+}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.product{
+padding:15px 7px;
+}
+
+.product-icon{
+font-size:32px;
+}
+
+.product h3{
+font-size:15px;
+}
+
+.logo{
+width:60px;
+height:60px;
+}
+
+.category-title{
+font-size:19px;
+}
+
+.selected-product{
+flex-wrap:wrap;
+}
+
+.selected-info{
+min-width:100%;
+}
+
+.order-floating{
+right:12px;
+bottom:12px;
+padding:11px 15px;
+font-size:14px;
+}
+
+.contact-buttons .btn{
+width:100%;
+text-align:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="header-inner">
+
+<div class="logo">
+
+<img
+src="logo.png"
+alt="SIX M STORE Logo">
+
+</div>
+
+<div class="brand">
+
+<h1>SIX M STORE</h1>
+
+<p>
+Everyone Deserves Good Service.
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<h2>
+🛒 SIX M STORE-এ স্বাগতম
+</h2>
+
+<p>
+এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু, একসাথে। এখনই অর্ডার করুন।
+</p>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<div class="container">
+
+<h2 class="section-title">
+🛍️ আমাদের ২০০০+ পণ্য
+</h2>
+
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+<input
+type="search"
+id="searchBox"
+placeholder="🔎 পণ্যের নাম লিখে খুঁজুন...">
+
+<div
+class="product-count"
+id="productCount">
+
+২০০০+ পণ্য
+
+</div>
+
+</div>
+
+
+<div id="productsContainer"></div>
+
+
+<!-- ================= ADDRESS ================= -->
+
+<div class="info">
+
+<h2>
+📍 আমাদের ঠিকানা
+</h2>
+
+<div class="info-item">
+
+<div class="info-icon">
+🏪
+</div>
+
+<div class="info-text">
+
+<strong>
+দোকানের ঠিকানা
+</strong>
+
+ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
+হালিশহর রোড, আগ্রাবাদ,
+চট্টগ্রাম, বাংলাদেশ।
+
+</div>
+
+</div>
+
+
+<!-- PHONE -->
+
+<div class="contact-buttons">
+
+<a
+class="btn call"
+href="tel:+8801737781096">
+
+📞 এখনই ফোন করুন
+
+</a>
+
+
+<a
+class="btn whatsapp"
+href="https://wa.me/8801737781096"
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- ================= DELIVERY ================= -->
+
+<div class="delivery">
+
+<h2>
+🚚 Home Delivery সুবিধা
+</h2>
+
+<p>
+<strong>
+Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)
+</strong>
+</p>
+
+<p>
+ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
+</p>
+
+<p>
+<strong>
+ফোন অথবা WhatsApp-এ অর্ডার করুন
+</strong>
+</p>
+
+<p>
+দ্রুত ও সহজ ডেলিভারি সুবিধা।
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= FLOATING ORDER ================= -->
+
+<button
+class="order-floating"
+onclick="openOrder()">
+
+🛒 আপনার অর্ডার
+
+<span
+class="order-count"
+id="orderCount">
+
+0
+
+</span>
+
+</button>
+
+
+<!-- ================= ORDER PANEL ================= -->
+
+<div id="orderPanel">
+
+<div class="order-content">
+
+
+<div class="order-header">
+
+<h2>
+🛒 আপনার অর্ডার
+</h2>
+
+<span
+class="close"
+onclick="closeOrder()">
+
+×
+
+</span>
+
+</div>
+
+
+<div id="orderItems">
+
+<p
+style="text-align:center;color:#777;padding:15px;">
+
+এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
+
+</p>
+
+</div>
+
+
+<div class="total-box">
+
+<div class="total-row">
+
+<span>
+পণ্যের মোট মূল্য:
+</span>
+
+<span>
+৳ <span id="subtotal">0</span>
+</span>
+
+</div>
+
+
+<div class="total-row">
+
+<span>
+ডেলিভারি চার্জ:
+</span>
+
+<span>
+৳ <span id="deliveryCharge">0</span>
+</span>
+
+</div>
+
+
+<div class="total-row total-final">
+
+<span>
+সর্বমোট:
+</span>
+
+<span>
+৳ <span id="grandTotal">0</span>
+</span>
+
+</div>
+
+</div>
+
+
+<button
+class="add-more"
+onclick="continueShopping()">
+
+🛍️ আরও পণ্য যোগ করুন
+
+</button>
+
+
+<div class="customer-form">
+
+<h3>
+👤 কাস্টমারের তথ্য
+</h3>
+
+
+<input
+type="text"
+id="customerName"
+placeholder="আপনার নাম লিখুন">
+
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="মোবাইল নম্বর লিখুন">
+
+
+<textarea
+id="customerAddress"
+placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন">
+</textarea>
+
+
+<button
+class="send-order"
+onclick="sendOrder()">
+
+💬 WhatsApp-এ অর্ডার পাঠান
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h2>
+SIX M STORE
+</h2>
+
+<p>
+আপনার বিশ্বাসই আমাদের মূলধন।
+</p>
+
+<p>
+📞 01782-371255
+</p>
+
+<p>
+© 2026 SIX M STORE. All Rights Reserved.
+</p>
+
+</footer>
+
+
 <script>
 
-/* =========================================================
-   SIX M STORE
-   ২০০০+ আলাদা পণ্যের ক্যাটালগ
-   ========================================================= */
 
+/* =====================================================
+   মূল পণ্যের তালিকা
+   ===================================================== */
 
-/* =========================================================
-   এখানে পণ্যের মূল তালিকা
-   ========================================================= */
-
-const productNames = [
-
-/* ================= চাল ও ডাল ================= */
+const baseProducts = [
 
 "মিনিকেট চাল",
 "নাজিরশাইল চাল",
@@ -26,14 +953,10 @@ const productNames = [
 "স্বর্ণা চাল",
 "BR-28 চাল",
 "BR-29 চাল",
-"নতুন আমন চাল",
-"পুরাতন আমন চাল",
-"বিন্নি চাল",
-"গোবিন্দভোগ চাল",
+"আমন চাল",
 "লাল চাল",
 "বাদামি চাল",
 "কালো চাল",
-"জিরা চাল",
 
 "মসুর ডাল",
 "মুগ ডাল",
@@ -43,20 +966,11 @@ const productNames = [
 "খেসারি ডাল",
 "মটর ডাল",
 "অড়হর ডাল",
-"মিশ্র ডাল",
-"ভাজা ডাল",
-"সাবুত মুগ",
-"সাবুত মসুর",
-"সাবুত মাষকলাই",
-"সাদা মটর",
-"সবুজ মটর",
+"ছোলা",
 "কালো ছোলা",
 "সাদা ছোলা",
 "কাবুলি ছোলা",
-"দেশি ছোলা",
 "রাজমা",
-
-/* ================= তেল ================= */
 
 "সয়াবিন তেল",
 "সরিষার তেল",
@@ -66,20 +980,7 @@ const productNames = [
 "রাইস ব্র্যান অয়েল",
 "নারিকেল তেল",
 "তিলের তেল",
-"বাদাম তেল",
 "ক্যানোলা অয়েল",
-"ভেজিটেবল অয়েল",
-"ঘি",
-"ডালডা",
-"বাটার অয়েল",
-"মাখন",
-"দেশি ঘি",
-"গরুর দুধের ঘি",
-"মহিষের দুধের ঘি",
-"নারিকেল তেল ভার্জিন",
-"অলিভ অয়েল এক্সট্রা ভার্জিন",
-
-/* ================= আটা ময়দা ================= */
 
 "আটা",
 "ময়দা",
@@ -92,17 +993,6 @@ const productNames = [
 "চিড়া",
 "মুড়ি",
 "খই",
-"পোহা",
-"ব্রেড ক্রাম্বস",
-"প্যানকেক মিক্স",
-"কেক মিক্স",
-"বিস্কুট মিক্স",
-"পুডিং মিক্স",
-"কাস্টার্ড পাউডার",
-"জেলাটিন",
-"বেকিং মিক্স",
-
-/* ================= চিনি ও মিষ্টি ================= */
 
 "চিনি",
 "বাদামি চিনি",
@@ -114,31 +1004,13 @@ const productNames = [
 "পাটালি গুড়",
 "তালের গুড়",
 "মধু",
-"ফুলের মধু",
-"সরিষার মধু",
-"কালোজিরা মধু",
-"লিচু মধু",
-"খেজুরের সিরাপ",
-"ম্যাপল সিরাপ",
-"চকলেট সিরাপ",
-"ক্যারামেল সিরাপ",
-"গ্লুকোজ",
-"মিষ্টি সিরাপ",
-
-/* ================= লবণ ================= */
 
 "আয়োডিনযুক্ত লবণ",
-"সাধারণ লবণ",
 "সাদা লবণ",
 "পাথুরে লবণ",
 "বিট লবণ",
 "কালো লবণ",
 "হিমালয়ান পিংক সল্ট",
-"রক সল্ট",
-"লো সোডিয়াম সল্ট",
-"সী সল্ট",
-
-/* ================= মসলা ================= */
 
 "হলুদ গুঁড়া",
 "মরিচ গুঁড়া",
@@ -153,8 +1025,6 @@ const productNames = [
 "কারি মসলা",
 "চাট মসলা",
 "কাবাব মসলা",
-"তন্দুরি মসলা",
-"শাহী মসলা",
 "পাঁচফোড়ন",
 "জিরা",
 "ধনিয়া",
@@ -162,26 +1032,12 @@ const productNames = [
 "মেথি",
 "মৌরি",
 "কালোজিরা",
-"সাদা জিরা",
-"শুকনা মরিচ",
 "দারুচিনি",
 "এলাচ",
 "লবঙ্গ",
 "তেজপাতা",
 "জায়ফল",
 "জয়ত্রী",
-"স্টার অ্যানিস",
-"কাবাবচিনি",
-"শাহী জিরা",
-"সাদা গোলমরিচ",
-"কালো গোলমরিচ",
-"তিল",
-"পোস্ত",
-"চিয়া সিড",
-"ফ্ল্যাক্স সিড",
-"মেথি দানা",
-
-/* ================= রান্নার উপকরণ ================= */
 
 "টমেটো সস",
 "চিলি সস",
@@ -194,22 +1050,11 @@ const productNames = [
 "পিজা সস",
 "পাস্তা সস",
 "মেয়োনিজ",
-"চিলি মায়োনিজ",
 "গার্লিক মায়োনিজ",
-"টমেটো পিউরি",
-"টমেটো পেস্ট",
 "ভিনেগার",
-"সাদা ভিনেগার",
-"আপেল সিডার ভিনেগার",
-"বালসামিক ভিনেগার",
-"লেবুর রস",
-
-/* ================= আচার ================= */
+"টমেটো পেস্ট",
 
 "আমের আচার",
-"কাঁচা আমের আচার",
-"ঝাল আমের আচার",
-"মিষ্টি আমের আচার",
 "জলপাই আচার",
 "লেবুর আচার",
 "বরই আচার",
@@ -217,35 +1062,21 @@ const productNames = [
 "মরিচের আচার",
 "মিক্সড আচার",
 "তেঁতুলের আচার",
-"কুলের আচার",
-"আদার আচার",
-"চালতার আচার",
-"আমড়া আচার",
 
-/* ================= নুডলস ================= */
-
-"ইন্সট্যান্ট নুডলস",
+"নুডলস",
 "চিকেন নুডলস",
 "মসলা নুডলস",
 "কারি নুডলস",
 "সবজি নুডলস",
-"স্পাইসি নুডলস",
 "কাপ নুডলস",
-"চিকেন কাপ নুডলস",
-"বিফ কাপ নুডলস",
+"এগ নুডলস",
+"রাইস নুডলস",
+"চাওমিন নুডলস",
 "পাস্তা",
 "ম্যাকারনি",
 "স্প্যাগেটি",
 "ফুসিলি",
 "পেন্নে",
-"লাসানিয়া",
-"শেল পাস্তা",
-"এগ নুডলস",
-"রাইস নুডলস",
-"চাওমিন নুডলস",
-"সুপ নুডলস",
-
-/* ================= বিস্কুট ================= */
 
 "মারি বিস্কুট",
 "ক্রিম বিস্কুট",
@@ -261,14 +1092,7 @@ const productNames = [
 "চকলেট চিপ কুকিজ",
 "ওটস কুকিজ",
 "ক্র্যাকার",
-"চিজ ক্র্যাকার",
-"স্যান্ডউইচ বিস্কুট",
 "ওয়েফার বিস্কুট",
-"বাটার কুকিজ",
-"জিঞ্জার বিস্কুট",
-"হানি বিস্কুট",
-
-/* ================= স্ন্যাকস ================= */
 
 "চানাচুর",
 "ঝাল চানাচুর",
@@ -281,24 +1105,17 @@ const productNames = [
 "আখরোট",
 "কিশমিশ",
 "আলুর চিপস",
-"লেইস চিপস",
 "কর্ন চিপস",
 "নাচোস",
 "পপকর্ন",
-"চিড়া ভাজা",
 "ডাল ভাজা",
 "মটর ভাজা",
-"মুড়ি মিক্স",
-"ঝাল মিক্স",
-
-/* ================= চকলেট ================= */
 
 "মিল্ক চকলেট",
 "ডার্ক চকলেট",
 "হোয়াইট চকলেট",
 "চকলেট বার",
 "চকলেট ওয়েফার",
-"চকলেট ক্যান্ডি",
 "ক্যারামেল ক্যান্ডি",
 "মিন্ট ক্যান্ডি",
 "ফ্রুট ক্যান্ডি",
@@ -309,14 +1126,11 @@ const productNames = [
 "টফি",
 "মার্শম্যালো",
 "চকলেট স্প্রেড",
-"হ্যাজেলনাট স্প্রেড",
 "পিনাট বাটার",
 "স্ট্রবেরি জ্যাম",
 "অরেঞ্জ মার্মালেড",
 
-/* ================= ডেইরি ================= */
-
-"পাস্তুরিত দুধ",
+"দুধ",
 "ফুল ক্রিম দুধ",
 "লো ফ্যাট দুধ",
 "গুঁড়া দুধ",
@@ -334,10 +1148,6 @@ const productNames = [
 "মোজারেলা চিজ",
 "ক্রিম চিজ",
 "হুইপিং ক্রিম",
-"কুকিং ক্রিম",
-"চকলেট মিল্ক",
-
-/* ================= চা কফি ================= */
 
 "চা পাতা",
 "ব্ল্যাক টি",
@@ -345,8 +1155,6 @@ const productNames = [
 "লেমন টি",
 "মসলা চা",
 "আদা চা",
-"দুধ চা",
-"ইন্সট্যান্ট টি",
 "টি ব্যাগ",
 "গ্রিন টি ব্যাগ",
 "কফি",
@@ -355,12 +1163,8 @@ const productNames = [
 "ক্যাপুচিনো মিক্স",
 "লাটে মিক্স",
 "মোকা মিক্স",
-"কফি ক্রিমার",
 "হট চকোলেট",
 "কোকো পাউডার",
-"মাল্টেড ড্রিংক",
-
-/* ================= পানীয় ================= */
 
 "মিনারেল ওয়াটার",
 "স্পার্কলিং ওয়াটার",
@@ -371,7 +1175,6 @@ const productNames = [
 "সফট ড্রিংক",
 "এনার্জি ড্রিংক",
 "স্পোর্টস ড্রিংক",
-"মাল্ট ড্রিংক",
 "আমের জুস",
 "কমলার জুস",
 "আপেলের জুস",
@@ -381,9 +1184,6 @@ const productNames = [
 "আঙুরের জুস",
 "মিশ্র ফলের জুস",
 "নারিকেল পানি",
-"গ্লুকোজ ড্রিংক",
-
-/* ================= বেকারি ================= */
 
 "সাদা পাউরুটি",
 "ব্রাউন ব্রেড",
@@ -399,17 +1199,12 @@ const productNames = [
 "কাপকেক",
 "মাফিন",
 "ডোনাট",
-"ক্রসাঁ",
 "রস্ক",
 "টোস্ট",
-"ব্রেড স্টিক",
 "পেস্ট্রি",
-"ক্রিম রোল",
-
-/* ================= ফ্রোজেন ================= */
 
 "ফ্রোজেন চিকেন",
-"ফ্রোজেন চিকেন নাগেট",
+"চিকেন নাগেট",
 "চিকেন সসেজ",
 "বিফ সসেজ",
 "চিকেন সামোসা",
@@ -424,12 +1219,8 @@ const productNames = [
 "ফ্রোজেন মটর",
 "ফ্রোজেন কর্ন",
 "ফ্রোজেন ফ্রাই",
-"ফ্রোজেন আলু",
-"ফ্রোজেন বার্গার প্যাটি",
 "ফ্রোজেন পিজা",
 "আইসক্রিম",
-
-/* ================= ক্লিনিং ================= */
 
 "ডিটারজেন্ট পাউডার",
 "লিকুইড ডিটারজেন্ট",
@@ -444,15 +1235,12 @@ const productNames = [
 "ব্লিচিং পাউডার",
 "ব্লিচ লিকুইড",
 "ফেনাইল",
-"ফ্লোর ফ্রেশনার",
 "এয়ার ফ্রেশনার",
 "মশার কয়েল",
 "মশার স্প্রে",
 "ইনসেক্ট কিলার",
 "জীবাণুনাশক",
 "হ্যান্ড স্যানিটাইজার",
-
-/* ================= পার্সোনাল কেয়ার ================= */
 
 "গোসলের সাবান",
 "ময়েশ্চারাইজিং সাবান",
@@ -468,14 +1256,12 @@ const productNames = [
 "টুথপেস্ট",
 "হারবাল টুথপেস্ট",
 "টুথব্রাশ",
-"বেবি টুথব্রাশ",
 "মাউথওয়াশ",
 "ডেন্টাল ফ্লস",
 "ফেসওয়াশ",
 "ফেস স্ক্রাব",
 "বডি লোশন",
-
-/* ================= প্রসাধনী ================= */
+"বডি ওয়াশ",
 
 "ফেস ক্রিম",
 "নাইট ক্রিম",
@@ -495,10 +1281,7 @@ const productNames = [
 "ট্যালকম পাউডার",
 "হ্যান্ড ক্রিম",
 "ফুট ক্রিম",
-"বডি ওয়াশ",
 "শেভিং ক্রিম",
-
-/* ================= বেবি ================= */
 
 "বেবি শ্যাম্পু",
 "বেবি সাবান",
@@ -511,17 +1294,12 @@ const productNames = [
 "বেবি ফুড",
 "বেবি সিরিয়াল",
 "বেবি বিস্কুট",
-"বেবি জুস",
 "বেবি বোতল",
 "বেবি ফিডার",
 "বেবি টিস্যু",
 "বেবি তোয়ালে",
 "বেবি ব্রাশ",
 "বেবি চিরুনি",
-"বেবি নেইল কাটার",
-"বেবি খেলনা",
-
-/* ================= টিস্যু ================= */
 
 "ফেস টিস্যু",
 "টয়লেট টিস্যু",
@@ -529,12 +1307,7 @@ const productNames = [
 "ন্যাপকিন",
 "পেপার ন্যাপকিন",
 "ভেজা টিস্যু",
-"বেবি ওয়াইপস",
 "মেকআপ ওয়াইপস",
-"মাইক্রোফাইবার কাপড়",
-"স্পঞ্জ কাপড়",
-
-/* ================= কিচেন ================= */
 
 "স্টিল প্লেট",
 "স্টিল বাটি",
@@ -557,12 +1330,9 @@ const productNames = [
 "প্লাস্টিক গ্লাস",
 "খাবার সংরক্ষণ বক্স",
 
-/* ================= হোম ================= */
-
 "ডাস্টবিন",
 "ঝাড়ু",
 "মপ",
-"মপ কাপড়",
 "বালতি",
 "মগ",
 "কাপড়ের হ্যাঙ্গার",
@@ -573,14 +1343,11 @@ const productNames = [
 "প্লাস্টিক ঝুড়ি",
 "শপিং ব্যাগ",
 "ডাস্টবিন ব্যাগ",
-"পলিথিন ব্যাগ",
 "অ্যালুমিনিয়াম ফয়েল",
 "ক্লিং ফিল্ম",
 "জিপ ব্যাগ",
 "স্পঞ্জ",
 "স্ক্রাবার",
-
-/* ================= অন্যান্য ================= */
 
 "ম্যাচ",
 "মোমবাতি",
@@ -606,10 +1373,9 @@ const productNames = [
 ];
 
 
-/* =========================================================
-   পণ্যের ধরন/ভ্যারিয়েন্ট
-   এগুলো ব্যবহার করে ২০০০+ আলাদা ক্যাটালগ তৈরি হবে।
-   ========================================================= */
+/* =====================================================
+   ২০০০+ পণ্য তৈরি
+   ===================================================== */
 
 const variants = [
 
@@ -625,8 +1391,6 @@ const variants = [
 "ক্লাসিক",
 "ডিলাক্স",
 "এক্সট্রা",
-"প্রিমিয়াম কোয়ালিটি",
-"ফ্যামিলি প্যাক",
 "ভ্যালু প্যাক",
 "ইকোনমি",
 "সুপার সেভার",
@@ -637,11 +1401,117 @@ const variants = [
 ];
 
 
-/* =========================================================
-   ক্যাটাগরি
-   ========================================================= */
+let products = [];
 
-const categoryNames = [
+
+/* মূল পণ্য */
+
+baseProducts.forEach(function(name){
+
+products.push({
+
+name:name,
+price:0,
+unit:"প্যাকেট"
+
+});
+
+});
+
+
+/* ভ্যারিয়েন্ট */
+
+baseProducts.forEach(function(name){
+
+variants.forEach(function(variant){
+
+products.push({
+
+name:variant+" "+name,
+price:0,
+unit:"প্যাকেট"
+
+});
+
+});
+
+});
+
+
+/* কমপক্ষে ২০০০ */
+
+let number = 1;
+
+while(products.length < 2000){
+
+let base =
+baseProducts[
+(number-1) %
+baseProducts.length
+];
+
+products.push({
+
+name:"বিশেষ "+number+" "+base,
+
+price:0,
+
+unit:"প্যাকেট"
+
+});
+
+number++;
+
+}
+
+
+/* =====================================================
+   এখানে আপনার দাম লিখবেন
+   ===================================================== */
+
+const prices = {
+
+/* উদাহরণ */
+
+"মিনিকেট চাল":60,
+"নাজিরশাইল চাল":90,
+"পাইজাম চাল":85,
+"আতপ চাল":90,
+
+"মসুর ডাল":90,
+"মুগ ডাল":160,
+"ছোলা":95,
+"বুটের ডাল":60,
+
+"আটা":50,
+"ময়দা":65,
+"চিনি":105,
+"লবণ":40,
+
+"আলু":25,
+"পেঁয়াজ":60,
+"রসুন":150,
+"আদা":130,
+
+"ডিম":140,
+
+"সয়াবিন তেল":199,
+"সরিষার তেল":225
+
+};
+
+
+/* =====================================================
+   পণ্য দেখানো
+   ===================================================== */
+
+const container =
+document.getElementById(
+"productsContainer"
+);
+
+
+const categories = [
 
 "🍚 চাল ও ডাল",
 "🫙 তেল ও নিত্যপ্রয়োজনীয়",
@@ -657,173 +1527,39 @@ const categoryNames = [
 "💄 প্রসাধনী",
 "🧴 পার্সোনাল কেয়ার",
 "👶 বেবি কেয়ার",
-"🧻 টিস্যু ও দৈনন্দিন পণ্য",
+"🧻 টিস্যু ও দৈনন্দিন",
 "🍳 কিচেন ও হোম",
 "🛍️ অন্যান্য"
 
 ];
 
 
-/* =========================================================
-   ২০০০+ পণ্য তৈরি
-   ========================================================= */
-
-let allProducts = [];
-
-
-/*
-প্রথমে সব মূল পণ্য যোগ করা হচ্ছে
-*/
-
-productNames.forEach(function(name){
-
-allProducts.push({
-name:name,
-price:0,
-unit:"প্যাকেট"
-});
-
-});
-
-
-/*
-প্রতিটি মূল পণ্যের জন্য আলাদা ভ্যারিয়েন্ট
-তৈরি করা হচ্ছে।
-*/
-
-productNames.forEach(function(name){
-
-variants.forEach(function(variant){
-
-allProducts.push({
-
-name:
-variant + " " + name,
-
-price:0,
-
-unit:"প্যাকেট"
-
-});
-
-});
-
-});
-
-
-/*
-কমপক্ষে ২০০০টি নিশ্চিত করা
-*/
-
-let counter = 1;
-
-while(allProducts.length < 2000){
-
-let base =
-productNames[
-(counter - 1) %
-productNames.length
-];
-
-allProducts.push({
-
-name:
-"স্পেশাল " +
-counter +
-" " +
-base,
-
-price:0,
-
-unit:"প্যাকেট"
-
-});
-
-counter++;
-
-}
-
-
-/* =========================================================
-   দাম দেওয়ার জন্য এখানে সহজ ব্যবস্থা
-   ========================================================= */
-
-/*
-উদাহরণ:
-
-prices["মিনিকেট চাল"] = 60;
-prices["প্রিমিয়াম মিনিকেট চাল"] = 70;
-
-পরে যেকোনো পণ্যের দাম এখানে বসাতে পারবেন।
-*/
-
-const prices = {
-
-"মিনিকেট চাল":60,
-"নাজিরশাইল চাল":90,
-"পাইজাম চাল":85,
-"আতপ চাল":90,
-"মসুর ডাল":90,
-"মুগ ডাল":160,
-"ছোলা":95,
-"বুটের ডাল":60,
-"আটা":50,
-"ময়দা":65,
-"চিনি":105,
-"লবণ":40,
-"মুড়ি":70,
-"আলু":25,
-"পেঁয়াজ":60,
-"রসুন":150,
-"আদা":130,
-"ডিম":140,
-"সয়াবিন তেল":199,
-"সরিষার তেল":225
-
-};
-
-
-/* =========================================================
-   ওয়েবসাইটে পণ্য দেখানো
-   ========================================================= */
-
-const productsContainer =
-document.getElementById(
-"productsContainer"
-);
-
-
-let html = "";
-
+let pageHTML = "";
 
 let categoryIndex = 0;
 
 
-/*
-প্রতি ১২০টি পণ্যের জন্য নতুন ক্যাটাগরি
-*/
+products.forEach(function(product,index){
 
-allProducts.forEach(function(product,index){
+if(index % 100 === 0){
 
-if(index % 120 === 0){
+if(index > 0){
 
-if(index !== 0){
-
-html += `
-</div>
-</div>
-`;
+pageHTML +=
+"</div></div>";
 
 }
 
-html += `
+pageHTML += `
 
 <div class="category">
 
 <h2 class="category-title">
 
-${categoryNames[categoryIndex %
-categoryNames.length]}
+${categories[
+categoryIndex %
+categories.length
+]}
 
 </h2>
 
@@ -836,110 +1572,51 @@ categoryIndex++;
 }
 
 
-/*
-দাম
-*/
-
 let price =
 prices[product.name] || 0;
 
 
-/*
-আইকন
-*/
-
 let icon = "🛒";
 
 
-if(
-product.name.includes("চাল") ||
-product.name.includes("ডাল")
-){
+if(product.name.includes("চাল"))
+icon="🍚";
 
-icon = "🍚";
+else if(product.name.includes("ডাল"))
+icon="🫘";
 
-}
+else if(product.name.includes("তেল"))
+icon="🫙";
 
-else if(
-product.name.includes("তেল") ||
-product.name.includes("ঘি")
-){
+else if(product.name.includes("মসলা"))
+icon="🌶️";
 
-icon = "🫙";
+else if(product.name.includes("বিস্কুট"))
+icon="🍪";
 
-}
+else if(product.name.includes("চকলেট"))
+icon="🍫";
 
-else if(
-product.name.includes("মসলা") ||
-product.name.includes("মরিচ") ||
-product.name.includes("জিরা")
-){
+else if(product.name.includes("দুধ"))
+icon="🥛";
 
-icon = "🌶️";
+else if(product.name.includes("শ্যাম্পু"))
+icon="🧴";
 
-}
+else if(product.name.includes("সাবান"))
+icon="🧼";
 
-else if(
-product.name.includes("বিস্কুট") ||
-product.name.includes("কেক")
-){
+else if(product.name.includes("জুস"))
+icon="🧃";
 
-icon = "🍪";
+else if(product.name.includes("ড্রিংক"))
+icon="🥤";
 
-}
-
-else if(
-product.name.includes("দুধ") ||
-product.name.includes("দই") ||
-product.name.includes("চিজ")
-){
-
-icon = "🥛";
-
-}
-
-else if(
-product.name.includes("শ্যাম্পু") ||
-product.name.includes("সাবান")
-){
-
-icon = "🧴";
-
-}
-
-else if(
-product.name.includes("চকলেট") ||
-product.name.includes("ক্যান্ডি")
-){
-
-icon = "🍫";
-
-}
-
-else if(
-product.name.includes("জুস") ||
-product.name.includes("ড্রিংক")
-){
-
-icon = "🥤";
-
-}
-
-else if(
-product.name.includes("ক্লিন") ||
-product.name.includes("ডিটারজেন্ট")
-){
-
-icon = "🧹";
-
-}
+else if(product.name.includes("ক্লিন"))
+icon="🧹";
 
 
-/*
-পণ্য দেখানো
-*/
-
-html += `
+pageHTML += `
 
 <div
 class="product"
@@ -958,7 +1635,7 @@ ${product.name}
 ${
 price > 0
 ?
-"৳ " + price
+"৳ "+price
 :
 "দাম শীঘ্রই দেওয়া হবে"
 }
@@ -984,19 +1661,91 @@ ${price},
 });
 
 
-html += `
-</div>
-</div>
-`;
+pageHTML +=
+"</div></div>";
 
 
-productsContainer.innerHTML =
-html;
+container.innerHTML =
+pageHTML;
 
 
-/* =========================================================
-   অর্ডার সিস্টেম
-   ========================================================= */
+/* =====================================================
+   পণ্যের সংখ্যা
+   ===================================================== */
+
+document.getElementById(
+"productCount"
+).innerText =
+products.length+
+"+ পণ্য";
+
+
+/* =====================================================
+   SEARCH
+   ===================================================== */
+
+document
+.getElementById("searchBox")
+.addEventListener(
+"input",
+function(){
+
+const value =
+this.value
+.toLowerCase()
+.trim();
+
+
+const cards =
+document.querySelectorAll(
+".product"
+);
+
+
+let found = 0;
+
+
+cards.forEach(function(card){
+
+const name =
+card.getAttribute(
+"data-name"
+);
+
+
+if(
+name.includes(value)
+){
+
+card.style.display =
+"block";
+
+found++;
+
+}
+
+else{
+
+card.style.display =
+"none";
+
+}
+
+});
+
+
+document.getElementById(
+"productCount"
+).innerText =
+found+
+"টি পণ্য পাওয়া গেছে";
+
+});
+
+
+/* =====================================================
+   ORDER SYSTEM
+   ===================================================== */
 
 let orderList = [];
 
@@ -1010,7 +1759,7 @@ unit
 if(price <= 0){
 
 alert(
-"এই পণ্যের দাম এখনো দেওয়া হয়নি।\n\nদাম যোগ করার পর অর্ডার করা যাবে।"
+"এই পণ্যের দাম এখনো দেওয়া হয়নি।\n\nদাম যোগ করার পর এই পণ্য অর্ডার করা যাবে।"
 );
 
 return;
@@ -1018,7 +1767,7 @@ return;
 }
 
 
-let existing =
+const existing =
 orderList.find(function(item){
 
 return item.name === name;
@@ -1037,11 +1786,8 @@ else{
 orderList.push({
 
 name:name,
-
 price:price,
-
 unit:unit,
-
 qty:1
 
 });
@@ -1056,9 +1802,9 @@ openOrder();
 }
 
 
-/* =========================================================
-   অর্ডার দেখানো
-   ========================================================= */
+/* =====================================================
+   RENDER ORDER
+   ===================================================== */
 
 function renderOrder(){
 
@@ -1073,7 +1819,7 @@ if(orderList.length === 0){
 box.innerHTML = `
 
 <p
-style="text-align:center;color:#777;padding:15px">
+style="text-align:center;color:#777;padding:15px;">
 
 এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
 
@@ -1088,7 +1834,8 @@ else{
 box.innerHTML = "";
 
 
-orderList.forEach(function(item,index){
+orderList.forEach(
+function(item,index){
 
 box.innerHTML += `
 
@@ -1109,10 +1856,7 @@ ${item.name}
 <br>
 
 <strong>
-
-মোট: ৳
-${item.price * item.qty}
-
+মোট: ৳ ${item.price * item.qty}
 </strong>
 
 </div>
@@ -1127,14 +1871,11 @@ onclick="changeQty(${index},-1)">
 
 </button>
 
-
 <input
 type="number"
 min="1"
 value="${item.qty}"
-onchange="setQty(${index},this.value)"
->
-
+onchange="setQty(${index},this.value)">
 
 <button
 onclick="changeQty(${index},1)">
@@ -1166,12 +1907,12 @@ onclick="removeItem(${index})">
 calculateTotal();
 
 
-let totalQuantity = 0;
+let count = 0;
 
 
 orderList.forEach(function(item){
 
-totalQuantity += item.qty;
+count += item.qty;
 
 });
 
@@ -1179,14 +1920,14 @@ totalQuantity += item.qty;
 document.getElementById(
 "orderCount"
 ).innerText =
-totalQuantity;
+count;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    QUANTITY
-   ========================================================= */
+   ===================================================== */
 
 function changeQty(index,value){
 
@@ -1216,7 +1957,7 @@ isNaN(value) ||
 value < 1
 ){
 
-value = 1;
+value=1;
 
 }
 
@@ -1230,9 +1971,9 @@ renderOrder();
 }
 
 
-/* =========================================================
+/* =====================================================
    REMOVE
-   ========================================================= */
+   ===================================================== */
 
 function removeItem(index){
 
@@ -1246,9 +1987,9 @@ renderOrder();
 }
 
 
-/* =========================================================
+/* =====================================================
    TOTAL
-   ========================================================= */
+   ===================================================== */
 
 function calculateTotal(){
 
@@ -1292,9 +2033,9 @@ subtotal + delivery;
 }
 
 
-/* =========================================================
-   OPEN ORDER
-   ========================================================= */
+/* =====================================================
+   OPEN
+   ===================================================== */
 
 function openOrder(){
 
@@ -1313,9 +2054,9 @@ renderOrder();
 }
 
 
-/* =========================================================
-   CLOSE ORDER
-   ========================================================= */
+/* =====================================================
+   CLOSE
+   ===================================================== */
 
 function closeOrder(){
 
@@ -1331,9 +2072,9 @@ document.body.style.overflow =
 }
 
 
-/* =========================================================
+/* =====================================================
    CONTINUE SHOPPING
-   ========================================================= */
+   ===================================================== */
 
 function continueShopping(){
 
@@ -1347,7 +2088,6 @@ document
 .scrollIntoView({
 
 behavior:"smooth",
-
 block:"start"
 
 });
@@ -1357,9 +2097,9 @@ block:"start"
 }
 
 
-/* =========================================================
+/* =====================================================
    OUTSIDE CLICK
-   ========================================================= */
+   ===================================================== */
 
 document
 .getElementById("orderPanel")
@@ -1376,16 +2116,16 @@ closeOrder();
 });
 
 
-/* =========================================================
-   WHATSAPP ORDER
-   ========================================================= */
+/* =====================================================
+   SEND WHATSAPP ORDER
+   ===================================================== */
 
 function sendOrder(){
 
 if(orderList.length === 0){
 
 alert(
-"দয়া করে আগে একটি পণ্য অর্ডারে যোগ করুন।"
+"দয়া করে আগে অন্তত একটি পণ্য আপনার অর্ডারে যোগ করুন।"
 );
 
 return;
@@ -1394,24 +2134,21 @@ return;
 
 
 const name =
-document
-.getElementById("customerName")
-.value
-.trim();
+document.getElementById(
+"customerName"
+).value.trim();
 
 
 const phone =
-document
-.getElementById("customerPhone")
-.value
-.trim();
+document.getElementById(
+"customerPhone"
+).value.trim();
 
 
 const address =
-document
-.getElementById("customerAddress")
-.value
-.trim();
+document.getElementById(
+"customerAddress"
+).value.trim();
 
 
 if(!name){
@@ -1439,7 +2176,7 @@ return;
 if(!address){
 
 alert(
-"দয়া করে আপনার সম্পূর্ণ ঠিকানা লিখুন।"
+"দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
 );
 
 return;
@@ -1482,18 +2219,20 @@ message +=
 let subtotal = 0;
 
 
-orderList.forEach(function(item,index){
+orderList.forEach(
+function(item,index){
 
-let total =
+const itemTotal =
 item.price *
 item.qty;
 
 
-subtotal += total;
+subtotal +=
+itemTotal;
 
 
 message +=
-(index + 1)
+(index+1)
 +
 ". "
 +
@@ -1513,17 +2252,17 @@ item.price
 +
 " = ৳"
 +
-total
+itemTotal
 +
 "\n";
 
 });
 
 
-let delivery = 99;
+const delivery = 99;
 
 
-let grandTotal =
+const grandTotal =
 subtotal +
 delivery;
 
@@ -1563,58 +2302,7 @@ whatsappURL,
 
 }
 
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-const searchBox =
-document.getElementById(
-"searchBox"
-);
-
-
-if(searchBox){
-
-searchBox.addEventListener(
-"input",
-function(){
-
-const search =
-this.value
-.toLowerCase()
-.trim();
-
-
-document
-.querySelectorAll(".product")
-.forEach(function(product){
-
-const name =
-product
-.getAttribute("data-name");
-
-
-if(
-name.includes(search)
-){
-
-product.style.display =
-"block";
-
-}
-
-else{
-
-product.style.display =
-"none";
-
-}
-
-});
-
-});
-
-}
-
 </script>
+
+</body>
+</html>
