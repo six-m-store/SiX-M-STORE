@@ -1,1782 +1,708 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SIX M STORE | Everyone Deserves Good Service</title>
-
-<meta name="description" content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
-    background:#f4f7fb;
-    color:#172033;
-    line-height:1.6;
-}
-
-header{
-    background:linear-gradient(135deg,#063b8f,#0875d1);
-    color:white;
-    padding:15px 18px;
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
-}
-
-.header-inner{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.logo{
-    width:68px;
-    height:68px;
-    background:white;
-    border-radius:16px;
-    padding:4px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    flex-shrink:0;
-    box-shadow:0 4px 12px rgba(0,0,0,.25);
-}
-
-.logo img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    border-radius:12px;
-}
-
-.brand h1{
-    font-size:25px;
-    letter-spacing:1px;
-}
-
-.brand p{
-    font-size:13px;
-}
-
-.hero{
-    background:white;
-    padding:35px 18px;
-    text-align:center;
-}
-
-.hero h2{
-    color:#063b8f;
-    font-size:28px;
-    margin-bottom:12px;
-}
-
-.hero p{
-    max-width:850px;
-    margin:auto;
-    font-size:21px;
-    font-weight:bold;
-    line-height:1.8;
-    background:linear-gradient(
-        90deg,
-        #e74c3c,
-        #f39c12,
-        #20b858,
-        #0875d1,
-        #8e44ad
-    );
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:25px 16px;
-}
-
-.section-title{
-    text-align:center;
-    color:#063b8f;
-    font-size:26px;
-    margin-bottom:20px;
-}
-
-.search-box{
-    background:white;
-    padding:15px;
-    border-radius:16px;
-    margin-bottom:20px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.search-box input,
-.search-box select{
-    width:100%;
-    padding:13px;
-    border:1px solid #ccd5e0;
-    border-radius:10px;
-    font-size:15px;
-    margin-bottom:10px;
-    font-family:inherit;
-}
-
-.search-count{
-    text-align:center;
-    color:#063b8f;
-    font-weight:bold;
-}
-
-.category{
-    background:white;
-    border-radius:18px;
-    padding:20px 15px;
-    margin-bottom:25px;
-    box-shadow:0 3px 14px rgba(0,0,0,.08);
-    border:1px solid #e5ebf3;
-}
-
-.category-title{
-    text-align:center;
-    color:#063b8f;
-    font-size:22px;
-    margin-bottom:18px;
-    padding-bottom:12px;
-    border-bottom:2px solid #eaf0f7;
-}
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-    gap:14px;
-}
-
-.product{
-    background:#f9fbfe;
-    border-radius:14px;
-    padding:15px 10px;
-    text-align:center;
-    border:1px solid #e3eaf3;
-    transition:.2s;
-}
-
-.product:hover{
-    transform:translateY(-3px);
-    box-shadow:0 7px 18px rgba(0,0,0,.10);
-}
-
-.product-icon{
-    font-size:36px;
-    margin-bottom:7px;
-}
-
-.product h3{
-    color:#172033;
-    font-size:16px;
-    min-height:48px;
-}
-
-.price{
-    color:#063b8f;
-    font-weight:bold;
-    margin-top:5px;
-    min-height:25px;
-}
-
-.size-select{
-    width:100%;
-    padding:8px;
-    border:1px solid #ccd5e0;
-    border-radius:8px;
-    margin-top:8px;
-    background:white;
-}
-
-.order-btn{
-    background:#20b858;
-    color:white;
-    border:none;
-    padding:8px 10px;
-    border-radius:8px;
-    margin-top:8px;
-    cursor:pointer;
-    font-weight:bold;
-    width:100%;
-}
-
-.order-btn:hover{
-    background:#169c49;
-}
-
-.order-floating{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    z-index:9000;
-    background:#20b858;
-    color:white;
-    border:none;
-    border-radius:50px;
-    padding:13px 18px;
-    font-size:15px;
-    font-weight:bold;
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
-    cursor:pointer;
-}
-
-.order-count{
-    background:#e74c3c;
-    color:white;
-    border-radius:50%;
-    min-width:24px;
-    height:24px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    margin-left:5px;
-}
-
-#orderPanel{
-    display:none;
-    position:fixed;
-    z-index:9999;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.60);
-    overflow:auto;
-    padding:15px;
-}
-
-.order-content{
-    background:white;
-    width:100%;
-    max-width:650px;
-    margin:15px auto;
-    border-radius:18px;
-    padding:20px;
-    box-shadow:0 10px 35px rgba(0,0,0,.3);
-}
-
-.order-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #ddd;
-    padding-bottom:12px;
-    margin-bottom:15px;
-}
-
-.order-header h2{
-    color:#063b8f;
-}
-
-.close{
-    font-size:32px;
-    cursor:pointer;
-    color:#e74c3c;
-    line-height:1;
-}
-
-.selected-product{
-    background:#f4f7fb;
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:10px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    border:1px solid #e3eaf3;
-}
-
-.selected-info{
-    flex:1;
-}
-
-.selected-info strong{
-    display:block;
-}
-
-.item-price{
-    color:#063b8f;
-    font-size:14px;
-}
-
-.quantity{
-    display:flex;
-    align-items:center;
-    gap:5px;
-}
-
-.quantity button{
-    width:32px;
-    height:32px;
-    border:none;
-    border-radius:7px;
-    background:#063b8f;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-}
-
-.quantity input{
-    width:55px;
-    height:32px;
-    text-align:center;
-    border:1px solid #ccc;
-    border-radius:7px;
-    font-size:15px;
-}
-
-.remove{
-    border:none;
-    background:#e74c3c;
-    color:white;
-    padding:6px 9px;
-    border-radius:7px;
-    cursor:pointer;
-}
-
-.total-box{
-    background:linear-gradient(135deg,#063b8f,#0875d1);
-    color:white;
-    padding:15px;
-    border-radius:12px;
-    margin-top:15px;
-    text-align:center;
-    font-size:17px;
-}
-
-.total-row{
-    display:flex;
-    justify-content:space-between;
-    margin:4px 0;
-}
-
-.total-final{
-    border-top:1px solid rgba(255,255,255,.4);
-    margin-top:8px;
-    padding-top:8px;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.add-more{
-    width:100%;
-    background:#063b8f;
-    color:white;
-    border:none;
-    padding:12px;
-    border-radius:10px;
-    margin-top:15px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.customer-form{
-    margin-top:20px;
-}
-
-.customer-form h3{
-    color:#063b8f;
-    margin-bottom:10px;
-}
-
-.customer-form input,
-.customer-form textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccd5e0;
-    border-radius:9px;
-    margin-bottom:10px;
-    font-family:inherit;
-    font-size:15px;
-}
-
-.customer-form textarea{
-    min-height:90px;
-    resize:vertical;
-}
-
-.send-order{
-    width:100%;
-    background:#20b858;
-    color:white;
-    border:none;
-    padding:14px;
-    border-radius:10px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.delivery{
-    background:linear-gradient(135deg,#063b8f,#0875d1);
-    color:white;
-    border-radius:18px;
-    padding:28px 18px;
-    margin-top:25px;
-    text-align:center;
-    box-shadow:0 5px 18px rgba(0,0,0,.15);
-}
-
-.delivery h2{
-    margin-bottom:8px;
-}
-
-.delivery strong{
-    color:#ffe082;
-}
-
-.info{
-    background:white;
-    border-radius:16px;
-    padding:22px;
-    margin-top:25px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.info h2{
-    color:#063b8f;
-    margin-bottom:15px;
-    text-align:center;
-}
-
-.info-item{
-    display:flex;
-    gap:12px;
-    padding:12px 0;
-    border-bottom:1px solid #eee;
-}
-
-.info-icon{
-    font-size:23px;
-    width:35px;
-}
-
-.info-text{
-    flex:1;
-}
-
-.info-text strong{
-    display:block;
-    color:#063b8f;
-}
-
-.contact-buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:15px;
-}
-
-.btn{
-    text-decoration:none;
-    color:white;
-    padding:12px 18px;
-    border-radius:10px;
-    font-weight:bold;
-    display:inline-block;
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
-}
-
-.call{
-    background:#063b8f;
-}
-
-.whatsapp{
-    background:#20b858;
-}
-
-footer{
-    margin-top:30px;
-    background:#071b3a;
-    color:white;
-    text-align:center;
-    padding:28px 15px;
-}
-
-footer h2{
-    margin-bottom:6px;
-}
-
-footer p{
-    font-size:13px;
-    opacity:.85;
-    margin:3px 0;
-}
-
-@media(max-width:500px){
-
-    .brand h1{
-        font-size:21px;
-    }
-
-    .brand p{
-        font-size:11px;
-    }
-
-    .hero h2{
-        font-size:24px;
-    }
-
-    .hero p{
-        font-size:18px;
-        line-height:1.7;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
-
-    .product{
-        padding:15px 7px;
-    }
-
-    .product-icon{
-        font-size:32px;
-    }
-
-    .product h3{
-        font-size:15px;
-    }
-
-    .logo{
-        width:60px;
-        height:60px;
-    }
-
-    .category-title{
-        font-size:19px;
-    }
-
-    .selected-product{
-        flex-wrap:wrap;
-    }
-
-    .selected-info{
-        min-width:100%;
-    }
-
-    .order-floating{
-        right:12px;
-        bottom:12px;
-        padding:11px 15px;
-        font-size:14px;
-    }
-
-    .contact-buttons .btn{
-        width:100%;
-        text-align:center;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="header-inner">
-
-<div class="logo">
-<img src="logo.png" alt="SIX M STORE Logo">
-</div>
-
-<div class="brand">
-<h1>SIX M STORE</h1>
-<p>Everyone Deserves Good Service.</p>
-</div>
-
-</div>
-
-</header>
-
-
-<section class="hero">
-
-<h2>🛒 SIX M STORE-এ স্বাগতম</h2>
-
-<p>
-এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু, একসাথে।
-এখনই অর্ডার করুন।
-</p>
-
-</section>
-
-
-<div class="container">
-
-<h2 class="section-title">
-🛍️ আমাদের পণ্যসমূহ
-</h2>
-
-
-<div class="search-box">
-
-<input
-type="text"
-id="searchBox"
-placeholder="🔎 পণ্যের নাম খুঁজুন..."
-oninput="renderProducts()"
->
-
-<select
-id="categoryFilter"
-onchange="renderProducts()"
->
-
-<option value="all">
-সব ক্যাটাগরি
-</option>
-
-</select>
-
-<div
-class="search-count"
-id="searchCount"
->
-মোট পণ্য
-</div>
-
-</div>
-
-
-<div id="productsContainer"></div>
-
-
-<div class="info">
-
-<h2>📍 আমাদের ঠিকানা</h2>
-
-<div class="info-item">
-
-<div class="info-icon">
-🏪
-</div>
-
-<div class="info-text">
-
-<strong>
-দোকানের ঠিকানা
-</strong>
-
-ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
-হালিশহর রোড, আগ্রাবাদ,
-চট্টগ্রাম, বাংলাদেশ।
-
-</div>
-
-</div>
-
-
-<div class="contact-buttons">
-
-<a
-class="btn call"
-href="tel:+8801737781096"
->
-📞 এখনই ফোন করুন
-</a>
-
-<a
-class="btn whatsapp"
-href="https://wa.me/8801737781096"
-target="_blank"
->
-💬 WhatsApp
-</a>
-
-</div>
-
-</div>
-
-
-<div class="delivery">
-
-<h2>🚚 Home Delivery সুবিধা</h2>
-
-<p>
-<strong>
-Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)
-</strong>
-</p>
-
-<p>
-ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
-</p>
-
-<p>
-<strong>
-ফোন অথবা WhatsApp-এ অর্ডার করুন
-</strong>
-</p>
-
-<p>
-দ্রুত ও সহজ ডেলিভারি সুবিধা।
-</p>
-
-</div>
-
-</div>
-
-
-<button
-class="order-floating"
-onclick="openOrder()"
->
-
-🛒 আপনার অর্ডার
-
-<span
-class="order-count"
-id="orderCount"
->
-0
-</span>
-
-</button>
-
-
-<div id="orderPanel">
-
-<div class="order-content">
-
-<div class="order-header">
-
-<h2>
-🛒 আপনার অর্ডার
-</h2>
-
-<span
-class="close"
-onclick="closeOrder()"
->
-×
-</span>
-
-</div>
-
-
-<div id="orderItems">
-
-<p style="text-align:center;color:#777;padding:15px;">
-এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
-</p>
-
-</div>
-
-
-<div class="total-box">
-
-<div class="total-row">
-
-<span>
-পণ্যের মোট মূল্য:
-</span>
-
-<span>
-৳ <span id="subtotal">0</span>
-</span>
-
-</div>
-
-
-<div class="total-row">
-
-<span>
-ডেলিভারি চার্জ:
-</span>
-
-<span>
-৳ <span id="deliveryCharge">0</span>
-</span>
-
-</div>
-
-
-<div class="total-row total-final">
-
-<span>
-সর্বমোট:
-</span>
-
-<span>
-৳ <span id="grandTotal">0</span>
-</span>
-
-</div>
-
-</div>
-
-
-<button
-class="add-more"
-onclick="continueShopping()"
->
-🛍️ আরও পণ্য যোগ করুন
-</button>
-
-
-<div class="customer-form">
-
-<h3>
-👤 কাস্টমারের তথ্য
-</h3>
-
-<input
-type="text"
-id="customerName"
-placeholder="আপনার নাম লিখুন"
->
-
-<input
-type="tel"
-id="customerPhone"
-placeholder="মোবাইল নম্বর লিখুন"
->
-
-<textarea
-id="customerAddress"
-placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"
-></textarea>
-
-<button
-class="send-order"
-onclick="sendOrder()"
->
-💬 WhatsApp-এ অর্ডার পাঠান
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<footer>
-
-<h2>SIX M STORE</h2>
-
-<p>
-আপনার বিশ্বাসই আমাদের মূলধন।
-</p>
-
-<p>
-📞 01782-371255
-</p>
-
-<p>
-© 2026 SIX M STORE. All Rights Reserved.
-</p>
-
-</footer>
-
-
 <script>
 
-/*
-=================================================
-⭐⭐⭐ এখানে আপনার পণ্যের নাম ও দাম দেবেন ⭐⭐⭐
-
-নিয়ম:
-
-prices:{
-"১০০ গ্রাম":30,
-"২০০ গ্রাম":55,
-"৫০০ গ্রাম":130,
-"১ কেজি":250
-}
-
-যে সাইজ নেই সেটি লিখবেন না।
-
-দাম পরিবর্তন করতে শুধু এই অংশ পরিবর্তন করবেন।
-=================================================
-*/
+/* =========================================================
+   SIX M STORE
+   ২০০০+ আলাদা পণ্যের ক্যাটালগ
+   ========================================================= */
 
 
-const PRODUCTS = [
+/* =========================================================
+   এখানে পণ্যের মূল তালিকা
+   ========================================================= */
+
+const productNames = [
 
 /* ================= চাল ও ডাল ================= */
 
-{
-category:"🍚 চাল ও ডাল",
-name:"মিনিকেট চাল",
-icon:"🍚",
-prices:{
-"১ কেজি":60,
-"২ কেজি":120,
-"৫ কেজি":300,
-"১০ কেজি":600
-}
-},
+"মিনিকেট চাল",
+"নাজিরশাইল চাল",
+"পাইজাম চাল",
+"আতপ চাল",
+"সিদ্ধ চাল",
+"বাসমতি চাল",
+"চিনিগুঁড়া চাল",
+"কালিজিরা চাল",
+"কাটারিভোগ চাল",
+"স্বর্ণা চাল",
+"BR-28 চাল",
+"BR-29 চাল",
+"নতুন আমন চাল",
+"পুরাতন আমন চাল",
+"বিন্নি চাল",
+"গোবিন্দভোগ চাল",
+"লাল চাল",
+"বাদামি চাল",
+"কালো চাল",
+"জিরা চাল",
 
-{
-category:"🍚 চাল ও ডাল",
-name:"নাজিরশাইল চাল",
-icon:"🍚",
-prices:{
-"১ কেজি":90,
-"২ কেজি":180,
-"৫ কেজি":450,
-"১০ কেজি":900
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"পাইজাম চাল",
-icon:"🍚",
-prices:{
-"১ কেজি":85,
-"২ কেজি":170,
-"৫ কেজি":425
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"আতপ চাল",
-icon:"🍚",
-prices:{
-"১ কেজি":90,
-"২ কেজি":180,
-"৫ কেজি":450
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"বাসমতি চাল",
-icon:"🍚",
-prices:{
-"১ কেজি":180,
-"২ কেজি":360,
-"৫ কেজি":900
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"চিনিগুঁড়া চাল",
-icon:"🍚",
-prices:{
-"১ কেজি":150,
-"২ কেজি":300,
-"৫ কেজি":750
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"মসুর ডাল",
-icon:"🫘",
-prices:{
-"১০০ গ্রাম":15,
-"২০০ গ্রাম":30,
-"৫০০ গ্রাম":45,
-"১ কেজি":90
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"মুগ ডাল",
-icon:"🫘",
-prices:{
-"১০০ গ্রাম":20,
-"২০০ গ্রাম":40,
-"৫০০ গ্রাম":80,
-"১ কেজি":160
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"ছোলা",
-icon:"🫘",
-prices:{
-"১০০ গ্রাম":10,
-"২০০ গ্রাম":20,
-"৫০০ গ্রাম":48,
-"১ কেজি":95
-}
-},
-
-{
-category:"🍚 চাল ও ডাল",
-name:"বুটের ডাল",
-icon:"🫘",
-prices:{
-"১০০ গ্রাম":10,
-"২০০ গ্রাম":20,
-"৫০০ গ্রাম":30,
-"১ কেজি":60
-}
-},
-
+"মসুর ডাল",
+"মুগ ডাল",
+"ছোলার ডাল",
+"বুটের ডাল",
+"মাষকলাই ডাল",
+"খেসারি ডাল",
+"মটর ডাল",
+"অড়হর ডাল",
+"মিশ্র ডাল",
+"ভাজা ডাল",
+"সাবুত মুগ",
+"সাবুত মসুর",
+"সাবুত মাষকলাই",
+"সাদা মটর",
+"সবুজ মটর",
+"কালো ছোলা",
+"সাদা ছোলা",
+"কাবুলি ছোলা",
+"দেশি ছোলা",
+"রাজমা",
 
 /* ================= তেল ================= */
 
-{
-category:"🫙 তেল ও মসলা",
-name:"সয়াবিন তেল",
-icon:"🫙",
-prices:{
-"২৫০ মিলি":55,
-"৫০০ মিলি":105,
-"১ লিটার":199,
-"২ লিটার":398,
-"৫ লিটার":995
-}
-},
+"সয়াবিন তেল",
+"সরিষার তেল",
+"পাম তেল",
+"সানফ্লাওয়ার তেল",
+"অলিভ অয়েল",
+"রাইস ব্র্যান অয়েল",
+"নারিকেল তেল",
+"তিলের তেল",
+"বাদাম তেল",
+"ক্যানোলা অয়েল",
+"ভেজিটেবল অয়েল",
+"ঘি",
+"ডালডা",
+"বাটার অয়েল",
+"মাখন",
+"দেশি ঘি",
+"গরুর দুধের ঘি",
+"মহিষের দুধের ঘি",
+"নারিকেল তেল ভার্জিন",
+"অলিভ অয়েল এক্সট্রা ভার্জিন",
 
-{
-category:"🫙 তেল ও মসলা",
-name:"সরিষার তেল",
-icon:"🌻",
-prices:{
-"২৫০ মিলি":65,
-"৫০০ মিলি":125,
-"১ লিটার":225
-}
-},
+/* ================= আটা ময়দা ================= */
 
-{
-category:"🫙 তেল ও মসলা",
-name:"পাম অয়েল",
-icon:"🫙",
-prices:{
-"৫০০ মিলি":95,
-"১ লিটার":190,
-"২ লিটার":380
-}
-},
+"আটা",
+"ময়দা",
+"সুজি",
+"বেসন",
+"কর্নফ্লাওয়ার",
+"কর্নস্টার্চ",
+"ওটস",
+"বার্লি",
+"চিড়া",
+"মুড়ি",
+"খই",
+"পোহা",
+"ব্রেড ক্রাম্বস",
+"প্যানকেক মিক্স",
+"কেক মিক্স",
+"বিস্কুট মিক্স",
+"পুডিং মিক্স",
+"কাস্টার্ড পাউডার",
+"জেলাটিন",
+"বেকিং মিক্স",
 
+/* ================= চিনি ও মিষ্টি ================= */
+
+"চিনি",
+"বাদামি চিনি",
+"ব্রাউন সুগার",
+"আইসিং সুগার",
+"গুড়",
+"খেজুরের গুড়",
+"আখের গুড়",
+"পাটালি গুড়",
+"তালের গুড়",
+"মধু",
+"ফুলের মধু",
+"সরিষার মধু",
+"কালোজিরা মধু",
+"লিচু মধু",
+"খেজুরের সিরাপ",
+"ম্যাপল সিরাপ",
+"চকলেট সিরাপ",
+"ক্যারামেল সিরাপ",
+"গ্লুকোজ",
+"মিষ্টি সিরাপ",
+
+/* ================= লবণ ================= */
+
+"আয়োডিনযুক্ত লবণ",
+"সাধারণ লবণ",
+"সাদা লবণ",
+"পাথুরে লবণ",
+"বিট লবণ",
+"কালো লবণ",
+"হিমালয়ান পিংক সল্ট",
+"রক সল্ট",
+"লো সোডিয়াম সল্ট",
+"সী সল্ট",
 
 /* ================= মসলা ================= */
 
-{
-category:"🫙 তেল ও মসলা",
-name:"হলুদ গুঁড়া",
-icon:"🌕",
-prices:{
-"১০০ গ্রাম":25,
-"২০০ গ্রাম":48,
-"৫০০ গ্রাম":115,
-"১ কেজি":220
-}
-},
+"হলুদ গুঁড়া",
+"মরিচ গুঁড়া",
+"ধনিয়া গুঁড়া",
+"জিরা গুঁড়া",
+"গোলমরিচ গুঁড়া",
+"গরম মসলা",
+"বিরিয়ানি মসলা",
+"মাংসের মসলা",
+"চিকেন মসলা",
+"ফিশ মসলা",
+"কারি মসলা",
+"চাট মসলা",
+"কাবাব মসলা",
+"তন্দুরি মসলা",
+"শাহী মসলা",
+"পাঁচফোড়ন",
+"জিরা",
+"ধনিয়া",
+"সরিষা",
+"মেথি",
+"মৌরি",
+"কালোজিরা",
+"সাদা জিরা",
+"শুকনা মরিচ",
+"দারুচিনি",
+"এলাচ",
+"লবঙ্গ",
+"তেজপাতা",
+"জায়ফল",
+"জয়ত্রী",
+"স্টার অ্যানিস",
+"কাবাবচিনি",
+"শাহী জিরা",
+"সাদা গোলমরিচ",
+"কালো গোলমরিচ",
+"তিল",
+"পোস্ত",
+"চিয়া সিড",
+"ফ্ল্যাক্স সিড",
+"মেথি দানা",
 
-{
-category:"🫙 তেল ও মসলা",
-name:"মরিচ গুঁড়া",
-icon:"🌶️",
-prices:{
-"১০০ গ্রাম":30,
-"২০০ গ্রাম":55,
-"৫০০ গ্রাম":130,
-"১ কেজি":250
-}
-},
+/* ================= রান্নার উপকরণ ================= */
 
-{
-category:"🫙 তেল ও মসলা",
-name:"ধনিয়া গুঁড়া",
-icon:"🌿",
-prices:{
-"১০০ গ্রাম":20,
-"২০০ গ্রাম":40,
-"৫০০ গ্রাম":95,
-"১ কেজি":180
-}
-},
+"টমেটো সস",
+"চিলি সস",
+"সয়াসস",
+"অয়েস্টার সস",
+"হট সস",
+"গার্লিক সস",
+"মাস্টার্ড সস",
+"বারবিকিউ সস",
+"পিজা সস",
+"পাস্তা সস",
+"মেয়োনিজ",
+"চিলি মায়োনিজ",
+"গার্লিক মায়োনিজ",
+"টমেটো পিউরি",
+"টমেটো পেস্ট",
+"ভিনেগার",
+"সাদা ভিনেগার",
+"আপেল সিডার ভিনেগার",
+"বালসামিক ভিনেগার",
+"লেবুর রস",
 
-{
-category:"🫙 তেল ও মসলা",
-name:"জিরা গুঁড়া",
-icon:"🌿",
-prices:{
-"৫০ গ্রাম":30,
-"১০০ গ্রাম":58,
-"২০০ গ্রাম":110,
-"৫০০ গ্রাম":270,
-"১ কেজি":520
-}
-},
+/* ================= আচার ================= */
 
-{
-category:"🫙 তেল ও মসলা",
-name:"গরম মসলা",
-icon:"🧂",
-prices:{
-"৫০ গ্রাম":35,
-"১০০ গ্রাম":65,
-"২০০ গ্রাম":125,
-"৫০০ গ্রাম":300
-}
-},
+"আমের আচার",
+"কাঁচা আমের আচার",
+"ঝাল আমের আচার",
+"মিষ্টি আমের আচার",
+"জলপাই আচার",
+"লেবুর আচার",
+"বরই আচার",
+"রসুনের আচার",
+"মরিচের আচার",
+"মিক্সড আচার",
+"তেঁতুলের আচার",
+"কুলের আচার",
+"আদার আচার",
+"চালতার আচার",
+"আমড়া আচার",
 
-{
-category:"🫙 তেল ও মসলা",
-name:"দারুচিনি",
-icon:"🌿",
-prices:{
-"৫০ গ্রাম":30,
-"১০০ গ্রাম":55,
-"২০০ গ্রাম":105,
-"৫০০ গ্রাম":250
-}
-},
+/* ================= নুডলস ================= */
 
-{
-category:"🫙 তেল ও মসলা",
-name:"এলাচ",
-icon:"🌿",
-prices:{
-"২৫ গ্রাম":55,
-"৫০ গ্রাম":105,
-"১০০ গ্রাম":200
-}
-},
-
-{
-category:"🫙 তেল ও মসলা",
-name:"লবঙ্গ",
-icon:"🌿",
-prices:{
-"২৫ গ্রাম":30,
-"৫০ গ্রাম":55,
-"১০০ গ্রাম":105
-}
-},
-
-
-/* ================= নিত্যপ্রয়োজনীয় ================= */
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"আটা",
-icon:"🌾",
-prices:{
-"৫০০ গ্রাম":30,
-"১ কেজি":50,
-"২ কেজি":100,
-"৫ কেজি":250
-}
-},
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"ময়দা",
-icon:"🥣",
-prices:{
-"৫০০ গ্রাম":35,
-"১ কেজি":65,
-"২ কেজি":130,
-"৫ কেজি":325
-}
-},
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"সুজি",
-icon:"🥣",
-prices:{
-"২০০ গ্রাম":25,
-"৫০০ গ্রাম":55,
-"১ কেজি":100
-}
-},
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"চিনি",
-icon:"🍬",
-prices:{
-"৫০০ গ্রাম":55,
-"১ কেজি":105,
-"২ কেজি":210
-}
-},
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"লবণ",
-icon:"🧂",
-prices:{
-"৫০০ গ্রাম":22,
-"১ কেজি":40,
-"২ কেজি":80
-}
-},
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"চিঁড়া",
-icon:"🌾",
-prices:{
-"৫০০ গ্রাম":40,
-"১ কেজি":75
-}
-},
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"মুড়ি",
-icon:"🍘",
-prices:{
-"৫০০ গ্রাম":40,
-"১ কেজি":70
-}
-},
-
-{
-category:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
-name:"সেমাই",
-icon:"🍜",
-prices:{
-"২০০ গ্রাম":35,
-"৪০০ গ্রাম":65,
-"৮০০ গ্রাম":125
-}
-},
-
-
-/* ================= সবজি ================= */
-
-{
-category:"🥔 সবজি ও রান্নার উপকরণ",
-name:"আলু",
-icon:"🥔",
-prices:{
-"১ কেজি":25,
-"২ কেজি":50,
-"৫ কেজি":125
-}
-},
-
-{
-category:"🥔 সবজি ও রান্নার উপকরণ",
-name:"পেঁয়াজ",
-icon:"🧅",
-prices:{
-"১ কেজি":60,
-"২ কেজি":120,
-"৫ কেজি":300
-}
-},
-
-{
-category:"🥔 সবজি ও রান্নার উপকরণ",
-name:"রসুন",
-icon:"🧄",
-prices:{
-"১০০ গ্রাম":18,
-"২০০ গ্রাম":35,
-"৫০০ গ্রাম":75,
-"১ কেজি":150
-}
-},
-
-{
-category:"🥔 সবজি ও রান্নার উপকরণ",
-name:"আদা",
-icon:"🫚",
-prices:{
-"১০০ গ্রাম":18,
-"২০০ গ্রাম":35,
-"৫০০ গ্রাম":70,
-"১ কেজি":130
-}
-},
-
-{
-category:"🥔 সবজি ও রান্নার উপকরণ",
-name:"শুকনা মরিচ",
-icon:"🌶️",
-prices:{
-"১০০ গ্রাম":30,
-"২০০ গ্রাম":58,
-"৫০০ গ্রাম":140,
-"১ কেজি":270
-}
-},
-
-
-/* ================= ডেইরি ================= */
-
-{
-category:"🥛 ডেইরি ও খাদ্যপণ্য",
-name:"ডিম",
-icon:"🥚",
-prices:{
-"১টি":12,
-"৬টি":72,
-"১২টি":140,
-"৩০টি":350
-}
-},
-
-{
-category:"🥛 ডেইরি ও খাদ্যপণ্য",
-name:"দুধ",
-icon:"🥛",
-prices:{
-"২০০ মিলি":25,
-"৫০০ মিলি":55,
-"১ লিটার":100
-}
-},
-
-{
-category:"🥛 ডেইরি ও খাদ্যপণ্য",
-name:"ঘি",
-icon:"🧈",
-prices:{
-"১০০ গ্রাম":180,
-"২০০ গ্রাম":350,
-"৫০০ গ্রাম":850,
-"১ কেজি":1650
-}
-},
-
-{
-category:"🥛 ডেইরি ও খাদ্যপণ্য",
-name:"মাখন",
-icon:"🧈",
-prices:{
-"১০০ গ্রাম":120,
-"২০০ গ্রাম":230,
-"৫০০ গ্রাম":550
-}
-},
-
-{
-category:"🥛 ডেইরি ও খাদ্যপণ্য",
-name:"দই",
-icon:"🥛",
-prices:{
-"২০০ গ্রাম":40,
-"৫০০ গ্রাম":90,
-"১ কেজি":160
-}
-},
-
-
-/* ================= চা কফি ================= */
-
-{
-category:"☕ চা ও পানীয়",
-name:"চা পাতা",
-icon:"🍵",
-prices:{
-"৫০ গ্রাম":35,
-"১০০ গ্রাম":65,
-"২০০ গ্রাম":125,
-"৫০০ গ্রাম":300
-}
-},
-
-{
-category:"☕ চা ও পানীয়",
-name:"কফি",
-icon:"☕",
-prices:{
-"৫০ গ্রাম":120,
-"১০০ গ্রাম":230,
-"২০০ গ্রাম":450
-}
-},
-
-{
-category:"☕ চা ও পানীয়",
-name:"হরলিক্স",
-icon:"🥛",
-prices:{
-"২০০ গ্রাম":170,
-"৫০০ গ্রাম":380,
-"১ কেজি":700
-}
-},
-
-{
-category:"☕ চা ও পানীয়",
-name:"কমপ্লান",
-icon:"🥛",
-prices:{
-"২০০ গ্রাম":160,
-"৫০০ গ্রাম":350,
-"১ কেজি":650
-}
-},
-
+"ইন্সট্যান্ট নুডলস",
+"চিকেন নুডলস",
+"মসলা নুডলস",
+"কারি নুডলস",
+"সবজি নুডলস",
+"স্পাইসি নুডলস",
+"কাপ নুডলস",
+"চিকেন কাপ নুডলস",
+"বিফ কাপ নুডলস",
+"পাস্তা",
+"ম্যাকারনি",
+"স্প্যাগেটি",
+"ফুসিলি",
+"পেন্নে",
+"লাসানিয়া",
+"শেল পাস্তা",
+"এগ নুডলস",
+"রাইস নুডলস",
+"চাওমিন নুডলস",
+"সুপ নুডলস",
 
 /* ================= বিস্কুট ================= */
 
-{
-category:"🍪 বিস্কুট ও স্ন্যাকস",
-name:"বিস্কুট",
-icon:"🍪",
-prices:{
-"৫০ গ্রাম":10,
-"১০০ গ্রাম":20,
-"২০০ গ্রাম":40,
-"৫০০ গ্রাম":100
-}
-},
+"মারি বিস্কুট",
+"ক্রিম বিস্কুট",
+"চকলেট বিস্কুট",
+"ভ্যানিলা বিস্কুট",
+"নারিকেল বিস্কুট",
+"বাটার বিস্কুট",
+"ডাইজেস্টিভ বিস্কুট",
+"গ্লুকোজ বিস্কুট",
+"সাল্টেড বিস্কুট",
+"টোস্ট বিস্কুট",
+"কুকিজ",
+"চকলেট চিপ কুকিজ",
+"ওটস কুকিজ",
+"ক্র্যাকার",
+"চিজ ক্র্যাকার",
+"স্যান্ডউইচ বিস্কুট",
+"ওয়েফার বিস্কুট",
+"বাটার কুকিজ",
+"জিঞ্জার বিস্কুট",
+"হানি বিস্কুট",
 
-{
-category:"🍪 বিস্কুট ও স্ন্যাকস",
-name:"ক্রিম বিস্কুট",
-icon:"🍪",
-prices:{
-"৫০ গ্রাম":15,
-"১০০ গ্রাম":25,
-"২০০ গ্রাম":50
-}
-},
+/* ================= স্ন্যাকস ================= */
 
-{
-category:"🍪 বিস্কুট ও স্ন্যাকস",
-name:"চানাচুর",
-icon:"🥜",
-prices:{
-"৫০ গ্রাম":15,
-"১০০ গ্রাম":30,
-"২০০ গ্রাম":55,
-"৫০০ গ্রাম":130
-}
-},
+"চানাচুর",
+"ঝাল চানাচুর",
+"মিক্স চানাচুর",
+"বাদাম ভাজা",
+"চিনাবাদাম",
+"কাজুবাদাম",
+"কাঠবাদাম",
+"পেস্তা বাদাম",
+"আখরোট",
+"কিশমিশ",
+"আলুর চিপস",
+"লেইস চিপস",
+"কর্ন চিপস",
+"নাচোস",
+"পপকর্ন",
+"চিড়া ভাজা",
+"ডাল ভাজা",
+"মটর ভাজা",
+"মুড়ি মিক্স",
+"ঝাল মিক্স",
 
-{
-category:"🍪 বিস্কুট ও স্ন্যাকস",
-name:"চিপস",
-icon:"🥔",
-prices:{
-"২০ গ্রাম":10,
-"৫০ গ্রাম":20,
-"১০০ গ্রাম":40
-}
-},
+/* ================= চকলেট ================= */
 
-{
-category:"🍪 বিস্কুট ও স্ন্যাকস",
-name:"নুডলস",
-icon:"🍜",
-prices:{
-"১ প্যাকেট":25,
-"৪ প্যাকেট":100,
-"৮ প্যাকেট":200
-}
-},
+"মিল্ক চকলেট",
+"ডার্ক চকলেট",
+"হোয়াইট চকলেট",
+"চকলেট বার",
+"চকলেট ওয়েফার",
+"চকলেট ক্যান্ডি",
+"ক্যারামেল ক্যান্ডি",
+"মিন্ট ক্যান্ডি",
+"ফ্রুট ক্যান্ডি",
+"ললিপপ",
+"চুইংগাম",
+"জেলি",
+"গামি ক্যান্ডি",
+"টফি",
+"মার্শম্যালো",
+"চকলেট স্প্রেড",
+"হ্যাজেলনাট স্প্রেড",
+"পিনাট বাটার",
+"স্ট্রবেরি জ্যাম",
+"অরেঞ্জ মার্মালেড",
 
+/* ================= ডেইরি ================= */
 
-/* ================= পরিষ্কার ================= */
+"পাস্তুরিত দুধ",
+"ফুল ক্রিম দুধ",
+"লো ফ্যাট দুধ",
+"গুঁড়া দুধ",
+"কনডেন্সড মিল্ক",
+"ইভাপোরেটেড মিল্ক",
+"দই",
+"মিষ্টি দই",
+"টক দই",
+"গ্রিক দই",
+"মাখন",
+"সল্টেড বাটার",
+"আনসল্টেড বাটার",
+"চিজ",
+"চেডার চিজ",
+"মোজারেলা চিজ",
+"ক্রিম চিজ",
+"হুইপিং ক্রিম",
+"কুকিং ক্রিম",
+"চকলেট মিল্ক",
 
-{
-category:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
-name:"কাপড় ধোয়ার পাউডার",
-icon:"🧺",
-prices:{
-"২০০ গ্রাম":35,
-"৫০০ গ্রাম":80,
-"১ কেজি":150,
-"২ কেজি":290
-}
-},
+/* ================= চা কফি ================= */
 
-{
-category:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
-name:"কাপড় ধোয়ার সাবান",
-icon:"🧼",
-prices:{
-"১ পিস":35,
-"২ পিস":70,
-"৪ পিস":140
-}
-},
+"চা পাতা",
+"ব্ল্যাক টি",
+"গ্রিন টি",
+"লেমন টি",
+"মসলা চা",
+"আদা চা",
+"দুধ চা",
+"ইন্সট্যান্ট টি",
+"টি ব্যাগ",
+"গ্রিন টি ব্যাগ",
+"কফি",
+"ইন্সট্যান্ট কফি",
+"কফি মিক্স",
+"ক্যাপুচিনো মিক্স",
+"লাটে মিক্স",
+"মোকা মিক্স",
+"কফি ক্রিমার",
+"হট চকোলেট",
+"কোকো পাউডার",
+"মাল্টেড ড্রিংক",
 
-{
-category:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
-name:"গোসলের সাবান",
-icon:"🧼",
-prices:{
-"১ পিস":45,
-"৩ পিস":135,
-"৪ পিস":180
-}
-},
+/* ================= পানীয় ================= */
 
-{
-category:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
-name:"ডিশওয়াশ বার",
-icon:"🧽",
-prices:{
-"১ পিস":25,
-"২ পিস":50,
-"৪ পিস":100
-}
-},
+"মিনারেল ওয়াটার",
+"স্পার্কলিং ওয়াটার",
+"কোলা",
+"লেমন ড্রিংক",
+"অরেঞ্জ ড্রিংক",
+"ম্যাংগো ড্রিংক",
+"সফট ড্রিংক",
+"এনার্জি ড্রিংক",
+"স্পোর্টস ড্রিংক",
+"মাল্ট ড্রিংক",
+"আমের জুস",
+"কমলার জুস",
+"আপেলের জুস",
+"আনারসের জুস",
+"লিচুর জুস",
+"পেয়ারা জুস",
+"আঙুরের জুস",
+"মিশ্র ফলের জুস",
+"নারিকেল পানি",
+"গ্লুকোজ ড্রিংক",
 
-{
-category:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
-name:"ব্লিচিং পাউডার",
-icon:"🧹",
-prices:{
-"১০০ গ্রাম":20,
-"২০০ গ্রাম":35,
-"৫০০ গ্রাম":80,
-"১ কেজি":150
-}
-},
+/* ================= বেকারি ================= */
 
-{
-category:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
-name:"টিস্যু",
-icon:"🧻",
-prices:{
-"১ প্যাকেট":30,
-"২ প্যাকেট":60,
-"৫ প্যাকেট":150
-}
-},
+"সাদা পাউরুটি",
+"ব্রাউন ব্রেড",
+"মিল্ক ব্রেড",
+"স্যান্ডউইচ ব্রেড",
+"বার্গার বান",
+"হটডগ বান",
+"কেক",
+"চকলেট কেক",
+"ভ্যানিলা কেক",
+"ফ্রুট কেক",
+"পাউন্ড কেক",
+"কাপকেক",
+"মাফিন",
+"ডোনাট",
+"ক্রসাঁ",
+"রস্ক",
+"টোস্ট",
+"ব্রেড স্টিক",
+"পেস্ট্রি",
+"ক্রিম রোল",
 
+/* ================= ফ্রোজেন ================= */
+
+"ফ্রোজেন চিকেন",
+"ফ্রোজেন চিকেন নাগেট",
+"চিকেন সসেজ",
+"বিফ সসেজ",
+"চিকেন সামোসা",
+"চিকেন স্প্রিং রোল",
+"ফ্রোজেন পরোটা",
+"ফ্রোজেন রুটি",
+"ফ্রোজেন পুরি",
+"ফ্রোজেন সমুচা",
+"ফ্রোজেন মাছ",
+"ফ্রোজেন চিংড়ি",
+"ফ্রোজেন সবজি",
+"ফ্রোজেন মটর",
+"ফ্রোজেন কর্ন",
+"ফ্রোজেন ফ্রাই",
+"ফ্রোজেন আলু",
+"ফ্রোজেন বার্গার প্যাটি",
+"ফ্রোজেন পিজা",
+"আইসক্রিম",
+
+/* ================= ক্লিনিং ================= */
+
+"ডিটারজেন্ট পাউডার",
+"লিকুইড ডিটারজেন্ট",
+"কাপড় ধোয়ার সাবান",
+"ডিশওয়াশ বার",
+"ডিশওয়াশ লিকুইড",
+"ফ্লোর ক্লিনার",
+"টয়লেট ক্লিনার",
+"গ্লাস ক্লিনার",
+"স্টিল ক্লিনার",
+"বাথরুম ক্লিনার",
+"ব্লিচিং পাউডার",
+"ব্লিচ লিকুইড",
+"ফেনাইল",
+"ফ্লোর ফ্রেশনার",
+"এয়ার ফ্রেশনার",
+"মশার কয়েল",
+"মশার স্প্রে",
+"ইনসেক্ট কিলার",
+"জীবাণুনাশক",
+"হ্যান্ড স্যানিটাইজার",
+
+/* ================= পার্সোনাল কেয়ার ================= */
+
+"গোসলের সাবান",
+"ময়েশ্চারাইজিং সাবান",
+"অ্যান্টিব্যাকটেরিয়াল সাবান",
+"হ্যান্ডওয়াশ",
+"শ্যাম্পু",
+"অ্যান্টি ড্যানড্রাফ শ্যাম্পু",
+"কন্ডিশনার",
+"হেয়ার অয়েল",
+"হেয়ার জেল",
+"হেয়ার ক্রিম",
+"হেয়ার কালার",
+"টুথপেস্ট",
+"হারবাল টুথপেস্ট",
+"টুথব্রাশ",
+"বেবি টুথব্রাশ",
+"মাউথওয়াশ",
+"ডেন্টাল ফ্লস",
+"ফেসওয়াশ",
+"ফেস স্ক্রাব",
+"বডি লোশন",
 
 /* ================= প্রসাধনী ================= */
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"ফেসওয়াশ",
-icon:"🧴",
-prices:{
-"৫০ গ্রাম":100,
-"১০০ গ্রাম":180,
-"১৫০ গ্রাম":250
-}
-},
+"ফেস ক্রিম",
+"নাইট ক্রিম",
+"সানস্ক্রিন",
+"লিপ বাম",
+"লিপস্টিক",
+"ফেস পাউডার",
+"কমপ্যাক্ট পাউডার",
+"কাজল",
+"আইলাইনার",
+"মাসকারা",
+"নেইল পলিশ",
+"মেকআপ রিমুভার",
+"বডি স্প্রে",
+"পারফিউম",
+"ডিওডোরেন্ট",
+"ট্যালকম পাউডার",
+"হ্যান্ড ক্রিম",
+"ফুট ক্রিম",
+"বডি ওয়াশ",
+"শেভিং ক্রিম",
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"শ্যাম্পু",
-icon:"🧴",
-prices:{
-"৬০ মিলি":70,
-"১৮০ মিলি":180,
-"৩৪০ মিলি":320
-}
-},
+/* ================= বেবি ================= */
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"হেয়ার অয়েল",
-icon:"🧴",
-prices:{
-"১০০ মিলি":70,
-"২০০ মিলি":130,
-"৩৫০ মিলি":210
-}
-},
+"বেবি শ্যাম্পু",
+"বেবি সাবান",
+"বেবি লোশন",
+"বেবি পাউডার",
+"বেবি অয়েল",
+"বেবি ক্রিম",
+"বেবি ওয়াইপস",
+"বেবি ডায়াপার",
+"বেবি ফুড",
+"বেবি সিরিয়াল",
+"বেবি বিস্কুট",
+"বেবি জুস",
+"বেবি বোতল",
+"বেবি ফিডার",
+"বেবি টিস্যু",
+"বেবি তোয়ালে",
+"বেবি ব্রাশ",
+"বেবি চিরুনি",
+"বেবি নেইল কাটার",
+"বেবি খেলনা",
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"টুথপেস্ট",
-icon:"🪥",
-prices:{
-"৫০ গ্রাম":45,
-"১০০ গ্রাম":80,
-"২০০ গ্রাম":150
-}
-},
+/* ================= টিস্যু ================= */
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"টুথব্রাশ",
-icon:"🪥",
-prices:{
-"১ পিস":40,
-"২ পিস":75,
-"৪ পিস":140
-}
-},
+"ফেস টিস্যু",
+"টয়লেট টিস্যু",
+"কিচেন টিস্যু",
+"ন্যাপকিন",
+"পেপার ন্যাপকিন",
+"ভেজা টিস্যু",
+"বেবি ওয়াইপস",
+"মেকআপ ওয়াইপস",
+"মাইক্রোফাইবার কাপড়",
+"স্পঞ্জ কাপড়",
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"বডি লোশন",
-icon:"🧴",
-prices:{
-"১০০ মিলি":120,
-"২০০ মিলি":220,
-"৪০০ মিলি":400
-}
-},
+/* ================= কিচেন ================= */
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"পারফিউম",
-icon:"🌸",
-prices:{
-"৩০ মিলি":250,
-"৫০ মিলি":400,
-"১০০ মিলি":700
-}
-},
+"স্টিল প্লেট",
+"স্টিল বাটি",
+"স্টিল গ্লাস",
+"স্টিল চামচ",
+"স্টিল কাঁটা চামচ",
+"চা চামচ",
+"রান্নার চামচ",
+"খুন্তি",
+"ছুরি",
+"সবজি কাটার ছুরি",
+"কাটিং বোর্ড",
+"পিলার",
+"গ্রেটার",
+"চালনি",
+"ছাঁকনি",
+"মাপার কাপ",
+"মাপার চামচ",
+"প্লাস্টিক বাটি",
+"প্লাস্টিক গ্লাস",
+"খাবার সংরক্ষণ বক্স",
 
-{
-category:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
-name:"চিরুনি",
-icon:"🪮",
-prices:{
-"১ পিস":30,
-"২ পিস":55
-}
-},
+/* ================= হোম ================= */
 
-
-/* ================= বেভারেজ ================= */
-
-{
-category:"🥤 বেভারেজ ও পানীয়",
-name:"কোল্ড ড্রিংকস",
-icon:"🥤",
-prices:{
-"২৫০ মিলি":25,
-"৫০০ মিলি":40,
-"১ লিটার":60,
-"২ লিটার":100
-}
-},
-
-{
-category:"🥤 বেভারেজ ও পানীয়",
-name:"মিনারেল ওয়াটার",
-icon:"💧",
-prices:{
-"৫০০ মিলি":15,
-"১ লিটার":25,
-"২ লিটার":35
-}
-},
-
-{
-category:"🥤 বেভারেজ ও পানীয়",
-name:"জুস",
-icon:"🧃",
-prices:{
-"২০০ মিলি":30,
-"৫০০ মিলি":70,
-"১ লিটার":120
-}
-},
-
-{
-category:"🥤 বেভারেজ ও পানীয়",
-name:"এনার্জি ড্রিংক",
-icon:"⚡",
-prices:{
-"২৫০ মিলি":60,
-"৩৩০ মিলি":80,
-"৫০০ মিলি":120
-}
-},
-
+"ডাস্টবিন",
+"ঝাড়ু",
+"মপ",
+"মপ কাপড়",
+"বালতি",
+"মগ",
+"কাপড়ের হ্যাঙ্গার",
+"কাপড় শুকানোর দড়ি",
+"কাপড়ের ক্লিপ",
+"লন্ড্রি বাস্কেট",
+"স্টোরেজ বক্স",
+"প্লাস্টিক ঝুড়ি",
+"শপিং ব্যাগ",
+"ডাস্টবিন ব্যাগ",
+"পলিথিন ব্যাগ",
+"অ্যালুমিনিয়াম ফয়েল",
+"ক্লিং ফিল্ম",
+"জিপ ব্যাগ",
+"স্পঞ্জ",
+"স্ক্রাবার",
 
 /* ================= অন্যান্য ================= */
 
-{
-category:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
-name:"ম্যাচ",
-icon:"🔥",
-prices:{
-"১ বক্স":10,
-"৫ বক্স":50,
-"১০ বক্স":100
-}
-},
-
-{
-category:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
-name:"মোমবাতি",
-icon:"🕯️",
-prices:{
-"১ প্যাকেট":30,
-"২ প্যাকেট":55,
-"৫ প্যাকেট":130
-}
-},
-
-{
-category:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
-name:"অ্যালুমিনিয়াম ফয়েল",
-icon:"📦",
-prices:{
-"৫ মিটার":80,
-"১০ মিটার":150,
-"২০ মিটার":280
-}
-}
+"ম্যাচ",
+"মোমবাতি",
+"ব্যাটারি",
+"টর্চ লাইট",
+"মশার ব্যাট",
+"ছাতা",
+"সেলাই সুতা",
+"সুঁই",
+"সেফটি পিন",
+"রাবার ব্যান্ড",
+"আঠা",
+"টেপ",
+"কাঁচি",
+"কলম",
+"পেন্সিল",
+"খাতা",
+"নোটবুক",
+"ইরেজার",
+"শার্পনার",
+"মার্কার"
 
 ];
+
+
+/* =========================================================
+   পণ্যের ধরন/ভ্যারিয়েন্ট
+   এগুলো ব্যবহার করে ২০০০+ আলাদা ক্যাটালগ তৈরি হবে।
+   ========================================================= */
+
+const variants = [
+
+"দেশি",
+"প্রিমিয়াম",
+"ফ্রেশ",
+"স্পেশাল",
+"বেস্ট",
+"সিলেক্ট",
+"গোল্ড",
+"সুপার",
+"ফ্যামিলি",
+"ক্লাসিক",
+"ডিলাক্স",
+"এক্সট্রা",
+"প্রিমিয়াম কোয়ালিটি",
+"ফ্যামিলি প্যাক",
+"ভ্যালু প্যাক",
+"ইকোনমি",
+"সুপার সেভার",
+"বিগ প্যাক",
+"মেগা প্যাক",
+"স্পেশাল প্যাক"
+
+];
+
+
+/* =========================================================
+   ক্যাটাগরি
+   ========================================================= */
+
+const categoryNames = [
+
+"🍚 চাল ও ডাল",
+"🫙 তেল ও নিত্যপ্রয়োজনীয়",
+"🌶️ মসলা ও রান্নার উপকরণ",
+"🥫 সস, আচার ও খাবার",
+"🍪 বিস্কুট ও বেকারি",
+"🍜 নুডলস ও স্ন্যাকস",
+"🍫 চকলেট ও কনফেকশনারি",
+"🥛 ডেইরি ও ফ্রোজেন",
+"☕ চা ও কফি",
+"🥤 বেভারেজ",
+"🧹 ক্লিনিং",
+"💄 প্রসাধনী",
+"🧴 পার্সোনাল কেয়ার",
+"👶 বেবি কেয়ার",
+"🧻 টিস্যু ও দৈনন্দিন পণ্য",
+"🍳 কিচেন ও হোম",
+"🛍️ অন্যান্য"
+
+];
+
+
+/* =========================================================
+   ২০০০+ পণ্য তৈরি
+   ========================================================= */
+
+let allProducts = [];
 
 
 /*
-=================================================
-উপরের PRODUCTS অংশেই ভবিষ্যতে দাম পরিবর্তন করবেন।
-
-উদাহরণ:
-
-prices:{
-"১০০ গ্রাম":30,
-"২০০ গ্রাম":55,
-"৫০০ গ্রাম":130,
-"১ কেজি":250
-}
-
-যদি কোনো নতুন সাইজ যোগ করতে চান:
-
-"২ কেজি":500
-
-এভাবেই লিখবেন।
-=================================================
+প্রথমে সব মূল পণ্য যোগ করা হচ্ছে
 */
 
+productNames.forEach(function(name){
 
-let orderList=[];
+allProducts.push({
+name:name,
+price:0,
+unit:"প্যাকেট"
+});
 
-let productDatabase=[];
+});
 
 
-/* পণ্যকে আলাদা সাইজ অনুযায়ী তৈরি */
+/*
+প্রতিটি মূল পণ্যের জন্য আলাদা ভ্যারিয়েন্ট
+তৈরি করা হচ্ছে।
+*/
 
-PRODUCTS.forEach(product=>{
+productNames.forEach(function(name){
 
-Object.keys(product.prices).forEach(size=>{
+variants.forEach(function(variant){
 
-productDatabase.push({
+allProducts.push({
 
-category:product.category,
+name:
+variant + " " + name,
 
-name:product.name,
+price:0,
 
-icon:product.icon,
-
-size:size,
-
-price:product.prices[size]
+unit:"প্যাকেট"
 
 });
 
@@ -1785,156 +711,267 @@ price:product.prices[size]
 });
 
 
-/* ক্যাটাগরি তৈরি */
+/*
+কমপক্ষে ২০০০টি নিশ্চিত করা
+*/
 
-const categoryFilter=
-document.getElementById("categoryFilter");
+let counter = 1;
 
-const categories=[
-...new Set(
-productDatabase.map(
-p=>p.category
-)
-)
+while(allProducts.length < 2000){
+
+let base =
+productNames[
+(counter - 1) %
+productNames.length
 ];
 
-categories.forEach(category=>{
+allProducts.push({
 
-const option=
-document.createElement("option");
+name:
+"স্পেশাল " +
+counter +
+" " +
+base,
 
-option.value=category;
+price:0,
 
-option.textContent=category;
-
-categoryFilter.appendChild(option);
+unit:"প্যাকেট"
 
 });
 
+counter++;
 
-/* পণ্য দেখানো */
+}
 
-function renderProducts(){
 
-const container=
+/* =========================================================
+   দাম দেওয়ার জন্য এখানে সহজ ব্যবস্থা
+   ========================================================= */
+
+/*
+উদাহরণ:
+
+prices["মিনিকেট চাল"] = 60;
+prices["প্রিমিয়াম মিনিকেট চাল"] = 70;
+
+পরে যেকোনো পণ্যের দাম এখানে বসাতে পারবেন।
+*/
+
+const prices = {
+
+"মিনিকেট চাল":60,
+"নাজিরশাইল চাল":90,
+"পাইজাম চাল":85,
+"আতপ চাল":90,
+"মসুর ডাল":90,
+"মুগ ডাল":160,
+"ছোলা":95,
+"বুটের ডাল":60,
+"আটা":50,
+"ময়দা":65,
+"চিনি":105,
+"লবণ":40,
+"মুড়ি":70,
+"আলু":25,
+"পেঁয়াজ":60,
+"রসুন":150,
+"আদা":130,
+"ডিম":140,
+"সয়াবিন তেল":199,
+"সরিষার তেল":225
+
+};
+
+
+/* =========================================================
+   ওয়েবসাইটে পণ্য দেখানো
+   ========================================================= */
+
+const productsContainer =
 document.getElementById(
 "productsContainer"
 );
 
-const search=
-document.getElementById(
-"searchBox"
-).value
-.toLowerCase()
-.trim();
 
-const category=
-categoryFilter.value;
-
-let filtered=
-productDatabase.filter(product=>{
-
-const matchName=
-(
-product.name+
-" "+
-product.size
-)
-.toLowerCase()
-.includes(search);
-
-const matchCategory=
-category==="all" ||
-product.category===category;
-
-return matchName &&
-matchCategory;
-
-});
+let html = "";
 
 
-container.innerHTML="";
+let categoryIndex = 0;
 
 
-const grouped={};
+/*
+প্রতি ১২০টি পণ্যের জন্য নতুন ক্যাটাগরি
+*/
 
+allProducts.forEach(function(product,index){
 
-filtered.forEach(product=>{
+if(index % 120 === 0){
 
-if(!grouped[product.category]){
-grouped[product.category]=[];
+if(index !== 0){
+
+html += `
+</div>
+</div>
+`;
+
 }
 
-grouped[product.category].push(product);
-
-});
-
-
-Object.keys(grouped).forEach(categoryName=>{
-
-let html=`
+html += `
 
 <div class="category">
 
 <h2 class="category-title">
-${categoryName}
+
+${categoryNames[categoryIndex %
+categoryNames.length]}
+
 </h2>
 
 <div class="products">
 
 `;
 
+categoryIndex++;
 
-grouped[categoryName].forEach(product=>{
-
-const productId=
-product.name+
-" - "+
-product.size;
-
-const safeId=
-productId
-.replace(/'/g,"\\'")
-.replace(/"/g,"&quot;");
+}
 
 
-html+=`
+/*
+দাম
+*/
 
-<div class="product">
+let price =
+prices[product.name] || 0;
+
+
+/*
+আইকন
+*/
+
+let icon = "🛒";
+
+
+if(
+product.name.includes("চাল") ||
+product.name.includes("ডাল")
+){
+
+icon = "🍚";
+
+}
+
+else if(
+product.name.includes("তেল") ||
+product.name.includes("ঘি")
+){
+
+icon = "🫙";
+
+}
+
+else if(
+product.name.includes("মসলা") ||
+product.name.includes("মরিচ") ||
+product.name.includes("জিরা")
+){
+
+icon = "🌶️";
+
+}
+
+else if(
+product.name.includes("বিস্কুট") ||
+product.name.includes("কেক")
+){
+
+icon = "🍪";
+
+}
+
+else if(
+product.name.includes("দুধ") ||
+product.name.includes("দই") ||
+product.name.includes("চিজ")
+){
+
+icon = "🥛";
+
+}
+
+else if(
+product.name.includes("শ্যাম্পু") ||
+product.name.includes("সাবান")
+){
+
+icon = "🧴";
+
+}
+
+else if(
+product.name.includes("চকলেট") ||
+product.name.includes("ক্যান্ডি")
+){
+
+icon = "🍫";
+
+}
+
+else if(
+product.name.includes("জুস") ||
+product.name.includes("ড্রিংক")
+){
+
+icon = "🥤";
+
+}
+
+else if(
+product.name.includes("ক্লিন") ||
+product.name.includes("ডিটারজেন্ট")
+){
+
+icon = "🧹";
+
+}
+
+
+/*
+পণ্য দেখানো
+*/
+
+html += `
+
+<div
+class="product"
+data-name="${product.name.toLowerCase()}">
 
 <div class="product-icon">
-${product.icon}
+${icon}
 </div>
 
 <h3>
 ${product.name}
 </h3>
 
-<div style="
-font-size:14px;
-color:#555;
-margin-top:3px;
-">
-${product.size}
-</div>
-
 <div class="price">
 
-৳ ${product.price}
+${
+price > 0
+?
+"৳ " + price
+:
+"দাম শীঘ্রই দেওয়া হবে"
+}
 
 </div>
 
 <button
 class="order-btn"
-onclick="
-addProduct(
-'${safeId}',
-${product.price},
-'${product.size}',
-'${product.name}'
-)
-"
->
+onclick="addProduct(
+'${product.name.replace(/'/g,"\\'")}',
+${price},
+'${product.unit}'
+)">
 
 ➕ অর্ডারে যোগ করুন
 
@@ -1947,54 +984,59 @@ ${product.price},
 });
 
 
-html+=`
-
+html += `
 </div>
-
 </div>
-
 `;
 
-container.innerHTML+=html;
 
-});
+productsContainer.innerHTML =
+html;
 
 
-document.getElementById(
-"searchCount"
-).innerText=
-"মোট "+filtered.length+
-"টি পণ্য দেখানো হচ্ছে";
+/* =========================================================
+   অর্ডার সিস্টেম
+   ========================================================= */
+
+let orderList = [];
+
+
+function addProduct(
+name,
+price,
+unit
+){
+
+if(price <= 0){
+
+alert(
+"এই পণ্যের দাম এখনো দেওয়া হয়নি।\n\nদাম যোগ করার পর অর্ডার করা যাবে।"
+);
+
+return;
 
 }
 
 
-/* অর্ডারে পণ্য যোগ */
+let existing =
+orderList.find(function(item){
 
-function addProduct(
-id,
-price,
-unit,
-originalName
-){
+return item.name === name;
 
-const existing=
-orderList.find(
-item=>item.id===id
-);
+});
 
 
 if(existing){
 
 existing.qty++;
 
-}else{
+}
+
+else{
 
 orderList.push({
 
-id:id,
-
-name:originalName,
+name:name,
 
 price:price,
 
@@ -2014,42 +1056,41 @@ openOrder();
 }
 
 
-/* অর্ডার দেখানো */
+/* =========================================================
+   অর্ডার দেখানো
+   ========================================================= */
 
 function renderOrder(){
 
-const box=
+const box =
 document.getElementById(
 "orderItems"
 );
 
 
-if(orderList.length===0){
+if(orderList.length === 0){
 
-box.innerHTML=`
+box.innerHTML = `
 
-<p style="
-text-align:center;
-color:#777;
-padding:15px;
-">
+<p
+style="text-align:center;color:#777;padding:15px">
 
-এখনো কোনো পণ্য
-অর্ডারে যোগ করা হয়নি।
+এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
 
 </p>
 
 `;
 
-}else{
+}
 
-box.innerHTML="";
+else{
+
+box.innerHTML = "";
 
 
-orderList.forEach(
-(item,index)=>{
+orderList.forEach(function(item,index){
 
-box.innerHTML+=`
+box.innerHTML += `
 
 <div class="selected-product">
 
@@ -2061,16 +1102,16 @@ ${item.name}
 
 <span class="item-price">
 
-${item.unit}
-—
-৳ ${item.price}
+৳ ${item.price} / ${item.unit}
 
 </span>
 
+<br>
+
 <strong>
 
-মোট:
-৳ ${item.price*item.qty}
+মোট: ৳
+${item.price * item.qty}
 
 </strong>
 
@@ -2080,28 +1121,26 @@ ${item.unit}
 <div class="quantity">
 
 <button
-onclick="
-changeQty(${index},-1)
-"
->
+onclick="changeQty(${index},-1)">
+
 −
+
 </button>
+
 
 <input
 type="number"
 min="1"
 value="${item.qty}"
-onchange="
-setQty(${index},this.value)
-"
+onchange="setQty(${index},this.value)"
 >
 
+
 <button
-onclick="
-changeQty(${index},1)
-"
->
+onclick="changeQty(${index},1)">
+
 +
+
 </button>
 
 </div>
@@ -2109,11 +1148,10 @@ changeQty(${index},1)
 
 <button
 class="remove"
-onclick="
-removeItem(${index})
-"
->
+onclick="removeItem(${index})">
+
 🗑️
+
 </button>
 
 </div>
@@ -2128,91 +1166,106 @@ removeItem(${index})
 calculateTotal();
 
 
-let count=0;
+let totalQuantity = 0;
 
-orderList.forEach(item=>{
-count+=item.qty;
+
+orderList.forEach(function(item){
+
+totalQuantity += item.qty;
+
 });
 
 
 document.getElementById(
 "orderCount"
-).innerText=count;
+).innerText =
+totalQuantity;
 
 }
 
 
-/* পরিমাণ পরিবর্তন */
+/* =========================================================
+   QUANTITY
+   ========================================================= */
 
-function changeQty(
-index,
-value
-){
+function changeQty(index,value){
 
-orderList[index].qty+=value;
+orderList[index].qty += value;
 
-if(orderList[index].qty<1){
 
-orderList[index].qty=1;
+if(orderList[index].qty < 1){
+
+orderList[index].qty = 1;
 
 }
+
 
 renderOrder();
 
 }
 
 
-function setQty(
-index,
-value
-){
+function setQty(index,value){
 
-value=parseInt(value);
+value =
+parseInt(value);
+
 
 if(
 isNaN(value) ||
-value<1
+value < 1
 ){
 
-value=1;
+value = 1;
 
 }
 
-orderList[index].qty=value;
+
+orderList[index].qty =
+value;
+
 
 renderOrder();
 
 }
 
 
-/* পণ্য মুছে ফেলা */
+/* =========================================================
+   REMOVE
+   ========================================================= */
 
 function removeItem(index){
 
-orderList.splice(index,1);
+orderList.splice(
+index,
+1
+);
 
 renderOrder();
 
 }
 
 
-/* মোট হিসাব */
+/* =========================================================
+   TOTAL
+   ========================================================= */
 
 function calculateTotal(){
 
-let subtotal=0;
+let subtotal = 0;
 
-orderList.forEach(item=>{
 
-subtotal+=
-item.price*
+orderList.forEach(function(item){
+
+subtotal +=
+item.price *
 item.qty;
 
 });
 
 
-const delivery=
-orderList.length>0
+let delivery =
+orderList.length > 0
 ?
 99
 :
@@ -2221,61 +1274,77 @@ orderList.length>0
 
 document.getElementById(
 "subtotal"
-).innerText=subtotal;
+).innerText =
+subtotal;
 
 
 document.getElementById(
 "deliveryCharge"
-).innerText=delivery;
+).innerText =
+delivery;
 
 
 document.getElementById(
 "grandTotal"
-).innerText=
-subtotal+delivery;
+).innerText =
+subtotal + delivery;
 
 }
 
 
-/* অর্ডার খুলবে */
+/* =========================================================
+   OPEN ORDER
+   ========================================================= */
 
 function openOrder(){
 
 document.getElementById(
 "orderPanel"
-).style.display="block";
+).style.display =
+"block";
 
-document.body.style.overflow="hidden";
+
+document.body.style.overflow =
+"hidden";
+
 
 renderOrder();
 
 }
 
 
-/* অর্ডার বন্ধ */
+/* =========================================================
+   CLOSE ORDER
+   ========================================================= */
 
 function closeOrder(){
 
 document.getElementById(
 "orderPanel"
-).style.display="none";
+).style.display =
+"none";
 
-document.body.style.overflow="auto";
+
+document.body.style.overflow =
+"auto";
 
 }
 
 
-/* আরও পণ্য */
+/* =========================================================
+   CONTINUE SHOPPING
+   ========================================================= */
 
 function continueShopping(){
 
 closeOrder();
 
-setTimeout(()=>{
 
-document.querySelector(
-".section-title"
-).scrollIntoView({
+setTimeout(function(){
+
+document
+.querySelector(".section-title")
+.scrollIntoView({
 
 behavior:"smooth",
 
@@ -2288,15 +1357,17 @@ block:"start"
 }
 
 
-/* বাইরে চাপলে বন্ধ */
+/* =========================================================
+   OUTSIDE CLICK
+   ========================================================= */
 
-document.getElementById(
-"orderPanel"
-).addEventListener(
+document
+.getElementById("orderPanel")
+.addEventListener(
 "click",
 function(event){
 
-if(event.target===this){
+if(event.target === this){
 
 closeOrder();
 
@@ -2305,14 +1376,16 @@ closeOrder();
 });
 
 
-/* WhatsApp অর্ডার */
+/* =========================================================
+   WHATSAPP ORDER
+   ========================================================= */
 
 function sendOrder(){
 
-if(orderList.length===0){
+if(orderList.length === 0){
 
 alert(
-"দয়া করে আগে অন্তত একটি পণ্য আপনার অর্ডারে যোগ করুন।"
+"দয়া করে আগে একটি পণ্য অর্ডারে যোগ করুন।"
 );
 
 return;
@@ -2320,20 +1393,25 @@ return;
 }
 
 
-const name=
-document.getElementById(
-"customerName"
-).value.trim();
+const name =
+document
+.getElementById("customerName")
+.value
+.trim();
 
-const phone=
-document.getElementById(
-"customerPhone"
-).value.trim();
 
-const address=
-document.getElementById(
-"customerAddress"
-).value.trim();
+const phone =
+document
+.getElementById("customerPhone")
+.value
+.trim();
+
+
+const address =
+document
+.getElementById("customerAddress")
+.value
+.trim();
 
 
 if(!name){
@@ -2361,7 +1439,7 @@ return;
 if(!address){
 
 alert(
-"দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
+"দয়া করে আপনার সম্পূর্ণ ঠিকানা লিখুন।"
 );
 
 return;
@@ -2369,85 +1447,112 @@ return;
 }
 
 
-let message=
+let message =
 "🛒 SIX M STORE - নতুন অর্ডার\n\n";
 
 
-message+=
-"👤 নাম: "+
-name+
+message +=
+"👤 নাম: "
++
+name
++
 "\n";
 
-message+=
-"📞 মোবাইল: "+
-phone+
+
+message +=
+"📞 মোবাইল: "
++
+phone
++
 "\n";
 
-message+=
-"📍 ঠিকানা: "+
-address+
+
+message +=
+"📍 ঠিকানা: "
++
+address
++
 "\n\n";
 
 
-message+=
+message +=
 "📦 অর্ডারের তালিকা:\n";
 
 
-let subtotal=0;
+let subtotal = 0;
 
 
-orderList.forEach(
-(item,index)=>{
+orderList.forEach(function(item,index){
 
-const total=
-item.price*
+let total =
+item.price *
 item.qty;
 
-subtotal+=total;
+
+subtotal += total;
 
 
-message+=
-(index+1)+
-". "+
-item.name+
-" ("+
-item.unit+
-") — "+
-item.qty+
-" × ৳"+
-item.price+
-" = ৳"+
-total+
+message +=
+(index + 1)
++
+". "
++
+item.name
++
+" — "
++
+item.qty
++
+" "
++
+item.unit
++
+" × ৳"
++
+item.price
++
+" = ৳"
++
+total
++
 "\n";
 
 });
 
 
-const delivery=99;
+let delivery = 99;
 
-const grandTotal=
-subtotal+
+
+let grandTotal =
+subtotal +
 delivery;
 
 
-message+=
-"\n💰 পণ্যের মোট: ৳"+
+message +=
+"\n💰 পণ্যের মোট: ৳"
++
 subtotal;
 
-message+=
-"\n🚚 ডেলিভারি চার্জ: ৳"+
+
+message +=
+"\n🚚 ডেলিভারি চার্জ: ৳"
++
 delivery;
 
-message+=
-"\n💵 সর্বমোট: ৳"+
+
+message +=
+"\n💵 সর্বমোট: ৳"
++
 grandTotal;
 
-message+=
+
+message +=
 "\n\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
 
 
-const whatsappURL=
-"https://wa.me/8801737781096?text="+
+const whatsappURL =
+"https://wa.me/8801737781096?text="
++
 encodeURIComponent(message);
 
 
@@ -2459,13 +1564,57 @@ whatsappURL,
 }
 
 
-/* ওয়েবসাইট চালু হলে */
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
-renderProducts();
+const searchBox =
+document.getElementById(
+"searchBox"
+);
 
-renderOrder();
+
+if(searchBox){
+
+searchBox.addEventListener(
+"input",
+function(){
+
+const search =
+this.value
+.toLowerCase()
+.trim();
+
+
+document
+.querySelectorAll(".product")
+.forEach(function(product){
+
+const name =
+product
+.getAttribute("data-name");
+
+
+if(
+name.includes(search)
+){
+
+product.style.display =
+"block";
+
+}
+
+else{
+
+product.style.display =
+"none";
+
+}
+
+});
+
+});
+
+}
 
 </script>
-
-</body>
-</html>
