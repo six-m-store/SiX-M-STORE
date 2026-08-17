@@ -229,7 +229,7 @@ header{
 
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
     gap:13px;
 }
 
@@ -263,25 +263,18 @@ header{
 .product h3{
     font-size:16px;
     color:#172033;
+    margin-bottom:9px;
 }
-
-.product-small{
-    color:#657184;
-    font-size:13px;
-    margin-top:2px;
-}
-
-/* ================= PRODUCT DROPDOWN ================= */
 
 .product-select{
     width:100%;
-    margin-top:8px;
-    padding:9px 7px;
-    border:2px solid #d9e5f2;
+    padding:9px 8px;
+    border:1px solid #ccd8e6;
     border-radius:9px;
     background:white;
     color:#172033;
-    font-size:13px;
+    font-size:14px;
+    margin-bottom:7px;
     outline:none;
     cursor:pointer;
 }
@@ -290,12 +283,24 @@ header{
     border-color:#0875d1;
 }
 
-.selected-price{
+.size-select{
+    width:100%;
+    padding:9px 8px;
+    border:1px solid #ccd8e6;
+    border-radius:9px;
+    background:white;
+    color:#172033;
+    font-size:14px;
+    margin-bottom:7px;
+    outline:none;
+    cursor:pointer;
+}
+
+.price{
     color:#063b8f;
     font-weight:bold;
     min-height:25px;
-    margin-top:5px;
-    font-size:14px;
+    margin-top:3px;
 }
 
 .price-pending{
@@ -308,9 +313,9 @@ header{
     background:#20b858;
     color:white;
     border:none;
-    padding:8px 10px;
+    padding:9px 8px;
     border-radius:8px;
-    margin-top:8px;
+    margin-top:7px;
     cursor:pointer;
     font-weight:bold;
 }
@@ -319,8 +324,18 @@ header{
     background:#169c49;
 }
 
-.order-btn:active{
-    transform:scale(.97);
+/* ================= ADDED TO ORDER NOTICE ================= */
+
+.added-notice{
+    display:none;
+    background:#e9fff1;
+    color:#168344;
+    border:1px solid #bceccc;
+    border-radius:8px;
+    padding:6px;
+    font-size:12px;
+    margin-top:6px;
+    font-weight:bold;
 }
 
 /* ================= ORDER FLOATING ================= */
@@ -425,13 +440,14 @@ header{
 .item-details{
     color:#657184;
     font-size:13px;
-    margin-top:2px;
+    margin-top:3px;
 }
 
 .item-price{
     color:#063b8f;
     font-weight:bold;
     font-size:14px;
+    margin-top:4px;
 }
 
 .order-controls{
@@ -703,7 +719,7 @@ footer p{
     }
 
     .product{
-        padding:13px 7px;
+        padding:12px 7px;
     }
 
     .product-icon{
@@ -716,9 +732,10 @@ footer p{
         font-size:14px;
     }
 
-    .product-select{
+    .product-select,
+    .size-select{
         font-size:12px;
-        padding:8px 4px;
+        padding:8px 5px;
     }
 
     .order-floating{
@@ -1050,25 +1067,6 @@ onclick="sendOrder()">
 
 </div>
 
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<h2>SIX M STORE</h2>
-
-<p>
-আপনার বিশ্বাসই আমাদের মূলধন।
-</p>
-
-<p>
-📞 +8801782-371255
-</p>
-
-<p>
-© 2026 SIX M STORE. All Rights Reserved.
-</p>
-
-</footer>
 
 <script>
 
@@ -1087,9 +1085,6 @@ products:[
 name:"মিনিকেট চাল",
 icon:"🍚",
 variants:[
-{brand:"নুরজাহান মিনিকেট",size:"১০০ গ্রাম",price:6},
-{brand:"নুরজাহান মিনিকেট",size:"২০০ গ্রাম",price:12},
-{brand:"নুরজাহান মিনিকেট",size:"৫০০ গ্রাম",price:30},
 {brand:"নুরজাহান মিনিকেট",size:"১ কেজি",price:60},
 {brand:"নুরজাহান মিনিকেট",size:"৫ কেজি",price:300},
 {brand:"নুরজাহান মিনিকেট",size:"১০ কেজি",price:580},
@@ -1177,9 +1172,10 @@ variants:[
 }
 
 ]
+
 },
 
-/* ================= তেল ================= */
+/* ================= তেল ও মসলা ================= */
 
 {
 name:"🫙 তেল ও মসলা",
@@ -1222,7 +1218,6 @@ variants:[
 name:"হলুদ গুঁড়া",
 icon:"🌕",
 variants:[
-{brand:"রাধুনি",size:"৫০ গ্রাম",price:0},
 {brand:"রাধুনি",size:"১০০ গ্রাম",price:0},
 {brand:"সাধারণ",size:"১ কেজি",price:0}
 ]
@@ -1232,7 +1227,6 @@ variants:[
 name:"মরিচ গুঁড়া",
 icon:"🌶️",
 variants:[
-{brand:"রাধুনি",size:"৫০ গ্রাম",price:0},
 {brand:"রাধুনি",size:"১০০ গ্রাম",price:0},
 {brand:"সাধারণ",size:"১ কেজি",price:0}
 ]
@@ -1242,7 +1236,6 @@ variants:[
 name:"ধনিয়া গুঁড়া",
 icon:"🌿",
 variants:[
-{brand:"রাধুনি",size:"৫০ গ্রাম",price:0},
 {brand:"রাধুনি",size:"১০০ গ্রাম",price:0},
 {brand:"সাধারণ",size:"১ কেজি",price:0}
 ]
@@ -1298,6 +1291,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= নিত্যপ্রয়োজনীয় ================= */
@@ -1386,6 +1380,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= সবজি ================= */
@@ -1438,6 +1433,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= ডেইরি ================= */
@@ -1492,6 +1488,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= চা ================= */
@@ -1537,6 +1534,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= বিস্কুট ================= */
@@ -1594,6 +1592,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= CLEANING ================= */
@@ -1680,6 +1679,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= OTHER ================= */
@@ -1723,6 +1723,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= COSMETICS ================= */
@@ -1777,6 +1778,7 @@ variants:[
 }
 
 ]
+
 },
 
 /* ================= BEVERAGE ================= */
@@ -1834,6 +1836,7 @@ variants:[
 }
 
 ]
+
 }
 
 ];
@@ -1934,11 +1937,14 @@ ${category.name}
 
 products.forEach((product)=>{
 
-const realProductIndex =
+const productIndex =
 category.products.indexOf(product);
 
-const variantCount =
-product.variants.length;
+const brands=[
+...new Set(
+product.variants.map(v=>v.brand)
+)
+];
 
 html+=`
 
@@ -1952,65 +1958,81 @@ ${product.icon}
 ${product.name}
 </h3>
 
-<div class="product-small">
-${variantCount}টি অপশন
-</div>
+<!-- BRAND DROPDOWN -->
 
 <select
 class="product-select"
-id="variant-${categoryIndex}-${realProductIndex}"
-onchange="updateProductPrice(
+id="brand-${categoryIndex}-${productIndex}"
+onchange="updateProductSelection(
 ${categoryIndex},
-${realProductIndex}
+${productIndex}
 )">
 
 <option value="">
-🏷️ ব্র্যান্ড / সাইজ নির্বাচন করুন
+🏷️ ব্র্যান্ড নির্বাচন করুন
 </option>
 
-`;
+${brands.map(brand=>`
 
-product.variants.forEach((variant,index)=>{
-
-const priceText =
-variant.price>0
-?
-"৳ "+variant.price
-:
-"মূল্য পরে";
-
-html+=`
-
-<option value="${index}">
-${variant.brand} — ${variant.size} — ${priceText}
+<option value="${escapeHTML(brand)}">
+${escapeHTML(brand)}
 </option>
 
-`;
-
-});
-
-html+=`
+`).join("")}
 
 </select>
 
-<div
-class="selected-price"
-id="price-${categoryIndex}-${realProductIndex}">
 
-সাইজ নির্বাচন করুন
+<!-- SIZE DROPDOWN -->
+
+<select
+class="size-select"
+id="size-${categoryIndex}-${productIndex}"
+onchange="updateProductSelection(
+${categoryIndex},
+${productIndex}
+)"
+disabled>
+
+<option value="">
+📦 সাইজ নির্বাচন করুন
+</option>
+
+</select>
+
+
+<!-- PRICE -->
+
+<div
+class="price"
+id="price-${categoryIndex}-${productIndex}">
+
+💰 আগে ব্র্যান্ড নির্বাচন করুন
 
 </div>
 
+
+<!-- ADD BUTTON -->
+
 <button
 class="order-btn"
-onclick="addSelectedVariant(
+id="add-${categoryIndex}-${productIndex}"
+onclick="addSelectedProduct(
 ${categoryIndex},
-${realProductIndex}
+${productIndex}
 )">
 
-🛒 অর্ডারে যোগ করুন
+➕ অর্ডারে যোগ করুন
 
 </button>
+
+<div
+class="added-notice"
+id="notice-${categoryIndex}-${productIndex}">
+
+✓ অর্ডারে যোগ হয়েছে
+
+</div>
 
 </div>
 
@@ -2038,17 +2060,42 @@ document.getElementById("noResult")
 
 
 /* =========================================================
-   UPDATE PRICE
+   ESCAPE HTML
    ========================================================= */
 
-function updateProductPrice(
+function escapeHTML(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   UPDATE BRAND / SIZE / PRICE
+   ========================================================= */
+
+function updateProductSelection(
 categoryIndex,
 productIndex
 ){
 
-const select =
+const product =
+categories[categoryIndex]
+.products[productIndex];
+
+const brandSelect =
 document.getElementById(
-`variant-${categoryIndex}-${productIndex}`
+`brand-${categoryIndex}-${productIndex}`
+);
+
+const sizeSelect =
+document.getElementById(
+`size-${categoryIndex}-${productIndex}`
 );
 
 const priceBox =
@@ -2056,37 +2103,142 @@ document.getElementById(
 `price-${categoryIndex}-${productIndex}`
 );
 
-const value =
-select.value;
+const brand =
+brandSelect.value;
 
-if(value===""){
+
+/* No brand selected */
+
+if(!brand){
+
+sizeSelect.innerHTML=`
+
+<option value="">
+📦 আগে ব্র্যান্ড নির্বাচন করুন
+</option>
+
+`;
+
+sizeSelect.disabled=true;
 
 priceBox.innerHTML=
-"Sাইজ নির্বাচন করুন";
+"💰 আগে ব্র্যান্ড নির্বাচন করুন";
+
+priceBox.className="price";
+
+return;
+
+}
+
+
+/* Find sizes */
+
+const variants =
+product.variants.filter(
+v=>v.brand===brand
+);
+
+sizeSelect.innerHTML=`
+
+<option value="">
+📦 সাইজ নির্বাচন করুন
+</option>
+
+${variants.map(v=>`
+
+<option value="${escapeHTML(v.size)}">
+${escapeHTML(v.size)}
+</option>
+
+`).join("")}
+
+`;
+
+sizeSelect.disabled=false;
+
+priceBox.innerHTML=
+"💰 সাইজ নির্বাচন করুন";
+
+priceBox.className="price";
+
+}
+
+
+/* =========================================================
+   PRICE UPDATE AFTER SIZE
+   ========================================================= */
+
+function updatePrice(
+categoryIndex,
+productIndex
+){
+
+const product =
+categories[categoryIndex]
+.products[productIndex];
+
+const brandSelect =
+document.getElementById(
+`brand-${categoryIndex}-${productIndex}`
+);
+
+const sizeSelect =
+document.getElementById(
+`size-${categoryIndex}-${productIndex}`
+);
+
+const priceBox =
+document.getElementById(
+`price-${categoryIndex}-${productIndex}`
+);
+
+const brand =
+brandSelect.value;
+
+const size =
+sizeSelect.value;
+
+if(!brand || !size){
+
+priceBox.innerHTML=
+"💰 সাইজ নির্বাচন করুন";
+
+priceBox.className="price";
 
 return;
 
 }
 
 const variant =
-categories[categoryIndex]
-.products[productIndex]
-.variants[Number(value)];
+product.variants.find(
+v=>
+v.brand===brand &&
+v.size===size
+);
+
+if(!variant){
+
+priceBox.innerHTML=
+"💰 মূল্য পাওয়া যায়নি";
+
+return;
+
+}
 
 if(variant.price>0){
-
-priceBox.className="selected-price";
 
 priceBox.innerHTML=
 "💰 ৳ "+variant.price;
 
+priceBox.className="price";
+
 }else{
 
-priceBox.className=
-"selected-price price-pending";
-
 priceBox.innerHTML=
-"⚠️ মূল্য পরে জানানো হবে";
+"💰 মূল্য পরে জানানো হবে";
+
+priceBox.className=
+"price-pending";
 
 }
 
@@ -2094,45 +2246,122 @@ priceBox.innerHTML=
 
 
 /* =========================================================
-   ADD SELECTED VARIANT
+   COMBINED SELECTION LISTENER
    ========================================================= */
 
-function addSelectedVariant(
+document.addEventListener(
+"change",
+function(event){
+
+if(
+event.target.classList.contains(
+"size-select"
+)
+){
+
+const id =
+event.target.id;
+
+const parts =
+id.split("-");
+
+const categoryIndex =
+Number(parts[1]);
+
+const productIndex =
+Number(parts[2]);
+
+updatePrice(
+categoryIndex,
+productIndex
+);
+
+}
+
+});
+
+
+/* =========================================================
+   ADD SELECTED PRODUCT
+   ========================================================= */
+
+function addSelectedProduct(
 categoryIndex,
 productIndex
 ){
 
-const select =
+const product =
+categories[categoryIndex]
+.products[productIndex];
+
+const brandSelect =
 document.getElementById(
-`variant-${categoryIndex}-${productIndex}`
+`brand-${categoryIndex}-${productIndex}`
 );
 
-if(select.value===""){
+const sizeSelect =
+document.getElementById(
+`size-${categoryIndex}-${productIndex}`
+);
+
+const brand =
+brandSelect.value;
+
+const size =
+sizeSelect.value;
+
+
+if(!brand){
 
 alert(
-"দয়া করে আগে ব্র্যান্ড / সাইজ নির্বাচন করুন।"
+"দয়া করে আগে ব্র্যান্ড নির্বাচন করুন।"
 );
 
 return;
 
 }
 
-const variantIndex =
-Number(select.value);
 
-const product =
-categories[categoryIndex]
-.products[productIndex];
+if(!size){
+
+alert(
+"দয়া করে আগে সাইজ নির্বাচন করুন।"
+);
+
+return;
+
+}
+
 
 const variant =
-product.variants[variantIndex];
+product.variants.find(
+v=>
+v.brand===brand &&
+v.size===size
+);
+
+
+if(!variant){
+
+alert(
+"এই পণ্যের তথ্য পাওয়া যায়নি।"
+);
+
+return;
+
+}
+
+
+/* Check existing */
 
 const existing =
-orderList.find(item=>
+orderList.find(
+item=>
 item.name===product.name &&
-item.brand===variant.brand &&
-item.size===variant.size
+item.brand===brand &&
+item.size===size
 );
+
 
 if(existing){
 
@@ -2144,9 +2373,9 @@ orderList.push({
 
 name:product.name,
 
-brand:variant.brand,
+brand:brand,
 
-size:variant.size,
+size:size,
 
 price:variant.price,
 
@@ -2156,49 +2385,53 @@ qty:1
 
 }
 
+
+/* Show small confirmation */
+
+const notice =
+document.getElementById(
+`notice-${categoryIndex}-${productIndex}`
+);
+
+notice.style.display="block";
+
+notice.innerHTML=
+"✓ অর্ডারে যোগ হয়েছে ("+
+getOrderCount()+
+")";
+
+
+/* Update order */
+
 renderOrder();
 
-showAddedMessage(
-categoryIndex,
-productIndex
-);
+
+/* Keep customer on product page */
+
+setTimeout(()=>{
+
+notice.style.display="none";
+
+},2000);
 
 }
 
 
 /* =========================================================
-   SMALL ADDED MESSAGE
+   ORDER COUNT
    ========================================================= */
 
-function showAddedMessage(
-categoryIndex,
-productIndex
-){
+function getOrderCount(){
 
-const button =
-document.querySelector(
-`#variant-${categoryIndex}-${productIndex}`
-)
-.parentElement
-.querySelector(".order-btn");
+let count=0;
 
-const oldText =
-button.innerText;
+orderList.forEach(item=>{
 
-button.innerText=
-"✅ অর্ডারে যোগ হয়েছে";
+count+=item.qty;
 
-button.style.background=
-"#063b8f";
+});
 
-setTimeout(()=>{
-
-button.innerText=oldText;
-
-button.style.background=
-"#20b858";
-
-},1000);
+return count;
 
 }
 
@@ -2233,7 +2466,8 @@ padding:15px;
 
 box.innerHTML="";
 
-orderList.forEach((item,index)=>{
+orderList.forEach(
+(item,index)=>{
 
 const itemTotal =
 item.price>0
@@ -2242,29 +2476,36 @@ item.price*item.qty
 :
 0;
 
-const priceHTML =
-item.price>0
-?
-`
+let priceHTML="";
 
-<span class="item-price">
+if(item.price>0){
 
-৳ ${item.price} × ${item.qty}
+priceHTML=`
+
+<div class="item-price">
+
+৳ ${item.price}
+× ${item.qty}
 = ৳ ${itemTotal}
 
-</span>
+</div>
 
-`
-:
-`
+`;
 
-<span class="price-pending">
+}else{
+
+priceHTML=`
+
+<div class="price-pending">
 
 মূল্য পরে জানানো হবে
 
-</span>
+</div>
 
 `;
+
+}
+
 
 box.innerHTML+=`
 
@@ -2280,11 +2521,11 @@ ${item.name}
 
 <div class="item-details">
 
-🏷️ ${item.brand}
+🏷️ ব্র্যান্ড: ${item.brand}
 
 <br>
 
-📦 ${item.size}
+📦 সাইজ: ${item.size}
 
 </div>
 
@@ -2294,13 +2535,16 @@ ${priceHTML}
 
 </div>
 
+
 <div class="order-controls">
 
 <div class="quantity">
 
 <button
 onclick="changeQty(${index},-1)">
+
 −
+
 </button>
 
 <input
@@ -2311,10 +2555,13 @@ onchange="setQty(${index},this.value)">
 
 <button
 onclick="changeQty(${index},1)">
+
 +
+
 </button>
 
 </div>
+
 
 <button
 class="remove"
@@ -2334,16 +2581,11 @@ onclick="removeItem(${index})">
 
 }
 
+
 calculateTotal();
 
-let count=0;
-
-orderList.forEach(item=>{
-count+=item.qty;
-});
-
 document.getElementById("orderCount")
-.innerText=count;
+.innerText=getOrderCount();
 
 }
 
@@ -2352,7 +2594,10 @@ document.getElementById("orderCount")
    QUANTITY
    ========================================================= */
 
-function changeQty(index,value){
+function changeQty(
+index,
+value
+){
 
 orderList[index].qty+=value;
 
@@ -2367,11 +2612,17 @@ renderOrder();
 }
 
 
-function setQty(index,value){
+function setQty(
+index,
+value
+){
 
 value=parseInt(value);
 
-if(isNaN(value)||value<1){
+if(
+isNaN(value) ||
+value<1
+){
 
 value=1;
 
@@ -2434,7 +2685,8 @@ let subtotal=0;
 
 let pending=false;
 
-orderList.forEach(item=>{
+orderList.forEach(
+item=>{
 
 if(item.price>0){
 
@@ -2449,6 +2701,7 @@ pending=true;
 
 });
 
+
 const delivery =
 orderList.length>0
 ?
@@ -2456,30 +2709,43 @@ orderList.length>0
 :
 0;
 
-document.getElementById("subtotal")
-.innerText=subtotal;
 
-document.getElementById("deliveryCharge")
-.innerText=delivery;
+document.getElementById(
+"subtotal"
+).innerText=subtotal;
+
+
+document.getElementById(
+"deliveryCharge"
+).innerText=delivery;
+
 
 if(pending){
 
-document.getElementById("grandTotalText")
-.innerText=
-"৳ "+(subtotal+delivery)+
+document.getElementById(
+"grandTotalText"
+).innerText=
+"৳ "+
+(subtotal+delivery)+
 " + মূল্য পরে";
 
-document.getElementById("pendingNotice")
-.style.display="block";
+
+document.getElementById(
+"pendingNotice"
+).style.display="block";
 
 }else{
 
-document.getElementById("grandTotalText")
-.innerText=
-"৳ "+(subtotal+delivery);
+document.getElementById(
+"grandTotalText"
+).innerText=
+"৳ "+
+(subtotal+delivery);
 
-document.getElementById("pendingNotice")
-.style.display="none";
+
+document.getElementById(
+"pendingNotice"
+).style.display="none";
 
 }
 
@@ -2487,13 +2753,14 @@ document.getElementById("pendingNotice")
 
 
 /* =========================================================
-   ORDER OPEN / CLOSE
+   ORDER OPEN
    ========================================================= */
 
 function openOrder(){
 
-document.getElementById("orderPanel")
-.style.display="block";
+document.getElementById(
+"orderPanel"
+).style.display="block";
 
 document.body.style.overflow="hidden";
 
@@ -2502,10 +2769,15 @@ renderOrder();
 }
 
 
+/* =========================================================
+   ORDER CLOSE
+   ========================================================= */
+
 function closeOrder(){
 
-document.getElementById("orderPanel")
-.style.display="none";
+document.getElementById(
+"orderPanel"
+).style.display="none";
 
 document.body.style.overflow="auto";
 
@@ -2534,7 +2806,7 @@ behavior:"smooth"
 
 
 /* =========================================================
-   CLICK OUTSIDE ORDER PANEL
+   CLICK OUTSIDE ORDER
    ========================================================= */
 
 document
@@ -2568,17 +2840,24 @@ return;
 
 }
 
+
 const name=
-document.getElementById("customerName")
-.value.trim();
+document.getElementById(
+"customerName"
+).value.trim();
+
 
 const phone=
-document.getElementById("customerPhone")
-.value.trim();
+document.getElementById(
+"customerPhone"
+).value.trim();
+
 
 const address=
-document.getElementById("customerAddress")
-.value.trim();
+document.getElementById(
+"customerAddress"
+).value.trim();
+
 
 if(!name){
 
@@ -2594,6 +2873,7 @@ return;
 
 }
 
+
 if(!phone){
 
 alert(
@@ -2607,6 +2887,7 @@ document
 return;
 
 }
+
 
 if(!address){
 
@@ -2626,20 +2907,24 @@ return;
 let message=
 "🛒 SIX M STORE - নতুন অর্ডার\n\n";
 
+
 message+=
 "👤 নাম: "+
 name+
 "\n";
+
 
 message+=
 "📞 মোবাইল: "+
 phone+
 "\n";
 
+
 message+=
 "📍 ঠিকানা: "+
 address+
 "\n\n";
+
 
 message+=
 "📦 অর্ডারের তালিকা:\n\n";
@@ -2650,7 +2935,9 @@ let subtotal=0;
 let hasPending=false;
 
 
-orderList.forEach((item,index)=>{
+orderList.forEach(
+(item,index)=>{
+
 
 message+=
 (index+1)+
@@ -2658,20 +2945,24 @@ message+=
 item.name+
 "\n";
 
+
 message+=
 "   🏷️ ব্র্যান্ড: "+
 item.brand+
 "\n";
+
 
 message+=
 "   📦 সাইজ: "+
 item.size+
 "\n";
 
+
 message+=
 "   🔢 পরিমাণ: "+
 item.qty+
 "\n";
+
 
 if(item.price>0){
 
@@ -2679,7 +2970,9 @@ const total=
 item.price*
 item.qty;
 
+
 subtotal+=total;
+
 
 message+=
 "   💰 মূল্য: ৳"+
@@ -2694,10 +2987,12 @@ total+
 
 hasPending=true;
 
+
 message+=
 "   💰 মূল্য: পরে জানানো হবে\n";
 
 }
+
 
 message+="\n";
 
@@ -2706,10 +3001,12 @@ message+="\n";
 
 const delivery=99;
 
+
 message+=
 "💰 নির্ধারিত পণ্যের মোট: ৳"+
 subtotal+
 "\n";
+
 
 message+=
 "🚚 ডেলিভারি চার্জ: ৳"+
@@ -2721,6 +3018,7 @@ if(hasPending){
 
 message+=
 "⚠️ কিছু পণ্যের মূল্য পরে জানানো হবে।\n";
+
 
 message+=
 "💵 চূড়ান্ত মোট মূল্য: মূল্য নিশ্চিত করার পর জানানো হবে।\n";
