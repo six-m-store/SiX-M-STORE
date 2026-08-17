@@ -10,15 +10,9 @@
 content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
-html{
-scroll-behavior:smooth
-}
+html{scroll-behavior:smooth}
 
 body{
 font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
@@ -104,10 +98,6 @@ font-size:14px;
 box-shadow:0 3px 12px rgba(0,0,0,.15)
 }
 
-.header-search input::placeholder{
-color:#657184
-}
-
 /* HERO */
 
 .hero{
@@ -184,6 +174,30 @@ font-weight:bold;
 color:#172033;
 cursor:pointer;
 outline:none
+}
+
+/* LOADING */
+
+.loading{
+background:white;
+padding:35px;
+text-align:center;
+border-radius:15px;
+color:#063b8f;
+font-size:18px;
+font-weight:bold
+}
+
+/* ERROR */
+
+.error-box{
+background:#fff0f0;
+border:1px solid #ffcaca;
+color:#c0392b;
+padding:25px;
+border-radius:15px;
+text-align:center;
+margin-bottom:20px
 }
 
 /* CATEGORY BOX */
@@ -269,13 +283,19 @@ text-align:left;
 margin-top:5px
 }
 
-.price-select{
+.price-box{
+width:100%;
+background:#eef5ff;
+border:1px solid #cdd9e6;
+border-radius:8px;
+padding:9px 7px;
+font-size:14px;
 font-weight:bold;
 color:#063b8f;
-background:#eef5ff
+margin-top:6px
 }
 
-.stock-text{
+.stock{
 font-size:12px;
 font-weight:bold;
 margin-top:6px
@@ -308,11 +328,17 @@ cursor:pointer;
 font-weight:bold;
 font-size:14px;
 box-shadow:0 4px 12px rgba(6,59,143,.22);
-transition:all .25s ease
+transition:.25s
 }
 
 .order-btn:hover{
 transform:translateY(-2px)
+}
+
+.order-btn:disabled{
+background:#999;
+cursor:not-allowed;
+transform:none
 }
 
 .added-message{
@@ -343,7 +369,8 @@ padding:13px 18px;
 font-size:15px;
 font-weight:bold;
 box-shadow:0 6px 20px rgba(6,59,143,.30);
-cursor:pointer
+cursor:pointer;
+border:1px solid rgba(255,255,255,.18)
 }
 
 .order-count{
@@ -384,6 +411,8 @@ padding:20px;
 box-shadow:0 10px 40px rgba(0,0,0,.3)
 }
 
+/* ORDER HEADER */
+
 .order-header{
 display:flex;
 justify-content:space-between;
@@ -419,7 +448,7 @@ background:rgba(255,255,255,.16);
 border-radius:50%
 }
 
-/* ORDER ITEM */
+/* SELECTED PRODUCT */
 
 .selected-product{
 background:#f4f7fb;
@@ -732,7 +761,7 @@ margin:4px 0
 @media(max-width:600px){
 
 header{
-padding:10px 10px 12px
+padding:10px
 }
 
 .header-inner{
@@ -743,10 +772,6 @@ gap:9px
 .logo{
 width:58px;
 height:58px
-}
-
-.brand{
-flex:1
 }
 
 .brand h1{
@@ -763,8 +788,7 @@ order:3
 }
 
 .header-search input{
-height:42px;
-font-size:13px
+height:42px
 }
 
 .hero h2{
@@ -811,6 +835,27 @@ flex-direction:column
 
 }
 
+@media(max-width:380px){
+
+.logo{
+width:52px;
+height:52px
+}
+
+.brand h1{
+font-size:18px
+}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:7px
+}
+
+.product h3{
+font-size:13px
+}
+
+}
 </style>
 </head>
 
@@ -825,11 +870,8 @@ flex-direction:column
 </div>
 
 <div class="brand">
-
 <h1>SIX M STORE</h1>
-
 <p>Everyone Deserves Good Service.</p>
-
 </div>
 
 <div class="header-search">
@@ -846,7 +888,6 @@ oninput="syncHeaderSearch()">
 
 </header>
 
-
 <section class="hero">
 
 <h2>🛒 SIX M STORE-এ স্বাগতম</h2>
@@ -858,13 +899,11 @@ oninput="syncHeaderSearch()">
 
 </section>
 
-
 <div class="container">
 
 <h2 class="section-title">
 🛍️ আমাদের পণ্যসমূহ
 </h2>
-
 
 <div class="category-selector">
 
@@ -885,29 +924,23 @@ onchange="displayProducts()">
 
 </div>
 
+<div id="loading" class="loading">
 
-<div id="loadingMessage"
-style="
-background:white;
-padding:30px;
-text-align:center;
-border-radius:15px;
-margin-bottom:20px;
-">
-
-<h3 style="color:#063b8f;">
 ⏳ পণ্য লোড হচ্ছে...
-</h3>
-
-<p>
-Google Sheet থেকে পণ্যের তথ্য নেওয়া হচ্ছে।
-</p>
 
 </div>
 
+<div id="errorBox" class="error-box" style="display:none">
+
+❌ পণ্য লোড করা যায়নি।
+
+<br><br>
+
+দয়া করে কিছুক্ষণ পরে আবার চেষ্টা করুন।
+
+</div>
 
 <div id="productsContainer"></div>
-
 
 <div
 id="noResult"
@@ -929,7 +962,6 @@ color:#777;
 </p>
 
 </div>
-
 
 <div class="info">
 
@@ -955,7 +987,6 @@ color:#777;
 
 </div>
 
-
 <div class="contact-buttons">
 
 <a
@@ -965,7 +996,6 @@ href="tel:+8801737781096">
 📞 এখনই ফোন করুন
 
 </a>
-
 
 <a
 class="btn whatsapp"
@@ -979,7 +1009,6 @@ target="_blank">
 </div>
 
 </div>
-
 
 <div class="delivery">
 
@@ -1011,7 +1040,6 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 
 </div>
 
-
 <button
 class="order-floating"
 onclick="openOrder()">
@@ -1025,7 +1053,6 @@ id="orderCount">
 </span>
 
 </button>
-
 
 <div id="orderPanel">
 
@@ -1045,9 +1072,7 @@ onclick="closeOrder()">
 
 </div>
 
-
 <div id="orderItems"></div>
-
 
 <div class="total-box">
 
@@ -1063,7 +1088,6 @@ onclick="closeOrder()">
 
 </div>
 
-
 <div class="total-row">
 
 <span>
@@ -1075,7 +1099,6 @@ onclick="closeOrder()">
 </span>
 
 </div>
-
 
 <div class="total-row total-final">
 
@@ -1089,11 +1112,10 @@ onclick="closeOrder()">
 
 </div>
 
-
 <div
 id="pendingNotice"
 class="total-pending"
-style="display:none;">
+style="display:none">
 
 ⚠️ কিছু পণ্যের মূল্য পরে জানানো হবে।
 অর্ডার নিশ্চিত করার আগে কাস্টমারকে মূল্য জানানো হবে।
@@ -1101,7 +1123,6 @@ style="display:none;">
 </div>
 
 </div>
-
 
 <button
 class="clear-order"
@@ -1111,7 +1132,6 @@ onclick="clearOrder()">
 
 </button>
 
-
 <button
 class="add-more"
 onclick="continueShopping()">
@@ -1120,31 +1140,26 @@ onclick="continueShopping()">
 
 </button>
 
-
 <div class="customer-form">
 
 <h3>
 👤 কাস্টমারের তথ্য
 </h3>
 
-
 <input
 type="text"
 id="customerName"
 placeholder="আপনার নাম লিখুন">
-
 
 <input
 type="tel"
 id="customerPhone"
 placeholder="মোবাইল নম্বর লিখুন">
 
-
 <textarea
 id="customerAddress"
 placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন">
 </textarea>
-
 
 <button
 class="send-order"
@@ -1159,7 +1174,6 @@ onclick="sendOrder()">
 </div>
 
 </div>
-
 
 <footer>
 
@@ -1181,184 +1195,237 @@ SIX M STORE
 
 </footer>
 
-
 <script>
 
-/* =========================================
-GOOGLE SHEET WEB APP
-========================================= */
+/* =====================================================
+GOOGLE APPS SCRIPT API
+===================================================== */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyzxV5VLy9ljVQEEAcnrFnvugIyJg4n_5Ag-hJZa21XZvsWwoSeAUxDuEtrpOeq2_0l/exec";
 
 
-/* =========================================
-GLOBAL VARIABLES
-========================================= */
+/* =====================================================
+PRODUCT DATA
+===================================================== */
 
-let categories = [];
-
-let orderList = [];
+let products=[];
 
 
-/* =========================================
-CATEGORY SELECT
-========================================= */
+/* =====================================================
+CATEGORY ICON
+===================================================== */
 
-const categorySelect =
-document.getElementById("categorySelect");
+function getCategoryIcon(category){
+
+const text=String(category).toLowerCase();
+
+if(text.includes("চাল") || text.includes("ডাল"))
+return "🍚";
+
+if(text.includes("তেল") || text.includes("মসলা"))
+return "🫙";
+
+if(text.includes("সবজি"))
+return "🥔";
+
+if(text.includes("ডেইরি"))
+return "🥛";
+
+if(text.includes("চা") || text.includes("পানীয়"))
+return "☕";
+
+if(text.includes("বিস্কুট"))
+return "🍪";
+
+if(text.includes("পরিষ্কার"))
+return "🧹";
+
+if(text.includes("প্রসাধনী"))
+return "💄";
+
+if(text.includes("বেভারেজ"))
+return "🥤";
+
+return "🛒";
+}
 
 
-/* =========================================
+/* =====================================================
+PRODUCT ICON
+===================================================== */
+
+function getProductIcon(name){
+
+const text=String(name);
+
+if(text.includes("চাল"))
+return "🍚";
+
+if(text.includes("ডাল"))
+return "🫘";
+
+if(text.includes("তেল"))
+return "🫙";
+
+if(text.includes("মসলা"))
+return "🌿";
+
+if(text.includes("আটা"))
+return "🌾";
+
+if(text.includes("ময়দা"))
+return "🥣";
+
+if(text.includes("চিনি"))
+return "🍬";
+
+if(text.includes("লবণ"))
+return "🧂";
+
+if(text.includes("আলু"))
+return "🥔";
+
+if(text.includes("পেঁয়াজ"))
+return "🧅";
+
+if(text.includes("রসুন"))
+return "🧄";
+
+if(text.includes("আদা"))
+return "🫚";
+
+if(text.includes("ডিম"))
+return "🥚";
+
+if(text.includes("দুধ"))
+return "🥛";
+
+if(text.includes("চা"))
+return "🍵";
+
+if(text.includes("কফি"))
+return "☕";
+
+if(text.includes("বিস্কুট"))
+return "🍪";
+
+if(text.includes("নুডলস"))
+return "🍜";
+
+if(text.includes("চিপস"))
+return "🥔";
+
+if(text.includes("সাবান"))
+return "🧼";
+
+if(text.includes("শ্যাম্পু"))
+return "🧴";
+
+if(text.includes("টুথ"))
+return "🪥";
+
+if(text.includes("কোল্ড"))
+return "🥤";
+
+if(text.includes("পানি"))
+return "💧";
+
+if(text.includes("জুস"))
+return "🧃";
+
+if(text.includes("এনার্জি"))
+return "⚡";
+
+if(text.includes("টিস্যু"))
+return "🧻";
+
+return "🛒";
+}
+
+
+/* =====================================================
 LOAD PRODUCTS FROM GOOGLE SHEET
-========================================= */
+===================================================== */
 
-async function loadProductsFromSheet(){
+async function loadProducts(){
+
+const loading=document.getElementById("loading");
+
+const errorBox=document.getElementById("errorBox");
 
 try{
 
-const response =
-await fetch(API_URL);
+loading.style.display="block";
+
+errorBox.style.display="none";
+
+const response=await fetch(API_URL);
 
 if(!response.ok){
 
-throw new Error(
-"Google Sheet থেকে তথ্য পাওয়া যায়নি"
-);
+throw new Error("API Error");
 
 }
 
-const data =
-await response.json();
+const data=await response.json();
 
+if(!Array.isArray(data)){
 
-categories=[];
-
-
-/* =========================================
-CONVERT SHEET DATA TO CATEGORY SYSTEM
-========================================= */
-
-data.forEach(item=>{
-
-let category =
-categories.find(
-c=>c.name===item.category
-);
-
-
-if(!category){
-
-category={
-name:item.category || "অন্যান্য",
-products:[]
-};
-
-categories.push(category);
+throw new Error("Invalid Data");
 
 }
 
+products=data.filter(item=>{
 
-let product =
-category.products.find(
-p=>p.name===item.name
-);
+return item &&
+item.name &&
+item.category;
 
+});
 
-if(!product){
+loading.style.display="none";
 
-product={
-name:item.name,
-icon:getProductIcon(item.name),
-variants:[]
-};
+if(products.length===0){
 
-category.products.push(product);
+errorBox.style.display="block";
+
+errorBox.innerHTML=
+"❌ Google Sheet-এ কোনো পণ্য পাওয়া যায়নি।";
+
+return;
 
 }
 
-
-product.variants.push({
-
-brand:item.brand || "সাধারণ",
-
-size:item.size || "প্যাকেট",
-
-price:Number(item.price)||0,
-
-stock:item.stock
-
-});
-
-});
-
-
-/* =========================================
-CATEGORY DROPDOWN
-========================================= */
-
-categorySelect.innerHTML=`
-<option value="all">
-🛍️ সব পণ্য দেখুন
-</option>
-`;
-
-
-categories.forEach((category,index)=>{
-
-const option=
-document.createElement("option");
-
-option.value=index;
-
-option.textContent=
-category.name;
-
-categorySelect.appendChild(option);
-
-});
-
-
-/* HIDE LOADING */
-
-document.getElementById(
-"loadingMessage"
-).style.display="none";
-
-
-/* DISPLAY */
+createCategories();
 
 displayProducts();
-
-renderOrder();
-
-
-console.log(
-"Google Sheet থেকে পণ্য সফলভাবে লোড হয়েছে:",
-data
-);
-
 
 }catch(error){
 
 console.error(error);
 
+loading.style.display="none";
 
-document.getElementById(
-"loadingMessage"
-).innerHTML=`
+errorBox.style.display="block";
 
-<h3 style="color:#e74c3c;">
-⚠️ পণ্য লোড করা যাচ্ছে না
-</h3>
+errorBox.innerHTML=`
 
-<p>
-Google Sheet সংযোগ পরীক্ষা করুন।
-</p>
+❌ পণ্য লোড করা যায়নি।
 
-<p style="font-size:12px;color:#777;">
-${error.message}
-</p>
+<br><br>
+
+Google Apps Script ঠিক আছে কিনা পরীক্ষা করুন।
+
+<br><br>
+
+<strong>
+Script URL:
+</strong>
+
+<br>
+
+${API_URL}
 
 `;
 
@@ -1367,752 +1434,567 @@ ${error.message}
 }
 
 
-/* =========================================
-PRODUCT ICON
-========================================= */
+/* =====================================================
+CREATE CATEGORY DROPDOWN
+===================================================== */
 
-function getProductIcon(name){
+function createCategories(){
 
-const text=
-String(name).toLowerCase();
+const select=document.getElementById("categorySelect");
 
+select.innerHTML=`
 
-if(
-text.includes("চাল")||
-text.includes("আটা")||
-text.includes("ময়দা")||
-text.includes("সুজি")
-){
-return "🍚";
+<option value="all">
+🛍️ সব পণ্য দেখুন
+</option>
+
+`;
+
+const categorySet=new Set();
+
+products.forEach(product=>{
+
+if(product.category){
+
+categorySet.add(product.category);
+
 }
 
-if(
-text.includes("ডাল")||
-text.includes("ছোলা")||
-text.includes("মটর")
-){
-return "🫘";
-}
+});
 
-if(
-text.includes("তেল")
-){
-return "🫙";
-}
+Array.from(categorySet).forEach(category=>{
 
-if(
-text.includes("মরিচ")
-){
-return "🌶️";
-}
+const option=document.createElement("option");
 
-if(
-text.includes("পেঁয়াজ")
-){
-return "🧅";
-}
+option.value=category;
 
-if(
-text.includes("রসুন")
-){
-return "🧄";
-}
+option.textContent=
+getCategoryIcon(category)+" "+category;
 
-if(
-text.includes("আদা")
-){
-return "🫚";
-}
+select.appendChild(option);
 
-if(
-text.includes("ডিম")
-){
-return "🥚";
-}
-
-if(
-text.includes("দুধ")||
-text.includes("দই")
-){
-return "🥛";
-}
-
-if(
-text.includes("চা")
-){
-return "🍵";
-}
-
-if(
-text.includes("কফি")
-){
-return "☕";
-}
-
-if(
-text.includes("বিস্কুট")
-){
-return "🍪";
-}
-
-if(
-text.includes("নুডলস")
-){
-return "🍜";
-}
-
-if(
-text.includes("সাবান")
-){
-return "🧼";
-}
-
-if(
-text.includes("শ্যাম্পু")||
-text.includes("লোশন")||
-text.includes("অয়েল")
-){
-return "🧴";
-}
-
-if(
-text.includes("টুথ")
-){
-return "🪥";
-}
-
-if(
-text.includes("পানি")||
-text.includes("ওয়াটার")
-){
-return "💧";
-}
-
-if(
-text.includes("জুস")
-){
-return "🧃";
-}
-
-if(
-text.includes("ড্রিংক")
-){
-return "🥤";
-}
-
-return "🛒";
+});
 
 }
 
 
-/* =========================================
+/* =====================================================
 SEARCH
-========================================= */
+===================================================== */
 
 function syncHeaderSearch(){
 
-const input=
-document.getElementById(
-"headerSearchInput"
-);
-
-displayProducts(input.value);
+displayProducts();
 
 }
 
 
-/* =========================================
+/* =====================================================
 DISPLAY PRODUCTS
-========================================= */
+===================================================== */
 
-function displayProducts(
-searchValue=null
-){
+function displayProducts(){
 
 const container=
-document.getElementById(
-"productsContainer"
-);
+document.getElementById("productsContainer");
 
 container.innerHTML="";
 
-
-let search;
-
-
-if(searchValue!==null){
-
-search=
-searchValue
-.toLowerCase()
-.trim();
-
-}else{
-
-search=
-document.getElementById(
-"headerSearchInput"
-)
+const search=
+document.getElementById("headerSearchInput")
 .value
 .toLowerCase()
 .trim();
 
-}
-
-
 const selected=
-categorySelect.value;
+document.getElementById("categorySelect")
+.value;
 
+let filtered=products.filter(product=>{
 
-let found=false;
+const searchable=`
 
+${product.name}
+${product.category}
+${product.brand}
+${product.size}
 
-categories.forEach(
-(category,categoryIndex)=>{
+`
+.toLowerCase();
 
+const searchMatch=
+search==="" ||
+searchable.includes(search);
 
-if(
-selected!=="all" &&
-Number(selected)!==categoryIndex
-){
-return;
-}
+const categoryMatch=
+selected==="all" ||
+product.category===selected;
 
-
-const products=
-category.products.filter(
-product=>{
-
-const text=(
-
-product.name+
-" "+
-product.variants
-.map(v=>v.brand)
-.join(" ")
-
-).toLowerCase();
-
-
-return text.includes(search);
+return searchMatch && categoryMatch;
 
 });
 
 
-if(products.length===0){
-return;
+/* GROUP PRODUCTS */
+
+const groups={};
+
+filtered.forEach(product=>{
+
+const category=
+product.category || "অন্যান্য";
+
+if(!groups[category]){
+
+groups[category]=[];
+
 }
 
+groups[category].push(product);
 
-found=true;
+});
 
+
+/* NO RESULT */
+
+if(filtered.length===0){
+
+document.getElementById("noResult")
+.style.display="block";
+
+return;
+
+}
+
+document.getElementById("noResult")
+.style.display="none";
+
+
+/* CREATE CATEGORY */
+
+Object.keys(groups).forEach(category=>{
 
 let html=`
 
 <div class="category">
 
 <h2 class="category-title">
-${escapeHTML(category.name)}
+
+${getCategoryIcon(category)}
+${escapeHTML(category)}
+
 </h2>
 
 <div class="products">
+
 `;
 
 
-products.forEach(product=>{
+groups[category].forEach(product=>{
 
+const index=products.indexOf(product);
 
-const productIndex=
-category.products.indexOf(product);
+html+=createProductCard(product,index);
 
-
-const brands=[
-...new Set(
-product.variants
-.map(v=>v.brand)
-)
-];
-
-
-const firstBrand=
-brands[0];
-
-
-const firstBrandVariants=
-product.variants.filter(
-v=>v.brand===firstBrand
-);
+});
 
 
 html+=`
 
-<div
-class="product"
-id="product-${categoryIndex}-${productIndex}"
->
-
-<div class="product-icon">
-${product.icon}
 </div>
 
+</div>
 
-<h3>
-${escapeHTML(product.name)}
-</h3>
+`;
 
+container.innerHTML+=html;
+
+});
+
+}
+
+
+/* =====================================================
+CREATE PRODUCT CARD
+===================================================== */
+
+function createProductCard(product,index){
+
+const brands=[...new Set(
+products
+.filter(p=>
+p.name===product.name &&
+p.category===product.category
+)
+.map(p=>p.brand)
+)];
+
+const sizes=[...new Set(
+products
+.filter(p=>
+p.name===product.name &&
+p.category===product.category &&
+p.brand===product.brand
+)
+.map(p=>p.size)
+)];
+
+
+let brandHTML="";
+
+if(brands.length>0){
+
+brandHTML=`
 
 <label class="select-label">
 🏷️ ব্র্যান্ড
 </label>
 
-
 <select
-class="product-select brand-select"
-id="brand-${categoryIndex}-${productIndex}"
-onchange="updateProductOptions(
-${categoryIndex},
-${productIndex}
-)"
->
-`;
+class="product-select"
+id="brand-${index}"
+onchange="changeBrand(${index})">
 
+`;
 
 brands.forEach(brand=>{
 
-html+=`
+brandHTML+=`
 
-<option
-value="${escapeHTML(brand)}"
-${brand===firstBrand?"selected":""}
->
+<option value="${escapeHTML(brand)}"
+${brand===product.brand?"selected":""}>
+
 ${escapeHTML(brand)}
+
 </option>
 
 `;
 
 });
 
+brandHTML+=`</select>`;
 
-html+=`
+}
 
-</select>
 
+let sizeHTML="";
+
+if(sizes.length>0){
+
+sizeHTML=`
 
 <label class="select-label">
 📦 সাইজ / ওজন
 </label>
 
-
 <select
-class="product-select size-select"
-id="size-${categoryIndex}-${productIndex}"
-onchange="updateProductPrice(
-${categoryIndex},
-${productIndex}
-)"
->
+class="product-select"
+id="size-${index}"
+onchange="changeSize(${index})">
+
 `;
 
+sizes.forEach(size=>{
 
-firstBrandVariants.forEach(
-(variant,i)=>{
+sizeHTML+=`
 
-html+=`
+<option value="${escapeHTML(size)}"
+${size===product.size?"selected":""}>
 
-<option
-value="${escapeHTML(variant.size)}"
-${i===0?"selected":""}
->
-${escapeHTML(variant.size)}
+${escapeHTML(size)}
+
 </option>
 
 `;
 
 });
 
+sizeHTML+=`</select>`;
 
-html+=`
-
-</select>
-
-
-<label class="select-label">
-💰 দাম
-</label>
+}
 
 
-<select
-class="product-select price-select"
-id="price-${categoryIndex}-${productIndex}"
-disabled
->
+const price=
+Number(product.price)||0;
 
-<option>
+const stock=
+String(product.stock||"");
+
+
+const available=
+stock.includes("আছে") ||
+stock.toLowerCase().includes("yes") ||
+stock.toLowerCase().includes("available");
+
+
+return `
+
+<div class="product">
+
+<div class="product-icon">
+
+${getProductIcon(product.name)}
+
+</div>
+
+<h3>
+${escapeHTML(product.name)}
+</h3>
+
+${brandHTML}
+
+${sizeHTML}
+
+<div class="price-box"
+id="price-${index}">
 
 ${
-firstBrandVariants[0].price>0
+price>0
 ?
-"৳ "+firstBrandVariants[0].price
+"৳ "+price
 :
 "মূল্য পরে জানানো হবে"
 }
 
-</option>
-
-</select>
-
-
-<div
-id="stock-${categoryIndex}-${productIndex}"
-class="stock-text"
->
-
-${getStockHTML(
-firstBrandVariants[0].stock
-)}
-
 </div>
 
+<div class="stock ${
+available
+?
+"stock-yes"
+:
+"stock-no"
+}">
+
+${
+stock
+?
+"📦 স্টক: "+escapeHTML(stock)
+:
+"📦 স্টক তথ্য নেই"
+}
+
+</div>
 
 <div
 class="added-message"
-id="added-${categoryIndex}-${productIndex}"
->
+id="added-${index}">
 </div>
-
 
 <button
 class="order-btn"
-onclick="addSelectedProduct(
-${categoryIndex},
-${productIndex}
-)"
->
+onclick="addProduct(${index})">
 
 🛒 অর্ডারে যোগ করুন
 
 </button>
 
-
 </div>
 
 `;
 
-});
+}
 
 
-html+=`
+/* =====================================================
+CHANGE BRAND
+===================================================== */
 
-</div>
-</div>
+function changeBrand(index){
 
-`;
+const cardProduct=products[index];
 
-
-container.innerHTML+=html;
-
-
-});
-
-
+const brand=
 document.getElementById(
-"noResult"
-).style.display=
-found?"none":"block";
-
-}
+"brand-"+index
+).value;
 
 
-/* =========================================
-STOCK DISPLAY
-========================================= */
+const matches=products.filter(p=>
 
-function getStockHTML(stock){
+p.name===cardProduct.name &&
+p.category===cardProduct.category &&
+p.brand===brand
 
-const value=
-String(stock||"")
-.toLowerCase()
-.trim();
-
-
-if(
-value==="আছে"||
-value==="yes"||
-value==="available"||
-value==="in stock"
-){
-
-return `
-<span class="stock-yes">
-🟢 স্টকে আছে
-</span>
-`;
-
-}
-
-
-if(
-value==="নেই"||
-value==="no"||
-value==="out"||
-value==="out of stock"
-){
-
-return `
-<span class="stock-no">
-🔴 স্টকে নেই
-</span>
-`;
-
-}
-
-
-return `
-<span style="color:#657184;">
-📦 ${escapeHTML(stock||"স্টক তথ্য নেই")}
-</span>
-`;
-
-}
-
-
-/* =========================================
-ESCAPE HTML
-========================================= */
-
-function escapeHTML(text){
-
-return String(text)
-
-.replace(/&/g,"&amp;")
-
-.replace(/</g,"&lt;")
-
-.replace(/>/g,"&gt;")
-
-.replace(/"/g,"&quot;")
-
-.replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================
-BRAND CHANGE
-========================================= */
-
-function updateProductOptions(
-categoryIndex,
-productIndex
-){
-
-const product=
-categories[categoryIndex]
-.products[productIndex];
-
-
-const brandSelect=
-document.getElementById(
-`brand-${categoryIndex}-${productIndex}`
 );
 
 
 const sizeSelect=
 document.getElementById(
-`size-${categoryIndex}-${productIndex}`
+"size-"+index
 );
 
-
-const brand=
-brandSelect.value;
-
-
-const variants=
-product.variants.filter(
-v=>v.brand===brand
-);
-
+if(sizeSelect){
 
 sizeSelect.innerHTML="";
 
+const sizes=[...new Set(
+matches.map(p=>p.size)
+)];
 
-variants.forEach(
-(variant,index)=>{
+sizes.forEach((size,i)=>{
 
 const option=
 document.createElement("option");
 
-option.value=
-variant.size;
+option.value=size;
 
-option.textContent=
-variant.size;
+option.textContent=size;
 
-if(index===0){
+if(i===0)
 option.selected=true;
-}
 
 sizeSelect.appendChild(option);
 
 });
 
+}
 
-updateProductPrice(
-categoryIndex,
-productIndex
-);
+updateCardPrice(index);
 
 }
 
 
-/* =========================================
-PRICE CHANGE
-========================================= */
+/* =====================================================
+CHANGE SIZE
+===================================================== */
 
-function updateProductPrice(
-categoryIndex,
-productIndex
-){
+function changeSize(index){
 
-const product=
-categories[categoryIndex]
-.products[productIndex];
+updateCardPrice(index);
 
+}
+
+
+/* =====================================================
+UPDATE PRICE
+===================================================== */
+
+function updateCardPrice(index){
+
+const original=products[index];
+
+const brandSelect=
+document.getElementById(
+"brand-"+index
+);
+
+const sizeSelect=
+document.getElementById(
+"size-"+index
+);
 
 const brand=
-document.getElementById(
-`brand-${categoryIndex}-${productIndex}`
-).value;
-
+brandSelect
+?
+brandSelect.value
+:
+original.brand;
 
 const size=
-document.getElementById(
-`size-${categoryIndex}-${productIndex}`
-).value;
-
-
-const variant=
-product.variants.find(
-v=>
-v.brand===brand &&
-v.size===size
-);
-
-
-const priceSelect=
-document.getElementById(
-`price-${categoryIndex}-${productIndex}`
-);
-
-
-priceSelect.innerHTML="";
-
-
-const option=
-document.createElement("option");
-
-
-option.textContent=
-variant &&
-variant.price>0
+sizeSelect
 ?
-"৳ "+variant.price
+sizeSelect.value
+:
+original.size;
+
+
+const match=products.find(p=>
+
+p.name===original.name &&
+p.category===original.category &&
+p.brand===brand &&
+p.size===size
+
+);
+
+
+const priceBox=
+document.getElementById(
+"price-"+index
+);
+
+if(!match){
+
+priceBox.innerText=
+"মূল্য পরে জানানো হবে";
+
+return;
+
+}
+
+const price=
+Number(match.price)||0;
+
+priceBox.innerText=
+price>0
+?
+"৳ "+price
 :
 "মূল্য পরে জানানো হবে";
 
-
-priceSelect.appendChild(option);
-
-
-/* STOCK */
-
-const stockBox=
-document.getElementById(
-`stock-${categoryIndex}-${productIndex}`
-);
-
-
-if(stockBox){
-
-stockBox.innerHTML=
-getStockHTML(
-variant ? variant.stock : ""
-);
-
-}
-
 }
 
 
-/* =========================================
+/* =====================================================
+ORDER LIST
+===================================================== */
+
+let orderList=[];
+
+
+/* =====================================================
 ADD PRODUCT
-========================================= */
+===================================================== */
 
-function addSelectedProduct(
-categoryIndex,
-productIndex
-){
+function addProduct(index){
 
-const product=
-categories[categoryIndex]
-.products[productIndex];
+const original=products[index];
 
+const brandSelect=
+document.getElementById(
+"brand-"+index
+);
+
+const sizeSelect=
+document.getElementById(
+"size-"+index
+);
 
 const brand=
-document.getElementById(
-`brand-${categoryIndex}-${productIndex}`
-).value;
-
+brandSelect
+?
+brandSelect.value
+:
+original.brand;
 
 const size=
-document.getElementById(
-`size-${categoryIndex}-${productIndex}`
-).value;
+sizeSelect
+?
+sizeSelect.value
+:
+original.size;
 
 
-const variant=
-product.variants.find(
-v=>
-v.brand===brand &&
-v.size===size
+const product=products.find(p=>
+
+p.name===original.name &&
+p.category===original.category &&
+p.brand===brand &&
+p.size===size
+
 );
 
 
-if(!variant){
+if(!product)
 return;
-}
-
-
-/* CHECK STOCK */
-
-const stock=
-String(
-variant.stock||""
-).toLowerCase();
-
-
-if(
-stock==="নেই"||
-stock==="no"||
-stock==="out"||
-stock==="out of stock"
-){
-
-alert(
-"দুঃখিত, এই পণ্যটি বর্তমানে স্টকে নেই।"
-);
-
-return;
-
-}
 
 
 const existing=
-orderList.find(
-item=>
-item.name===product.name &&
-item.brand===brand &&
-item.size===size
+orderList.find(item=>
+
+item.id===product.id
+
 );
 
 
@@ -2124,13 +2006,17 @@ existing.qty++;
 
 orderList.push({
 
+id:product.id,
+
 name:product.name,
 
-brand:brand,
+category:product.category,
 
-size:size,
+brand:product.brand,
 
-price:variant.price,
+size:product.size,
+
+price:Number(product.price)||0,
 
 qty:1
 
@@ -2141,13 +2027,13 @@ qty:1
 
 const message=
 document.getElementById(
-`added-${categoryIndex}-${productIndex}`
+"added-"+index
 );
 
+if(message){
 
 message.innerText=
 "✓ অর্ডারে যোগ হয়েছে";
-
 
 setTimeout(()=>{
 
@@ -2155,15 +2041,16 @@ message.innerText="";
 
 },1500);
 
+}
 
 renderOrder();
 
 }
 
 
-/* =========================================
+/* =====================================================
 RENDER ORDER
-========================================= */
+===================================================== */
 
 function renderOrder(){
 
@@ -2172,13 +2059,11 @@ document.getElementById(
 "orderItems"
 );
 
-
 if(orderList.length===0){
 
 box.innerHTML=`
 
-<p
-style="
+<p style="
 text-align:center;
 color:#777;
 padding:15px;
@@ -2195,9 +2080,7 @@ padding:15px;
 box.innerHTML="";
 
 
-orderList.forEach(
-(item,index)=>{
-
+orderList.forEach((item,index)=>{
 
 const itemTotal=
 item.price>0
@@ -2251,7 +2134,6 @@ box.innerHTML+=`
 ${escapeHTML(item.name)}
 </strong>
 
-
 <div class="item-details">
 
 🏷️ ব্র্যান্ড:
@@ -2264,46 +2146,37 @@ ${escapeHTML(item.size)}
 
 </div>
 
-
 ${priceHTML}
 
 </div>
 
 </div>
 
-
 <div class="order-controls">
 
 <div class="quantity">
 
 <button
-onclick="changeQty(${index},-1)"
->
+onclick="changeQty(${index},-1)">
 −
 </button>
-
 
 <input
 type="number"
 min="1"
 value="${item.qty}"
-onchange="setQty(${index},this.value)"
->
-
+onchange="setQty(${index},this.value)">
 
 <button
-onclick="changeQty(${index},1)"
->
+onclick="changeQty(${index},1)">
 +
 </button>
 
 </div>
 
-
 <button
 class="remove"
-onclick="removeItem(${index})"
->
+onclick="removeItem(${index})">
 
 🗑️
 
@@ -2319,18 +2192,16 @@ onclick="removeItem(${index})"
 
 }
 
-
 calculateTotal();
 
 
 let count=0;
 
+orderList.forEach(item=>{
 
-orderList.forEach(
-item=>{
 count+=item.qty;
-});
 
+});
 
 document.getElementById(
 "orderCount"
@@ -2339,21 +2210,19 @@ document.getElementById(
 }
 
 
-/* =========================================
+/* =====================================================
 QUANTITY
-========================================= */
+===================================================== */
 
 function changeQty(index,value){
 
 orderList[index].qty+=value;
-
 
 if(orderList[index].qty<1){
 
 orderList[index].qty=1;
 
 }
-
 
 renderOrder();
 
@@ -2364,28 +2233,19 @@ function setQty(index,value){
 
 value=parseInt(value);
 
-
-if(
-isNaN(value)||
-value<1
-){
-
+if(isNaN(value)||value<1)
 value=1;
 
-}
-
-
 orderList[index].qty=value;
-
 
 renderOrder();
 
 }
 
 
-/* =========================================
+/* =====================================================
 REMOVE
-========================================= */
+===================================================== */
 
 function removeItem(index){
 
@@ -2396,22 +2256,18 @@ renderOrder();
 }
 
 
-/* =========================================
+/* =====================================================
 CLEAR ORDER
-========================================= */
+===================================================== */
 
 function clearOrder(){
 
-if(orderList.length===0){
+if(orderList.length===0)
 return;
-}
 
-
-if(
-confirm(
+if(confirm(
 "আপনি কি সম্পূর্ণ অর্ডার খালি করতে চান?"
-)
-){
+)){
 
 orderList=[];
 
@@ -2422,9 +2278,9 @@ renderOrder();
 }
 
 
-/* =========================================
+/* =====================================================
 TOTAL
-========================================= */
+===================================================== */
 
 function calculateTotal(){
 
@@ -2433,8 +2289,7 @@ let subtotal=0;
 let pending=false;
 
 
-orderList.forEach(
-item=>{
+orderList.forEach(item=>{
 
 if(item.price>0){
 
@@ -2473,88 +2328,75 @@ if(pending){
 document.getElementById(
 "grandTotalText"
 ).innerText=
-"৳ "+
-(subtotal+delivery)+
-" + মূল্য পরে";
+"৳ "+(subtotal+delivery)+" + মূল্য পরে";
 
 
 document.getElementById(
 "pendingNotice"
-).style.display=
-"block";
+).style.display="block";
 
 }else{
 
 document.getElementById(
 "grandTotalText"
 ).innerText=
-"৳ "+
-(subtotal+delivery);
+"৳ "+(subtotal+delivery);
 
 
 document.getElementById(
 "pendingNotice"
-).style.display=
-"none";
+).style.display="none";
 
 }
 
 }
 
 
-/* =========================================
+/* =====================================================
 OPEN ORDER
-========================================= */
+===================================================== */
 
 function openOrder(){
 
 document.getElementById(
 "orderPanel"
-).style.display=
-"block";
+).style.display="block";
 
-
-document.body.style.overflow=
-"hidden";
-
+document.body.style.overflow="hidden";
 
 renderOrder();
 
 }
 
 
-/* =========================================
+/* =====================================================
 CLOSE ORDER
-========================================= */
+===================================================== */
 
 function closeOrder(){
 
 document.getElementById(
 "orderPanel"
-).style.display=
-"none";
+).style.display="none";
 
-
-document.body.style.overflow=
-"auto";
+document.body.style.overflow="auto";
 
 }
 
 
-/* =========================================
+/* =====================================================
 CONTINUE SHOPPING
-========================================= */
+===================================================== */
 
 function continueShopping(){
 
 closeOrder();
 
-
 setTimeout(()=>{
 
-document
-.querySelector(".section-title")
-.scrollIntoView({
+document.querySelector(
+".section-title"
+).scrollIntoView({
 behavior:"smooth"
 });
 
@@ -2563,13 +2405,13 @@ behavior:"smooth"
 }
 
 
-/* =========================================
+/* =====================================================
 CLICK OUTSIDE
-========================================= */
+===================================================== */
 
-document
-.getElementById("orderPanel")
-.addEventListener(
+document.getElementById(
+"orderPanel"
+).addEventListener(
 "click",
 function(event){
 
@@ -2582,9 +2424,9 @@ closeOrder();
 });
 
 
-/* =========================================
+/* =====================================================
 WHATSAPP ORDER
-========================================= */
+===================================================== */
 
 function sendOrder(){
 
@@ -2623,10 +2465,6 @@ alert(
 "দয়া করে আপনার নাম লিখুন।"
 );
 
-document.getElementById(
-"customerName"
-).focus();
-
 return;
 
 }
@@ -2637,10 +2475,6 @@ if(!phone){
 alert(
 "দয়া করে আপনার মোবাইল নম্বর লিখুন।"
 );
-
-document.getElementById(
-"customerPhone"
-).focus();
 
 return;
 
@@ -2653,10 +2487,6 @@ alert(
 "দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
 );
 
-document.getElementById(
-"customerAddress"
-).focus();
-
 return;
 
 }
@@ -2667,21 +2497,15 @@ let message=
 
 
 message+=
-"👤 নাম: "+
-name+
-"\n";
+"👤 নাম: "+name+"\n";
 
 
 message+=
-"📞 মোবাইল: "+
-phone+
-"\n";
+"📞 মোবাইল: "+phone+"\n";
 
 
 message+=
-"📍 ঠিকানা: "+
-address+
-"\n\n";
+"📍 ঠিকানা: "+address+"\n\n";
 
 
 message+=
@@ -2693,41 +2517,31 @@ let subtotal=0;
 let hasPending=false;
 
 
-orderList.forEach(
-(item,index)=>{
-
+orderList.forEach((item,index)=>{
 
 message+=
-(index+1)+
-". "+
-item.name+
-"\n";
+(index+1)+". "+item.name+"\n";
 
 
 message+=
 "   🏷️ ব্র্যান্ড: "+
-item.brand+
-"\n";
+item.brand+"\n";
 
 
 message+=
 "   📦 সাইজ: "+
-item.size+
-"\n";
+item.size+"\n";
 
 
 message+=
 "   🔢 পরিমাণ: "+
-item.qty+
-"\n";
+item.qty+"\n";
 
 
 if(item.price>0){
 
 const total=
-item.price*
-item.qty;
-
+item.price*item.qty;
 
 subtotal+=total;
 
@@ -2745,12 +2559,10 @@ total+
 
 hasPending=true;
 
-
 message+=
 "   💰 মূল্য: পরে জানানো হবে\n";
 
 }
-
 
 message+="\n";
 
@@ -2808,11 +2620,34 @@ whatsappURL,
 }
 
 
-/* =========================================
-START
-========================================= */
+/* =====================================================
+ESCAPE HTML
+===================================================== */
 
-loadProductsFromSheet();
+function escapeHTML(text){
+
+return String(text)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+INITIAL LOAD
+===================================================== */
+
+renderOrder();
+
+loadProducts();
 
 </script>
 
