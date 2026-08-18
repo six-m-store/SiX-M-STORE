@@ -117,7 +117,6 @@ box-shadow:0 0 0 3px rgba(255,255,255,.35)
 
 /* =========================
 RUNNING DELIVERY TEXT
-NO BAR / NO BOX
 ========================= */
 
 .delivery-marquee{
@@ -809,10 +808,6 @@ display:inline-block
 background:#063b8f
 }
 
-.whatsapp{
-background:#20b858
-}
-
 /* =========================
 FOOTER
 ========================= */
@@ -874,11 +869,6 @@ height:42px;
 font-size:13px;
 border-radius:10px
 }
-
-/* =========================
-MOBILE RUNNING TEXT
-NO BAR
-========================= */
 
 .delivery-marquee{
 height:26px;
@@ -1170,8 +1160,6 @@ oninput="syncHeaderSearch()">
 
 </div>
 
-<!-- RUNNING DELIVERY TEXT -->
-
 <div class="delivery-marquee">
 
 <div class="delivery-marquee-track">
@@ -1292,15 +1280,6 @@ href="tel:+8801737781096">
 
 </a>
 
-<a
-class="btn whatsapp"
-href="https://wa.me/8801737781096"
-target="_blank">
-
-💬 WhatsApp
-
-</a>
-
 </div>
 
 </div>
@@ -1337,7 +1316,7 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 
 <button
 class="order-floating"
-onclick="openOrder">
+onclick="openOrder()">
 
 🛒 আপনার অর্ডার
 
@@ -2583,6 +2562,7 @@ html+=`
 
 <select
 class="product-select price-select"
+id="price-${categoryIndex}-${productIndex}"
 disabled>
 
 <option>
@@ -3258,6 +3238,11 @@ return;
 
 }
 
+
+/* =========================
+WHATSAPP MESSAGE
+========================= */
+
 let message=
 "🛒 SIX M STORE - নতুন অর্ডার\n\n";
 
@@ -3285,15 +3270,18 @@ message+=
 
 message+=
 "   🏷️ ব্র্যান্ড: "+
-item.brand+"\n";
+item.brand+
+"\n";
 
 message+=
 "   📦 সাইজ: "+
-item.size+"\n";
+item.size+
+"\n";
 
 message+=
 "   🔢 পরিমাণ: "+
-item.qty+"\n";
+item.qty+
+"\n";
 
 if(item.price>0){
 
@@ -3323,6 +3311,11 @@ message+=
 message+="\n";
 
 });
+
+
+/* =========================
+DELIVERY
+========================= */
 
 const delivery=99;
 
@@ -3354,16 +3347,25 @@ message+=
 }
 
 message+=
-"\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
+"\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য.";
+
+
+/* =========================
+DIRECT WHATSAPP
+========================= */
 
 const whatsappURL=
 "https://wa.me/8801737781096?text="+
 encodeURIComponent(message);
 
-window.open(
-whatsappURL,
-"_blank"
-);
+/*
+ওয়েবসাইটে WhatsApp নম্বর দেখানো হবে না।
+ক্লিক করলে সরাসরি WhatsApp লিংকে যাবে।
+Android-এ WhatsApp ইনস্টল থাকলে
+WhatsApp অ্যাপ খুলবে।
+*/
+
+window.location.href=whatsappURL;
 
 }
 
