@@ -10,44 +10,115 @@
 content="SIX M STORE - মুদি, প্রসাধনী, বেভারেজ, ক্লিনিং ও দৈনন্দিন প্রয়োজনীয় পণ্য। সহজে অনলাইনে অর্ডার করুন।">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+html{
+scroll-behavior:smooth
+}
+
 body{
 font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
-background:#f4f7fb;color:#172033;line-height:1.6
+background:#f4f7fb;
+color:#172033;
+line-height:1.6
 }
-button,input,select,textarea{font-family:inherit}
 
-/* HEADER */
+button,input,select,textarea{
+font-family:inherit
+}
+
+/* =========================
+HEADER
+========================= */
+
 header{
 background:linear-gradient(135deg,#063b8f,#0875d1);
-color:white;padding:14px 16px;position:sticky;top:0;z-index:5000;
+color:white;
+padding:14px 16px;
+position:sticky;
+top:0;
+z-index:5000;
 box-shadow:0 4px 18px rgba(0,0,0,.18)
 }
+
 .header-inner{
-max-width:1150px;margin:auto;display:flex;align-items:center;gap:14px
+max-width:1150px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:14px
 }
+
 .logo{
-width:68px;height:68px;background:white;border-radius:16px;padding:4px;
-display:flex;align-items:center;justify-content:center;overflow:hidden;
-flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.25)
+width:68px;
+height:68px;
+background:white;
+border-radius:16px;
+padding:4px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+flex-shrink:0;
+box-shadow:0 4px 14px rgba(0,0,0,.25)
 }
-.logo img{width:100%;height:100%;object-fit:contain;border-radius:12px}
-.brand{flex:1;min-width:0}
-.brand h1{font-size:26px;letter-spacing:1px}
-.brand p{font-size:13px}
-.header-search{width:300px;flex-shrink:0}
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:contain;
+border-radius:12px
+}
+
+.brand{
+flex:1;
+min-width:0
+}
+
+.brand h1{
+font-size:26px;
+letter-spacing:1px
+}
+
+.brand p{
+font-size:13px
+}
+
+.header-search{
+width:300px;
+flex-shrink:0
+}
+
 .header-search input{
-width:100%;height:44px;padding:0 15px;border:none;outline:none;
-border-radius:12px;background:white;color:#172033;font-size:14px;
+width:100%;
+height:44px;
+padding:0 15px;
+border:none;
+outline:none;
+border-radius:12px;
+background:white;
+color:#172033;
+font-size:14px;
 box-shadow:0 3px 12px rgba(0,0,0,.15)
 }
-.header-search input::placeholder{color:#657184}
+
+.header-search input::placeholder{
+color:#657184
+}
+
 .header-search input:focus{
 box-shadow:0 0 0 3px rgba(255,255,255,.35)
 }
 
-/* RUNNING DELIVERY NOTICE */
+/* =========================
+RUNNING DELIVERY NOTICE
+========================= */
+
 .delivery-marquee{
 width:100%;
 background:linear-gradient(90deg,#fff7df,#ffffff,#eaf7ff);
@@ -84,317 +155,684 @@ color:#20a052;
 }
 
 @keyframes deliveryRunning{
+
 0%{
 transform:translateX(0);
 }
+
 100%{
 transform:translateX(-100%);
 }
+
 }
 
-/* HERO */
+/* =========================
+HERO
+========================= */
+
 .hero{
-background:white;padding:38px 18px 32px;text-align:center
+background:white;
+padding:38px 18px 32px;
+text-align:center
 }
+
 .hero h2{
-color:#063b8f;font-size:29px;margin-bottom:10px
+color:#063b8f;
+font-size:29px;
+margin-bottom:10px
 }
+
 .hero p{
-max-width:850px;margin:auto;font-size:20px;font-weight:bold;line-height:1.8;
+max-width:850px;
+margin:auto;
+font-size:20px;
+font-weight:bold;
+line-height:1.8;
 background:linear-gradient(90deg,#e74c3c,#f39c12,#20b858,#0875d1,#8e44ad);
--webkit-background-clip:text;-webkit-text-fill-color:transparent
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
 }
 
-/* CONTAINER */
+/* =========================
+CONTAINER
+========================= */
+
 .container{
-max-width:1150px;margin:auto;padding:25px 15px 40px
+max-width:1150px;
+margin:auto;
+padding:25px 15px 40px
 }
+
 .section-title{
-text-align:center;color:#063b8f;font-size:27px;margin-bottom:20px
+text-align:center;
+color:#063b8f;
+font-size:27px;
+margin-bottom:20px
 }
-.search-area{display:none}
 
-/* CATEGORY */
+.search-area{
+display:none
+}
+
+/* =========================
+CATEGORY
+========================= */
+
 .category-selector{
-background:white;padding:15px;border-radius:16px;
-box-shadow:0 3px 14px rgba(0,0,0,.07);margin-bottom:22px
+background:white;
+padding:15px;
+border-radius:16px;
+box-shadow:0 3px 14px rgba(0,0,0,.07);
+margin-bottom:22px
 }
+
 .category-label{
-display:block;color:#063b8f;font-size:16px;font-weight:bold;margin-bottom:8px
+display:block;
+color:#063b8f;
+font-size:16px;
+font-weight:bold;
+margin-bottom:8px
 }
+
 .category-select{
-width:100%;background:#f8fbff;border:2px solid #d9e5f2;
-border-radius:12px;padding:14px;font-size:16px;font-weight:bold;
-color:#172033;cursor:pointer;outline:none
+width:100%;
+background:#f8fbff;
+border:2px solid #d9e5f2;
+border-radius:12px;
+padding:14px;
+font-size:16px;
+font-weight:bold;
+color:#172033;
+cursor:pointer;
+outline:none
 }
 
-/* CATEGORY BOX */
+/* =========================
+CATEGORY BOX
+========================= */
+
 .category{
-background:white;border-radius:18px;padding:20px 15px;margin-bottom:22px;
-box-shadow:0 3px 14px rgba(0,0,0,.07);border:1px solid #e5ebf3
-}
-.category-title{
-text-align:center;color:#063b8f;font-size:22px;margin-bottom:18px;
-padding-bottom:12px;border-bottom:2px solid #eaf0f7
+background:white;
+border-radius:18px;
+padding:20px 15px;
+margin-bottom:22px;
+box-shadow:0 3px 14px rgba(0,0,0,.07);
+border:1px solid #e5ebf3
 }
 
-/* PRODUCTS */
+.category-title{
+text-align:center;
+color:#063b8f;
+font-size:22px;
+margin-bottom:18px;
+padding-bottom:12px;
+border-bottom:2px solid #eaf0f7
+}
+
+/* =========================
+PRODUCTS
+========================= */
+
 .products{
-display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:13px
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(175px,1fr));
+gap:13px
 }
+
 .product{
-background:#f9fbfe;border-radius:15px;padding:14px 10px;text-align:center;
-border:1px solid #e1e8f1;transition:.2s
+background:#f9fbfe;
+border-radius:15px;
+padding:14px 10px;
+text-align:center;
+border:1px solid #e1e8f1;
+transition:.2s
 }
+
 .product:hover{
-transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.10)
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,0,0,.10)
 }
+
 .product-icon{
-width:62px;height:62px;margin:0 auto 8px;background:white;border-radius:50%;
-display:flex;align-items:center;justify-content:center;font-size:35px;
+width:62px;
+height:62px;
+margin:0 auto 8px;
+background:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
 box-shadow:0 3px 10px rgba(0,0,0,.08)
 }
+
 .product h3{
-font-size:16px;color:#172033;margin-bottom:8px
-}
-.product-select{
-width:100%;background:white;border:1px solid #cdd9e6;border-radius:8px;
-padding:9px 7px;font-size:13px;margin-top:6px;outline:none;
-color:#172033;cursor:pointer
-}
-.product-select:focus{
-border-color:#0875d1;box-shadow:0 0 0 2px rgba(8,117,209,.10)
-}
-.select-label{
-display:block;font-size:12px;font-weight:bold;color:#657184;
-text-align:left;margin-top:5px
-}
-.price-select{
-font-weight:bold;color:#063b8f;background:#eef5ff
+font-size:16px;
+color:#172033;
+margin-bottom:8px
 }
 
-/* PREMIUM ADD TO ORDER */
+.product-select{
+width:100%;
+background:white;
+border:1px solid #cdd9e6;
+border-radius:8px;
+padding:9px 7px;
+font-size:13px;
+margin-top:6px;
+outline:none;
+color:#172033;
+cursor:pointer
+}
+
+.product-select:focus{
+border-color:#0875d1;
+box-shadow:0 0 0 2px rgba(8,117,209,.10)
+}
+
+.select-label{
+display:block;
+font-size:12px;
+font-weight:bold;
+color:#657184;
+text-align:left;
+margin-top:5px
+}
+
+.price-select{
+font-weight:bold;
+color:#063b8f;
+background:#eef5ff
+}
+
+/* =========================
+ADD TO ORDER
+========================= */
+
 .order-btn{
 width:100%;
 background:linear-gradient(135deg,#063b8f 0%,#0875d1 52%,#20b858 100%);
-color:white;border:none;padding:10px 8px;border-radius:10px;margin-top:9px;
-cursor:pointer;font-weight:bold;font-size:14px;
+color:white;
+border:none;
+padding:10px 8px;
+border-radius:10px;
+margin-top:9px;
+cursor:pointer;
+font-weight:bold;
+font-size:14px;
 box-shadow:0 4px 12px rgba(6,59,143,.22);
 transition:all .25s ease
 }
+
 .order-btn:hover{
 background:linear-gradient(135deg,#052f73 0%,#0667b8 52%,#169c49 100%);
 transform:translateY(-2px);
 box-shadow:0 7px 18px rgba(6,59,143,.30)
 }
-.order-btn:active{transform:scale(.97)}
-.added-message{
-font-size:12px;color:#20a052;font-weight:bold;min-height:18px;margin-top:4px
+
+.order-btn:active{
+transform:scale(.97)
 }
 
-/* PREMIUM FLOATING ORDER */
+.added-message{
+font-size:12px;
+color:#20a052;
+font-weight:bold;
+min-height:18px;
+margin-top:4px
+}
+
+/* =========================
+FLOATING ORDER
+========================= */
+
 .order-floating{
-position:fixed;right:18px;bottom:18px;z-index:9000;
+position:fixed;
+right:18px;
+bottom:18px;
+z-index:9000;
 background:linear-gradient(135deg,#063b8f 0%,#0875d1 50%,#20b858 100%);
-color:white;border:none;border-radius:50px;padding:13px 18px;
-font-size:15px;font-weight:bold;
+color:white;
+border:none;
+border-radius:50px;
+padding:13px 18px;
+font-size:15px;
+font-weight:bold;
 box-shadow:0 6px 20px rgba(6,59,143,.30),0 3px 10px rgba(32,184,88,.18);
-cursor:pointer;transition:all .25s ease;
+cursor:pointer;
+transition:all .25s ease;
 border:1px solid rgba(255,255,255,.18)
 }
+
 .order-floating:hover{
 transform:translateY(-3px);
 box-shadow:0 9px 26px rgba(6,59,143,.35),0 4px 14px rgba(32,184,88,.22)
 }
-.order-floating:active{transform:scale(.96)}
+
+.order-floating:active{
+transform:scale(.96)
+}
+
 .order-count{
-background:white;color:#063b8f;border-radius:50%;min-width:25px;height:25px;
-display:inline-flex;align-items:center;justify-content:center;margin-left:5px;
-font-weight:bold;box-shadow:0 2px 7px rgba(0,0,0,.20)
+background:white;
+color:#063b8f;
+border-radius:50%;
+min-width:25px;
+height:25px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin-left:5px;
+font-weight:bold;
+box-shadow:0 2px 7px rgba(0,0,0,.20)
 }
 
-/* ORDER PANEL */
+/* =========================
+ORDER PANEL
+========================= */
+
 #orderPanel{
-display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;
-background:rgba(0,0,0,.65);overflow:auto;padding:15px
-}
-.order-content{
-background:white;width:100%;max-width:680px;margin:15px auto;border-radius:20px;
-padding:20px;box-shadow:0 10px 40px rgba(0,0,0,.3)
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+overflow:auto;
+padding:15px
 }
 
-/* PREMIUM ORDER HEADER */
+.order-content{
+background:white;
+width:100%;
+max-width:680px;
+margin:15px auto;
+border-radius:20px;
+padding:20px;
+box-shadow:0 10px 40px rgba(0,0,0,.3)
+}
+
+/* =========================
+ORDER HEADER
+========================= */
+
 .order-header{
-display:flex;justify-content:space-between;align-items:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
 background:linear-gradient(135deg,#063b8f 0%,#0875d1 52%,#20b858 100%);
-color:white;padding:15px 17px;margin:-20px -20px 18px -20px;
+color:white;
+padding:15px 17px;
+margin:-20px -20px 18px -20px;
 border-radius:20px 20px 0 0;
 box-shadow:0 4px 14px rgba(6,59,143,.20)
 }
+
 .order-header h2{
-color:white;font-size:21px;font-weight:bold;margin:0
-}
-.close{
-width:38px;height:38px;display:flex;align-items:center;justify-content:center;
-font-size:30px;font-weight:bold;cursor:pointer;color:white;
-background:rgba(255,255,255,.16);
-border:1px solid rgba(255,255,255,.25);border-radius:50%;transition:.2s
-}
-.close:hover{
-background:rgba(255,255,255,.28);transform:rotate(90deg)
+color:white;
+font-size:21px;
+font-weight:bold;
+margin:0
 }
 
-/* ORDER ITEM */
+.close{
+width:38px;
+height:38px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:bold;
+cursor:pointer;
+color:white;
+background:rgba(255,255,255,.16);
+border:1px solid rgba(255,255,255,.25);
+border-radius:50%;
+transition:.2s
+}
+
+.close:hover{
+background:rgba(255,255,255,.28);
+transform:rotate(90deg)
+}
+
+/* =========================
+ORDER ITEM
+========================= */
+
 .selected-product{
-background:#f4f7fb;padding:12px;border-radius:12px;margin-bottom:10px;
+background:#f4f7fb;
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
 border:1px solid #e3eaf3
 }
+
 .selected-top{
-display:flex;justify-content:space-between;gap:10px
-}
-.selected-info{flex:1}
-.selected-info strong{
-display:block;font-size:16px
-}
-.item-details{
-color:#657184;font-size:13px;margin-top:3px
-}
-.item-price{
-color:#063b8f;font-weight:bold;font-size:14px;margin-top:4px
-}
-.price-pending{
-color:#e67e22;font-weight:bold;font-size:14px
-}
-.order-controls{
-display:flex;align-items:center;gap:6px;margin-top:10px
-}
-.quantity{
-display:flex;align-items:center;gap:5px
+display:flex;
+justify-content:space-between;
+gap:10px
 }
 
-/* PREMIUM QUANTITY */
-.quantity button{
-width:32px;height:32px;border:none;border-radius:8px;
-background:linear-gradient(135deg,#063b8f,#0875d1 55%,#20b858);
-color:white;font-size:18px;font-weight:bold;cursor:pointer;
-box-shadow:0 3px 8px rgba(6,59,143,.20);transition:.2s
+.selected-info{
+flex:1
 }
+
+.selected-info strong{
+display:block;
+font-size:16px
+}
+
+.item-details{
+color:#657184;
+font-size:13px;
+margin-top:3px
+}
+
+.item-price{
+color:#063b8f;
+font-weight:bold;
+font-size:14px;
+margin-top:4px
+}
+
+.price-pending{
+color:#e67e22;
+font-weight:bold;
+font-size:14px
+}
+
+.order-controls{
+display:flex;
+align-items:center;
+gap:6px;
+margin-top:10px
+}
+
+.quantity{
+display:flex;
+align-items:center;
+gap:5px
+}
+
+/* =========================
+QUANTITY
+========================= */
+
+.quantity button{
+width:32px;
+height:32px;
+border:none;
+border-radius:8px;
+background:linear-gradient(135deg,#063b8f,#0875d1 55%,#20b858);
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 3px 8px rgba(6,59,143,.20);
+transition:.2s
+}
+
 .quantity button:hover{
 transform:translateY(-1px);
 box-shadow:0 5px 12px rgba(6,59,143,.28)
 }
-.quantity button:active{transform:scale(.93)}
-.quantity input{
-width:55px;height:32px;text-align:center;border:1px solid #ccc;border-radius:7px
-}
-.remove{
-border:none;background:#e74c3c;color:white;padding:7px 10px;
-border-radius:7px;cursor:pointer
+
+.quantity button:active{
+transform:scale(.93)
 }
 
-/* TOTAL */
+.quantity input{
+width:55px;
+height:32px;
+text-align:center;
+border:1px solid #ccc;
+border-radius:7px
+}
+
+.remove{
+border:none;
+background:#e74c3c;
+color:white;
+padding:7px 10px;
+border-radius:7px;
+cursor:pointer
+}
+
+/* =========================
+TOTAL
+========================= */
+
 .total-box{
 background:linear-gradient(135deg,#063b8f 0%,#0875d1 50%,#20b858 100%);
-color:white;padding:16px;border-radius:13px;margin-top:15px;
+color:white;
+padding:16px;
+border-radius:13px;
+margin-top:15px;
 box-shadow:0 5px 16px rgba(6,59,143,.20)
 }
+
 .total-row{
-display:flex;justify-content:space-between;margin:5px 0
-}
-.total-pending{
-margin-top:10px;background:#fff3cd;color:#856404;padding:10px;
-border-radius:8px;text-align:center;font-weight:bold
-}
-.total-final{
-border-top:1px solid rgba(255,255,255,.4);margin-top:9px;padding-top:9px;
-font-size:20px;font-weight:bold
-}
-.clear-order{
-width:100%;background:#fff0f0;color:#e74c3c;border:1px solid #ffd0d0;
-padding:10px;border-radius:10px;margin-top:10px;font-weight:bold;cursor:pointer
+display:flex;
+justify-content:space-between;
+margin:5px 0
 }
 
-/* PREMIUM ADD MORE */
+.total-pending{
+margin-top:10px;
+background:#fff3cd;
+color:#856404;
+padding:10px;
+border-radius:8px;
+text-align:center;
+font-weight:bold
+}
+
+.total-final{
+border-top:1px solid rgba(255,255,255,.4);
+margin-top:9px;
+padding-top:9px;
+font-size:20px;
+font-weight:bold
+}
+
+.clear-order{
+width:100%;
+background:#fff0f0;
+color:#e74c3c;
+border:1px solid #ffd0d0;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+font-weight:bold;
+cursor:pointer
+}
+
+/* =========================
+ADD MORE
+========================= */
+
 .add-more{
 width:100%;
 background:linear-gradient(135deg,#063b8f,#0875d1 50%,#20b858);
-color:white;border:none;padding:12px;border-radius:10px;margin-top:12px;
-font-size:16px;font-weight:bold;cursor:pointer;
-box-shadow:0 4px 12px rgba(6,59,143,.22);transition:.25s
+color:white;
+border:none;
+padding:12px;
+border-radius:10px;
+margin-top:12px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 4px 12px rgba(6,59,143,.22);
+transition:.25s
 }
+
 .add-more:hover{
 transform:translateY(-2px);
 background:linear-gradient(135deg,#052f73,#0667b8 50%,#169c49);
 box-shadow:0 7px 18px rgba(6,59,143,.30)
 }
 
-/* CUSTOMER */
-.customer-form{margin-top:20px}
-.customer-form h3{
-color:#063b8f;margin-bottom:10px
+/* =========================
+CUSTOMER
+========================= */
+
+.customer-form{
+margin-top:20px
 }
+
+.customer-form h3{
+color:#063b8f;
+margin-bottom:10px
+}
+
 .customer-form input,
 .customer-form textarea{
-width:100%;padding:12px;border:1px solid #ccd5e0;border-radius:9px;
-margin-bottom:10px;font-size:15px;outline:none
+width:100%;
+padding:12px;
+border:1px solid #ccd5e0;
+border-radius:9px;
+margin-bottom:10px;
+font-size:15px;
+outline:none
 }
+
 .customer-form textarea{
-min-height:90px;resize:vertical
+min-height:90px;
+resize:vertical
 }
+
 .send-order{
 width:100%;
 background:linear-gradient(135deg,#063b8f,#0875d1 50%,#20b858);
-color:white;border:none;padding:14px;border-radius:10px;font-size:17px;
-font-weight:bold;cursor:pointer;box-shadow:0 4px 12px rgba(6,59,143,.22);
+color:white;
+border:none;
+padding:14px;
+border-radius:10px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 4px 12px rgba(6,59,143,.22);
 transition:.25s
 }
-.send-order:hover{transform:translateY(-2px)}
 
-/* DELIVERY */
+.send-order:hover{
+transform:translateY(-2px)
+}
+
+/* =========================
+DELIVERY
+========================= */
+
 .delivery{
 background:linear-gradient(135deg,#063b8f,#0875d1 50%,#20b858);
-color:white;border-radius:20px;padding:30px 18px;margin-top:25px;text-align:center
+color:white;
+border-radius:20px;
+padding:30px 18px;
+margin-top:25px;
+text-align:center
 }
-.delivery h2{margin-bottom:8px}
-.delivery strong{color:#ffe082}
 
-/* INFO */
+.delivery h2{
+margin-bottom:8px
+}
+
+.delivery strong{
+color:#ffe082
+}
+
+/* =========================
+INFO
+========================= */
+
 .info{
-background:white;border-radius:18px;padding:22px;margin-top:25px;
+background:white;
+border-radius:18px;
+padding:22px;
+margin-top:25px;
 box-shadow:0 3px 12px rgba(0,0,0,.08)
 }
+
 .info h2{
-color:#063b8f;margin-bottom:15px;text-align:center
+color:#063b8f;
+margin-bottom:15px;
+text-align:center
 }
+
 .info-item{
-display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee
+display:flex;
+gap:12px;
+padding:12px 0;
+border-bottom:1px solid #eee
 }
-.info-icon{font-size:23px;width:35px}
-.info-text{flex:1}
+
+.info-icon{
+font-size:23px;
+width:35px
+}
+
+.info-text{
+flex:1
+}
+
 .info-text strong{
-display:block;color:#063b8f
+display:block;
+color:#063b8f
 }
 
-/* CONTACT */
+/* =========================
+CONTACT
+========================= */
+
 .contact-buttons{
-display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:15px
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-top:15px
 }
+
 .btn{
-text-decoration:none;color:white;padding:12px 18px;border-radius:10px;
-font-weight:bold;display:inline-block
+text-decoration:none;
+color:white;
+padding:12px 18px;
+border-radius:10px;
+font-weight:bold;
+display:inline-block
 }
-.call{background:#063b8f}
-.whatsapp{background:#20b858}
 
-/* FOOTER */
+.call{
+background:#063b8f
+}
+
+.whatsapp{
+background:#20b858
+}
+
+/* =========================
+FOOTER
+========================= */
+
 footer{
-margin-top:30px;background:#071b3a;color:white;text-align:center;padding:30px 15px
-}
-footer p{
-font-size:13px;opacity:.85;margin:4px 0
+margin-top:30px;
+background:#071b3a;
+color:white;
+text-align:center;
+padding:30px 15px
 }
 
-/* MOBILE */
+footer p{
+font-size:13px;
+opacity:.85;
+margin:4px 0
+}
+
+/* =========================
+MOBILE
+========================= */
+
 @media(max-width:600px){
 
 header{
@@ -402,15 +840,18 @@ padding:10px 10px 12px
 }
 
 .header-inner{
-flex-wrap:wrap;gap:9px
+flex-wrap:wrap;
+gap:9px
 }
 
 .logo{
-width:58px;height:58px
+width:58px;
+height:58px
 }
 
 .brand{
-flex:1
+flex:1;
+min-width:0
 }
 
 .brand h1{
@@ -422,20 +863,39 @@ font-size:11px
 }
 
 .header-search{
-width:100%;order:3
+width:100%;
+order:3
 }
 
 .header-search input{
-height:42px;font-size:13px;border-radius:10px
+height:42px;
+font-size:13px;
+border-radius:10px
 }
+
+/* =========================
+MOBILE RUNNING BAR
+SLOW SPEED
+========================= */
 
 .delivery-marquee{
 height:40px;
+overflow:hidden
 }
 
 .delivery-marquee-track{
 font-size:12px;
-animation-duration:20s;
+animation-duration:35s;
+white-space:nowrap;
+padding-left:100%
+}
+
+.delivery-marquee-track span{
+margin-right:45px
+}
+
+.hero{
+padding:30px 14px 25px
 }
 
 .hero h2{
@@ -443,43 +903,191 @@ font-size:23px
 }
 
 .hero p{
-font-size:17px
+font-size:17px;
+line-height:1.7
+}
+
+.container{
+padding:20px 10px 35px
+}
+
+.section-title{
+font-size:23px
+}
+
+.category-selector{
+padding:12px;
+border-radius:13px
+}
+
+.category-label{
+font-size:15px
+}
+
+.category-select{
+padding:12px;
+font-size:15px
+}
+
+.category{
+padding:16px 9px;
+border-radius:15px
+}
+
+.category-title{
+font-size:19px;
+margin-bottom:15px
 }
 
 .products{
-grid-template-columns:repeat(2,1fr);gap:9px
+grid-template-columns:repeat(2,1fr);
+gap:9px
 }
 
 .product{
-padding:13px 7px
+padding:13px 7px;
+border-radius:13px
 }
 
 .product-icon{
-width:55px;height:55px;font-size:30px
+width:55px;
+height:55px;
+font-size:30px
 }
 
 .product h3{
-font-size:14px
+font-size:14px;
+line-height:1.4
 }
 
 .product-select{
-font-size:12px;padding:8px 5px
+font-size:12px;
+padding:8px 5px
+}
+
+.select-label{
+font-size:11px
+}
+
+.order-btn{
+font-size:12px;
+padding:9px 5px
 }
 
 .order-floating{
-right:10px;bottom:10px;padding:11px 14px
+right:10px;
+bottom:10px;
+padding:11px 14px;
+font-size:13px
+}
+
+.order-count{
+min-width:23px;
+height:23px
+}
+
+#orderPanel{
+padding:8px
+}
+
+.order-content{
+margin:8px auto;
+padding:16px;
+border-radius:16px
+}
+
+.order-header{
+margin:-16px -16px 16px -16px;
+padding:13px 14px;
+border-radius:16px 16px 0 0
+}
+
+.order-header h2{
+font-size:18px
+}
+
+.close{
+width:35px;
+height:35px;
+font-size:27px
+}
+
+.selected-product{
+padding:10px
 }
 
 .selected-top{
 flex-direction:column
 }
 
+.selected-info strong{
+font-size:15px
 }
+
+.item-details{
+font-size:12px
+}
+
+.quantity button{
+width:30px;
+height:30px
+}
+
+.quantity input{
+width:50px;
+height:30px
+}
+
+.delivery{
+padding:25px 14px;
+border-radius:16px
+}
+
+.delivery h2{
+font-size:20px
+}
+
+.info{
+padding:17px 13px;
+border-radius:15px
+}
+
+.info h2{
+font-size:21px
+}
+
+.info-item{
+gap:8px
+}
+
+.contact-buttons{
+gap:8px
+}
+
+.btn{
+padding:10px 14px;
+font-size:13px
+}
+
+footer{
+padding:25px 12px
+}
+
+footer h2{
+font-size:21px
+}
+
+}
+
+/* =========================
+VERY SMALL MOBILE
+========================= */
 
 @media(max-width:380px){
 
 .logo{
-width:52px;height:52px
+width:52px;
+height:52px
 }
 
 .brand h1{
@@ -490,8 +1098,14 @@ font-size:18px
 font-size:10px
 }
 
+.delivery-marquee-track{
+font-size:11px;
+animation-duration:38s
+}
+
 .products{
-grid-template-columns:repeat(2,1fr);gap:7px
+grid-template-columns:repeat(2,1fr);
+gap:7px
 }
 
 .product{
@@ -500,6 +1114,14 @@ padding:10px 5px
 
 .product h3{
 font-size:13px
+}
+
+.product-select{
+font-size:11px
+}
+
+.order-btn{
+font-size:11px
 }
 
 }
@@ -514,29 +1136,40 @@ font-size:13px
 <div class="header-inner">
 
 <div class="logo">
+
 <img src="logo.png" alt="SIX M STORE Logo">
+
 </div>
 
 <div class="brand">
+
 <h1>SIX M STORE</h1>
+
 <p>Everyone Deserves Good Service.</p>
+
 </div>
 
 <div class="header-search">
-<input type="search"
+
+<input
+type="search"
 id="headerSearchInput"
 placeholder="🔎 পণ্য, ব্র্যান্ড বা কোম্পানি খুঁজুন..."
 oninput="syncHeaderSearch()">
+
 </div>
 
 </div>
 
 <!-- RUNNING DELIVERY NOTICE -->
+
 <div class="delivery-marquee">
 
 <div class="delivery-marquee-track">
 
-<span>🚚 <b>Home Delivery সুবিধা</b></span>
+<span>
+🚚 <b>Home Delivery সুবিধা</b>
+</span>
 
 <span class="highlight">
 Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা চট্টগ্রামে)
@@ -562,7 +1195,9 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 
 <section class="hero">
 
-<h2>🛒 SIX M STORE-এ স্বাগতম</h2>
+<h2>
+🛒 SIX M STORE-এ স্বাগতম
+</h2>
 
 <p>
 এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু একসাথে।
@@ -573,7 +1208,9 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 
 <div class="container">
 
-<h2 class="section-title">🛍️ আমাদের পণ্যসমূহ</h2>
+<h2 class="section-title">
+🛍️ আমাদের পণ্যসমূহ
+</h2>
 
 <div class="category-selector">
 
@@ -581,7 +1218,8 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 🗂️ পণ্যের ক্যাটাগরি নির্বাচন করুন
 </label>
 
-<select id="categorySelect"
+<select
+id="categorySelect"
 class="category-select"
 onchange="displayProducts()">
 
@@ -595,7 +1233,8 @@ onchange="displayProducts()">
 
 <div id="productsContainer"></div>
 
-<div id="noResult"
+<div
+id="noResult"
 style="display:none;background:white;padding:35px;text-align:center;border-radius:15px;color:#777;">
 
 <h3 style="color:#063b8f;">
@@ -610,15 +1249,21 @@ style="display:none;background:white;padding:35px;text-align:center;border-radiu
 
 <div class="info">
 
-<h2>📍 আমাদের ঠিকানা</h2>
+<h2>
+📍 আমাদের ঠিকানা
+</h2>
 
 <div class="info-item">
 
-<div class="info-icon">🏪</div>
+<div class="info-icon">
+🏪
+</div>
 
 <div class="info-text">
 
-<strong>দোকানের ঠিকানা</strong>
+<strong>
+দোকানের ঠিকানা
+</strong>
 
 ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
 হালিশহর রোড, আগ্রাবাদ,
@@ -630,15 +1275,21 @@ style="display:none;background:white;padding:35px;text-align:center;border-radiu
 
 <div class="contact-buttons">
 
-<a class="btn call"
+<a
+class="btn call"
 href="tel:+8801737781096">
+
 📞 এখনই ফোন করুন
+
 </a>
 
-<a class="btn whatsapp"
+<a
+class="btn whatsapp"
 href="https://wa.me/8801737781096"
 target="_blank">
+
 💬 WhatsApp
+
 </a>
 
 </div>
@@ -647,7 +1298,9 @@ target="_blank">
 
 <div class="delivery">
 
-<h2>🚚 Home Delivery সুবিধা</h2>
+<h2>
+🚚 Home Delivery সুবিধা
+</h2>
 
 <p>
 <strong>
@@ -673,14 +1326,18 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 
 </div>
 
-<button class="order-floating"
+<button
+class="order-floating"
 onclick="openOrder()">
 
 🛒 আপনার অর্ডার
 
-<span class="order-count"
+<span
+class="order-count"
 id="orderCount">
+
 0
+
 </span>
 
 </button>
@@ -691,11 +1348,16 @@ id="orderCount">
 
 <div class="order-header">
 
-<h2>🛒 আপনার অর্ডার</h2>
+<h2>
+🛒 আপনার অর্ডার
+</h2>
 
-<span class="close"
+<span
+class="close"
 onclick="closeOrder()">
+
 ×
+
 </span>
 
 </div>
@@ -740,7 +1402,8 @@ onclick="closeOrder()">
 
 </div>
 
-<div id="pendingNotice"
+<div
+id="pendingNotice"
 class="total-pending"
 style="display:none;">
 
@@ -751,14 +1414,16 @@ style="display:none;">
 
 </div>
 
-<button class="clear-order"
+<button
+class="clear-order"
 onclick="clearOrder()">
 
 🗑️ অর্ডার খালি করুন
 
 </button>
 
-<button class="add-more"
+<button
+class="add-more"
 onclick="continueShopping()">
 
 🛍️ আরও পণ্য যোগ করুন
@@ -771,18 +1436,22 @@ onclick="continueShopping()">
 👤 কাস্টমারের তথ্য
 </h3>
 
-<input type="text"
+<input
+type="text"
 id="customerName"
 placeholder="আপনার নাম লিখুন">
 
-<input type="tel"
+<input
+type="tel"
 id="customerPhone"
 placeholder="মোবাইল নম্বর লিখুন">
 
-<textarea id="customerAddress"
+<textarea
+id="customerAddress"
 placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"></textarea>
 
-<button class="send-order"
+<button
+class="send-order"
 onclick="sendOrder()">
 
 💬 WhatsApp-এ অর্ডার পাঠান
@@ -1678,41 +2347,54 @@ variants:[
 
 ];
 
-/* CATEGORY DROPDOWN */
+/* =========================
+CATEGORY DROPDOWN
+========================= */
 
-const categorySelect=document.getElementById("categorySelect");
+const categorySelect=
+document.getElementById("categorySelect");
 
 categories.forEach((category,index)=>{
 
-const option=document.createElement("option");
+const option=
+document.createElement("option");
 
 option.value=index;
 
-option.textContent=category.name;
+option.textContent=
+category.name;
 
 categorySelect.appendChild(option);
 
 });
 
-/* ORDER LIST */
+/* =========================
+ORDER LIST
+========================= */
 
 let orderList=[];
 
-/* SEARCH */
+/* =========================
+SEARCH
+========================= */
 
 function syncHeaderSearch(){
 
-const input=document.getElementById("headerSearchInput");
+const input=
+document.getElementById("headerSearchInput");
 
 displayProducts(input.value);
 
 }
 
-/* DISPLAY PRODUCTS */
+/* =========================
+DISPLAY PRODUCTS
+========================= */
 
 function displayProducts(searchValue=null){
 
-const container=document.getElementById("productsContainer");
+const container=
+document.getElementById("productsContainer");
 
 container.innerHTML="";
 
@@ -1720,11 +2402,13 @@ let search;
 
 if(searchValue!==null){
 
-search=searchValue.toLowerCase().trim();
+search=
+searchValue.toLowerCase().trim();
 
 }else{
 
-search=document
+search=
+document
 .getElementById("headerSearchInput")
 .value
 .toLowerCase()
@@ -1732,29 +2416,36 @@ search=document
 
 }
 
-const selected=categorySelect.value;
+const selected=
+categorySelect.value;
 
 let found=false;
 
-categories.forEach((category,categoryIndex)=>{
+categories.forEach(
+(category,categoryIndex)=>{
 
 if(
 selected!=="all" &&
 Number(selected)!==categoryIndex
-)return;
+)
+return;
 
-const products=category.products.filter(product=>{
+const products=
+category.products.filter(product=>{
 
 const text=(
 product.name+" "+
-product.variants.map(v=>v.brand).join(" ")
+product.variants
+.map(v=>v.brand)
+.join(" ")
 ).toLowerCase();
 
 return text.includes(search);
 
 });
 
-if(products.length===0)return;
+if(products.length===0)
+return;
 
 found=true;
 
@@ -1763,7 +2454,9 @@ let html=`
 <div class="category">
 
 <h2 class="category-title">
+
 ${category.name}
+
 </h2>
 
 <div class="products">
@@ -1780,7 +2473,8 @@ product.variants.map(v=>v.brand)
 )
 ];
 
-const firstBrand=brands[0];
+const firstBrand=
+brands[0];
 
 const firstBrandVariants=
 product.variants.filter(
@@ -1789,19 +2483,26 @@ v=>v.brand===firstBrand
 
 html+=`
 
-<div class="product"
+<div
+class="product"
 id="product-${categoryIndex}-${productIndex}">
 
 <div class="product-icon">
+
 ${product.icon}
+
 </div>
 
 <h3>
+
 ${product.name}
+
 </h3>
 
 <label class="select-label">
+
 🏷️ ব্র্যান্ড
+
 </label>
 
 <select
@@ -1832,7 +2533,9 @@ html+=`
 </select>
 
 <label class="select-label">
+
 📦 সাইজ / ওজন
+
 </label>
 
 <select
@@ -1842,7 +2545,8 @@ onchange="updateProductPrice(${categoryIndex},${productIndex})">
 
 `;
 
-firstBrandVariants.forEach((variant,i)=>{
+firstBrandVariants.forEach(
+(variant,i)=>{
 
 html+=`
 
@@ -1863,7 +2567,9 @@ html+=`
 </select>
 
 <label class="select-label">
+
 💰 দাম
+
 </label>
 
 <select
@@ -1886,6 +2592,7 @@ firstBrandVariants[0].price>0
 <div
 class="added-message"
 id="added-${categoryIndex}-${productIndex}">
+
 </div>
 
 <button
@@ -1914,12 +2621,15 @@ container.innerHTML+=html;
 
 });
 
-document.getElementById("noResult").style.display=
+document.getElementById("noResult")
+.style.display=
 found?"none":"block";
 
 }
 
-/* ESCAPE */
+/* =========================
+ESCAPE
+========================= */
 
 function escapeHTML(text){
 
@@ -1933,7 +2643,9 @@ return String(text)
 
 }
 
-/* BRAND CHANGE */
+/* =========================
+BRAND CHANGE
+========================= */
 
 function updateProductOptions(
 categoryIndex,
@@ -1954,7 +2666,8 @@ document.getElementById(
 `size-${categoryIndex}-${productIndex}`
 );
 
-const brand=brandSelect.value;
+const brand=
+brandSelect.value;
 
 const variants=
 product.variants.filter(
@@ -1963,14 +2676,17 @@ v=>v.brand===brand
 
 sizeSelect.innerHTML="";
 
-variants.forEach((variant,index)=>{
+variants.forEach(
+(variant,index)=>{
 
 const option=
 document.createElement("option");
 
-option.value=variant.size;
+option.value=
+variant.size;
 
-option.textContent=variant.size;
+option.textContent=
+variant.size;
 
 if(index===0)
 option.selected=true;
@@ -1986,7 +2702,9 @@ productIndex
 
 }
 
-/* PRICE CHANGE */
+/* =========================
+PRICE CHANGE
+========================= */
 
 function updateProductPrice(
 categoryIndex,
@@ -2033,7 +2751,9 @@ priceSelect.appendChild(option);
 
 }
 
-/* ADD PRODUCT */
+/* =========================
+ADD PRODUCT
+========================= */
 
 function addSelectedProduct(
 categoryIndex,
@@ -2061,10 +2781,12 @@ v.brand===brand &&
 v.size===size
 );
 
-if(!variant)return;
+if(!variant)
+return;
 
 const existing=
-orderList.find(item=>
+orderList.find(
+item=>
 item.name===product.name &&
 item.brand===brand &&
 item.size===size
@@ -2106,7 +2828,9 @@ renderOrder();
 
 }
 
-/* RENDER ORDER */
+/* =========================
+RENDER ORDER
+========================= */
 
 function renderOrder(){
 
@@ -2130,7 +2854,8 @@ style="text-align:center;color:#777;padding:15px;">
 
 box.innerHTML="";
 
-orderList.forEach((item,index)=>{
+orderList.forEach(
+(item,index)=>{
 
 const itemTotal=
 item.price>0
@@ -2175,16 +2900,20 @@ box.innerHTML+=`
 <div class="selected-info">
 
 <strong>
+
 ${item.name}
+
 </strong>
 
 <div class="item-details">
 
-🏷️ ব্র্যান্ড: ${item.brand}
+🏷️ ব্র্যান্ড:
+${item.brand}
 
 <br>
 
-📦 সাইজ: ${item.size}
+📦 সাইজ:
+${item.size}
 
 </div>
 
@@ -2200,7 +2929,9 @@ ${priceHTML}
 
 <button
 onclick="changeQty(${index},-1)">
+
 −
+
 </button>
 
 <input
@@ -2211,7 +2942,9 @@ onchange="setQty(${index},this.value)">
 
 <button
 onclick="changeQty(${index},1)">
+
 +
+
 </button>
 
 </div>
@@ -2238,18 +2971,21 @@ calculateTotal();
 
 let count=0;
 
-orderList.forEach(item=>{
+orderList.forEach(
+item=>{
 
 count+=item.qty;
 
 });
 
-document.getElementById("orderCount").innerText=
-count;
+document.getElementById("orderCount")
+.innerText=count;
 
 }
 
-/* QUANTITY */
+/* =========================
+QUANTITY
+========================= */
 
 function changeQty(index,value){
 
@@ -2278,7 +3014,9 @@ renderOrder();
 
 }
 
-/* REMOVE */
+/* =========================
+REMOVE
+========================= */
 
 function removeItem(index){
 
@@ -2288,7 +3026,9 @@ renderOrder();
 
 }
 
-/* CLEAR */
+/* =========================
+CLEAR ORDER
+========================= */
 
 function clearOrder(){
 
@@ -2309,7 +3049,9 @@ renderOrder();
 
 }
 
-/* TOTAL */
+/* =========================
+TOTAL
+========================= */
 
 function calculateTotal(){
 
@@ -2317,7 +3059,8 @@ let subtotal=0;
 
 let pending=false;
 
-orderList.forEach(item=>{
+orderList.forEach(
+item=>{
 
 if(item.price>0){
 
@@ -2365,7 +3108,9 @@ document.getElementById("pendingNotice")
 
 }
 
-/* OPEN */
+/* =========================
+OPEN ORDER
+========================= */
 
 function openOrder(){
 
@@ -2378,7 +3123,9 @@ renderOrder();
 
 }
 
-/* CLOSE */
+/* =========================
+CLOSE ORDER
+========================= */
 
 function closeOrder(){
 
@@ -2389,7 +3136,9 @@ document.body.style.overflow="auto";
 
 }
 
-/* CONTINUE */
+/* =========================
+CONTINUE SHOPPING
+========================= */
 
 function continueShopping(){
 
@@ -2407,7 +3156,9 @@ behavior:"smooth"
 
 }
 
-/* CLICK OUTSIDE */
+/* =========================
+CLICK OUTSIDE
+========================= */
 
 document
 .getElementById("orderPanel")
@@ -2423,7 +3174,9 @@ closeOrder();
 
 });
 
-/* WHATSAPP ORDER */
+/* =========================
+WHATSAPP ORDER
+========================= */
 
 function sendOrder(){
 
@@ -2458,7 +3211,7 @@ document
 if(!name){
 
 alert(
-"দয়া করে আপনার নাম লিখুন."
+"দয়া করে আপনার নাম লিখুন।"
 );
 
 document
@@ -2516,7 +3269,8 @@ let subtotal=0;
 
 let hasPending=false;
 
-orderList.forEach((item,index)=>{
+orderList.forEach(
+(item,index)=>{
 
 message+=
 (index+1)+". "+item.name+"\n";
@@ -2605,7 +3359,9 @@ whatsappURL,
 
 }
 
-/* INITIAL */
+/* =========================
+INITIAL
+========================= */
 
 displayProducts();
 
