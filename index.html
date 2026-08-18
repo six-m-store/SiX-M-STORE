@@ -39,7 +39,7 @@ HEADER
 header{
 background:linear-gradient(135deg,#063b8f,#0875d1);
 color:white;
-padding:14px 16px;
+padding:14px 16px 7px;
 position:sticky;
 top:0;
 z-index:5000;
@@ -116,22 +116,20 @@ box-shadow:0 0 0 3px rgba(255,255,255,.35)
 }
 
 /* =========================
-RUNNING DELIVERY NOTICE
-THIN + BOLD + SLOW
+RUNNING DELIVERY TEXT
+NO BAR / NO BOX
 ========================= */
 
 .delivery-marquee{
 width:100%;
-background:linear-gradient(90deg,#fff7df,#ffffff,#eaf7ff);
-border-top:1px solid #e8edf4;
-border-bottom:1px solid #e8edf4;
+background:transparent;
 overflow:hidden;
 white-space:nowrap;
 height:28px;
 display:flex;
 align-items:center;
-box-shadow:0 2px 8px rgba(0,0,0,.06);
 position:relative;
+margin-top:5px;
 }
 
 .delivery-marquee-track{
@@ -140,23 +138,22 @@ padding-left:100%;
 animation:deliveryRunning 35s linear infinite;
 font-size:13px;
 font-weight:800;
-color:#063b8f;
-line-height:28px;
+color:white;
+white-space:nowrap;
 }
 
 .delivery-marquee-track span{
-margin-right:55px;
-font-weight:800;
+margin-right:45px;
 }
 
 .delivery-marquee-track .highlight{
-color:#e67e22;
-font-weight:800;
+color:#ffe082;
+font-weight:900;
 }
 
 .delivery-marquee-track .green{
-color:#20a052;
-font-weight:800;
+color:#8ff0b0;
+font-weight:900;
 }
 
 @keyframes deliveryRunning{
@@ -841,7 +838,7 @@ MOBILE
 @media(max-width:600px){
 
 header{
-padding:10px 10px 12px
+padding:10px 10px 6px
 }
 
 .header-inner{
@@ -879,27 +876,26 @@ border-radius:10px
 }
 
 /* =========================
-MOBILE RUNNING BAR
-THIN + BOLD + SLOW
+MOBILE RUNNING TEXT
+NO BAR
 ========================= */
 
 .delivery-marquee{
 height:26px;
-overflow:hidden
+background:transparent;
+overflow:hidden;
+margin-top:4px;
 }
 
 .delivery-marquee-track{
 font-size:12px;
 font-weight:800;
-animation-duration:40s;
-white-space:nowrap;
+animation-duration:35s;
 padding-left:100%;
-line-height:26px
 }
 
 .delivery-marquee-track span{
-margin-right:45px;
-font-weight:800
+margin-right:40px
 }
 
 .hero{
@@ -1113,8 +1109,7 @@ height:25px
 .delivery-marquee-track{
 font-size:11px;
 font-weight:800;
-animation-duration:42s;
-line-height:25px
+animation-duration:38s
 }
 
 .products{
@@ -1175,7 +1170,7 @@ oninput="syncHeaderSearch()">
 
 </div>
 
-<!-- RUNNING DELIVERY NOTICE -->
+<!-- RUNNING DELIVERY TEXT -->
 
 <div class="delivery-marquee">
 
@@ -1342,7 +1337,7 @@ Delivery চার্জ = ৯৯/- টাকা মাত্র (সারা �
 
 <button
 class="order-floating"
-onclick="openOrder()">
+onclick="openOrder">
 
 🛒 আপনার অর্ডার
 
@@ -2749,9 +2744,6 @@ const priceSelect=
 document.getElementById(
 `price-${categoryIndex}-${productIndex}`
 );
-
-if(!priceSelect)
-return;
 
 priceSelect.innerHTML="";
 
