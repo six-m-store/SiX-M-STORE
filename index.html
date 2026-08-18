@@ -117,6 +117,7 @@ box-shadow:0 0 0 3px rgba(255,255,255,.35)
 
 /* =========================
 RUNNING DELIVERY NOTICE
+CHANGED: THINNER BOX + BOLDER TEXT
 ========================= */
 
 .delivery-marquee{
@@ -126,7 +127,7 @@ border-top:1px solid #e8edf4;
 border-bottom:1px solid #e8edf4;
 overflow:hidden;
 white-space:nowrap;
-height:42px;
+height:32px;
 display:flex;
 align-items:center;
 box-shadow:0 2px 8px rgba(0,0,0,.06);
@@ -138,20 +139,23 @@ display:inline-block;
 padding-left:100%;
 animation:deliveryRunning 22s linear infinite;
 font-size:14px;
-font-weight:bold;
+font-weight:800;
 color:#063b8f;
 }
 
 .delivery-marquee-track span{
 margin-right:55px;
+font-weight:800;
 }
 
 .delivery-marquee-track .highlight{
 color:#e67e22;
+font-weight:800;
 }
 
 .delivery-marquee-track .green{
 color:#20a052;
+font-weight:800;
 }
 
 @keyframes deliveryRunning{
@@ -875,23 +879,30 @@ border-radius:10px
 
 /* =========================
 MOBILE RUNNING BAR
-SLOW SPEED
+THINNER + BOLDER
 ========================= */
 
 .delivery-marquee{
-height:40px;
+height:30px;
 overflow:hidden
 }
 
 .delivery-marquee-track{
 font-size:12px;
+font-weight:800;
 animation-duration:35s;
 white-space:nowrap;
 padding-left:100%
 }
 
 .delivery-marquee-track span{
-margin-right:45px
+margin-right:45px;
+font-weight:800
+}
+
+.delivery-marquee-track .highlight,
+.delivery-marquee-track .green{
+font-weight:800
 }
 
 .hero{
@@ -1100,6 +1111,7 @@ font-size:10px
 
 .delivery-marquee-track{
 font-size:11px;
+font-weight:800;
 animation-duration:38s
 }
 
@@ -2574,7 +2586,6 @@ html+=`
 
 <select
 class="product-select price-select"
-id="price-${categoryIndex}-${productIndex}"
 disabled>
 
 <option>
