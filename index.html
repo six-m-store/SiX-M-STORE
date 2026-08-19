@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -32,7 +33,9 @@ button,input,select,textarea{
 font-family:inherit
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
 background:linear-gradient(135deg,#063b8f,#0875d1);
@@ -113,7 +116,9 @@ color:#657184
 box-shadow:0 0 0 3px rgba(255,255,255,.35)
 }
 
-/* RUNNING DELIVERY */
+/* =========================
+   RUNNING DELIVERY
+========================= */
 
 .delivery-marquee{
 width:100%;
@@ -152,11 +157,18 @@ font-weight:900
 }
 
 @keyframes deliveryRunning{
-0%{transform:translateX(0)}
-100%{transform:translateX(-100%)}
+0%{
+transform:translateX(0)
 }
 
-/* HERO */
+100%{
+transform:translateX(-100%)
+}
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
 background:white;
@@ -176,12 +188,21 @@ margin:auto;
 font-size:20px;
 font-weight:bold;
 line-height:1.8;
-background:linear-gradient(90deg,#e74c3c,#f39c12,#20b858,#0875d1,#8e44ad);
+background:linear-gradient(
+90deg,
+#e74c3c,
+#f39c12,
+#20b858,
+#0875d1,
+#8e44ad
+);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent
 }
 
-/* CONTAINER */
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
 max-width:1150px;
@@ -196,7 +217,9 @@ font-size:27px;
 margin-bottom:20px
 }
 
-/* CATEGORY */
+/* =========================
+   CATEGORY
+========================= */
 
 .category-selector{
 background:white;
@@ -227,7 +250,9 @@ cursor:pointer;
 outline:none
 }
 
-/* CATEGORY BOX */
+/* =========================
+   CATEGORY BOX
+========================= */
 
 .category{
 background:white;
@@ -247,7 +272,9 @@ padding-bottom:12px;
 border-bottom:2px solid #eaf0f7
 }
 
-/* PRODUCTS */
+/* =========================
+   PRODUCTS
+========================= */
 
 .products{
 display:grid;
@@ -269,37 +296,41 @@ transform:translateY(-3px);
 box-shadow:0 8px 20px rgba(0,0,0,.10)
 }
 
-/* PRODUCT IMAGE */
+/* =========================
+   PRODUCT IMAGE
+========================= */
 
-.product-icon{
-width:62px;
-height:62px;
-margin:0 auto 8px;
+.product-image-box{
+width:110px;
+height:110px;
+margin:0 auto 10px;
 background:white;
-border-radius:50%;
+border-radius:16px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:35px;
-box-shadow:0 3px 10px rgba(0,0,0,.08);
 overflow:hidden;
-position:relative
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+border:1px solid #edf1f6
 }
 
-.product-icon img{
+.product-image{
 width:100%;
 height:100%;
 object-fit:contain;
+padding:7px;
 display:block
 }
 
-.fallback-icon{
+/* ছবির ফাইল না থাকলে Emoji */
+
+.product-icon{
 width:100%;
 height:100%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:35px
+font-size:48px
 }
 
 .product h3{
@@ -341,11 +372,18 @@ color:#063b8f;
 background:#eef5ff
 }
 
-/* ADD TO ORDER */
+/* =========================
+   ADD TO ORDER
+========================= */
 
 .order-btn{
 width:100%;
-background:linear-gradient(135deg,#063b8f 0%,#0875d1 52%,#20b858 100%);
+background:linear-gradient(
+135deg,
+#063b8f 0%,
+#0875d1 52%,
+#20b858 100%
+);
 color:white;
 border:none;
 padding:10px 8px;
@@ -374,14 +412,21 @@ min-height:18px;
 margin-top:4px
 }
 
-/* FLOATING ORDER */
+/* =========================
+   FLOATING ORDER
+========================= */
 
 .order-floating{
 position:fixed;
 right:18px;
 bottom:18px;
 z-index:9000;
-background:linear-gradient(135deg,#063b8f 0%,#0875d1 50%,#20b858 100%);
+background:linear-gradient(
+135deg,
+#063b8f 0%,
+#0875d1 50%,
+#20b858 100%
+);
 color:white;
 border:none;
 border-radius:50px;
@@ -410,7 +455,9 @@ margin-left:5px;
 font-weight:bold
 }
 
-/* ORDER PANEL */
+/* =========================
+   ORDER PANEL
+========================= */
 
 #orderPanel{
 display:none;
@@ -439,7 +486,12 @@ box-shadow:0 10px 40px rgba(0,0,0,.3)
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:linear-gradient(135deg,#063b8f 0%,#0875d1 52%,#20b858 100%);
+background:linear-gradient(
+135deg,
+#063b8f 0%,
+#0875d1 52%,
+#20b858 100%
+);
 color:white;
 padding:15px 17px;
 margin:-20px -20px 18px -20px;
@@ -465,7 +517,9 @@ background:rgba(255,255,255,.16);
 border-radius:50%
 }
 
-/* ORDER ITEM */
+/* =========================
+   ORDER ITEM
+========================= */
 
 .selected-product{
 background:#f4f7fb;
@@ -527,7 +581,12 @@ width:32px;
 height:32px;
 border:none;
 border-radius:8px;
-background:linear-gradient(135deg,#063b8f,#0875d1 55%,#20b858);
+background:linear-gradient(
+135deg,
+#063b8f,
+#0875d1 55%,
+#20b858
+);
 color:white;
 font-size:18px;
 font-weight:bold;
@@ -551,10 +610,17 @@ border-radius:7px;
 cursor:pointer
 }
 
-/* TOTAL */
+/* =========================
+   TOTAL
+========================= */
 
 .total-box{
-background:linear-gradient(135deg,#063b8f 0%,#0875d1 50%,#20b858 100%);
+background:linear-gradient(
+135deg,
+#063b8f 0%,
+#0875d1 50%,
+#20b858 100%
+);
 color:white;
 padding:16px;
 border-radius:13px;
@@ -599,7 +665,12 @@ cursor:pointer
 
 .add-more{
 width:100%;
-background:linear-gradient(135deg,#063b8f,#0875d1 50%,#20b858);
+background:linear-gradient(
+135deg,
+#063b8f,
+#0875d1 50%,
+#20b858
+);
 color:white;
 border:none;
 padding:12px;
@@ -610,7 +681,9 @@ font-weight:bold;
 cursor:pointer
 }
 
-/* CUSTOMER */
+/* =========================
+   CUSTOMER
+========================= */
 
 .customer-form{
 margin-top:20px
@@ -639,7 +712,12 @@ resize:vertical
 
 .send-order{
 width:100%;
-background:linear-gradient(135deg,#063b8f,#0875d1 50%,#20b858);
+background:linear-gradient(
+135deg,
+#063b8f,
+#0875d1 50%,
+#20b858
+);
 color:white;
 border:none;
 padding:14px;
@@ -649,10 +727,17 @@ font-weight:bold;
 cursor:pointer
 }
 
-/* DELIVERY */
+/* =========================
+   DELIVERY
+========================= */
 
 .delivery{
-background:linear-gradient(135deg,#063b8f,#0875d1 50%,#20b858);
+background:linear-gradient(
+135deg,
+#063b8f,
+#0875d1 50%,
+#20b858
+);
 color:white;
 border-radius:20px;
 padding:30px 18px;
@@ -668,7 +753,9 @@ margin-bottom:8px
 color:#ffe082
 }
 
-/* INFO */
+/* =========================
+   INFO
+========================= */
 
 .info{
 background:white;
@@ -705,7 +792,9 @@ display:block;
 color:#063b8f
 }
 
-/* CONTACT BUTTONS */
+/* =========================
+   CONTACT
+========================= */
 
 .contact-buttons{
 display:flex;
@@ -736,7 +825,9 @@ background:#20b858
 background:#169c49
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
 margin-top:30px;
@@ -752,7 +843,9 @@ opacity:.85;
 margin:4px 0
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -859,14 +952,16 @@ padding:13px 7px;
 border-radius:13px
 }
 
-.product-icon{
-width:55px;
-height:55px;
-font-size:30px
+/* মোবাইলে ছবির সাইজ */
+
+.product-image-box{
+width:82px;
+height:82px;
+margin-bottom:8px
 }
 
-.fallback-icon{
-font-size:30px
+.product-icon{
+font-size:38px
 }
 
 .product h3{
@@ -978,6 +1073,15 @@ gap:7px
 padding:10px 5px
 }
 
+.product-image-box{
+width:72px;
+height:72px
+}
+
+.product-icon{
+font-size:33px
+}
+
 .product h3{
 font-size:13px
 }
@@ -990,33 +1094,39 @@ font-size:11px
 font-size:11px
 }
 
-.product-icon{
-width:52px;
-height:52px
-}
-
-.fallback-icon{
-font-size:28px
-}
-
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
 <div class="header-inner">
 
 <div class="logo">
-<img src="logo.png" alt="SIX M STORE Logo">
+
+<img
+src="logo.png"
+alt="SIX M STORE Logo"
+onerror="this.style.display='none';">
+
 </div>
 
 <div class="brand">
+
 <h1>SIX M STORE</h1>
-<p>Everyone Deserves Good Service.</p>
+
+<p>
+Everyone Deserves Good Service.
+</p>
+
 </div>
 
 <div class="header-search">
@@ -1035,7 +1145,9 @@ oninput="syncHeaderSearch()">
 
 <div class="delivery-marquee-track">
 
-<span>🚚 <b>Cash On Delivery সুবিধা (সারা চট্টগ্রামে)</b></span>
+<span>
+🚚 <b>Cash On Delivery সুবিধা (সারা চট্টগ্রামে)</b>
+</span>
 
 <span class="highlight">
 Delivery চার্জ মাত্র = ৯৯/- টাকা
@@ -1059,9 +1171,16 @@ Delivery চার্জ মাত্র = ৯৯/- টাকা
 
 </header>
 
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
-<h2>🛒 SIX M STORE-এ স্বাগতম</h2>
+<h2>
+🛒 SIX M STORE-এ স্বাগতম
+</h2>
 
 <p>
 এক ক্লিকেই বাজারের সমাধান! প্রয়োজনের সবকিছু একসাথে।
@@ -1069,6 +1188,11 @@ Delivery চার্জ মাত্র = ৯৯/- টাকা
 </p>
 
 </section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="container">
 
@@ -1095,31 +1219,53 @@ onchange="displayProducts()">
 
 </div>
 
+
 <div id="productsContainer"></div>
+
 
 <div
 id="noResult"
-style="display:none;background:white;padding:35px;text-align:center;border-radius:15px;color:#777;">
+style="
+display:none;
+background:white;
+padding:35px;
+text-align:center;
+border-radius:15px;
+color:#777;
+">
 
 <h3 style="color:#063b8f;">
 😔 কোনো পণ্য পাওয়া যায়নি
 </h3>
 
-<p>অন্য নামে আবার চেষ্টা করুন।</p>
+<p>
+অন্য নামে আবার চেষ্টা করুন।
+</p>
 
 </div>
 
+
+<!-- =========================
+     INFO
+========================= -->
+
 <div class="info">
 
-<h2>📍 আমাদের ঠিকানা</h2>
+<h2>
+📍 আমাদের ঠিকানা
+</h2>
 
 <div class="info-item">
 
-<div class="info-icon">🏪</div>
+<div class="info-icon">
+🏪
+</div>
 
 <div class="info-text">
 
-<strong>দোকানের ঠিকানা</strong>
+<strong>
+দোকানের ঠিকানা
+</strong>
 
 ছোট পোল সংলগ্ন, পশ্চিম বেপারীপাড়া,
 হালিশহর রোড, আগ্রাবাদ,
@@ -1152,9 +1298,16 @@ target="_blank">
 
 </div>
 
+
+<!-- =========================
+     DELIVERY
+========================= -->
+
 <div class="delivery">
 
-<h2>🚚 Cash On Delivery সুবিধা (সারা চট্টগ্রামে)</h2>
+<h2>
+🚚 Cash On Delivery সুবিধা (সারা চট্টগ্রামে)
+</h2>
 
 <p>
 <strong>
@@ -1162,17 +1315,28 @@ Delivery চার্জ মাত্র = ৯৯/- টাকা
 </strong>
 </p>
 
-<p>ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।</p>
-
 <p>
-<strong>ফোন অথবা WhatsApp-এ অর্ডার করুন</strong>
+ঘরে বসেই আপনার প্রয়োজনীয় বাজার অর্ডার করুন।
 </p>
 
-<p>আরো থাকছে দ্রুত ও সহজ ডেলিভারি সুবিধা।</p>
+<p>
+<strong>
+ফোন অথবা WhatsApp-এ অর্ডার করুন
+</strong>
+</p>
+
+<p>
+আরো থাকছে দ্রুত ও সহজ ডেলিভারি সুবিধা।
+</p>
 
 </div>
 
 </div>
+
+
+<!-- =========================
+     FLOATING ORDER
+========================= -->
 
 <button
 class="order-floating"
@@ -1190,13 +1354,20 @@ id="orderCount">
 
 </button>
 
+
+<!-- =========================
+     ORDER PANEL
+========================= -->
+
 <div id="orderPanel">
 
 <div class="order-content">
 
 <div class="order-header">
 
-<h2>🛒 আপনার অর্ডার</h2>
+<h2>
+🛒 আপনার অর্ডার
+</h2>
 
 <span
 class="close"
@@ -1208,13 +1379,17 @@ onclick="closeOrder()">
 
 </div>
 
+
 <div id="orderItems"></div>
+
 
 <div class="total-box">
 
 <div class="total-row">
 
-<span>পণ্যের মোট মূল্য:</span>
+<span>
+পণ্যের মোট মূল্য:
+</span>
 
 <span>
 ৳ <span id="subtotal">0</span>
@@ -1222,9 +1397,12 @@ onclick="closeOrder()">
 
 </div>
 
+
 <div class="total-row">
 
-<span>ডেলিভারি চার্জ:</span>
+<span>
+ডেলিভারি চার্জ:
+</span>
 
 <span>
 ৳ <span id="deliveryCharge">0</span>
@@ -1232,15 +1410,19 @@ onclick="closeOrder()">
 
 </div>
 
+
 <div class="total-row total-final">
 
-<span>সর্বমোট:</span>
+<span>
+সর্বমোট:
+</span>
 
 <span id="grandTotalText">
 ৳ 0
 </span>
 
 </div>
+
 
 <div
 id="pendingNotice"
@@ -1254,6 +1436,7 @@ style="display:none;">
 
 </div>
 
+
 <button
 class="clear-order"
 onclick="clearOrder()">
@@ -1261,6 +1444,7 @@ onclick="clearOrder()">
 🗑️ অর্ডার খালি করুন
 
 </button>
+
 
 <button
 class="add-more"
@@ -1270,9 +1454,14 @@ onclick="continueShopping()">
 
 </button>
 
+
+<!-- CUSTOMER -->
+
 <div class="customer-form">
 
-<h3>👤 কাস্টমারের তথ্য</h3>
+<h3>
+👤 কাস্টমারের তথ্য
+</h3>
 
 <input
 type="text"
@@ -1302,33 +1491,54 @@ onclick="sendOrder()">
 
 </div>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-<h2>SIX M STORE</h2>
+<h2>
+SIX M STORE
+</h2>
 
-<p>আপনার বিশ্বাসই আমাদের মূলধন।</p>
+<p>
+আপনার বিশ্বাসই আমাদের মূলধন।
+</p>
 
-<p>📞 +8801782-371255</p>
+<p>
+📞 +8801782-371255
+</p>
 
-<p>© 2026 SIX M STORE. All Rights Reserved.</p>
+<p>
+© 2026 SIX M STORE. All Rights Reserved.
+</p>
 
 </footer>
 
+
 <script>
 
-/* =====================================================
+/* =========================================================
    PRODUCT DATABASE
-   ===================================================== */
+========================================================= */
 
 const categories=[
 
+/* =========================
+   1. চাল ও ডাল
+========================= */
+
 {
 name:"🍚 চাল ও ডাল",
+
 products:[
 
 {
 name:"সিদ্ধ/হাফ সিদ্ধ চাল",
 icon:"🍚",
+image:"চাল.jpg",
+
 variants:[
 
 {brand:"নুরজাহান মিনিকেট",size:"১ কেজি",price:60},
@@ -1361,6 +1571,8 @@ variants:[
 {
 name:"আতপ/চিনিগুড়া চাল",
 icon:"🍚",
+image:"চিনিগুড়া-চাল.jpg",
+
 variants:[
 
 {brand:"লিচু মিনিকেট আতপ",size:"১ কেজি",price:70},
@@ -1382,6 +1594,8 @@ variants:[
 {
 name:"ডাল",
 icon:"🫘",
+image:"ডাল.jpg",
+
 variants:[
 
 {brand:"মসুর ডাল মোটা",size:"১ কেজি",price:90},
@@ -1402,6 +1616,8 @@ variants:[
 {
 name:"ছোলা/চনা বুট",
 icon:"🫘",
+image:"ছোলা.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"১ কেজি",price:95}
 ]
@@ -1410,13 +1626,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   2. তেল ও মসলা
+========================= */
+
 {
 name:"🫙 তেল ও মসলা",
+
 products:[
 
 {
 name:"সয়াবিন তেল",
 icon:"🫙",
+image:"সয়াবিন-তেল.jpg",
+
 variants:[
 
 {brand:"ফ্রেশ",size:"১ লিটার",price:0},
@@ -1439,6 +1663,8 @@ variants:[
 {
 name:"সরিষার তেল",
 icon:"🌻",
+image:"সরিষার-তেল.jpg",
+
 variants:[
 
 {brand:"রাঁধুনী",size:"৮০ গ্রাম",price:38},
@@ -1467,6 +1693,8 @@ variants:[
 {
 name:"ধনিয়া/ধনিয়া গুঁড়া",
 icon:"🌿",
+image:"ধনিয়া.jpg",
+
 variants:[
 
 {brand:"রাঁধুনী",size:"৫০ গ্রাম",price:30},
@@ -1482,6 +1710,8 @@ variants:[
 {
 name:"জিরা/জিরা গুঁড়া",
 icon:"🌿",
+image:"জিরা.jpg",
+
 variants:[
 
 {brand:"রাঁধুনী",size:"১৫ গ্রাম",price:28},
@@ -1498,6 +1728,8 @@ variants:[
 {
 name:"গরম মসলা গুঁড়া",
 icon:"🧂",
+image:"গরম-মসলা.jpg",
+
 variants:[
 
 {brand:"রাঁধুনী",size:"১৫ গ্রাম",price:38},
@@ -1513,6 +1745,8 @@ variants:[
 {
 name:"দারুচিনি",
 icon:"🌿",
+image:"দারুচিনি.jpg",
+
 variants:[
 
 {brand:"সাধারণ",size:"২৫০ গ্রাম",price:130},
@@ -1525,6 +1759,8 @@ variants:[
 {
 name:"এলাচ",
 icon:"🌿",
+image:"এলাচ.jpg",
+
 variants:[
 
 {brand:"সাধারণ",size:"১০০ গ্রাম",price:500},
@@ -1539,6 +1775,8 @@ variants:[
 {
 name:"লবঙ্গ",
 icon:"🌿",
+image:"লবঙ্গ.jpg",
+
 variants:[
 
 {brand:"সাধারণ",size:"১০০ গ্রাম",price:140},
@@ -1553,6 +1791,8 @@ variants:[
 {
 name:"তেজপাতা",
 icon:"🍃",
+image:"তেজপাতা.jpg",
+
 variants:[
 
 {brand:"সাধারণ",size:"৫০ গ্রাম",price:20},
@@ -1567,13 +1807,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   3. নিত্যপ্রয়োজনীয়
+========================= */
+
 {
 name:"🛒 নিত্যপ্রয়োজনীয় পণ্য",
+
 products:[
 
 {
 name:"আটা",
 icon:"🌾",
+image:"আটা.jpg",
+
 variants:[
 
 {brand:"সাধারণ",size:"১ কেজি",price:50},
@@ -1590,6 +1838,8 @@ variants:[
 {
 name:"ময়দা",
 icon:"🥣",
+image:"ময়দা.jpg",
+
 variants:[
 
 {brand:"সাধারণ",size:"১ কেজি",price:65},
@@ -1606,6 +1856,8 @@ variants:[
 {
 name:"সুজির প্যাকেট",
 icon:"🥣",
+image:"সুজি.jpg",
+
 variants:[
 
 {brand:"সজীব",size:"৫০০ গ্রাম",price:45},
@@ -1618,6 +1870,8 @@ variants:[
 {
 name:"চিনি",
 icon:"🍬",
+image:"চিনি.jpg",
+
 variants:[
 
 {brand:"চিনি খোলা",size:"১ কেজি",price:105},
@@ -1629,6 +1883,8 @@ variants:[
 {
 name:"লবণ",
 icon:"🧂",
+image:"লবণ.jpg",
+
 variants:[
 
 {brand:"ফ্রেশ",size:"৫০০ গ্রাম",price:20},
@@ -1655,6 +1911,8 @@ variants:[
 {
 name:"গুড়",
 icon:"🍯",
+image:"গুড়.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"১ কেজি",price:0}
 ]
@@ -1663,6 +1921,8 @@ variants:[
 {
 name:"সেমাই",
 icon:"🍜",
+image:"সেমাই.jpg",
+
 variants:[
 
 {brand:"বনফুল লাচ্ছা",size:"প্যাকেট",price:40},
@@ -1674,6 +1934,8 @@ variants:[
 {
 name:"চিড়া",
 icon:"🌾",
+image:"চিড়া.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"১ কেজি",price:0}
 ]
@@ -1682,6 +1944,8 @@ variants:[
 {
 name:"মুড়ি",
 icon:"🍘",
+image:"মুড়ি.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"১ কেজি",price:70}
 ]
@@ -1690,13 +1954,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   4. সবজি ও রান্নার উপকরণ
+========================= */
+
 {
 name:"🥔 সবজি ও রান্নার উপকরণ",
+
 products:[
 
 {
 name:"আলু",
 icon:"🥔",
+image:"আলু.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"১ কেজি",price:25}
 ]
@@ -1705,6 +1977,8 @@ variants:[
 {
 name:"পেঁয়াজ",
 icon:"🧅",
+image:"পেঁয়াজ.jpg",
+
 variants:[
 
 {brand:"দেশি",size:"১ কেজি",price:0},
@@ -1716,6 +1990,8 @@ variants:[
 {
 name:"রসুন",
 icon:"🧄",
+image:"রসুন.jpg",
+
 variants:[
 
 {brand:"দেশি",size:"১ কেজি",price:150},
@@ -1727,6 +2003,8 @@ variants:[
 {
 name:"আদা",
 icon:"🫚",
+image:"আদা.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"১ কেজি",price:130}
 ]
@@ -1735,6 +2013,8 @@ variants:[
 {
 name:"হলুদ গুঁড়া",
 icon:"🌕",
+image:"হলুদ.jpg",
+
 variants:[
 
 {brand:"রাঁধুনী",size:"২৫ গ্রাম",price:20},
@@ -1751,6 +2031,8 @@ variants:[
 {
 name:"মরিচ গুঁড়া/শুকনা মরিচ",
 icon:"🌶️",
+image:"মরিচ.jpg",
+
 variants:[
 
 {brand:"রাঁধুনী",size:"২৫ গ্রাম",price:20},
@@ -1769,13 +2051,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   5. ডেইরি
+========================= */
+
 {
 name:"🥛 ডেইরি ও খাদ্যপণ্য",
+
 products:[
 
 {
 name:"ডিম",
 icon:"🥚",
+image:"ডিম.jpg",
+
 variants:[
 
 {brand:"দেশি",size:"১ ডজন",price:0},
@@ -1787,6 +2077,8 @@ variants:[
 {
 name:"দুধ",
 icon:"🥛",
+image:"দুধ.jpg",
+
 variants:[
 
 {brand:"Milk Vita",size:"৫০০ গ্রাম",price:55},
@@ -1809,6 +2101,8 @@ variants:[
 {
 name:"ঘি",
 icon:"🧈",
+image:"ঘি.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"কৌটা",price:0}
 ]
@@ -1817,6 +2111,8 @@ variants:[
 {
 name:"মাখন",
 icon:"🧈",
+image:"মাখন.jpg",
+
 variants:[
 
 {brand:"Aarong",size:"প্যাকেট",price:0},
@@ -1828,6 +2124,8 @@ variants:[
 {
 name:"দই",
 icon:"🥛",
+image:"দই.jpg",
+
 variants:[
 {brand:"Aarong",size:"মিনি কৌটা",price:30}
 ]
@@ -1836,13 +2134,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   6. চা ও পানীয়
+========================= */
+
 {
 name:"☕ চা ও পানীয়",
+
 products:[
 
 {
 name:"চা পাতা",
 icon:"🍵",
+image:"চা-পাতা.jpg",
+
 variants:[
 
 {brand:"সাধারণ",size:"১ কেজি",price:360},
@@ -1856,7 +2162,6 @@ variants:[
 {brand:"সিলন",size:"৫০ গ্রাম প্যাকেট",price:30},
 {brand:"সিলন",size:"১০০ গ্রাম প্যাকেট",price:60},
 {brand:"সিলন",size:"২০০ গ্রাম প্যাকেট",price:120},
-
 {brand:"সিলন গোল্ড",size:"৫০০ গ্রাম প্যাকেট",price:230},
 
 {brand:"তাজা",size:"৫০ গ্রাম প্যাকেট",price:30},
@@ -1872,6 +2177,8 @@ variants:[
 {
 name:"কফি",
 icon:"☕",
+image:"কফি.jpg",
+
 variants:[
 
 {brand:"Nescafe",size:"০.৯ গ্রাম",price:5},
@@ -1891,6 +2198,8 @@ variants:[
 {
 name:"হরলিক্স",
 icon:"🥛",
+image:"হরলিক্স.jpg",
+
 variants:[
 
 {brand:"Horlicks",size:"গ্রাম",price:0},
@@ -1904,6 +2213,8 @@ variants:[
 {
 name:"কমপ্লান",
 icon:"🥛",
+image:"কমপ্লান.jpg",
+
 variants:[
 {brand:"Complan",size:"কৌটা",price:0}
 ]
@@ -1912,13 +2223,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   7. বিস্কুট ও স্ন্যাকস
+========================= */
+
 {
 name:"🍪 বিস্কুট ও স্ন্যাকস",
+
 products:[
 
 {
 name:"বিস্কুট/Dry Cake",
 icon:"🍪",
+image:"বিস্কুট.jpg",
+
 variants:[
 
 {brand:"Olympic Lexus",size:"প্যাকেট",price:80},
@@ -1944,6 +2263,8 @@ variants:[
 {
 name:"টোস্ট বিস্কুট",
 icon:"🍞",
+image:"টোস্ট-বিস্কুট.jpg",
+
 variants:[
 
 {brand:"Olympic Pre- Toast",size:"প্যাকেট",price:60},
@@ -1958,6 +2279,8 @@ variants:[
 {
 name:"নুডলস",
 icon:"🍜",
+image:"নুডলস.jpg",
+
 variants:[
 
 {brand:"Maggi",size:"৪ প্যাকেট",price:90},
@@ -1974,6 +2297,7 @@ variants:[
 {brand:"Olympic Foodie",size:"৮ প্যাকেট",price:120},
 {brand:"Olympic Foodie",size:"১২ প্যাকেট",price:180},
 {brand:"Olympic Foodie",size:"১৬ প্যাকেট",price:300},
+
 {brand:"Olympic Ramen",size:"৪ প্যাকেট",price:100},
 {brand:"Olympic Ramen",size:"৮ প্যাকেট",price:200},
 
@@ -1988,6 +2312,8 @@ variants:[
 {
 name:"চানাচুর",
 icon:"🥜",
+image:"চানাচুর.jpg",
+
 variants:[
 
 {brand:"রুচি বারবিকিউ",size:"মিনি প্যাকেট",price:10},
@@ -2002,7 +2328,6 @@ variants:[
 
 {brand:"Bombay",size:"১৫০ গ্রাম",price:50},
 {brand:"Bombay",size:"৩০০ গ্রাম",price:100},
-
 {brand:"সাধারণ",size:"১ কেজি",price:120}
 
 ]
@@ -2011,6 +2336,8 @@ variants:[
 {
 name:"চিপস",
 icon:"🥔",
+image:"চিপস.jpg",
+
 variants:[
 
 {brand:"অন্যান্য",size:"প্যাকেট",price:10},
@@ -2022,13 +2349,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   8. পরিষ্কার-পরিচ্ছন্নতা
+========================= */
+
 {
 name:"🧹 পরিষ্কার-পরিচ্ছন্নতা",
+
 products:[
 
 {
 name:"কাপড় ধোয়ার পাউডার",
 icon:"🧺",
+image:"কাপড়-ধোয়ার-পাউডার.jpg",
+
 variants:[
 
 {brand:"Wheel",size:"২০০ গ্রাম",price:30},
@@ -2066,6 +2401,8 @@ variants:[
 {
 name:"কাপড় ধোয়ার সাবান",
 icon:"🧼",
+image:"কাপড়-ধোয়ার-সাবান.jpg",
+
 variants:[
 
 {brand:"Tibet",size:"পিস",price:0},
@@ -2077,6 +2414,8 @@ variants:[
 {
 name:"গোসলের সাবান",
 icon:"🧼",
+image:"গোসলের-সাবান.jpg",
+
 variants:[
 
 {brand:"Lux",size:"১০০ গ্রাম",price:0},
@@ -2089,6 +2428,8 @@ variants:[
 {
 name:"শ্যাম্পু",
 icon:"🧴",
+image:"শ্যাম্পু.jpg",
+
 variants:[
 
 {brand:"Sunsilk",size:"প্যাকেট",price:0},
@@ -2102,6 +2443,8 @@ variants:[
 {
 name:"টুথপেস্ট",
 icon:"🪥",
+image:"টুথপেস্ট.jpg",
+
 variants:[
 
 {brand:"Colgate",size:"পিস",price:0},
@@ -2114,6 +2457,8 @@ variants:[
 {
 name:"টুথব্রাশ",
 icon:"🪥",
+image:"টুথব্রাশ.jpg",
+
 variants:[
 
 {brand:"Colgate",size:"পিস",price:0},
@@ -2125,6 +2470,8 @@ variants:[
 {
 name:"ডিশওয়াশ বার",
 icon:"🧽",
+image:"ডিশওয়াশ-বার.jpg",
+
 variants:[
 
 {brand:"Vim",size:"পিস",price:0},
@@ -2136,6 +2483,8 @@ variants:[
 {
 name:"ব্লিচিং পাউডার",
 icon:"🧹",
+image:"ব্লিচিং-পাউডার.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"প্যাকেট",price:0}
 ]
@@ -2144,13 +2493,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   9. অন্যান্য
+========================= */
+
 {
 name:"🛍️ অন্যান্য প্রয়োজনীয় পণ্য",
+
 products:[
 
 {
 name:"ম্যাচ",
 icon:"🔥",
+image:"ম্যাচ.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"বক্স",price:0}
 ]
@@ -2159,6 +2516,8 @@ variants:[
 {
 name:"মোমবাতি",
 icon:"🕯️",
+image:"মোমবাতি.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"প্যাকেট",price:0}
 ]
@@ -2167,6 +2526,8 @@ variants:[
 {
 name:"টিস্যু",
 icon:"🧻",
+image:"টিস্যু.jpg",
+
 variants:[
 
 {brand:"Bashundhara",size:"প্যাকেট",price:0},
@@ -2178,6 +2539,8 @@ variants:[
 {
 name:"অ্যালুমিনিয়াম ফয়েল",
 icon:"📦",
+image:"অ্যালুমিনিয়াম-ফয়েল.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"রোল",price:0}
 ]
@@ -2186,13 +2549,21 @@ variants:[
 ]
 },
 
+
+/* =========================
+   10. প্রসাধনী
+========================= */
+
 {
 name:"💄 প্রসাধনী ও পার্সোনাল কেয়ার",
+
 products:[
 
 {
 name:"ফেসওয়াশ",
 icon:"🧴",
+image:"ফেসওয়াশ.jpg",
+
 variants:[
 
 {brand:"Pond's",size:"পিস",price:0},
@@ -2205,6 +2576,8 @@ variants:[
 {
 name:"হেয়ার অয়েল",
 icon:"🧴",
+image:"হেয়ার-অয়েল.jpg",
+
 variants:[
 
 {brand:"Parachute",size:"বোতল",price:0},
@@ -2216,6 +2589,8 @@ variants:[
 {
 name:"পারফিউম",
 icon:"🌸",
+image:"পারফিউম.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"পিস",price:0}
 ]
@@ -2224,6 +2599,8 @@ variants:[
 {
 name:"বডি লোশন",
 icon:"🧴",
+image:"বডি-লোশন.jpg",
+
 variants:[
 
 {brand:"Vaseline",size:"বোতল",price:0},
@@ -2235,6 +2612,8 @@ variants:[
 {
 name:"চিরুনি",
 icon:"🪮",
+image:"চিরুনি.jpg",
+
 variants:[
 {brand:"সাধারণ",size:"পিস",price:0}
 ]
@@ -2243,21 +2622,32 @@ variants:[
 ]
 },
 
+
+/* =========================
+   11. বেভারেজ
+========================= */
+
 {
 name:"🥤 বেভারেজ ও পানীয়",
+
 products:[
 
 {
 name:"কোল্ড ড্রিংকস",
 icon:"🥤",
+image:"কোল্ড-ড্রিংকস.jpg",
+
 variants:[
 
 {brand:"Coca-Cola",size:"250ml",price:0},
 {brand:"Coca-Cola",size:"500ml",price:0},
+
 {brand:"Pepsi",size:"250ml",price:0},
 {brand:"Pepsi",size:"500ml",price:0},
+
 {brand:"Sprite",size:"250ml",price:0},
 {brand:"Sprite",size:"500ml",price:0},
+
 {brand:"7UP",size:"250ml",price:0},
 {brand:"7UP",size:"500ml",price:0}
 
@@ -2267,6 +2657,8 @@ variants:[
 {
 name:"মিনারেল ওয়াটার",
 icon:"💧",
+image:"পানি.jpg",
+
 variants:[
 
 {brand:"Mum",size:"500ml",price:20},
@@ -2291,6 +2683,8 @@ variants:[
 {
 name:"জুস",
 icon:"🧃",
+image:"জুস.jpg",
+
 variants:[
 
 {brand:"Frutika",size:"প্যাকেট",price:0},
@@ -2303,6 +2697,8 @@ variants:[
 {
 name:"এনার্জি ড্রিংক",
 icon:"⚡",
+image:"এনার্জি-ড্রিংক.jpg",
+
 variants:[
 
 {brand:"Speed Can",size:"250ml",price:50},
@@ -2314,83 +2710,143 @@ variants:[
 }
 
 ]
+
 }
 
 ];
 
-/* =====================================================
-   CATEGORY DROPDOWN
-   ===================================================== */
 
-const categorySelect=document.getElementById("categorySelect");
+/* =========================================================
+   IMAGE SYSTEM
+========================================================= */
+
+/*
+   এই ফাংশন পণ্যের image ফাইলটি
+   images ফোল্ডারের ভিতর থেকে খুঁজবে।
+
+   উদাহরণ:
+   image:"আলু.jpg"
+
+   তাহলে:
+   images/আলু.jpg
+
+   ছবি না থাকলে Emoji দেখাবে।
+*/
+
+function createProductImage(product){
+
+const imageBox=document.createElement("div");
+
+imageBox.className="product-image-box";
+
+const img=document.createElement("img");
+
+img.className="product-image";
+
+const fallback=document.createElement("div");
+
+fallback.className="product-icon";
+
+fallback.textContent=product.icon || "🛒";
+
+imageBox.appendChild(img);
+
+imageBox.appendChild(fallback);
+
+/* প্রথমে Emoji লুকানো থাকবে */
+
+fallback.style.display="none";
+
+/* ছবি থাকলে দেখাবে */
+
+if(product.image){
+
+img.src="images/"+product.image;
+
+img.alt=product.name;
+
+img.onload=function(){
+
+img.style.display="block";
+fallback.style.display="none";
+
+};
+
+img.onerror=function(){
+
+img.style.display="none";
+fallback.style.display="flex";
+
+};
+
+}else{
+
+img.style.display="none";
+fallback.style.display="flex";
+
+}
+
+return imageBox.outerHTML;
+
+}
+
+
+/* =========================================================
+   CATEGORY DROPDOWN
+========================================================= */
+
+const categorySelect=
+document.getElementById("categorySelect");
+
 
 categories.forEach((category,index)=>{
 
-const option=document.createElement("option");
+const option=
+document.createElement("option");
 
 option.value=index;
-option.textContent=category.name;
+
+option.textContent=
+category.name;
 
 categorySelect.appendChild(option);
 
 });
 
-/* =====================================================
+
+/* =========================================================
    ORDER LIST
-   ===================================================== */
+========================================================= */
 
 let orderList=[];
 
-/* =====================================================
-   IMAGE SYSTEM
-   ===================================================== */
 
-/*
-   ছবি রাখার নিয়ম:
-
-   images/পণ্যের নাম.jpg
-
-   যেমন:
-   images/সরিষার তেল.jpg
-   images/চিনি.jpg
-   images/আলু.jpg
-
-   পণ্যের নামে "/" থাকলে সেটি "-" হবে।
-
-   যেমন:
-   images/মরিচ গুঁড়া-শুকনা মরিচ.jpg
-
-   ছবি না থাকলে product.icon দেখাবে।
-*/
-
-function getProductImage(product){
-
-return "images/" +
-String(product.name)
-.replaceAll("/","-")
-+ ".jpg";
-
-}
-
-/* =====================================================
+/* =========================================================
    SEARCH
-   ===================================================== */
+========================================================= */
 
 function syncHeaderSearch(){
 
-const input=document.getElementById("headerSearchInput");
+const input=
+document.getElementById(
+"headerSearchInput"
+);
 
 displayProducts(input.value);
 
 }
 
-/* =====================================================
+
+/* =========================================================
    DISPLAY PRODUCTS
-   ===================================================== */
+========================================================= */
 
 function displayProducts(searchValue=null){
 
-const container=document.getElementById("productsContainer");
+const container=
+document.getElementById(
+"productsContainer"
+);
 
 container.innerHTML="";
 
@@ -2398,11 +2854,15 @@ let search;
 
 if(searchValue!==null){
 
-search=searchValue.toLowerCase().trim();
+search=
+searchValue
+.toLowerCase()
+.trim();
 
 }else{
 
-search=document
+search=
+document
 .getElementById("headerSearchInput")
 .value
 .toLowerCase()
@@ -2410,31 +2870,48 @@ search=document
 
 }
 
-const selected=categorySelect.value;
+const selected=
+categorySelect.value;
 
 let found=false;
 
-categories.forEach((category,categoryIndex)=>{
+
+categories.forEach(
+(category,categoryIndex)=>{
 
 if(
 selected!=="all" &&
 Number(selected)!==categoryIndex
-)return;
+){
 
-const products=category.products.filter(product=>{
+return;
+
+}
+
+
+const products=
+category.products.filter(
+product=>{
 
 const text=(
-product.name+" "+
-product.variants.map(v=>v.brand).join(" ")
+
+product.name+
+" "+
+product.variants
+.map(v=>v.brand)
+.join(" ")
+
 ).toLowerCase();
 
 return text.includes(search);
 
 });
 
+
 if(products.length===0)return;
 
 found=true;
+
 
 let html=`
 
@@ -2445,22 +2922,38 @@ ${category.name}
 </h2>
 
 <div class="products">
+
 `;
+
 
 products.forEach(product=>{
 
-const productIndex=category.products.indexOf(product);
+const productIndex=
+category.products.indexOf(product);
+
 
 const brands=[
-...new Set(product.variants.map(v=>v.brand))
+...new Set(
+product.variants.map(
+v=>v.brand
+)
+)
 ];
 
-const firstBrand=brands[0];
+
+const firstBrand=
+brands[0];
+
 
 const firstBrandVariants=
-product.variants.filter(v=>v.brand===firstBrand);
+product.variants.filter(
+v=>v.brand===firstBrand
+);
 
-const imagePath=getProductImage(product);
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
 
 html+=`
 
@@ -2468,20 +2961,11 @@ html+=`
 class="product"
 id="product-${categoryIndex}-${productIndex}">
 
-<div class="product-icon">
+${createProductImage(product)}
 
-<img
-src="${imagePath}"
-alt="${escapeHTML(product.name)}"
-onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-<span class="fallback-icon">
-${product.icon}
-</span>
-
-</div>
-
-<h3>${product.name}</h3>
+<h3>
+${product.name}
+</h3>
 
 <label class="select-label">
 🏷️ ব্র্যান্ড
@@ -2494,6 +2978,7 @@ onchange="updateProductOptions(${categoryIndex},${productIndex})">
 
 `;
 
+
 brands.forEach(brand=>{
 
 html+=`
@@ -2502,7 +2987,7 @@ html+=`
 value="${escapeHTML(brand)}"
 ${brand===firstBrand?"selected":""}>
 
-${brand}
+${escapeHTML(brand)}
 
 </option>
 
@@ -2510,9 +2995,11 @@ ${brand}
 
 });
 
+
 html+=`
 
 </select>
+
 
 <label class="select-label">
 📦 সাইজ / ওজন
@@ -2525,7 +3012,9 @@ onchange="updateProductPrice(${categoryIndex},${productIndex})">
 
 `;
 
-firstBrandVariants.forEach((variant,i)=>{
+
+firstBrandVariants.forEach(
+(variant,i)=>{
 
 html+=`
 
@@ -2533,7 +3022,7 @@ html+=`
 value="${escapeHTML(variant.size)}"
 ${i===0?"selected":""}>
 
-${variant.size}
+${escapeHTML(variant.size)}
 
 </option>
 
@@ -2541,9 +3030,11 @@ ${variant.size}
 
 });
 
+
 html+=`
 
 </select>
+
 
 <label class="select-label">
 💰 দাম
@@ -2558,18 +3049,22 @@ disabled>
 
 ${
 firstBrandVariants[0].price>0
-?"৳ "+firstBrandVariants[0].price
-:"মূল্য পরে জানানো হবে"
+?
+"৳ "+firstBrandVariants[0].price
+:
+"মূল্য পরে জানানো হবে"
 }
 
 </option>
 
 </select>
 
+
 <div
 class="added-message"
 id="added-${categoryIndex}-${productIndex}">
 </div>
+
 
 <button
 class="order-btn"
@@ -2585,9 +3080,11 @@ onclick="addSelectedProduct(${categoryIndex},${productIndex})">
 
 });
 
+
 html+=`
 
 </div>
+
 </div>
 
 `;
@@ -2596,141 +3093,223 @@ container.innerHTML+=html;
 
 });
 
+
 document.getElementById("noResult")
-.style.display=found?"none":"block";
+.style.display=
+found
+?"none"
+:"block";
 
 }
 
-/* =====================================================
+
+/* =========================================================
    ESCAPE HTML
-   ===================================================== */
+========================================================= */
 
 function escapeHTML(text){
 
 return String(text)
+
 .replace(/&/g,"&amp;")
+
 .replace(/</g,"&lt;")
+
 .replace(/>/g,"&gt;")
+
 .replace(/"/g,"&quot;")
+
 .replace(/'/g,"&#039;");
 
 }
 
-/* =====================================================
-   BRAND CHANGE
-   ===================================================== */
 
-function updateProductOptions(categoryIndex,productIndex){
+/* =========================================================
+   BRAND CHANGE
+========================================================= */
+
+function updateProductOptions(
+categoryIndex,
+productIndex
+){
 
 const product=
-categories[categoryIndex].products[productIndex];
+categories[
+categoryIndex
+].products[
+productIndex
+];
+
 
 const brandSelect=
 document.getElementById(
 `brand-${categoryIndex}-${productIndex}`
 );
 
+
 const sizeSelect=
 document.getElementById(
 `size-${categoryIndex}-${productIndex}`
 );
 
-const brand=brandSelect.value;
+
+const brand=
+brandSelect.value;
+
 
 const variants=
-product.variants.filter(v=>v.brand===brand);
+product.variants.filter(
+v=>v.brand===brand
+);
+
 
 sizeSelect.innerHTML="";
 
-variants.forEach((variant,index)=>{
 
-const option=document.createElement("option");
+variants.forEach(
+(variant,index)=>{
 
-option.value=variant.size;
-option.textContent=variant.size;
+const option=
+document.createElement("option");
 
-if(index===0)option.selected=true;
+option.value=
+variant.size;
 
-sizeSelect.appendChild(option);
+option.textContent=
+variant.size;
+
+if(index===0)
+option.selected=true;
+
+sizeSelect.appendChild(
+option
+);
 
 });
 
-updateProductPrice(categoryIndex,productIndex);
+
+updateProductPrice(
+categoryIndex,
+productIndex
+);
 
 }
 
-/* =====================================================
-   PRICE CHANGE
-   ===================================================== */
 
-function updateProductPrice(categoryIndex,productIndex){
+/* =========================================================
+   PRICE CHANGE
+========================================================= */
+
+function updateProductPrice(
+categoryIndex,
+productIndex
+){
 
 const product=
-categories[categoryIndex].products[productIndex];
+categories[
+categoryIndex
+].products[
+productIndex
+];
+
 
 const brand=
 document.getElementById(
 `brand-${categoryIndex}-${productIndex}`
 ).value;
 
+
 const size=
 document.getElementById(
 `size-${categoryIndex}-${productIndex}`
 ).value;
 
-const variant=product.variants.find(
-v=>v.brand===brand && v.size===size
+
+const variant=
+product.variants.find(
+v=>
+v.brand===brand &&
+v.size===size
 );
+
 
 const priceSelect=
 document.getElementById(
 `price-${categoryIndex}-${productIndex}`
 );
 
+
 priceSelect.innerHTML="";
 
-const option=document.createElement("option");
+
+const option=
+document.createElement("option");
+
 
 option.textContent=
-variant && variant.price>0
-?"৳ "+variant.price
-:"মূল্য পরে জানানো হবে";
+variant &&
+variant.price>0
+?
+"৳ "+variant.price
+:
+"মূল্য পরে জানানো হবে";
 
-priceSelect.appendChild(option);
+
+priceSelect.appendChild(
+option
+);
 
 }
 
-/* =====================================================
-   ADD PRODUCT
-   ===================================================== */
 
-function addSelectedProduct(categoryIndex,productIndex){
+/* =========================================================
+   ADD PRODUCT
+========================================================= */
+
+function addSelectedProduct(
+categoryIndex,
+productIndex
+){
 
 const product=
-categories[categoryIndex].products[productIndex];
+categories[
+categoryIndex
+].products[
+productIndex
+];
+
 
 const brand=
 document.getElementById(
 `brand-${categoryIndex}-${productIndex}`
 ).value;
 
+
 const size=
 document.getElementById(
 `size-${categoryIndex}-${productIndex}`
 ).value;
 
-const variant=product.variants.find(
-v=>v.brand===brand && v.size===size
+
+const variant=
+product.variants.find(
+v=>
+v.brand===brand &&
+v.size===size
 );
+
 
 if(!variant)return;
 
-const existing=orderList.find(
+
+const existing=
+orderList.find(
 item=>
 item.name===product.name &&
 item.brand===brand &&
 item.size===size
 );
+
 
 if(existing){
 
@@ -2739,44 +3318,69 @@ existing.qty++;
 }else{
 
 orderList.push({
+
 name:product.name,
+
 brand:brand,
+
 size:size,
+
 price:variant.price,
+
 qty:1
+
 });
 
 }
+
 
 const message=
 document.getElementById(
 `added-${categoryIndex}-${productIndex}`
 );
 
-message.innerText="✓ অর্ডারে যোগ হয়েছে";
+
+message.innerText=
+"✓ অর্ডারে যোগ হয়েছে";
+
 
 setTimeout(()=>{
+
 message.innerText="";
+
 },1500);
+
 
 renderOrder();
 
 }
 
-/* =====================================================
+
+/* =========================================================
    RENDER ORDER
-   ===================================================== */
+========================================================= */
 
 function renderOrder(){
 
-const box=document.getElementById("orderItems");
+const box=
+document.getElementById(
+"orderItems"
+);
+
 
 if(orderList.length===0){
 
 box.innerHTML=`
 
-<p style="text-align:center;color:#777;padding:15px;">
+<p
+style="
+text-align:center;
+color:#777;
+padding:15px;
+">
+
 এখনো কোনো পণ্য অর্ডারে যোগ করা হয়নি।
+
 </p>
 
 `;
@@ -2785,22 +3389,32 @@ box.innerHTML=`
 
 box.innerHTML="";
 
-orderList.forEach((item,index)=>{
+
+orderList.forEach(
+(item,index)=>{
 
 const itemTotal=
 item.price>0
-?item.price*item.qty
-:0;
+?
+item.price*item.qty
+:
+0;
+
 
 let priceHTML;
+
 
 if(item.price>0){
 
 priceHTML=`
 
 <span class="item-price">
-৳ ${item.price} × ${item.qty}
-= ৳ ${itemTotal}
+
+৳ ${item.price}
+× ${item.qty}
+=
+৳ ${itemTotal}
+
 </span>
 
 `;
@@ -2810,30 +3424,41 @@ priceHTML=`
 priceHTML=`
 
 <span class="price-pending">
+
 মূল্য পরে জানানো হবে
+
 </span>
 
 `;
 
 }
 
+
 box.innerHTML+=`
 
-<div class="selected-product">
+<div
+class="selected-product">
 
-<div class="selected-top">
+<div
+class="selected-top">
 
-<div class="selected-info">
+<div
+class="selected-info">
 
-<strong>${item.name}</strong>
+<strong>
+${item.name}
+</strong>
 
-<div class="item-details">
+<div
+class="item-details">
 
-🏷️ ব্র্যান্ড: ${item.brand}
+🏷️ ব্র্যান্ড:
+${item.brand}
 
 <br>
 
-📦 সাইজ: ${item.size}
+📦 সাইজ:
+${item.size}
 
 </div>
 
@@ -2843,12 +3468,18 @@ ${priceHTML}
 
 </div>
 
-<div class="order-controls">
 
-<div class="quantity">
+<div
+class="order-controls">
 
-<button onclick="changeQty(${index},-1)">
+<div
+class="quantity">
+
+<button
+onclick="changeQty(${index},-1)">
+
 −
+
 </button>
 
 <input
@@ -2857,11 +3488,15 @@ min="1"
 value="${item.qty}"
 onchange="setQty(${index},this.value)">
 
-<button onclick="changeQty(${index},1)">
+<button
+onclick="changeQty(${index},1)">
+
 +
+
 </button>
 
 </div>
+
 
 <button
 class="remove"
@@ -2881,67 +3516,109 @@ onclick="removeItem(${index})">
 
 }
 
+
 calculateTotal();
+
 
 let count=0;
 
-orderList.forEach(item=>{
+
+orderList.forEach(
+item=>{
+
 count+=item.qty;
+
 });
 
-document.getElementById("orderCount").innerText=count;
+
+document.getElementById(
+"orderCount"
+).innerText=count;
 
 }
 
-/* =====================================================
-   QUANTITY
-   ===================================================== */
 
-function changeQty(index,value){
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+function changeQty(
+index,
+value
+){
 
 orderList[index].qty+=value;
 
-if(orderList[index].qty<1)
+
+if(orderList[index].qty<1){
+
 orderList[index].qty=1;
+
+}
+
 
 renderOrder();
 
 }
 
-function setQty(index,value){
+
+function setQty(
+index,
+value
+){
 
 value=parseInt(value);
 
-if(isNaN(value)||value<1)
+
+if(
+isNaN(value) ||
+value<1
+){
+
 value=1;
+
+}
+
 
 orderList[index].qty=value;
 
+
 renderOrder();
 
 }
 
-/* =====================================================
+
+/* =========================================================
    REMOVE
-   ===================================================== */
+========================================================= */
 
 function removeItem(index){
 
-orderList.splice(index,1);
+orderList.splice(
+index,
+1
+);
 
 renderOrder();
 
 }
 
-/* =====================================================
+
+/* =========================================================
    CLEAR ORDER
-   ===================================================== */
+========================================================= */
 
 function clearOrder(){
 
-if(orderList.length===0)return;
+if(orderList.length===0)
+return;
 
-if(confirm("আপনি কি সম্পূর্ণ অর্ডার খালি করতে চান?")){
+
+if(
+confirm(
+"আপনি কি সম্পূর্ণ অর্ডার খালি করতে চান?"
+)
+){
 
 orderList=[];
 
@@ -2951,20 +3628,26 @@ renderOrder();
 
 }
 
-/* =====================================================
+
+/* =========================================================
    TOTAL
-   ===================================================== */
+========================================================= */
 
 function calculateTotal(){
 
 let subtotal=0;
+
 let pending=false;
 
-orderList.forEach(item=>{
+
+orderList.forEach(
+item=>{
 
 if(item.price>0){
 
-subtotal+=item.price*item.qty;
+subtotal+=
+item.price*
+item.qty;
 
 }else{
 
@@ -2974,70 +3657,108 @@ pending=true;
 
 });
 
+
 const delivery=
 orderList.length>0
-?99
-:0;
+?
+99
+:
+0;
 
-document.getElementById("subtotal").innerText=subtotal;
 
-document.getElementById("deliveryCharge").innerText=delivery;
+document.getElementById(
+"subtotal"
+).innerText=
+subtotal;
+
+
+document.getElementById(
+"deliveryCharge"
+).innerText=
+delivery;
+
 
 if(pending){
 
-document.getElementById("grandTotalText").innerText=
-"৳ "+(subtotal+delivery)+" + মূল্য পরে";
+document.getElementById(
+"grandTotalText"
+).innerText=
+"৳ "+
+(subtotal+delivery)+
+" + মূল্য পরে";
 
-document.getElementById("pendingNotice")
-.style.display="block";
+
+document.getElementById(
+"pendingNotice"
+).style.display=
+"block";
 
 }else{
 
-document.getElementById("grandTotalText").innerText=
-"৳ "+(subtotal+delivery);
+document.getElementById(
+"grandTotalText"
+).innerText=
+"৳ "+
+(subtotal+delivery);
 
-document.getElementById("pendingNotice")
-.style.display="none";
+
+document.getElementById(
+"pendingNotice"
+).style.display=
+"none";
 
 }
 
 }
 
-/* =====================================================
+
+/* =========================================================
    OPEN ORDER
-   ===================================================== */
+========================================================= */
 
 function openOrder(){
 
-document.getElementById("orderPanel")
-.style.display="block";
+document.getElementById(
+"orderPanel"
+).style.display=
+"block";
 
-document.body.style.overflow="hidden";
+
+document.body.style.overflow=
+"hidden";
+
 
 renderOrder();
 
 }
 
-/* =====================================================
+
+/* =========================================================
    CLOSE ORDER
-   ===================================================== */
+========================================================= */
 
 function closeOrder(){
 
-document.getElementById("orderPanel")
-.style.display="none";
+document.getElementById(
+"orderPanel"
+).style.display=
+"none";
 
-document.body.style.overflow="auto";
+
+document.body.style.overflow=
+"auto";
 
 }
 
-/* =====================================================
+
+/* =========================================================
    CONTINUE SHOPPING
-   ===================================================== */
+========================================================= */
 
 function continueShopping(){
 
 closeOrder();
+
 
 setTimeout(()=>{
 
@@ -3051,9 +3772,10 @@ behavior:"smooth"
 
 }
 
-/* =====================================================
+
+/* =========================================================
    CLICK OUTSIDE
-   ===================================================== */
+========================================================= */
 
 document
 .getElementById("orderPanel")
@@ -3069,9 +3791,10 @@ closeOrder();
 
 });
 
-/* =====================================================
+
+/* =========================================================
    WHATSAPP ORDER
-   ===================================================== */
+========================================================= */
 
 function sendOrder(){
 
@@ -3085,77 +3808,138 @@ return;
 
 }
 
+
 const name=
-document.getElementById("customerName")
-.value.trim();
+document.getElementById(
+"customerName"
+).value.trim();
+
 
 const phone=
-document.getElementById("customerPhone")
-.value.trim();
+document.getElementById(
+"customerPhone"
+).value.trim();
+
 
 const address=
-document.getElementById("customerAddress")
-.value.trim();
+document.getElementById(
+"customerAddress"
+).value.trim();
+
 
 if(!name){
 
-alert("দয়া করে আপনার নাম লিখুন।");
+alert(
+"দয়া করে আপনার নাম লিখুন।"
+);
 
-document.getElementById("customerName").focus();
+document.getElementById(
+"customerName"
+).focus();
 
 return;
 
 }
+
 
 if(!phone){
 
-alert("দয়া করে আপনার মোবাইল নম্বর লিখুন।");
+alert(
+"দয়া করে আপনার মোবাইল নম্বর লিখুন।"
+);
 
-document.getElementById("customerPhone").focus();
+document.getElementById(
+"customerPhone"
+).focus();
 
 return;
 
 }
+
 
 if(!address){
 
-alert("দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।");
+alert(
+"দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
+);
 
-document.getElementById("customerAddress").focus();
+document.getElementById(
+"customerAddress"
+).focus();
 
 return;
 
 }
+
 
 let message=
 "🛒 SIX M STORE - নতুন অর্ডার\n\n";
 
-message+="👤 নাম: "+name+"\n";
 
-message+="📞 মোবাইল: "+phone+"\n";
+message+=
+"👤 নাম: "+
+name+
+"\n";
 
-message+="📍 ঠিকানা: "+address+"\n\n";
 
-message+="📦 অর্ডারের তালিকা:\n\n";
+message+=
+"📞 মোবাইল: "+
+phone+
+"\n";
+
+
+message+=
+"📍 ঠিকানা: "+
+address+
+"\n\n";
+
+
+message+=
+"📦 অর্ডারের তালিকা:\n\n";
+
 
 let subtotal=0;
+
 let hasPending=false;
 
-orderList.forEach((item,index)=>{
 
-message+=(index+1)+". "+item.name+"\n";
+orderList.forEach(
+(item,index)=>{
 
-message+="   🏷️ ব্র্যান্ড: "+item.brand+"\n";
+message+=
+(index+1)+
+". "+
+item.name+
+"\n";
 
-message+="   📦 সাইজ: "+item.size+"\n";
 
-message+="   🔢 পরিমাণ: "+item.qty+"\n";
+message+=
+"   🏷️ ব্র্যান্ড: "+
+item.brand+
+"\n";
+
+
+message+=
+"   📦 সাইজ: "+
+item.size+
+"\n";
+
+
+message+=
+"   🔢 পরিমাণ: "+
+item.qty+
+"\n";
+
 
 if(item.price>0){
 
-const total=item.price*item.qty;
+const total=
+item.price*
+item.qty;
+
 
 subtotal+=total;
+
 
 message+=
 "   💰 মূল্য: ৳"+
@@ -3170,30 +3954,38 @@ total+
 
 hasPending=true;
 
-message+="   💰 মূল্য: পরে জানানো হবে\n";
+
+message+=
+"   💰 মূল্য: পরে জানানো হবে\n";
 
 }
+
 
 message+="\n";
 
 });
 
+
 const delivery=99;
+
 
 message+=
 "💰 নির্ধারিত পণ্যের মোট: ৳"+
 subtotal+
 "\n";
 
+
 message+=
 "🚚 ডেলিভারি চার্জ: ৳"+
 delivery+
 "\n";
 
+
 if(hasPending){
 
 message+=
 "⚠️ কিছু পণ্যের মূল্য পরে জানানো হবে।\n";
+
 
 message+=
 "💵 চূড়ান্ত মোট মূল্য: মূল্য নিশ্চিত করার পর জানানো হবে।\n";
@@ -3207,20 +3999,25 @@ message+=
 
 }
 
+
 message+=
 "\nধন্যবাদ SIX M STORE-এর সাথে অর্ডার করার জন্য।";
+
 
 const whatsappURL=
 "https://wa.me/8801737781096?text="+
 encodeURIComponent(message);
 
-window.location.href=whatsappURL;
+
+window.location.href=
+whatsappURL;
 
 }
 
-/* =====================================================
-   INITIAL
-   ===================================================== */
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
 
 displayProducts();
 
