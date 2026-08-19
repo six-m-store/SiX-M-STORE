@@ -157,6 +157,7 @@ font-weight:900
 }
 
 @keyframes deliveryRunning{
+
 0%{
 transform:translateX(0)
 }
@@ -164,6 +165,7 @@ transform:translateX(0)
 100%{
 transform:translateX(-100%)
 }
+
 }
 
 /* =========================
@@ -321,8 +323,6 @@ object-fit:contain;
 padding:7px;
 display:block
 }
-
-/* ছবির ফাইল না থাকলে Emoji */
 
 .product-icon{
 width:100%;
@@ -951,8 +951,6 @@ gap:9px
 padding:13px 7px;
 border-radius:13px
 }
-
-/* মোবাইলে ছবির সাইজ */
 
 .product-image-box{
 width:82px;
@@ -2717,74 +2715,300 @@ variants:[
 
 
 /* =========================================================
-   IMAGE SYSTEM
+   UNIVERSAL IMAGE SYSTEM
 ========================================================= */
 
 /*
-   এই ফাংশন পণ্যের image ফাইলটি
-   images ফোল্ডারের ভিতর থেকে খুঁজবে।
+   এই Image System:
 
-   উদাহরণ:
-   image:"আলু.jpg"
-
-   তাহলে:
-   images/আলু.jpg
-
-   ছবি না থাকলে Emoji দেখাবে।
+   1. images/ ফোল্ডার খুঁজবে
+   2. image/ ফোল্ডারও খুঁজবে
+   3. JPG সাপোর্ট করবে
+   4. JPEG সাপোর্ট করবে
+   5. PNG সাপোর্ট করবে
+   6. WEBP সাপোর্ট করবে
+   7. বাংলা filename সাপোর্ট করবে
+   8. Space / special character সাপোর্ট করবে
+   9. ছবি না থাকলে Emoji দেখাবে
+   10. একটি ছবি missing হলেও website blank হবে না
 */
 
-function createProductImage(product){
 
-const imageBox=document.createElement("div");
+const IMAGE_FOLDERS = [
 
-imageBox.className="product-image-box";
+"images/",
+"./images/",
+"image/",
+"./image/"
 
-const img=document.createElement("img");
+];
 
-img.className="product-image";
 
-const fallback=document.createElement("div");
+const IMAGE_EXTENSIONS = [
 
-fallback.className="product-icon";
+"",
+".jpg",
+".jpeg",
+".png",
+".webp"
 
-fallback.textContent=product.icon || "🛒";
+];
 
-imageBox.appendChild(img);
 
-imageBox.appendChild(fallback);
+/* =========================================================
+   IMAGE URL
+========================================================= */
 
-/* প্রথমে Emoji লুকানো থাকবে */
+function makeImageURL(
+folder,
+filename
+){
 
-fallback.style.display="none";
+return encodeURI(
+folder + filename
+);
 
-/* ছবি থাকলে দেখাবে */
+}
 
-if(product.image){
 
-img.src="images/"+product.image;
+/* =========================================================
+   IMAGE CANDIDATES
+========================================================= */
 
-img.alt=product.name;
+function getImageCandidates(
+filename
+){
 
-img.onload=function(){
+const candidates=[];
 
-img.style.display="block";
-fallback.style.display="none";
 
-};
+if(!filename){
 
-img.onerror=function(){
+return candidates;
 
-img.style.display="none";
-fallback.style.display="flex";
+}
 
-};
+
+filename=
+String(filename)
+.trim();
+
+
+const hasExtension=
+/\.(jpg|jpeg|png|webp)$/i
+.test(filename);
+
+
+IMAGE_FOLDERS.forEach(
+folder=>{
+
+if(hasExtension){
+
+candidates.push(
+makeImageURL(
+folder,
+filename
+)
+);
 
 }else{
 
-img.style.display="none";
-fallback.style.display="flex";
+IMAGE_EXTENSIONS.forEach(
+extension=>{
+
+candidates.push(
+makeImageURL(
+folder,
+filename+
+extension
+)
+);
+
+});
 
 }
+
+});
+
+
+return candidates;
+
+}
+
+
+/* =========================================================
+   CREATE PRODUCT IMAGE
+========================================================= */
+
+function createProductImage(
+product
+){
+
+const imageBox=
+document.createElement(
+"div"
+);
+
+imageBox.className=
+"product-image-box";
+
+
+const img=
+document.createElement(
+"img"
+);
+
+img.className=
+"product-image";
+
+img.alt=
+product.name ||
+"SIX M STORE Product";
+
+img.loading=
+"lazy";
+
+img.decoding=
+"async";
+
+
+const fallback=
+document.createElement(
+"div"
+);
+
+fallback.className=
+"product-icon";
+
+fallback.textContent=
+product.icon ||
+"🛒";
+
+fallback.style.display=
+"none";
+
+
+imageBox.appendChild(
+img
+);
+
+imageBox.appendChild(
+fallback
+);
+
+
+/* =========================================
+   IMAGE না থাকলে Emoji
+========================================= */
+
+if(!product.image){
+
+img.style.display=
+"none";
+
+fallback.style.display=
+"flex";
+
+return imageBox.outerHTML;
+
+}
+
+
+/* =========================================
+   Candidate images
+========================================= */
+
+const candidates=
+getImageCandidates(
+product.image
+);
+
+
+let currentIndex=0;
+
+let imageLoaded=false;
+
+
+/* =========================================
+   পরবর্তী image চেষ্টা
+========================================= */
+
+function tryNextImage(){
+
+if(imageLoaded){
+
+return;
+
+}
+
+
+if(
+currentIndex >=
+candidates.length
+){
+
+img.style.display=
+"none";
+
+fallback.style.display=
+"flex";
+
+return;
+
+}
+
+
+const nextURL=
+candidates[
+currentIndex
+];
+
+
+currentIndex++;
+
+
+img.src=
+nextURL;
+
+}
+
+
+/* =========================================
+   IMAGE LOAD SUCCESS
+========================================= */
+
+img.onload=
+function(){
+
+imageLoaded=true;
+
+img.style.display=
+"block";
+
+fallback.style.display=
+"none";
+
+};
+
+
+/* =========================================
+   IMAGE ERROR
+========================================= */
+
+img.onerror=
+function(){
+
+tryNextImage();
+
+};
+
+
+/* =========================================
+   প্রথম image load
+========================================= */
+
+tryNextImage();
+
 
 return imageBox.outerHTML;
 
@@ -2796,20 +3020,28 @@ return imageBox.outerHTML;
 ========================================================= */
 
 const categorySelect=
-document.getElementById("categorySelect");
+document.getElementById(
+"categorySelect"
+);
 
 
-categories.forEach((category,index)=>{
+categories.forEach(
+(category,index)=>{
 
 const option=
-document.createElement("option");
+document.createElement(
+"option"
+);
 
-option.value=index;
+option.value=
+index;
 
 option.textContent=
 category.name;
 
-categorySelect.appendChild(option);
+categorySelect.appendChild(
+option
+);
 
 });
 
@@ -2832,7 +3064,10 @@ document.getElementById(
 "headerSearchInput"
 );
 
-displayProducts(input.value);
+
+displayProducts(
+input.value
+);
 
 }
 
@@ -2841,21 +3076,26 @@ displayProducts(input.value);
    DISPLAY PRODUCTS
 ========================================================= */
 
-function displayProducts(searchValue=null){
+function displayProducts(
+searchValue=null
+){
 
 const container=
 document.getElementById(
 "productsContainer"
 );
 
+
 container.innerHTML="";
 
+
 let search;
+
 
 if(searchValue!==null){
 
 search=
-searchValue
+String(searchValue)
 .toLowerCase()
 .trim();
 
@@ -2863,15 +3103,19 @@ searchValue
 
 search=
 document
-.getElementById("headerSearchInput")
+.getElementById(
+"headerSearchInput"
+)
 .value
 .toLowerCase()
 .trim();
 
 }
 
+
 const selected=
 categorySelect.value;
+
 
 let found=false;
 
@@ -2879,9 +3123,11 @@ let found=false;
 categories.forEach(
 (category,categoryIndex)=>{
 
+
 if(
 selected!=="all" &&
-Number(selected)!==categoryIndex
+Number(selected)!==
+categoryIndex
 ){
 
 return;
@@ -2898,17 +3144,27 @@ const text=(
 product.name+
 " "+
 product.variants
-.map(v=>v.brand)
+.map(
+v=>v.brand
+)
 .join(" ")
 
 ).toLowerCase();
 
-return text.includes(search);
+
+return text.includes(
+search
+);
 
 });
 
 
-if(products.length===0)return;
+if(products.length===0){
+
+return;
+
+}
+
 
 found=true;
 
@@ -2918,7 +3174,9 @@ let html=`
 <div class="category">
 
 <h2 class="category-title">
+
 ${category.name}
+
 </h2>
 
 <div class="products">
@@ -2926,10 +3184,14 @@ ${category.name}
 `;
 
 
-products.forEach(product=>{
+products.forEach(
+product=>{
+
 
 const productIndex=
-category.products.indexOf(product);
+category.products.indexOf(
+product
+);
 
 
 const brands=[
@@ -2947,7 +3209,9 @@ brands[0];
 
 const firstBrandVariants=
 product.variants.filter(
-v=>v.brand===firstBrand
+v=>
+v.brand===
+firstBrand
 );
 
 
@@ -2964,12 +3228,20 @@ id="product-${categoryIndex}-${productIndex}">
 ${createProductImage(product)}
 
 <h3>
-${product.name}
+
+${escapeHTML(
+product.name
+)}
+
 </h3>
 
+
 <label class="select-label">
+
 🏷️ ব্র্যান্ড
+
 </label>
+
 
 <select
 class="product-select brand-select"
@@ -2979,13 +3251,16 @@ onchange="updateProductOptions(${categoryIndex},${productIndex})">
 `;
 
 
-brands.forEach(brand=>{
+brands.forEach(
+brand=>{
 
 html+=`
 
 <option
 value="${escapeHTML(brand)}"
-${brand===firstBrand?"selected":""}>
+${brand===firstBrand?
+"selected":
+""}>
 
 ${escapeHTML(brand)}
 
@@ -3002,8 +3277,11 @@ html+=`
 
 
 <label class="select-label">
+
 📦 সাইজ / ওজন
+
 </label>
+
 
 <select
 class="product-select size-select"
@@ -3020,9 +3298,13 @@ html+=`
 
 <option
 value="${escapeHTML(variant.size)}"
-${i===0?"selected":""}>
+${i===0?
+"selected":
+""}>
 
-${escapeHTML(variant.size)}
+${escapeHTML(
+variant.size
+)}
 
 </option>
 
@@ -3037,8 +3319,11 @@ html+=`
 
 
 <label class="select-label">
+
 💰 দাম
+
 </label>
+
 
 <select
 class="product-select price-select"
@@ -3048,9 +3333,11 @@ disabled>
 <option>
 
 ${
+firstBrandVariants[0] &&
 firstBrandVariants[0].price>0
 ?
-"৳ "+firstBrandVariants[0].price
+"৳ "+
+firstBrandVariants[0].price
 :
 "মূল্য পরে জানানো হবে"
 }
@@ -3063,6 +3350,7 @@ firstBrandVariants[0].price>0
 <div
 class="added-message"
 id="added-${categoryIndex}-${productIndex}">
+
 </div>
 
 
@@ -3089,16 +3377,22 @@ html+=`
 
 `;
 
-container.innerHTML+=html;
+
+container.innerHTML+=
+html;
 
 });
 
 
-document.getElementById("noResult")
+document.getElementById(
+"noResult"
+)
 .style.display=
 found
-?"none"
-:"block";
+?
+"none"
+:
+"block";
 
 }
 
@@ -3107,19 +3401,36 @@ found
    ESCAPE HTML
 ========================================================= */
 
-function escapeHTML(text){
+function escapeHTML(
+text
+){
 
 return String(text)
 
-.replace(/&/g,"&amp;")
+.replace(
+/&/g,
+"&amp;"
+)
 
-.replace(/</g,"&lt;")
+.replace(
+/</g,
+"&lt;"
+)
 
-.replace(/>/g,"&gt;")
+.replace(
+/>/g,
+"&gt;"
+)
 
-.replace(/"/g,"&quot;")
+.replace(
+/"/g,
+"&quot;"
+)
 
-.replace(/'/g,"&#039;");
+.replace(
+/'/g,
+"&#039;"
+);
 
 }
 
@@ -3136,7 +3447,8 @@ productIndex
 const product=
 categories[
 categoryIndex
-].products[
+]
+.products[
 productIndex
 ];
 
@@ -3159,7 +3471,8 @@ brandSelect.value;
 
 const variants=
 product.variants.filter(
-v=>v.brand===brand
+v=>
+v.brand===brand
 );
 
 
@@ -3170,7 +3483,9 @@ variants.forEach(
 (variant,index)=>{
 
 const option=
-document.createElement("option");
+document.createElement(
+"option"
+);
 
 option.value=
 variant.size;
@@ -3178,8 +3493,11 @@ variant.size;
 option.textContent=
 variant.size;
 
-if(index===0)
+if(index===0){
+
 option.selected=true;
+
+}
 
 sizeSelect.appendChild(
 option
@@ -3208,7 +3526,8 @@ productIndex
 const product=
 categories[
 categoryIndex
-].products[
+]
+.products[
 productIndex
 ];
 
@@ -3216,13 +3535,15 @@ productIndex
 const brand=
 document.getElementById(
 `brand-${categoryIndex}-${productIndex}`
-).value;
+)
+.value;
 
 
 const size=
 document.getElementById(
 `size-${categoryIndex}-${productIndex}`
-).value;
+)
+.value;
 
 
 const variant=
@@ -3243,14 +3564,17 @@ priceSelect.innerHTML="";
 
 
 const option=
-document.createElement("option");
+document.createElement(
+"option"
+);
 
 
 option.textContent=
 variant &&
 variant.price>0
 ?
-"৳ "+variant.price
+"৳ "+
+variant.price
 :
 "মূল্য পরে জানানো হবে";
 
@@ -3274,7 +3598,8 @@ productIndex
 const product=
 categories[
 categoryIndex
-].products[
+]
+.products[
 productIndex
 ];
 
@@ -3282,13 +3607,15 @@ productIndex
 const brand=
 document.getElementById(
 `brand-${categoryIndex}-${productIndex}`
-).value;
+)
+.value;
 
 
 const size=
 document.getElementById(
 `size-${categoryIndex}-${productIndex}`
-).value;
+)
+.value;
 
 
 const variant=
@@ -3299,7 +3626,11 @@ v.size===size
 );
 
 
-if(!variant)return;
+if(!variant){
+
+return;
+
+}
 
 
 const existing=
@@ -3344,11 +3675,14 @@ message.innerText=
 "✓ অর্ডারে যোগ হয়েছে";
 
 
-setTimeout(()=>{
+setTimeout(
+()=>{
 
 message.innerText="";
 
-},1500);
+},
+1500
+);
 
 
 renderOrder();
@@ -3393,10 +3727,12 @@ box.innerHTML="";
 orderList.forEach(
 (item,index)=>{
 
+
 const itemTotal=
 item.price>0
 ?
-item.price*item.qty
+item.price*
+item.qty
 :
 0;
 
@@ -3446,23 +3782,34 @@ class="selected-top">
 class="selected-info">
 
 <strong>
-${item.name}
+
+${escapeHTML(
+item.name
+)}
+
 </strong>
+
 
 <div
 class="item-details">
 
 🏷️ ব্র্যান্ড:
-${item.brand}
+${escapeHTML(
+item.brand
+)}
 
 <br>
 
 📦 সাইজ:
-${item.size}
+${escapeHTML(
+item.size
+)}
 
 </div>
 
+
 ${priceHTML}
+
 
 </div>
 
@@ -3482,11 +3829,13 @@ onclick="changeQty(${index},-1)">
 
 </button>
 
+
 <input
 type="number"
 min="1"
 value="${item.qty}"
 onchange="setQty(${index},this.value)">
+
 
 <button
 onclick="changeQty(${index},1)">
@@ -3533,7 +3882,9 @@ count+=item.qty;
 
 document.getElementById(
 "orderCount"
-).innerText=count;
+)
+.innerText=
+count;
 
 }
 
@@ -3547,10 +3898,13 @@ index,
 value
 ){
 
-orderList[index].qty+=value;
+orderList[index].qty+=
+value;
 
 
-if(orderList[index].qty<1){
+if(
+orderList[index].qty<1
+){
 
 orderList[index].qty=1;
 
@@ -3567,7 +3921,10 @@ index,
 value
 ){
 
-value=parseInt(value);
+value=
+parseInt(
+value
+);
 
 
 if(
@@ -3580,7 +3937,8 @@ value=1;
 }
 
 
-orderList[index].qty=value;
+orderList[index].qty=
+value;
 
 
 renderOrder();
@@ -3592,7 +3950,9 @@ renderOrder();
    REMOVE
 ========================================================= */
 
-function removeItem(index){
+function removeItem(
+index
+){
 
 orderList.splice(
 index,
@@ -3610,8 +3970,13 @@ renderOrder();
 
 function clearOrder(){
 
-if(orderList.length===0)
+if(
+orderList.length===0
+){
+
 return;
+
+}
 
 
 if(
@@ -3668,13 +4033,15 @@ orderList.length>0
 
 document.getElementById(
 "subtotal"
-).innerText=
+)
+.innerText=
 subtotal;
 
 
 document.getElementById(
 "deliveryCharge"
-).innerText=
+)
+.innerText=
 delivery;
 
 
@@ -3682,29 +4049,39 @@ if(pending){
 
 document.getElementById(
 "grandTotalText"
-).innerText=
+)
+.innerText=
 "৳ "+
-(subtotal+delivery)+
+(
+subtotal+
+delivery
+)+
 " + মূল্য পরে";
 
 
 document.getElementById(
 "pendingNotice"
-).style.display=
+)
+.style.display=
 "block";
 
 }else{
 
 document.getElementById(
 "grandTotalText"
-).innerText=
+)
+.innerText=
 "৳ "+
-(subtotal+delivery);
+(
+subtotal+
+delivery
+);
 
 
 document.getElementById(
 "pendingNotice"
-).style.display=
+)
+.style.display=
 "none";
 
 }
@@ -3720,7 +4097,8 @@ function openOrder(){
 
 document.getElementById(
 "orderPanel"
-).style.display=
+)
+.style.display=
 "block";
 
 
@@ -3741,7 +4119,8 @@ function closeOrder(){
 
 document.getElementById(
 "orderPanel"
-).style.display=
+)
+.style.display=
 "none";
 
 
@@ -3760,15 +4139,22 @@ function continueShopping(){
 closeOrder();
 
 
-setTimeout(()=>{
+setTimeout(
+()=>{
 
 document
-.querySelector(".section-title")
+.querySelector(
+".section-title"
+)
 .scrollIntoView({
+
 behavior:"smooth"
+
 });
 
-},100);
+},
+100
+);
 
 }
 
@@ -3778,12 +4164,17 @@ behavior:"smooth"
 ========================================================= */
 
 document
-.getElementById("orderPanel")
+.getElementById(
+"orderPanel"
+)
 .addEventListener(
 "click",
 function(event){
 
-if(event.target===this){
+if(
+event.target===
+this
+){
 
 closeOrder();
 
@@ -3798,7 +4189,9 @@ closeOrder();
 
 function sendOrder(){
 
-if(orderList.length===0){
+if(
+orderList.length===0
+){
 
 alert(
 "দয়া করে আগে অন্তত একটি পণ্য অর্ডারে যোগ করুন।"
@@ -3812,19 +4205,25 @@ return;
 const name=
 document.getElementById(
 "customerName"
-).value.trim();
+)
+.value
+.trim();
 
 
 const phone=
 document.getElementById(
 "customerPhone"
-).value.trim();
+)
+.value
+.trim();
 
 
 const address=
 document.getElementById(
 "customerAddress"
-).value.trim();
+)
+.value
+.trim();
 
 
 if(!name){
@@ -3833,9 +4232,12 @@ alert(
 "দয়া করে আপনার নাম লিখুন।"
 );
 
+
 document.getElementById(
 "customerName"
-).focus();
+)
+.focus();
+
 
 return;
 
@@ -3848,9 +4250,12 @@ alert(
 "দয়া করে আপনার মোবাইল নম্বর লিখুন।"
 );
 
+
 document.getElementById(
 "customerPhone"
-).focus();
+)
+.focus();
+
 
 return;
 
@@ -3863,9 +4268,12 @@ alert(
 "দয়া করে আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন।"
 );
 
+
 document.getElementById(
 "customerAddress"
-).focus();
+)
+.focus();
+
 
 return;
 
@@ -3938,7 +4346,8 @@ item.price*
 item.qty;
 
 
-subtotal+=total;
+subtotal+=
+total;
 
 
 message+=
@@ -3994,7 +4403,10 @@ message+=
 
 message+=
 "💵 সর্বমোট: ৳"+
-(subtotal+delivery)+
+(
+subtotal+
+delivery
+)+
 "\n";
 
 }
@@ -4006,7 +4418,9 @@ message+=
 
 const whatsappURL=
 "https://wa.me/8801737781096?text="+
-encodeURIComponent(message);
+encodeURIComponent(
+message
+);
 
 
 window.location.href=
