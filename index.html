@@ -269,6 +269,8 @@ transform:translateY(-3px);
 box-shadow:0 8px 20px rgba(0,0,0,.10)
 }
 
+/* PRODUCT IMAGE */
+
 .product-icon{
 width:62px;
 height:62px;
@@ -279,7 +281,25 @@ display:flex;
 align-items:center;
 justify-content:center;
 font-size:35px;
-box-shadow:0 3px 10px rgba(0,0,0,.08)
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+overflow:hidden;
+position:relative
+}
+
+.product-icon img{
+width:100%;
+height:100%;
+object-fit:contain;
+display:block
+}
+
+.fallback-icon{
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px
 }
 
 .product h3{
@@ -708,8 +728,6 @@ display:inline-block
 background:#063b8f
 }
 
-/* নতুন WhatsApp Button */
-
 .whatsapp{
 background:#20b858
 }
@@ -847,6 +865,10 @@ height:55px;
 font-size:30px
 }
 
+.fallback-icon{
+font-size:30px
+}
+
 .product h3{
 font-size:14px;
 line-height:1.4
@@ -966,6 +988,15 @@ font-size:11px
 
 .order-btn{
 font-size:11px
+}
+
+.product-icon{
+width:52px;
+height:52px
+}
+
+.fallback-icon{
+font-size:28px
 }
 
 }
@@ -1285,7 +1316,9 @@ onclick="sendOrder()">
 
 <script>
 
-/* PRODUCT DATABASE */
+/* =====================================================
+   PRODUCT DATABASE
+   ===================================================== */
 
 const categories=[
 
@@ -1321,6 +1354,7 @@ variants:[
 {brand:"গুটি স্বর্ণা",size:"১ কেজি",price:55},
 {brand:"গুটি স্বর্ণা",size:"৫ কেজি",price:275},
 {brand:"গুটি স্বর্ণা",size:"১০ কেজি",price:530}
+
 ]
 },
 
@@ -1341,6 +1375,7 @@ variants:[
 {brand:"চিনিগুড়া",size:"১ কেজি",price:195},
 {brand:"চিনিগুড়া",size:"৫ কেজি",price:970},
 {brand:"চিনিগুড়া",size:"১০ কেজি",price:1940}
+
 ]
 },
 
@@ -1360,6 +1395,7 @@ variants:[
 
 {brand:"মটর",size:"১ কেজি",price:55},
 {brand:"মটর",size:"৫ কেজি",price:250}
+
 ]
 },
 
@@ -1396,6 +1432,7 @@ variants:[
 {brand:"সয়াবিন",size:"১ কেজি",price:215},
 {brand:"সুপর",size:"১ কেজি",price:195},
 {brand:"পাম",size:"১ কেজি",price:195}
+
 ]
 },
 
@@ -1423,6 +1460,7 @@ variants:[
 {brand:"বসুন্ধরা",size:"২৫০ গ্রাম",price:0},
 {brand:"বসুন্ধরা",size:"৫০০ গ্রাম",price:0},
 {brand:"বসুন্ধরা",size:"১ লিটার",price:0}
+
 ]
 },
 
@@ -1437,6 +1475,7 @@ variants:[
 {brand:"রাঁধুনী",size:"৫০০ গ্রাম",price:0},
 {brand:"রাঁধুনী",size:"১ কেজি",price:0},
 {brand:"ধনিয়া",size:"১ কেজি",price:0}
+
 ]
 },
 
@@ -1452,6 +1491,7 @@ variants:[
 {brand:"রাঁধুনী",size:"৫০০ গ্রাম",price:0},
 {brand:"রাঁধুনী",size:"১ কেজি",price:0},
 {brand:"জিরা",size:"১ কেজি",price:650}
+
 ]
 },
 
@@ -1466,6 +1506,7 @@ variants:[
 {brand:"রাঁধুনী",size:"২০০ গ্রাম",price:0},
 {brand:"রাঁধুনী",size:"৫০০ গ্রাম",price:0},
 {brand:"রাঁধুনী",size:"১ কেজি",price:0}
+
 ]
 },
 
@@ -1477,6 +1518,7 @@ variants:[
 {brand:"সাধারণ",size:"২৫০ গ্রাম",price:130},
 {brand:"সাধারণ",size:"৫০০ গ্রাম",price:250},
 {brand:"সাধারণ",size:"১ কেজি",price:500}
+
 ]
 },
 
@@ -1490,6 +1532,7 @@ variants:[
 {brand:"সাধারণ",size:"২৫০ গ্রাম",price:1200},
 {brand:"সাধারণ",size:"৫০০ গ্রাম",price:2400},
 {brand:"সাধারণ",size:"১ কেজি",price:4800}
+
 ]
 },
 
@@ -1503,6 +1546,7 @@ variants:[
 {brand:"সাধারণ",size:"২৫০ গ্রাম",price:325},
 {brand:"সাধারণ",size:"৫০০ গ্রাম",price:650},
 {brand:"সাধারণ",size:"১ কেজি",price:1300}
+
 ]
 },
 
@@ -1516,8 +1560,9 @@ variants:[
 {brand:"সাধারণ",size:"২৫০ গ্রাম",price:50},
 {brand:"সাধারণ",size:"৫০০ গ্রাম",price:90},
 {brand:"সাধারণ",size:"১ কেজি",price:180}
+
 ]
-},
+}
 
 ]
 },
@@ -1538,6 +1583,7 @@ variants:[
 {brand:"বসুন্ধরা",size:"৫ কেজি",price:0},
 {brand:"তীর",size:"১ কেজি",price:0},
 {brand:"তীর",size:"৫ কেজি",price:0}
+
 ]
 },
 
@@ -1553,6 +1599,7 @@ variants:[
 {brand:"বসুন্ধরা",size:"৫ কেজি",price:0},
 {brand:"তীর",size:"১ কেজি",price:0},
 {brand:"তীর",size:"৫ কেজি",price:0}
+
 ]
 },
 
@@ -1564,6 +1611,7 @@ variants:[
 {brand:"সজীব",size:"৫০০ গ্রাম",price:45},
 {brand:"তীর",size:"৫০০ গ্রাম",price:0},
 {brand:"ফ্রেশ",size:"৫০০ গ্রাম",price:0}
+
 ]
 },
 
@@ -1574,6 +1622,7 @@ variants:[
 
 {brand:"চিনি খোলা",size:"১ কেজি",price:105},
 {brand:"চিনি প্যাকেট",size:"১ কেজি",price:110}
+
 ]
 },
 
@@ -1584,21 +1633,22 @@ variants:[
 
 {brand:"ফ্রেশ",size:"৫০০ গ্রাম",price:20},
 {brand:"ফ্রেশ",size:"১ কেজি",price:40},
-  
+
 {brand:"তীর",size:"৫০০ গ্রাম",price:20},
 {brand:"তীর",size:"১ কেজি",price:40},
-  
+
 {brand:"No.1",size:"৫০০ গ্রাম",price:20},
 {brand:"No.1",size:"১ কেজি",price:40},
-  
+
 {brand:"Confidence",size:"৫০০ গ্রাম",price:20},
 {brand:"Confidence",size:"১ কেজি",price:40},
-  
+
 {brand:"ACI",size:"৫০০ গ্রাম",price:20},
 {brand:"ACI",size:"১ কেজি",price:40},
-  
+
 {brand:"মোটা লবণ",size:"৫০০ গ্রাম",price:10},
 {brand:"মোটা লবণ",size:"১ কেজি",price:20}
+
 ]
 },
 
@@ -1606,7 +1656,6 @@ variants:[
 name:"গুড়",
 icon:"🍯",
 variants:[
-
 {brand:"সাধারণ",size:"১ কেজি",price:0}
 ]
 },
@@ -1618,6 +1667,7 @@ variants:[
 
 {brand:"বনফুল লাচ্ছা",size:"প্যাকেট",price:40},
 {brand:"বনফুল বাংলা",size:"প্যাকেট",price:45}
+
 ]
 },
 
@@ -1625,7 +1675,6 @@ variants:[
 name:"চিড়া",
 icon:"🌾",
 variants:[
-
 {brand:"সাধারণ",size:"১ কেজি",price:0}
 ]
 },
@@ -1634,7 +1683,6 @@ variants:[
 name:"মুড়ি",
 icon:"🍘",
 variants:[
-
 {brand:"সাধারণ",size:"১ কেজি",price:70}
 ]
 }
@@ -1650,7 +1698,6 @@ products:[
 name:"আলু",
 icon:"🥔",
 variants:[
-
 {brand:"সাধারণ",size:"১ কেজি",price:25}
 ]
 },
@@ -1662,6 +1709,7 @@ variants:[
 
 {brand:"দেশি",size:"১ কেজি",price:0},
 {brand:"ইন্ডিয়ান",size:"১ কেজি",price:60}
+
 ]
 },
 
@@ -1672,6 +1720,7 @@ variants:[
 
 {brand:"দেশি",size:"১ কেজি",price:150},
 {brand:"ইমপোর্টেড",size:"১ কেজি",price:0}
+
 ]
 },
 
@@ -1679,7 +1728,6 @@ variants:[
 name:"আদা",
 icon:"🫚",
 variants:[
-
 {brand:"সাধারণ",size:"১ কেজি",price:130}
 ]
 },
@@ -1696,6 +1744,7 @@ variants:[
 {brand:"রাঁধুনী",size:"৫০০ গ্রাম",price:290},
 {brand:"রাঁধুনী",size:"১ কেজি",price:0},
 {brand:"সাধারণ",size:"১ কেজি",price:320}
+
 ]
 },
 
@@ -1713,8 +1762,9 @@ variants:[
 {brand:"সাধারণ",size:"১ কেজি",price:420},
 {brand:"শুকনা মরিচ",size:"৫০০ গ্রাম",price:200},
 {brand:"শুকনা মরিচ",size:"১ কেজি",price:400}
+
 ]
-},
+}
 
 ]
 },
@@ -1730,6 +1780,7 @@ variants:[
 
 {brand:"দেশি",size:"১ ডজন",price:0},
 {brand:"ফার্ম",size:"১ ডজন",price:140}
+
 ]
 },
 
@@ -1740,7 +1791,7 @@ variants:[
 
 {brand:"Milk Vita",size:"৫০০ গ্রাম",price:55},
 {brand:"Milk Vita",size:"১ লিটার",price:110},
-  
+
 {brand:"Aarong",size:"৫০০ গ্রাম",price:50},
 {brand:"Aarong",size:"১ লিটার",price:100},
 
@@ -1749,7 +1800,9 @@ variants:[
 
 {brand:"Aarong UST",size:"২০০ গ্রাম",price:30},
 {brand:"Aarong UST",size:"৫০০ গ্রাম",price:60},
+
 {brand:"Farm",size:"১ লিটার",price:100}
+
 ]
 },
 
@@ -1757,7 +1810,6 @@ variants:[
 name:"ঘি",
 icon:"🧈",
 variants:[
-
 {brand:"সাধারণ",size:"কৌটা",price:0}
 ]
 },
@@ -1769,6 +1821,7 @@ variants:[
 
 {brand:"Aarong",size:"প্যাকেট",price:0},
 {brand:"Pran",size:"প্যাকেট",price:0}
+
 ]
 },
 
@@ -1776,7 +1829,6 @@ variants:[
 name:"দই",
 icon:"🥛",
 variants:[
-
 {brand:"Aarong",size:"মিনি কৌটা",price:30}
 ]
 }
@@ -1795,22 +1847,25 @@ variants:[
 
 {brand:"সাধারণ",size:"১ কেজি",price:360},
 {brand:"সাধারণ",size:"৫০০ গ্রাম",price:180},
+
 {brand:"ইস্পাহানি",size:"৫০ গ্রাম প্যাকেট",price:30},
 {brand:"ইস্পাহানি",size:"১০০ গ্রাম প্যাকেট",price:60},
 {brand:"ইস্পাহানি",size:"২০০ গ্রাম প্যাকেট",price:120},
 {brand:"ইস্পাহানি",size:"৫০০ গ্রাম প্যাকেট",price:230},
-  
+
 {brand:"সিলন",size:"৫০ গ্রাম প্যাকেট",price:30},
 {brand:"সিলন",size:"১০০ গ্রাম প্যাকেট",price:60},
 {brand:"সিলন",size:"২০০ গ্রাম প্যাকেট",price:120},
+
 {brand:"সিলন গোল্ড",size:"৫০০ গ্রাম প্যাকেট",price:230},
-  
+
 {brand:"তাজা",size:"৫০ গ্রাম প্যাকেট",price:30},
 {brand:"তাজা",size:"১০০ গ্রাম প্যাকেট",price:60},
 {brand:"তাজা",size:"২০০ গ্রাম প্যাকেট",price:120},
 {brand:"তাজা",size:"৫০০ গ্রাম প্যাকেট",price:230},
-  
+
 {brand:"মুসকান",size:"৫০০ গ্রাম প্যাকেট",price:190}
+
 ]
 },
 
@@ -1826,9 +1881,10 @@ variants:[
 {brand:"Nescafe",size:"৪৫ গ্রাম কৌটা",price:270},
 {brand:"Nescafe",size:"১০০ গ্রাম কৌটা",price:0},
 {brand:"Nescafe",size:"১৫০ গ্রাম কৌটা",price:0},
-  
+
 {brand:"Amma Coffee",size:"১ গ্রাম",price:5},
 {brand:"Amma Coffee",size:"১৪গ্রাম",price:10}
+
 ]
 },
 
@@ -1841,6 +1897,7 @@ variants:[
 {brand:"Horlicks",size:"২৫০ গ্রাম",price:250},
 {brand:"Horlicks",size:"৫০০ গ্রাম",price:490},
 {brand:"Horlicks",size:"১ কেজি",price:880}
+
 ]
 },
 
@@ -1848,7 +1905,6 @@ variants:[
 name:"কমপ্লান",
 icon:"🥛",
 variants:[
-
 {brand:"Complan",size:"কৌটা",price:0}
 ]
 }
@@ -1881,6 +1937,7 @@ variants:[
 {brand:"Banoful Cho- Cookies",size:"প্যাকেট",price:50},
 {brand:"Banoful But- Cookies",size:"প্যাকেট",price:50},
 {brand:"Bangas Ghee",size:"প্যাকেট",price:50}
+
 ]
 },
 
@@ -1894,6 +1951,7 @@ variants:[
 {brand:"Kishwan T Toast",size:"প্যাকেট",price:50},
 {brand:"Kishwan Ghee Toast",size:"প্যাকেট",price:60},
 {brand:"সাধারণ",size:"প্যাকেট",price:0}
+
 ]
 },
 
@@ -1923,6 +1981,7 @@ variants:[
 {brand:"Chocola Stick",size:"ফ্যামিলি প্যাকেট",price:50},
 {brand:"Chocola Stick",size:"মিনি প্যাকেট",price:25},
 {brand:"Fresh",size:"মিনি প্যাকেট",price:20}
+
 ]
 },
 
@@ -1943,7 +2002,9 @@ variants:[
 
 {brand:"Bombay",size:"১৫০ গ্রাম",price:50},
 {brand:"Bombay",size:"৩০০ গ্রাম",price:100},
+
 {brand:"সাধারণ",size:"১ কেজি",price:120}
+
 ]
 },
 
@@ -1954,9 +2015,9 @@ variants:[
 
 {brand:"অন্যান্য",size:"প্যাকেট",price:10},
 {brand:"অন্যান্য",size:"প্যাকেট",price:20}
+
 ]
 }
-
 
 ]
 },
@@ -1998,6 +2059,7 @@ variants:[
 {brand:"Tibet",size:"৫০০ গ্রাম",price:75},
 {brand:"Tibet",size:"১ কেজি",price:0},
 {brand:"Tibet",size:"২ কেজি",price:270}
+
 ]
 },
 
@@ -2005,8 +2067,10 @@ variants:[
 name:"কাপড় ধোয়ার সাবান",
 icon:"🧼",
 variants:[
+
 {brand:"Tibet",size:"পিস",price:0},
 {brand:"Wheel",size:"পিস",price:0}
+
 ]
 },
 
@@ -2014,9 +2078,11 @@ variants:[
 name:"গোসলের সাবান",
 icon:"🧼",
 variants:[
+
 {brand:"Lux",size:"১০০ গ্রাম",price:0},
 {brand:"Lifebuoy",size:"১০০ গ্রাম",price:0},
 {brand:"Dettol",size:"১০০ গ্রাম",price:0}
+
 ]
 },
 
@@ -2024,10 +2090,12 @@ variants:[
 name:"শ্যাম্পু",
 icon:"🧴",
 variants:[
+
 {brand:"Sunsilk",size:"প্যাকেট",price:0},
 {brand:"Clear",size:"প্যাকেট",price:0},
 {brand:"Pantene",size:"প্যাকেট",price:0},
 {brand:"Head & Shoulders",size:"প্যাকেট",price:0}
+
 ]
 },
 
@@ -2035,9 +2103,11 @@ variants:[
 name:"টুথপেস্ট",
 icon:"🪥",
 variants:[
+
 {brand:"Colgate",size:"পিস",price:0},
 {brand:"Closeup",size:"পিস",price:0},
 {brand:"Pepsodent",size:"পিস",price:0}
+
 ]
 },
 
@@ -2045,8 +2115,10 @@ variants:[
 name:"টুথব্রাশ",
 icon:"🪥",
 variants:[
+
 {brand:"Colgate",size:"পিস",price:0},
 {brand:"Closeup",size:"পিস",price:0}
+
 ]
 },
 
@@ -2054,8 +2126,10 @@ variants:[
 name:"ডিশওয়াশ বার",
 icon:"🧽",
 variants:[
+
 {brand:"Vim",size:"পিস",price:0},
 {brand:"Tibet",size:"পিস",price:0}
+
 ]
 },
 
@@ -2094,8 +2168,10 @@ variants:[
 name:"টিস্যু",
 icon:"🧻",
 variants:[
+
 {brand:"Bashundhara",size:"প্যাকেট",price:0},
 {brand:"Fresh",size:"প্যাকেট",price:0}
+
 ]
 },
 
@@ -2118,9 +2194,11 @@ products:[
 name:"ফেসওয়াশ",
 icon:"🧴",
 variants:[
+
 {brand:"Pond's",size:"পিস",price:0},
 {brand:"Garnier",size:"পিস",price:0},
 {brand:"Himalaya",size:"পিস",price:0}
+
 ]
 },
 
@@ -2128,8 +2206,10 @@ variants:[
 name:"হেয়ার অয়েল",
 icon:"🧴",
 variants:[
+
 {brand:"Parachute",size:"বোতল",price:0},
 {brand:"Bajaj",size:"বোতল",price:0}
+
 ]
 },
 
@@ -2145,8 +2225,10 @@ variants:[
 name:"বডি লোশন",
 icon:"🧴",
 variants:[
+
 {brand:"Vaseline",size:"বোতল",price:0},
 {brand:"Nivea",size:"বোতল",price:0}
+
 ]
 },
 
@@ -2169,6 +2251,7 @@ products:[
 name:"কোল্ড ড্রিংকস",
 icon:"🥤",
 variants:[
+
 {brand:"Coca-Cola",size:"250ml",price:0},
 {brand:"Coca-Cola",size:"500ml",price:0},
 {brand:"Pepsi",size:"250ml",price:0},
@@ -2177,6 +2260,7 @@ variants:[
 {brand:"Sprite",size:"500ml",price:0},
 {brand:"7UP",size:"250ml",price:0},
 {brand:"7UP",size:"500ml",price:0}
+
 ]
 },
 
@@ -2184,20 +2268,23 @@ variants:[
 name:"মিনারেল ওয়াটার",
 icon:"💧",
 variants:[
+
 {brand:"Mum",size:"500ml",price:20},
-{brand:"Mum",size:"২ লিটার",price:40},  
+{brand:"Mum",size:"২ লিটার",price:40},
 {brand:"Mum",size:"৫ লিটার",price:90},
-  
+
 {brand:"Fresh",size:"500ml",price:15},
 {brand:"Fresh",size:"১ লিটার",price:25},
-{brand:"Fresh",size:"২ লিটার",price:35},  
+{brand:"Fresh",size:"২ লিটার",price:35},
 {brand:"Fresh",size:"৫ লিটার",price:90},
-  
+
 {brand:"Muskan",size:"500ml",price:15},
 {brand:"Muskan",size:"১ লিটার",price:25},
-{brand:"Muskan",size:"২ লিটার",price:35},  
-{brand:"Muskan",size:"৫ লিটার",price:0},  
+{brand:"Muskan",size:"২ লিটার",price:35},
+{brand:"Muskan",size:"৫ লিটার",price:0},
+
 {brand:"Mum",size:"১ লিটার",price:0}
+
 ]
 },
 
@@ -2205,9 +2292,11 @@ variants:[
 name:"জুস",
 icon:"🧃",
 variants:[
+
 {brand:"Frutika",size:"প্যাকেট",price:0},
 {brand:"Pran",size:"প্যাকেট",price:0},
 {brand:"Shezan",size:"প্যাকেট",price:0}
+
 ]
 },
 
@@ -2215,10 +2304,12 @@ variants:[
 name:"এনার্জি ড্রিংক",
 icon:"⚡",
 variants:[
+
 {brand:"Speed Can",size:"250ml",price:50},
 {brand:"Speed",size:"250ml",price:30},
 {brand:"Power",size:"250ml",price:30},
 {brand:"Tiger",size:"250ml",price:30}
+
 ]
 }
 
@@ -2227,7 +2318,9 @@ variants:[
 
 ];
 
-/* CATEGORY DROPDOWN */
+/* =====================================================
+   CATEGORY DROPDOWN
+   ===================================================== */
 
 const categorySelect=document.getElementById("categorySelect");
 
@@ -2242,11 +2335,46 @@ categorySelect.appendChild(option);
 
 });
 
-/* ORDER LIST */
+/* =====================================================
+   ORDER LIST
+   ===================================================== */
 
 let orderList=[];
 
-/* SEARCH */
+/* =====================================================
+   IMAGE SYSTEM
+   ===================================================== */
+
+/*
+   ছবি রাখার নিয়ম:
+
+   images/পণ্যের নাম.jpg
+
+   যেমন:
+   images/সরিষার তেল.jpg
+   images/চিনি.jpg
+   images/আলু.jpg
+
+   পণ্যের নামে "/" থাকলে সেটি "-" হবে।
+
+   যেমন:
+   images/মরিচ গুঁড়া-শুকনা মরিচ.jpg
+
+   ছবি না থাকলে product.icon দেখাবে।
+*/
+
+function getProductImage(product){
+
+return "images/" +
+String(product.name)
+.replaceAll("/","-")
++ ".jpg";
+
+}
+
+/* =====================================================
+   SEARCH
+   ===================================================== */
 
 function syncHeaderSearch(){
 
@@ -2256,7 +2384,9 @@ displayProducts(input.value);
 
 }
 
-/* DISPLAY PRODUCTS */
+/* =====================================================
+   DISPLAY PRODUCTS
+   ===================================================== */
 
 function displayProducts(searchValue=null){
 
@@ -2330,6 +2460,8 @@ const firstBrand=brands[0];
 const firstBrandVariants=
 product.variants.filter(v=>v.brand===firstBrand);
 
+const imagePath=getProductImage(product);
+
 html+=`
 
 <div
@@ -2337,7 +2469,16 @@ class="product"
 id="product-${categoryIndex}-${productIndex}">
 
 <div class="product-icon">
+
+<img
+src="${imagePath}"
+alt="${escapeHTML(product.name)}"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<span class="fallback-icon">
 ${product.icon}
+</span>
+
 </div>
 
 <h3>${product.name}</h3>
@@ -2460,7 +2601,9 @@ document.getElementById("noResult")
 
 }
 
-/* ESCAPE */
+/* =====================================================
+   ESCAPE HTML
+   ===================================================== */
 
 function escapeHTML(text){
 
@@ -2473,7 +2616,9 @@ return String(text)
 
 }
 
-/* BRAND CHANGE */
+/* =====================================================
+   BRAND CHANGE
+   ===================================================== */
 
 function updateProductOptions(categoryIndex,productIndex){
 
@@ -2514,7 +2659,9 @@ updateProductPrice(categoryIndex,productIndex);
 
 }
 
-/* PRICE CHANGE */
+/* =====================================================
+   PRICE CHANGE
+   ===================================================== */
 
 function updateProductPrice(categoryIndex,productIndex){
 
@@ -2553,7 +2700,9 @@ priceSelect.appendChild(option);
 
 }
 
-/* ADD PRODUCT */
+/* =====================================================
+   ADD PRODUCT
+   ===================================================== */
 
 function addSelectedProduct(categoryIndex,productIndex){
 
@@ -2614,7 +2763,9 @@ renderOrder();
 
 }
 
-/* RENDER ORDER */
+/* =====================================================
+   RENDER ORDER
+   ===================================================== */
 
 function renderOrder(){
 
@@ -2742,7 +2893,9 @@ document.getElementById("orderCount").innerText=count;
 
 }
 
-/* QUANTITY */
+/* =====================================================
+   QUANTITY
+   ===================================================== */
 
 function changeQty(index,value){
 
@@ -2768,7 +2921,9 @@ renderOrder();
 
 }
 
-/* REMOVE */
+/* =====================================================
+   REMOVE
+   ===================================================== */
 
 function removeItem(index){
 
@@ -2778,7 +2933,9 @@ renderOrder();
 
 }
 
-/* CLEAR ORDER */
+/* =====================================================
+   CLEAR ORDER
+   ===================================================== */
 
 function clearOrder(){
 
@@ -2794,7 +2951,9 @@ renderOrder();
 
 }
 
-/* TOTAL */
+/* =====================================================
+   TOTAL
+   ===================================================== */
 
 function calculateTotal(){
 
@@ -2844,7 +3003,9 @@ document.getElementById("pendingNotice")
 
 }
 
-/* OPEN ORDER */
+/* =====================================================
+   OPEN ORDER
+   ===================================================== */
 
 function openOrder(){
 
@@ -2857,7 +3018,9 @@ renderOrder();
 
 }
 
-/* CLOSE ORDER */
+/* =====================================================
+   CLOSE ORDER
+   ===================================================== */
 
 function closeOrder(){
 
@@ -2868,7 +3031,9 @@ document.body.style.overflow="auto";
 
 }
 
-/* CONTINUE SHOPPING */
+/* =====================================================
+   CONTINUE SHOPPING
+   ===================================================== */
 
 function continueShopping(){
 
@@ -2886,7 +3051,9 @@ behavior:"smooth"
 
 }
 
-/* CLICK OUTSIDE */
+/* =====================================================
+   CLICK OUTSIDE
+   ===================================================== */
 
 document
 .getElementById("orderPanel")
@@ -2902,7 +3069,9 @@ closeOrder();
 
 });
 
-/* WHATSAPP ORDER */
+/* =====================================================
+   WHATSAPP ORDER
+   ===================================================== */
 
 function sendOrder(){
 
@@ -3049,7 +3218,9 @@ window.location.href=whatsappURL;
 
 }
 
-/* INITIAL */
+/* =====================================================
+   INITIAL
+   ===================================================== */
 
 displayProducts();
 
