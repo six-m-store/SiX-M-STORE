@@ -81,9 +81,49 @@ flex:1;
 min-width:0
 }
 
-.brand h1{
-font-size:26px;
-letter-spacing:1px
+/* =========================
+   PREMIUM HEADER BRAND NAME
+========================= */
+
+.premium-brand-name{
+font-family:Georgia,"Times New Roman",serif;
+font-size:28px;
+font-weight:900;
+letter-spacing:1.5px;
+line-height:1.1;
+text-transform:uppercase;
+
+/* Blue + Gold Premium Gradient */
+background:linear-gradient(
+180deg,
+#fff8bd 0%,
+#ffd700 18%,
+#e7b51d 34%,
+#fff3a0 47%,
+#147bd1 62%,
+#0875d1 78%,
+#063b8f 100%
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+
+/* Golden border */
+-webkit-text-stroke:1px rgba(255,215,0,.85);
+
+/* 3D / Premium Shadow */
+text-shadow:
+0 1px 0 #fff3a0,
+0 2px 0 #d4a400,
+0 3px 0 #9b7400,
+0 4px 0 #705300,
+0 6px 8px rgba(0,0,0,.45);
+
+/* Premium glow */
+filter:
+drop-shadow(0 2px 3px rgba(255,215,0,.35))
+drop-shadow(0 4px 5px rgba(0,0,0,.25));
 }
 
 .brand p{
@@ -869,8 +909,9 @@ flex:1;
 min-width:0
 }
 
-.brand h1{
-font-size:21px
+.premium-brand-name{
+font-size:22px;
+letter-spacing:1px;
 }
 
 .brand p{
@@ -1052,8 +1093,9 @@ width:52px;
 height:52px
 }
 
-.brand h1{
-font-size:18px
+.premium-brand-name{
+font-size:19px;
+letter-spacing:.8px;
 }
 
 .brand p{
@@ -1122,7 +1164,7 @@ onerror="this.style.display='none';">
 
 <div class="brand">
 
-<h1>SIX M STORE</h1>
+<h1 class="premium-brand-name">SIX-M-STORE</h1>
 
 <p>
 Everyone Deserves Good Service.
