@@ -850,7 +850,116 @@ footer p{
     }
 
 }
+/* =========================
+   LIVE PRODUCT SLIDER
+========================= */
 
+.live-product-showcase{
+    width:100%;
+    background:#fff;
+    overflow:hidden;
+    padding:10px 0;
+    border-bottom:1px solid #e5ebf3;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.live-product-track{
+    display:flex;
+    width:max-content;
+    gap:12px;
+    animation:liveProducts 45s linear infinite;
+}
+
+.live-product-showcase:hover .live-product-track{
+    animation-play-state:paused;
+}
+
+.live-product-card{
+    width:105px;
+    min-width:105px;
+    background:#f8fbff;
+    border:1px solid #e1e8f1;
+    border-radius:13px;
+    padding:7px 5px;
+    text-align:center;
+}
+
+.live-product-img{
+    width:78px;
+    height:68px;
+    margin:auto;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.live-product-img img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:4px;
+}
+
+.live-product-icon{
+    font-size:34px;
+}
+
+.live-product-name{
+    margin-top:5px;
+    color:#063b8f;
+    font-size:12px;
+    font-weight:800;
+    line-height:1.3;
+    height:31px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+@keyframes liveProducts{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+@media(max-width:600px){
+
+    .live-product-showcase{
+        padding:8px 0;
+    }
+
+    .live-product-track{
+        gap:8px;
+        animation-duration:38s;
+    }
+
+    .live-product-card{
+        width:88px;
+        min-width:88px;
+        padding:5px 4px;
+        border-radius:11px;
+    }
+
+    .live-product-img{
+        width:68px;
+        height:58px;
+    }
+
+    .live-product-name{
+        font-size:10px;
+        height:28px;
+    }
+
+    .live-product-icon{
+        font-size:28px;
+    }
+}
 </style>
 
 </head>
@@ -879,7 +988,10 @@ footer p{
 </div>
 
 </header>
-
+<!-- LIVE PRODUCT SLIDER -->
+<section class="live-product-showcase">
+    <div class="live-product-track" id="liveProductTrack"></div>
+</section>
 
 <!-- =========================================================
      LIVE PRODUCT SLIDER
@@ -2337,7 +2449,129 @@ function addFromDropdown(
 
     }
 
+/* =========================
+   LIVE PRODUCT SLIDER
+========================= */
 
+function renderLiveProductSlider(){
+
+    const track =
+        document.getElementById("liveProductTrack");
+
+    if(!track) return;
+
+    const allProducts=[];
+
+    categories.forEach(category=>{
+        category.products.forEach(product=>{
+            allProducts.push(product);
+        });
+    });
+
+    if(allProducts.length===0){
+        return;
+    }
+
+    function createCard(product){
+
+        const card=document.createElement("div");
+        card.className="live-product-card";
+
+        const imageBox=document.createElement("div");
+        imageBox.className="live-product-img";
+
+        const img=document.createElement("img");
+
+        const fallback=document.createElement("div");
+        fallback.className="live-product-icon";
+        fallback.textContent=product.icon || "🛒";
+        fallback.style.display="none";
+
+        imageBox.appendChild(img);
+        imageBox.appendChild(fallback);
+
+        img.alt=product.name || "SIX M STORE";
+
+        if(product.image){
+
+            const candidates=
+                getImageCandidates(product.image);
+
+            let index=0;
+
+            function loadImage(){
+
+                if(index>=candidates.length){
+
+                    img.style.display="none";
+                    fallback.style.display="flex";
+                    return;
+                }
+
+                img.src=candidates[index++];
+            }
+
+            img.onload=function(){
+
+                img.style.display="block";
+                fallback.style.display="none";
+
+            };
+
+            img.onerror=function(){
+
+                loadImage();
+
+            };
+
+            loadImage();
+
+        }else{
+
+            img.style.display="none";
+            fallback.style.display="flex";
+
+        }
+
+        const name=document.createElement("div");
+
+        name.className="live-product-name";
+
+        name.textContent=product.name;
+
+        card.appendChild(imageBox);
+        card.appendChild(name);
+
+        return card;
+    }
+
+    track.innerHTML="";
+
+    /*
+       একই Product দুইবার দেওয়া হচ্ছে,
+       যাতে animation শেষ হওয়ার সময়
+       কোনো ফাঁকা জায়গা না থাকে।
+    */
+
+    allProducts.forEach(product=>{
+        track.appendChild(
+            createCard(product)
+        );
+    });
+
+    allProducts.forEach(product=>{
+        track.appendChild(
+            createCard(product)
+        );
+    });
+}
+
+
+/* =========================
+   START LIVE SLIDER
+========================= */
+
+renderLiveProductSlider();
     renderOrder();
 
 
