@@ -1110,9 +1110,8 @@ font-size:11px
     border-bottom:1px solid #e5ebf3;
     box-shadow:0 2px 10px rgba(0,0,0,.06);
 
-    /* Header-এর নিচে Sticky থাকবে */
     position:sticky;
-    top:0;
+    top:var(--header-height, 100px);
     z-index:4500;
 }
 
@@ -4794,6 +4793,34 @@ displayProducts();
 
 renderOrder();
 
+// =========================================
+// LIVE SLIDER HEADER-এর নিচে Sticky রাখা
+// =========================================
+
+function updateLiveSliderPosition(){
+
+    const header =
+        document.querySelector("header");
+
+    if(!header) return;
+
+    const headerHeight =
+        header.offsetHeight;
+
+    document.documentElement.style
+        .setProperty(
+            "--header-height",
+            headerHeight + "px"
+        );
+}
+
+updateLiveSliderPosition();
+
+window.addEventListener(
+    "resize",
+    updateLiveSliderPosition
+);
+   
 </script>
 
 </body>
