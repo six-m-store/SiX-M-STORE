@@ -1098,6 +1098,10 @@ font-size:11px
    LIVE PRODUCT SLIDER
 ========================= */
 
+/* =========================
+   LIVE PRODUCT SLIDER - STICKY
+========================= */
+
 .live-product-showcase{
     width:100%;
     background:#fff;
@@ -1105,6 +1109,29 @@ font-size:11px
     padding:10px 0;
     border-bottom:1px solid #e5ebf3;
     box-shadow:0 2px 10px rgba(0,0,0,.06);
+
+    /* Header-এর নিচে Sticky থাকবে */
+    position:sticky;
+    top:0;
+    z-index:4500;
+}
+
+/* Slider চলতে থাকবে */
+.live-product-track{
+    display:flex;
+    width:max-content;
+    gap:12px;
+    animation:liveProducts 45s linear infinite;
+}
+
+/* Slider-এর ওপর টাচ/মাউস রাখলে চলা থামবে */
+.live-product-showcase:hover .live-product-track{
+    animation-play-state:paused;
+}
+
+/* মোবাইলে Touch করলে Pause */
+.live-product-showcase:active .live-product-track{
+    animation-play-state:paused;
 }
 
 .live-product-track{
